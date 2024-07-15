@@ -1,0 +1,22 @@
+.gallery {
+  &__items {
+    min-height: 200px;
+
+    &-item {
+      &::before {
+        min-height: 596px;
+      }
+
+      &.swiper-slide {
+        opacity: 0.15;
+
+        &-visible {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-controls {
+    }
+  }
+}

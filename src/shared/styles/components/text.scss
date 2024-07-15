@@ -1,0 +1,93 @@
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-primary {
+  color: $color-primary;
+}
+.text-secondary {
+  color: $color-secondary;
+}
+
+.text-descr {
+  margin-top: 15px;
+}
+
+.text-link {
+  transition: color 0.3s, border-color 0.3s;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &--arrow {
+    padding-right: 40px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      background: center / cover no-repeat;
+      background-image: url(/images/icons/arrow-link.svg);
+      transition: all 0.3s;
+    }
+    &:hover::before {
+      right: -5px;
+    }
+  }
+}
+
+.text-icon {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+
+  &--left {
+    margin-right: 10px;
+  }
+
+  &--right {
+    margin-left: 10px;
+  }
+
+  &--lg {
+    width: 28px;
+    height: 28px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: center / contain no-repeat;
+  }
+
+  &--cart {
+    &::before {
+      background-image: url(/images/icons/cart.svg);
+    }
+  }
+
+  &--info {
+    &::before {
+      background-image: url(/images/icons/info.svg);
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.items {
+  padding-bottom: 1px;
+  margin-bottom: -40px;
+
+  @include lg {
+    margin-bottom: -16px;
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 40px;
+
+    @include lg {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.item-bg {
+  padding: 25px;
+  position: relative;
+  z-index: 3;
+
+  &--grid {
+    padding-left: 25px + 20px; //  20px left/right grid padding
+    padding-right: 25px + 20px;
+
+    .item-bg__bg {
+      margin-left: 20px;
+      margin-right: 20px;
+
+      @include lg {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &--p-0 {
+    padding: 0;
+
+    &.item-bg--grid {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &-wrapper {
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    border-radius: inherit;
+    transition: all 0.5s;
+    z-index: -1;
+  }
+}

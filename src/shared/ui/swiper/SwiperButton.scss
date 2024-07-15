@@ -1,0 +1,91 @@
+@import '/src/shared/styles/vars';
+@import '/src/shared/styles/mixin';
+
+.swiper-button {
+  &-prev,
+  &-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 5;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: $color-secondary;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: inherit;
+      background: center / 45% no-repeat;
+      background-image: url('/images/icons/noun-arrow.svg');
+      transition: all 0.3s;
+    }
+
+    &::after {
+      opacity: 0;
+      background-image: url('/images/icons/noun-arrow-secondary.svg');
+    }
+  }
+
+  &-prev {
+    left: 0;
+  }
+
+  &-next {
+    right: 0;
+
+    &::before,
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-prev,
+  &-next {
+    &:hover {
+      &::before {
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &-lock#{&}-disabled {
+  }
+
+  &-prev#{&}-disabled,
+  &-next#{&}-disabled {
+    opacity: 0.8;
+    background-color: $color-disabled;
+    border-color: $color-disabled;
+    pointer-events: auto;
+  }
+
+  &-circle {
+    border-radius: 50%;
+  }
+}

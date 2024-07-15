@@ -1,0 +1,52 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 400;
+  font-size: $text-font-size;
+  line-height: 1.3;
+  font-family: var(--font-whyte-500);
+}
+
+.h1,
+.h2 {
+  font-family: var(--font-whyte-900);
+}
+
+.h1 {
+  font-size: 72px;
+  line-height: 1.3;
+}
+
+.h2 {
+  font-size: 56px;
+}
+
+.h3 {
+  font-size: 40px;
+
+  &--fz-32 {
+    font-size: 32px;
+  }
+}
+
+.h4 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.h5 {
+  font-size: 17px;
+}
+
+.h6 {
+  font-size: 16px;
+}

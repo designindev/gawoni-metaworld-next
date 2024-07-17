@@ -18,8 +18,9 @@ export const PATH_PAGE = {
   },
   marketplace: '/marketplace',
   connectWallet: '/connect-wallet',
-  signUp: '/sign-up',
-  signIn: '/sign-in',
+  register: '/register',
+  login: '/login',
+  resetPassword: '/reset-password',
   404: '/404',
   error: '/error',
 } as const satisfies PATH_PAGE

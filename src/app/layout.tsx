@@ -5,6 +5,7 @@ import { Header } from 'widgets/header/Header'
 import { Footer } from 'widgets/footer/Footer'
 import './App.scss'
 import classNames from 'classnames'
+import { StoreProvider } from './StoreProvider'
 
 const IBM_FLEX_SANS = IBM_Plex_Sans({
   weight: ['300', '400', '500'],
@@ -33,15 +34,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang='en'
-      className={classNames(Whyte500.variable, Whyte900.variable)}
-    >
+    <html lang='en' className={classNames(Whyte500.variable, Whyte900.variable)}>
       <body className={IBM_FLEX_SANS.className}>
-        <Header />
-        <div className='header-height'></div>
-        {children}
-        <Footer />
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   )

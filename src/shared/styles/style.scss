@@ -13,7 +13,7 @@
 @import './components/image';
 // content
 // form
-// @import './components/form';
+@import './components/form';
 @import './components/input-text';
 // @import './components/input-radio';
 // @import './components/input-file';
@@ -118,6 +118,16 @@ body {
 }
 
 .logo {
+  img {
+    width: 213px;
+    height: 64px;
+  }
+  &--lg {
+    img {
+      width: 305px;
+      height: 104px;
+    }
+  }
 }
 
 .nav {
@@ -180,6 +190,7 @@ body {
       height: 850px;
       display: flex;
       align-items: end;
+      padding-bottom: 70px;
     }
 
     &-image {
@@ -271,7 +282,8 @@ body {
 }
 
 .s-main {
-  padding: 0 0 60px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .games {
@@ -285,16 +297,7 @@ body {
     }
     &-border {
       border: 3px solid #fff;
-      clip-path: polygon(
-        45px 0%,
-        calc(100% - 45px) 0%,
-        100% 45px,
-        100% calc(100% - 45px),
-        calc(100% - 45px) 100%,
-        45px 100%,
-        0% calc(100% - 45px),
-        0% 45px
-      );
+      clip-path: polygon(45px 0%, calc(100% - 45px) 0%, 100% 45px, 100% calc(100% - 45px), calc(100% - 45px) 100%, 45px 100%, 0% calc(100% - 45px), 0% 45px);
 
       &-line {
         position: absolute;
@@ -331,16 +334,7 @@ body {
     }
     &-img {
       margin-bottom: 30px;
-      clip-path: polygon(
-        35px 0%,
-        calc(100% - 35px) 0%,
-        100% 35px,
-        100% calc(100% - 35px),
-        100% 100%,
-        0 100%,
-        0% 100%,
-        0% 35px
-      );
+      clip-path: polygon(35px 0%, calc(100% - 35px) 0%, 100% 35px, 100% calc(100% - 35px), 100% 100%, 0 100%, 0% 100%, 0% 35px);
       &::before {
         padding-top: 40%;
       }

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import DownloadImage1 from './download-1.svg'
 import DownloadImage2 from './download-2.svg'
 import DownloadImage3 from './download-3.svg'
+import { Button } from 'shared/ui/button/Button'
 
 const items = [
   {
@@ -30,26 +31,18 @@ const Download = () => {
         <div className='row items download__items'>
           {items.map((el, i) => {
             return (
-              <div
-                key={i}
-                className='col-lg-4 col-sm-6 col-12 items__item item-bg item-bg--grid download__items-item'
-              >
+              <div key={i} className='col-lg-4 col-sm-6 col-12 items__item item-bg item-bg--grid download__items-item'>
                 <div className='item-bg__bg download__items-border'></div>
                 <i className='items__icon download__items-icon'>
                   <Image src={el.image} alt='' />
                 </i>
                 <div className='items__text download__items-text'>
                   <i className='download__items-icon'></i>
-                  <h3 className='items__title h4 text-title download__items-title'>
-                    {el.title}
-                  </h3>
+                  <h3 className='items__title h4 text-title download__items-title'>{el.title}</h3>
                   <div className='download__items-btn'>
-                    <Link
-                      href='/'
-                      className='btn btn--primary btn--lg btn--w-max'
-                    >
+                    <Button href='/' size='lg' maxWidth>
                       {el.btn}
-                    </Link>
+                    </Button>
                   </div>
                 </div>
               </div>

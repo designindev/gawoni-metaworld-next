@@ -1,0 +1,24 @@
+.form {
+  text-align: center;
+
+  &__heading {
+    margin-bottom: 30px;
+  }
+
+  &__input {
+    margin-bottom: $input-mb;
+  }
+
+  &__link {
+    margin-top: 50px;
+
+    &--forgot {
+      margin-top: 30px;
+      text-align: right;
+    }
+  }
+
+  &__button {
+    margin-top: 50px;
+  }
+}

@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-family: $text-font-family, 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: $text-font-size;
   color: #fff;
   line-height: $text-line-height;
@@ -120,11 +120,7 @@ sup {
 }
 
 ::placeholder {
-  color: $color-placeholder;
-
-  .input_white & {
-    color: #fff;
-  }
+  color: $color-gray;
 
   .js-input.js-error & {
     color: $color-error;

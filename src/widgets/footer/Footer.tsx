@@ -18,22 +18,17 @@ export const Footer = () => {
     <footer className='footer'>
       <div className='container footer__container'>
         <div className='footer__inner'>
-          <Link href='/' className='logo footer__logo'>
-            <Image src={Logo} alt='Logo' width={305} height={104} priority />
+          <Link href='/' className='logo logo--lg footer__logo'>
+            <Image src={Logo} alt='Logo' priority />
           </Link>
           <div className='footer__center'>
-            <div className='footer__copy'>
-              Copyright 2024 - GAWOONI METALABS - ALL RIGHTS RESERVED
-            </div>
+            <div className='footer__copy'>Copyright 2024 - GAWOONI METALABS - ALL RIGHTS RESERVED</div>
             <nav className='footer__nav'>
               <ul className='footer__nav-list'>
                 {navLinks.map((el, i) => {
                   return (
                     <li key={i} className='footer__nav-item'>
-                      <Link
-                        href={el.href}
-                        className={'footer__nav-link text-link'}
-                      >
+                      <Link href={el.href} className={'footer__nav-link text-link'}>
                         {el.label}
                       </Link>
                     </li>
@@ -46,46 +41,22 @@ export const Footer = () => {
             <ul className='social'>
               <li className='social__item'>
                 <a href='#' className='social__link'>
-                  <Image
-                    src={Soc1}
-                    alt='Logo'
-                    width={40}
-                    height={40}
-                    priority
-                  />
+                  <Image src={Soc1} alt='Logo' width={40} height={40} priority />
                 </a>
               </li>
               <li className='social__item'>
                 <a href='#' className='social__link'>
-                  <Image
-                    src={Soc2}
-                    alt='Logo'
-                    width={32}
-                    height={32}
-                    priority
-                  />
+                  <Image src={Soc2} alt='Logo' width={32} height={32} priority />
                 </a>
               </li>
               <li className='social__item'>
                 <a href='#' className='social__link'>
-                  <Image
-                    src={Soc3}
-                    alt='Logo'
-                    width={40}
-                    height={40}
-                    priority
-                  />
+                  <Image src={Soc3} alt='Logo' width={40} height={40} priority />
                 </a>
               </li>
               <li className='social__item'>
                 <a href='#' className='social__link'>
-                  <Image
-                    src={Soc4}
-                    alt='Logo'
-                    width={40}
-                    height={40}
-                    priority
-                  />
+                  <Image src={Soc4} alt='Logo' width={40} height={40} priority />
                 </a>
               </li>
             </ul>

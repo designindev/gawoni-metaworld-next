@@ -30,14 +30,7 @@
   line-height: 1.3;
   color: #000;
   transition: background-color 0.3s, border-color 0.3s, top 0.3s;
-  clip-path: polygon(
-    0 20px,
-    20px 0%,
-    100% 0%,
-    100% calc(100% - 20px),
-    calc(100% - 20px) 100%,
-    0% 100%
-  );
+  clip-path: polygon(0 20px, 20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%);
   transition: all 0.3s;
 
   &::before,
@@ -118,6 +111,11 @@
   &--w-max {
     max-width: 100%;
     width: 100%;
+  }
+
+  &--w-lg {
+    max-width: 100%;
+    width: 336px;
   }
 
   &--lg {

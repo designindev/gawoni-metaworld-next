@@ -9,7 +9,7 @@ $color-dangerous-hover: lighten($color-dangerous, 10%);
 $color-dark: #000;
 $color-dark-nearly: #141414;
 $color-light: #f3f3f3;
-$color-placeholder: #d0d0d0;
+$color-placeholder: #aaa;
 $color-input: #f4f7fb;
 $color-disabled: #777;
 $color-error: #f10b34;
@@ -29,10 +29,10 @@ $text-font-weigth: 400;
 // text
 // inputs
 $input-height: 48px;
-$input-padding: 16px;
-$input-border-color: #d0cfcf;
+$input-padding: 12px;
+$input-border-color: #fff;
 $input-border-radius: 4px;
-$input-mb: 25px;
+$input-mb: 40px;
 $textarea-height: 120px;
 // inputs
 $btn-height: 48px;
@@ -75,19 +75,6 @@ $color-nft-rare: #0038ff;
 $color-nft-epic: #a700e2;
 $color-nft-signature: #fff;
 $color-nft-legendary: #ff881a;
-$color-nft-mystic: linear-gradient(
-  130.42deg,
-  #ce9335 0%,
-  #fee5ac 49.12%,
-  #ce9335 98.25%
-);
-$color-nft-on-of-kind: linear-gradient(
-  129.5deg,
-  #2e62f6 0%,
-  #fa9ffb 20%,
-  #7df0cf 40%,
-  #fbfecf 60%,
-  #fcd9f1 80%,
-  #91cdf7 100%
-);
+$color-nft-mystic: linear-gradient(130.42deg, #ce9335 0%, #fee5ac 49.12%, #ce9335 98.25%);
+$color-nft-on-of-kind: linear-gradient(129.5deg, #2e62f6 0%, #fa9ffb 20%, #7df0cf 40%, #fbfecf 60%, #fcd9f1 80%, #91cdf7 100%);
 // color nft

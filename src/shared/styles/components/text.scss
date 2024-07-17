@@ -29,6 +29,12 @@
     text-decoration: underline;
   }
 
+  &.text-primary {
+    &:hover {
+      color: #fff;
+    }
+  }
+
   &--arrow {
     padding-right: 40px;
     position: relative;

@@ -5,11 +5,11 @@ import { Nfts } from 'widgets/nfts/Nfts'
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Main />
       <Games />
       <News />
       <Nfts />
-    </main>
+    </>
   )
 }

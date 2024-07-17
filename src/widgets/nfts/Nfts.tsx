@@ -1,6 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
-
 import { Category } from './Category'
 
 export const Nfts = () => {

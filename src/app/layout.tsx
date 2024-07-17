@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Sans } from 'next/font/google'
 import localFont from 'next/font/local'
-import { Header } from '@/widgets/header/Header'
-import { Footer } from '@/widgets/footer/Footer'
+import { Header } from 'widgets/header/Header'
+import { Footer } from 'widgets/footer/Footer'
 import './App.scss'
 import classNames from 'classnames'
 

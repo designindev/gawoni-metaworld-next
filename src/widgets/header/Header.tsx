@@ -1,17 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
-import Logo from '@/shared/images/logo.png'
+import Logo from 'shared/images/logo.png'
 import Link from 'next/link'
 import { Navigation } from '../navigation/Navigation'
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'News', href: '/news' },
-  { label: 'Games', href: '/games' },
-  { label: 'NFT Shop', href: '/shop' },
-  { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Connect Wallet', href: '/connect-wallet' },
-]
+import { PATH_MENU } from 'shared/lib/paths'
 
 export const Header = () => {
   const isAuth = false
@@ -41,7 +33,7 @@ export const Header = () => {
         </div>
       </div>
       <div className='container'>
-        <Navigation navLinks={navLinks} />
+        <Navigation navLinks={PATH_MENU} />
       </div>
     </header>
   )

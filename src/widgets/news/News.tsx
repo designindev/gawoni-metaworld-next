@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Image1 from './news-1.jpg'
 import Image2 from './news-2.jpg'
 import Image3 from './news-3.jpg'
+import Link from 'next/link'
 
 const items = [
   {
@@ -43,9 +44,9 @@ export const News = () => {
             </span>
           </h2>
           <div className='section__heading-btn'>
-            <a href='#' className='btn btn--primary'>
+            <Link href='/news' className='btn btn--primary'>
               Read all news
-            </a>
+            </Link>
           </div>
         </div>
         <div className='row items news__items'>
@@ -77,12 +78,12 @@ export const News = () => {
                     <p>{item.descr}</p>
                   </div>
                   <div className='items__descr news__items-link'>
-                    <a
-                      href='#'
+                    <Link
+                      href='/'
                       className='text-link text-link--arrow text-secondary'
                     >
                       READ MORE
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

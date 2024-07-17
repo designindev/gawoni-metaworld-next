@@ -1,0 +1,7 @@
+export { Footer } from './footer/Footer'
+export { Games } from './games/Games'
+export { Header } from './header/Header'
+export { Main } from './main/Main'
+export { Navigation } from './navigation/Navigation'
+export { News } from './news/News'
+export { Nfts } from './nfts/Nfts'

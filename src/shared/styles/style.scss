@@ -795,22 +795,38 @@ body {
     }
   }
   &__items {
-    margin-bottom: 0;
-    @include lg-min {
-      .swiper-controls--bottom-pagination .swiper-button-next,
-      .swiper-controls--bottom-pagination .swiper-button-prev {
-        bottom: auto;
-        top: 235px;
-      }
-      .swiper-controls--bottom-pagination .swiper-button-prev {
-        left: -5px;
-      }
-      .swiper-controls--bottom-pagination .swiper-button-next {
-        right: -5px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 100%;
+      margin-left: -200px;
+      bottom: 0;
+      width: 400px;
+      background: linear-gradient(270deg, #080808 0%, rgba(8, 8, 8, 0) 100%);
+      z-index: 3;
+    }
+    .swiper-slide {
+      transition: all 0.5s;
+      opacity: 1;
+      &-prev {
+        opacity: 0;
       }
     }
+    .swiper-controls--bottom .swiper-button-next,
+    .swiper-controls--bottom .swiper-button-prev {
+      position: absolute;
+      bottom: auto;
+      top: 235px;
+    }
+    .swiper-controls--bottom .swiper-button-prev {
+      left: -5px;
+    }
+    .swiper-controls--bottom .swiper-button-next {
+      right: -5px;
+    }
     &.swiper {
-      @include r-min(1700px) {
+      @include r-min(1700) {
         padding-left: 100px;
         margin-right: -100px;
       }

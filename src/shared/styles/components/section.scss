@@ -3,6 +3,19 @@
   padding-top: $section-padding;
   padding-bottom: $section-padding;
   background: center top / cover no-repeat;
+  @include xl {
+    padding: 100px 0;
+  }
+  @include md {
+    padding: 80px 0;
+  }
+  @include sm {
+    padding: 60px 0;
+  }
+
+  &--reset-header-height {
+    margin-top: -$header-height;
+  }
 
   &__bg {
     position: absolute;
@@ -10,11 +23,21 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: -1;
   }
 
   &__heading {
     text-transform: uppercase;
     margin-bottom: 60px;
+    @include xl {
+      margin-bottom: 50px;
+    }
+    @include lg {
+      margin-bottom: 40px;
+    }
+    @include sm {
+      margin-bottom: 30px;
+    }
 
     &.h1 {
       text-align: center;
@@ -24,6 +47,12 @@
       padding-left: 75px;
       position: relative;
       display: inline-block;
+      @include md {
+        padding-left: 60px;
+      }
+      @include sm {
+        padding-left: 50px;
+      }
       &::before {
         content: '';
         position: absolute;
@@ -31,12 +60,34 @@
         left: 5px;
         width: 50px;
         height: 50px;
+        background: center / contain no-repeat;
         background-image: url(/images/icons/h2-icon-secondary.svg);
+        @include lg {
+          top: 3px;
+        }
+        @include md {
+          width: 40px;
+          height: 40px;
+        }
+        @include sm {
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+        }
+        @include xs {
+          top: 0;
+        }
       }
 
       &--right {
         padding-left: 0;
         padding-right: 70px;
+        @include md {
+          padding-right: 60px;
+        }
+        @include sm {
+          padding-right: 50px;
+        }
 
         &::before {
           left: auto;
@@ -50,7 +101,9 @@
       display: flex;
       justify-content: space-between;
     }
-    &-btn {
+    &-wrapper & {
+    }
+    &-wrapper &-btn {
       margin-top: 15px;
     }
   }

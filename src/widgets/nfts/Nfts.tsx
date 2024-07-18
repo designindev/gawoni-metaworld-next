@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { Category } from './Category'
 
@@ -8,6 +9,7 @@ export const Nfts = () => {
         <h2 className='h2 section__heading'>
           <span className='section__heading-icon'>NFTs</span>
         </h2>
+
         <Category title='New nft releases' />
         <Category title='top sellers' />
       </div>

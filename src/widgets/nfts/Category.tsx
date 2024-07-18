@@ -9,6 +9,8 @@ import { SwiperPagination } from '../../shared/ui/swiper/SwiperPagination'
 import { NftCard } from 'entities/nft'
 import { mockItmes } from 'entities/nft/api/items'
 import './Gallery.scss'
+import { Button } from 'shared/ui/button/Button'
+import { PATH_PAGE } from 'shared/lib'
 
 type Props = {
   title: string
@@ -23,9 +25,7 @@ export const Category = (props: Props) => {
         <div className='nfts__category-head'>
           <h3 className='nfts__category-title h3 h3--fz-32'>{title}</h3>
           <div className='nfts__category-btn'>
-            <a href='#' className='btn btn--primary'>
-              Show all
-            </a>
+            <Button href={PATH_PAGE.shop.root}>Show all</Button>
           </div>
         </div>
         <Swiper
@@ -41,10 +41,10 @@ export const Category = (props: Props) => {
             480: { slidesPerView: 1 },
             576: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
-            992: { slidesPerView: 4 },
+            992: { slidesPerView: 3 },
             1200: { slidesPerView: 4 },
           }}
-          className='swiper-container--visible items items--slider nfts__items'
+          className='swiper--visible items items--slider nfts__items'
           wrapperClass='items__slider nfts__items-slider'
           loop
         >
@@ -55,7 +55,7 @@ export const Category = (props: Props) => {
               </SwiperSlide>
             )
           })}
-          <SwiperControls className='nfts__items-controls' paginationBottom>
+          <SwiperControls className='nfts__items-controls' bottom>
             <SwiperButton side='left' circle />
             <SwiperPagination />
             <SwiperButton side='right' circle />

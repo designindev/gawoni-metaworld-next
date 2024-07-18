@@ -33,7 +33,7 @@ export const News = () => {
     <section className='section s-news'>
       <div className='section__bg' style={{ backgroundImage: `url(/images/bg/news.png)` }}></div>
       <div className='container s-news__container news'>
-        <div className='section__heading-wrapper'>
+        <div className='section__heading-wrapper s-news__heading-wrapper'>
           <h2 className='h2 section__heading'>
             <span className='section__heading-icon section__heading-icon--right'>latest News</span>
           </h2>
@@ -44,7 +44,7 @@ export const News = () => {
         <div className='row items news__items'>
           {items.map((item, i) => {
             return (
-              <div key={i} className='col-sm-4 col-12 items__item item-bg item-bg--grid news__items-item'>
+              <div key={i} className='col-md-4 col-12 items__item item-bg item-bg--grid news__items-item'>
                 <div className='item-bg__bg news__items-bg'></div>
                 <div className='items__img image image--cover news__items-img'>
                   <Image src={item.src} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
@@ -53,7 +53,7 @@ export const News = () => {
                   <div className='news__items-date'>
                     <p>{item.date}</p>
                   </div>
-                  <h3 className='items__title h3 text-title news__items-title'>{item.title}</h3>
+                  <h3 className='items__title h3 h3--fz-28 text-title news__items-title'>{item.title}</h3>
                   <div className='items__descr news__items-descr'>
                     <p>{item.descr}</p>
                   </div>
@@ -66,6 +66,11 @@ export const News = () => {
               </div>
             )
           })}
+        </div>
+        <div className='mt-40 text-center'>
+          <a href='link' className='text-link text-primary fz-20'>
+            Read all news
+          </a>
         </div>
       </div>
     </section>

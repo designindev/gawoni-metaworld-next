@@ -12,7 +12,7 @@
     .swiper-button-next {
       position: relative;
       margin: 0;
-      transform: translate(0, 0);
+      // transform: translate(0, 0);
       flex-shrink: 0;
     }
     .swiper-button-prev {
@@ -29,8 +29,7 @@
 
     .swiper-pagination-bullets {
       position: relative;
-      margin: 0 40px;
-      padding: 0;
+      margin: 0 15px;
     }
   }
 

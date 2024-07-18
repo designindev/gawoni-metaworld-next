@@ -38,6 +38,11 @@
   &--arrow {
     padding-right: 40px;
     position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    @include lg {
+      font-size: 20px;
+    }
 
     &::before {
       content: '';
@@ -49,6 +54,9 @@
       background: center / cover no-repeat;
       background-image: url(/images/icons/arrow-link.svg);
       transition: all 0.3s;
+      @include lg {
+        top: 3px;
+      }
     }
     &:hover::before {
       right: -5px;
@@ -68,6 +76,11 @@
 
   &--right {
     margin-left: 10px;
+  }
+
+  &--md {
+    width: 24px;
+    height: 24px;
   }
 
   &--lg {
@@ -95,5 +108,19 @@
     &::before {
       background-image: url(/images/icons/info.svg);
     }
+  }
+
+  &--chevron,
+  &--chevron-up,
+  &--chevron-down {
+    &::before {
+      background-image: url(/images/icons/chevron.svg);
+    }
+  }
+  &--chevron-up {
+    transform: rotate(90deg);
+  }
+  &--chevron-down {
+    transform: rotate(-90deg);
   }
 }

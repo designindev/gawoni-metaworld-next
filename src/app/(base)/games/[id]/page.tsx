@@ -20,7 +20,7 @@ const Games = () => {
           <div className='row items game-details__features'>
             <div className='items__item game-details__features-item'>
               <h4 className='game-details__features-label h4'>game description</h4>
-              <div className='game-details__features-descr'>
+              <div className='game-details__features-descrgit'>
                 <p>The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2 2024</p>
               </div>
             </div>
@@ -33,6 +33,7 @@ const Games = () => {
                 quam sit et.
               </p>
             </div>
+            <div className='game-details__banner-social'></div>
           </div>
         </div>
       </div>

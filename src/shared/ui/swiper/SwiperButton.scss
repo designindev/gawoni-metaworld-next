@@ -15,6 +15,11 @@
     border: 2px solid #fff;
     transition: all 0.3s;
 
+    @include xl {
+      width: 32px;
+      height: 32px;
+    }
+
     &:hover {
       border-color: $color-secondary;
     }
@@ -28,7 +33,7 @@
       right: 0;
       bottom: 0;
       border-radius: inherit;
-      background: center / 45% no-repeat;
+      background: 42% center / 45% no-repeat;
       background-image: url('/images/icons/noun-arrow.svg');
       transition: all 0.3s;
     }
@@ -55,9 +60,6 @@
   &-prev,
   &-next {
     &:hover {
-      &::before {
-      }
-
       &::after {
         opacity: 1;
       }
@@ -72,9 +74,6 @@
         opacity: 0;
       }
     }
-  }
-
-  &-lock#{&}-disabled {
   }
 
   &-prev#{&}-disabled,

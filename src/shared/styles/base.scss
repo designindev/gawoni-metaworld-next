@@ -26,6 +26,10 @@ body {
   min-width: 320px;
   position: relative;
   overflow: hidden;
+  @include sm {
+    font-size: 14px;
+    line-height: 1.2;
+  }
 }
 
 button,
@@ -134,4 +138,18 @@ sup {
 
 .mt-55 {
   margin-top: 55px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.fz-20 {
+  font-size: 20px;
+}
+
+.fz-18 {
+  @include xl-min {
+    font-size: 18px;
+  }
 }

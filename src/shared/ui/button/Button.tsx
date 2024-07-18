@@ -7,7 +7,7 @@ interface AnchorHTML extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
 }
 
-type Color = 'primary' | 'secondary' | 'dangerous' | 'success'
+type Color = 'primary' | 'secondary' | 'dangerous' | 'success' | 'white'
 type Size = 'md' | 'lg'
 
 export type ButtonProps = {

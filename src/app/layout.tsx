@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Sans } from 'next/font/google'
 import localFont from 'next/font/local'
-import { Header } from 'widgets/header/Header'
-import { Footer } from 'widgets/footer/Footer'
-import './App.scss'
 import classNames from 'classnames'
 import { StoreProvider } from './StoreProvider'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import './App.scss'
 
 const IBM_FLEX_SANS = IBM_Plex_Sans({
   weight: ['300', '400', '500'],

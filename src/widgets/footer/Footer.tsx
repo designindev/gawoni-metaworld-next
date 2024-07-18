@@ -1,11 +1,7 @@
 import Image from 'next/image'
-import React from 'react'
 import Link from 'next/link'
 import Logo from 'shared/images/logo.png'
-import Soc1 from './soc-1.png'
-import Soc2 from './soc-2.png'
-import Soc3 from './soc-3.png'
-import Soc4 from './soc-4.png'
+import { Social } from 'shared/ui'
 
 const navLinks = [
   { label: 'Disclaimer', href: '#' },
@@ -42,28 +38,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className='footer__items-item footer__items-item--right'>
-            <ul className='social footer__social'>
-              <li className='social__item'>
-                <a href='#' className='social__link'>
-                  <Image src={Soc1} alt='Logo' width={40} height={40} priority />
-                </a>
-              </li>
-              <li className='social__item'>
-                <a href='#' className='social__link'>
-                  <Image src={Soc2} alt='Logo' width={32} height={32} priority />
-                </a>
-              </li>
-              <li className='social__item'>
-                <a href='#' className='social__link'>
-                  <Image src={Soc3} alt='Logo' width={40} height={40} priority />
-                </a>
-              </li>
-              <li className='social__item'>
-                <a href='#' className='social__link'>
-                  <Image src={Soc4} alt='Logo' width={40} height={40} priority />
-                </a>
-              </li>
-            </ul>
+            <Social />
           </div>
         </div>
       </div>

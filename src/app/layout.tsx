@@ -5,6 +5,9 @@ import classNames from 'classnames'
 import { StoreProvider } from './StoreProvider'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
+import 'swiper/css/free-mode'
+// import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
 import './App.scss'
 
 const IBM_FLEX_SANS = IBM_Plex_Sans({

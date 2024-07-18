@@ -1,6 +1,5 @@
 'use client'
 
-import 'swiper/css'
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperControls } from '../../shared/ui/swiper/SwiperControls'
@@ -8,9 +7,9 @@ import { SwiperButton } from '../../shared/ui/swiper/SwiperButton'
 import { SwiperPagination } from '../../shared/ui/swiper/SwiperPagination'
 import { NftCard } from 'entities/nft'
 import { mockItmes } from 'entities/nft/api/items'
-import './Gallery.scss'
 import { Button } from 'shared/ui/button/Button'
 import { PATH_PAGE } from 'shared/lib'
+import './Gallery.scss'
 
 type Props = {
   title: string

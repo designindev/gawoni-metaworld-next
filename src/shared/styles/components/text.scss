@@ -17,8 +17,30 @@
   color: $color-secondary;
 }
 
-.text-descr {
+.text-descr,
+.text-list {
   margin-top: 15px;
+}
+
+.text-list {
+  li {
+    margin-top: 10px;
+    padding-left: 40px;
+    min-height: 28px;
+    padding-top: 3px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 28px;
+      height: 28px;
+      background: center / contain no-repeat;
+      background-image: url(/images/icons/h2-icon-primary.svg);
+    }
+  }
 }
 
 .text-link {

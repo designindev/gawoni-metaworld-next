@@ -20,7 +20,16 @@ const Whyte900 = localFont({
   variable: '--font-whyte-900',
   weight: '900',
 })
-
+const Whyte700 = localFont({
+  src: './Whyte-Bold.woff2',
+  variable: '--font-whyte-700',
+  weight: '700',
+})
+const Whyte700I = localFont({
+  src: './Whyte-BoldItalic.woff2',
+  variable: '--font-whyte-700-i',
+  weight: '700',
+})
 const Whyte500 = localFont({
   src: './Whyte-Medium.woff2',
   variable: '--font-whyte-500',
@@ -38,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' className={classNames(Whyte500.variable, Whyte900.variable)}>
+    <html lang='en' className={classNames(Whyte500.variable, Whyte700.variable, Whyte700I.variable, Whyte900.variable)}>
       <head></head>
       <body className={IBM_FLEX_SANS.className}>
         <StoreProvider>{children}</StoreProvider>

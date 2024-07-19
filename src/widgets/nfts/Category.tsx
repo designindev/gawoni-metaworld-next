@@ -6,7 +6,7 @@ import { SwiperControls } from '../../shared/ui/swiper/SwiperControls'
 import { SwiperButton } from '../../shared/ui/swiper/SwiperButton'
 import { SwiperPagination } from '../../shared/ui/swiper/SwiperPagination'
 import { NftCard } from 'entities/nft'
-import { mockItmes } from 'entities/nft/api/items'
+import { mockItems } from 'entities/nft/api/items'
 import { Button } from 'shared/ui/button/Button'
 import { PATH_PAGE } from 'shared/lib'
 import './Gallery.scss'
@@ -47,7 +47,7 @@ export const Category = (props: Props) => {
           wrapperClass='items__slider nfts__items-slider'
           loop
         >
-          {mockItmes.map((item, i) => {
+          {mockItems.map((item, i) => {
             return (
               <SwiperSlide key={i}>
                 <NftCard nft={item} />

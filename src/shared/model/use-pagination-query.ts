@@ -8,10 +8,7 @@ export const usePaginationQuery = () => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const startPage = useMemo(
-    () => Number(searchParams.get('page') ?? 1),
-    [searchParams]
-  )
+  const startPage = useMemo(() => Number(searchParams.get('page') ?? 1), [searchParams])
   const [page, setPage] = useState(startPage)
 
   const onChangePage = useCallback(
@@ -21,7 +18,7 @@ export const usePaginationQuery = () => {
       router.push(pathname + '?' + params.toString(), { scroll: false })
       setPage(page)
     },
-    [pathname, router]
+    [pathname, router, searchParams]
   )
 
   React.useEffect(() => {

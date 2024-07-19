@@ -1,7 +1,7 @@
-import { useAppDispatch } from 'shared/model'
+import { useAppDispatch } from 'shared/lib'
 import { logoutThunk } from '../model/logout.thunk'
 import { notifySuccess } from 'shared/lib'
-import { IoLogOutOutline } from 'react-icons/io5'
+// import { IoLogOutOutline } from 'react-icons/io5'
 import './LogoutButton.scss'
 
 export function LogoutButton() {
@@ -18,7 +18,7 @@ export function LogoutButton() {
   return (
     <div className='logout-button'>
       <a onClick={onConfirmLogout} className='logout-button__link'>
-        <IoLogOutOutline className='logout-button__icon' />
+        {/* <IoLogOutOutline className='logout-button__icon' /> */}
         Log Out
       </a>
     </div>

@@ -24,6 +24,26 @@
     right: 0;
     bottom: 0;
     z-index: -1;
+    background: center / cover no-repeat;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: center / cover no-repeat;
+    }
+
+    &--gradient {
+      background: linear-gradient(180deg, #3c453c 0%, #000000 100%);
+      &::before {
+        background-image: url(/images/bg/asfalt-light.png);
+        opacity: 0.3;
+      }
+    }
   }
 
   &__heading {

@@ -1,11 +1,11 @@
 'use client'
 import { NftCard } from 'entities/nft'
-import { mockItmes } from 'entities/nft/api/items'
+import { mockItems } from 'entities/nft/api/items'
 import { usePaginationQuery } from 'shared/model'
 import { Pagination } from 'shared/ui'
 
 const Shop = () => {
-  const [page, onChangePage] = usePaginationQuery()
+  // const [page, onChangePage] = usePaginationQuery()
 
   return (
     <section className='section s-shop'>
@@ -19,9 +19,7 @@ const Shop = () => {
                 <div className='filter__number'>2</div>
               </div>
               <div className='filter__right'>
-                <button className='btn btn--white btn--border btn--w-max'>
-                  Clear all
-                </button>
+                <button className='btn btn--white btn--border btn--w-max'>Clear all</button>
               </div>
             </div>
             <div className='filter__items'>
@@ -61,23 +59,12 @@ const Shop = () => {
             </div>
           </div>
           <div className='row items shop__items'>
-            {mockItmes.map((item, i) => {
-              return (
-                <NftCard
-                  key={i}
-                  nft={item}
-                  className='col-lg-3 col-12 item-bg--grid'
-                />
-              )
+            {mockItems.map((item, i) => {
+              return <NftCard key={i} nft={item} className='col-lg-3 col-12 item-bg--grid' />
             })}
           </div>
-          <Pagination
-            onChangePage={onChangePage}
-            count={800}
-            limit={8}
-            page={page}
-            className='mt-55'
-          />
+          {/* <Pagination onChangePage={onChangePage} count={800} limit={8} page={page} className='mt-55' /> */}
+          <Pagination count={800} limit={8} className='mt-55' />
         </div>
       </div>
     </section>

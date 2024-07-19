@@ -1,4 +1,4 @@
-const Games = () => {
+const ConnectWallet = () => {
   return (
     <section className='section'>
       <div className='container'>
@@ -8,4 +8,4 @@ const Games = () => {
   )
 }
 
-export default Games
+export default ConnectWallet

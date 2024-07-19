@@ -5,7 +5,6 @@ const envVariables = z.object({
   API_ENDPOINT: z.string().url(),
 })
 
-console.log(process.env.APP_API_ENDPOINT, process.env.APP_SITE_ENDPOINT, 'urls')
 const env = envVariables.parse({
   API_ENDPOINT: process.env.APP_API_ENDPOINT ?? 'https:google.ua',
   SITE_ENDPOINT: process.env.APP_SITE_ENDPOINT ?? 'https:google.ua',

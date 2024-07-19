@@ -1,10 +1,11 @@
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap-grid.min.css');
+// @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap-grid.min.css');
 
 @import './vars';
 @import './mixin';
 @import './fonts';
 @import './reset';
 @import './base';
+@import './grid';
 
 // content
 @import './components/heading';
@@ -29,9 +30,9 @@ body {
   margin: 0 auto;
 }
 
-.container {
-  @include xl-min {
-    max-width: 1560px;
+.main {
+  .section:first-child {
+    padding-top: $section-padding + 30px;
   }
 }
 
@@ -118,6 +119,7 @@ body {
       padding-left: 30px;
       padding-right: 30px;
       height: 55px;
+      font-size: 18px;
       cursor: pointer;
       &:hover,
       &--active {
@@ -1105,6 +1107,9 @@ body {
 }
 
 .game-details {
+  &__slider {
+    margin-bottom: 48px;
+  }
   &__heading {
     display: flex;
     justify-content: space-between;
@@ -1119,7 +1124,7 @@ body {
   }
 
   &__info {
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1129,6 +1134,10 @@ body {
   &__features {
     margin-top: 70px;
     &-item {
+      &.item-bg {
+        padding-top: 35px;
+        padding-bottom: 35px;
+      }
     }
     &-border {
       border: 1px solid #fff;
@@ -1137,6 +1146,12 @@ body {
     &-title {
       text-transform: uppercase;
       font-family: var(--font-whyte-900);
+    }
+    &-descr,
+    &-list {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-top: 30px;
     }
     &-descr {
     }
@@ -1151,11 +1166,19 @@ body {
   &__item {
     font-size: 18px;
     font-weight: 600;
-    padding-left: 40px;
-    margin-right: 40px;
+    padding-left: 50px;
+    margin-left: 45px;
     position: relative;
     max-width: 256px;
     margin-top: 15px;
+
+    &:first-child {
+      padding-left: 0;
+      margin-left: 0;
+      &::before {
+        display: none;
+      }
+    }
 
     &::before {
       content: '';
@@ -1168,11 +1191,14 @@ body {
       background-color: $color-primary;
     }
   }
-  &__value {
+  &__label {
     text-transform: uppercase;
     color: $color-gray;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
   }
-  &__label {
+  &__value {
+    line-height: 1.2;
   }
 }
 
@@ -1196,6 +1222,7 @@ body {
   }
 
   &__descr {
+    line-height: 1.5;
   }
   &__social {
     margin-top: 30px;
@@ -1204,12 +1231,56 @@ body {
 
 .tags {
   &__item {
-    padding: 10px 15px;
+    padding: 10px 32px;
     display: inline-block;
     text-align: center;
     background-color: $color-dark-nearly;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
     border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.slider-with-thumbs {
+  &__left {
+  }
+  &__right {
+  }
+  &__image {
+    border-radius: 12px;
+
+    &--full {
+      &::before {
+        height: 676px;
+        padding-top: 0;
+      }
+    }
+
+    &--thumb {
+      cursor: pointer;
+      &::before {
+        padding-top: 100%;
+      }
+    }
+  }
+  &__slider {
+    &--thumb {
+      height: 676px;
+    }
+  }
+  &__slide {
+    &--thumb {
+      width: 220px !important;
+      height: 220px !important;
+    }
+    &.swiper-slide-thumb-active {
+      .image {
+        &::after {
+          border: 3px solid $color-secondary;
+        }
+      }
+    }
   }
 }

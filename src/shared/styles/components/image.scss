@@ -45,10 +45,6 @@
 .image {
   background-color: $color-input;
 
-  &--radius {
-    border-radius: 5px;
-  }
-
   &--cover,
   &--contain,
   &--fill {

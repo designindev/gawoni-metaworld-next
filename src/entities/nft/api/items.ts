@@ -4,7 +4,7 @@ import Image3 from './nfts-3.jpg'
 import Image4 from './nfts-4.jpg'
 import Logos from './logos.png'
 
-export const mockItmes = [
+export const mockItems = [
   {
     id: '1',
     src: Image1.src,

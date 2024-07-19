@@ -48,8 +48,8 @@ export const Main = () => {
       >
         {items.map((el, i) => {
           return (
-            <SwiperSlide key={i}>
-              <div className='main__items-item'>
+            <SwiperSlide key={i} className='main__items-slide'>
+              <div className='items__item main__items-item'>
                 <div className='main__items-image' style={{ backgroundImage: `url(${el.image.src})` }}></div>
                 <div className='container main__items-container'>
                   <div className='header-height'></div>

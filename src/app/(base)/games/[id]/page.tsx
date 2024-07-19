@@ -2,14 +2,46 @@ import { Button } from 'shared/ui/button/Button'
 import Logo from './logo.png'
 import Image from 'next/image'
 import { Social } from 'shared/ui'
-import { Carousel } from './slider'
+import { SliderWithThumb } from './game-slider'
+import Slide1 from './slide-1.jpg'
+import Slide2 from './slide-2.jpg'
+import Slide3 from './slide-3.jpg'
+import Slide4 from './slide-4.jpg'
+
+const slides = [
+  {
+    image: Slide1,
+  },
+  {
+    image: Slide2,
+  },
+  {
+    image: Slide3,
+  },
+  {
+    image: Slide4,
+  },
+  {
+    image: Slide1,
+  },
+  {
+    image: Slide2,
+  },
+  {
+    image: Slide3,
+  },
+  {
+    image: Slide4,
+  },
+]
 
 const Games = () => {
   return (
     <section className='section'>
+      <div className='section__bg section__bg--gradient'></div>
       <div className='container'>
         <div className='game-details'>
-          <Carousel />
+          <SliderWithThumb slides={slides} className='game-details__slider' />
           <div className='game-details__heading'>
             <div className='game-details__heading-logo'>
               <Image src={Logo} alt='' />
@@ -25,16 +57,16 @@ const Games = () => {
             </div>
             <ul className='short-info game-details__short-info'>
               <li className='short-info__item'>
-                <div className='short-info__value'>developer</div>
-                <div className='short-info__label'>GAWOONI MetaLabs</div>
+                <h5 className='short-info__label'>developer</h5>
+                <div className='short-info__value'>GAWOONI MetaLabs</div>
               </li>
               <li className='short-info__item'>
-                <div className='short-info__value'>Release</div>
-                <div className='short-info__label'>02 2024</div>
+                <h5 className='short-info__label'>Release</h5>
+                <div className='short-info__value'>02 2024</div>
               </li>
               <li className='short-info__item'>
-                <div className='short-info__value'>platform</div>
-                <div className='short-info__label'>PC Client (Windows), Game Streaming, Mobile</div>
+                <h5 className='short-info__label'>platform</h5>
+                <div className='short-info__value'>PC Client (Windows), Game Streaming, Mobile</div>
               </li>
             </ul>
           </div>
@@ -66,7 +98,7 @@ const Games = () => {
                   quam sit et.
                 </p>
               </div>
-              <Social className='banner__social' />
+              <Social className='banner__social' hidden={{ tg: true }} />
             </div>
           </div>
         </div>

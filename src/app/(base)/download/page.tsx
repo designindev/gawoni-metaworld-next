@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import DownloadImage1 from './download-1.svg'
 import DownloadImage2 from './download-2.svg'
 import DownloadImage3 from './download-3.svg'
@@ -23,7 +22,7 @@ const items = [
   },
 ]
 
-const Download = () => {
+export default function Download() {
   return (
     <section className='section s-download'>
       <div className='container s-download__container'>
@@ -53,5 +52,3 @@ const Download = () => {
     </section>
   )
 }
-
-export default Download

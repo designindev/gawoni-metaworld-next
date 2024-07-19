@@ -1,3 +1,5 @@
+'use client'
+
 import { useSelector, useDispatch, useStore } from 'react-redux'
 
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>()

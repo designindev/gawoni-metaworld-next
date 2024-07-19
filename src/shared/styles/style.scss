@@ -25,6 +25,37 @@
 @import './components/swiper';
 // components
 
+.bg--common {
+  background: $color-nft-common;
+}
+
+.bg--uncommon {
+  background: $color-nft-uncommon;
+}
+
+.bg--epic {
+  background: $color-nft-epic;
+}
+
+.bg--rare {
+  background: $color-nft-rare;
+}
+
+.bg--one-of-a-kind {
+  background: $color-nft-on-of-kind;
+  color: $color-text;
+}
+
+.bg--signature {
+  background: $color-nft-signature;
+  color: $color-text;
+}
+
+.bg--legendary {
+  background: $color-nft-legendary;
+  color: $color-text;
+}
+
 body {
   max-width: 1920px;
   margin: 0 auto;
@@ -893,37 +924,6 @@ body {
         font-size: 14px;
         border-radius: 25px;
         background: $color-nft-common;
-
-        &--common {
-          background: $color-nft-common;
-        }
-
-        &--uncommon {
-          background: $color-nft-uncommon;
-        }
-
-        &--epic {
-          background: $color-nft-epic;
-        }
-
-        &--rare {
-          background: $color-nft-rare;
-        }
-
-        &--one-of-a-kind {
-          background: $color-nft-on-of-kind;
-          color: $color-text;
-        }
-
-        &--signature {
-          background: $color-nft-signature;
-          color: $color-text;
-        }
-
-        &--signature {
-          background: $color-nft-legendary;
-          color: $color-text;
-        }
       }
     }
 
@@ -1287,7 +1287,7 @@ body {
   }
 }
 
-.ntf-detail {
+.nft-detail {
   &__item {
     &--left {
     }
@@ -1318,6 +1318,9 @@ body {
   &__rarity {
     margin-bottom: 20px;
   }
+  &__button {
+    margin-top: 30px;
+  }
 }
 
 .rarity {
@@ -1341,6 +1344,8 @@ body {
 
 .detail-list {
   margin-bottom: -15px;
+  padding-bottom: 1px;
+
   &__item {
     margin-bottom: 15px;
 

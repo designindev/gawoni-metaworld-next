@@ -37,8 +37,8 @@ export function LoginForm(props: Props) {
         // defaultValues={{ email: 'login@gmail.com', password: '12345678' }}
         className={classNames(props.className)}
       >
-        <InputForm<LoginFormSchema> type='text' name='email' label='Username or email' placeholder='Email' />
-        <InputForm<LoginFormSchema> type='password' name='password' label='Password' placeholder='Password' />
+        <InputForm<LoginFormSchema> type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
+        <InputForm<LoginFormSchema> type='password' name='password' label='Password' placeholder='Create password' />
         <div className='form__link form__link--forgot'>
           <Link href={PATH_PAGE.resetPassword} className='text-link text-primary'>
             Forgot Password?

@@ -5,7 +5,7 @@ import { mockItems } from 'entities/nft/api/items'
 import { usePaginationQuery } from 'shared/model'
 import { useState } from 'react'
 import { Pagination } from 'shared/ui'
-import { Filters } from './Filters'
+import { Filters } from './Filters1'
 import { ActionMeta, SingleValue } from 'react-select'
 
 const Shop = () => {

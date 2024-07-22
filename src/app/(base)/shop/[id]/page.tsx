@@ -57,7 +57,7 @@ const Shop = () => {
 
   const onCopy = async (text: string) => {
     await navigator.clipboard.writeText(text)
-    // notifySuccess('Content copied to clipboard')
+    notifySuccess('Content copied to clipboard')
   }
   const id = Date.now().toString()
 

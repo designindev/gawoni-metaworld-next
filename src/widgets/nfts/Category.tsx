@@ -1,6 +1,6 @@
 'use client'
 
-import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperControls } from '../../shared/ui/swiper/SwiperControls'
 import { SwiperButton } from '../../shared/ui/swiper/SwiperButton'
@@ -28,7 +28,7 @@ export const Category = (props: Props) => {
           </div>
         </div>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation, Pagination]}
           spaceBetween={40}
           navigation={{
             nextEl: '.swiper-button-next',

@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import { FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules'
 import ISwiper from 'swiper'
 import Image, { StaticImageData } from 'next/image'
 import classNames from 'classnames'
+import { SwiperButton, SwiperControls, SwiperPagination } from 'shared/ui'
 
 type Slide = {
   image: StaticImageData
@@ -20,15 +21,21 @@ export const SliderWithThumb = (props: Props) => {
   const { slides, className } = props
 
   const [thumbsSwiper, setThumbsSwiper] = useState<ISwiper | null>(null)
+  const swiper = thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
 
   return (
     <div className={classNames('row slider-with-thumbs', className)}>
-      <div className='col-lg-10 col-4 slider-with-thumbs__left'>
+      <div className='col-xl-10 col-lg-9 col-md-9 col-12 slider-with-thumbs__left'>
         <Swiper
           loop={true}
           spaceBetween={30}
-          thumbs={{ swiper: thumbsSwiper }}
-          modules={[FreeMode, Thumbs]}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          pagination={{ clickable: true, el: '.swiper-pagination' }}
+          thumbs={{ swiper }}
+          modules={[Navigation, Pagination, FreeMode, Thumbs]}
           className='slider-with-thumbs__slider slider-with-thumbs__slider--full'
           wrapperClass='slider-with-thumbs__slider-slider'
         >
@@ -39,9 +46,14 @@ export const SliderWithThumb = (props: Props) => {
               </div>
             </SwiperSlide>
           ))}
+          <SwiperControls className='slider-with-thumbs__controls' bottom>
+            <SwiperButton side='left' circle />
+            <SwiperPagination />
+            <SwiperButton side='right' circle />
+          </SwiperControls>
         </Swiper>
       </div>
-      <div className='col-lg-2 col-12 slider-with-thumbs__right'>
+      <div className='col-xl-2 col-lg-3 col-md-3 col-12 slider-with-thumbs__right'>
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}

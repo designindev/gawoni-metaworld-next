@@ -9,7 +9,7 @@ export default function BaseLayout({
     <>
       <Header />
       <div className='header-height'></div>
-      <main className='main'>{children}</main>
+      <main className='wrapper'>{children}</main>
       <Footer />
     </>
   )

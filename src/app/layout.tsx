@@ -11,7 +11,7 @@ import 'swiper/css/thumbs'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import './App.scss'
 
-export const IBM_FLEX_SANS = IBM_Plex_Sans({
+const IBM_FLEX_SANS = IBM_Plex_Sans({
   weight: ['300', '400', '500', '600'],
   subsets: ['latin'],
   variable: '--font-imb',

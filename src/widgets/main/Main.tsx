@@ -32,7 +32,6 @@ export const Main = () => {
     <section className='section section--reset-header-height s-main'>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
-        // direction={'vertical'}
         effect={'fade'}
         spaceBetween={0}
         slidesPerView={1}

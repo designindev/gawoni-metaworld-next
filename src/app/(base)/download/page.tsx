@@ -36,7 +36,6 @@ export default function Download() {
                   <Image src={el.image} alt='' />
                 </i>
                 <div className='items__text download__items-text'>
-                  <i className='download__items-icon'></i>
                   <h3 className='items__title h4 text-title download__items-title'>{el.title}</h3>
                   <div className='download__items-btn'>
                     <Button href='/' size='lg' maxWidth>

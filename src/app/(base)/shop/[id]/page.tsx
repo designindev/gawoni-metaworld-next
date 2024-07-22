@@ -6,8 +6,7 @@ import { Button } from 'shared/ui/button/Button'
 import { getBgClass, NFT_COLOR, notifySuccess } from 'shared/lib'
 import classNames from 'classnames'
 import Link from 'next/link'
-import ReactSelect, { GroupBase, Props } from 'react-select'
-import { useEffect, useId, useState } from 'react'
+import { Select } from 'shared/ui'
 
 type Detail = { label?: string; value?: string; link?: string }
 
@@ -41,16 +40,6 @@ const carParameters = [
   { label: 'Drive type', value: 'AWD' },
 ]
 const color: NFT_COLOR = 'mystic'
-
-type a = typeof ReactSelect
-
-const MySelect = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>(props: Props<Option, IsMulti, Group>) => {
-  return (
-    <>
-      <ReactSelect instanceId={useId()} className='input' classNamePrefix='react-select' name='select-1' {...props} />
-    </>
-  )
-}
 
 const Shop = () => {
   const bgClass = getBgClass(color)
@@ -226,7 +215,7 @@ const Shop = () => {
             >
               <div className='form__input form__input--mb-sm'>
                 <div className='input-label'>Select Blockchain</div>
-                <MySelect
+                <Select
                   name='select-1'
                   defaultValue={{ value: 'Binance Smart Chain (BEP20)', label: 'Binance Smart Chain (BEP20)' }}
                   options={[
@@ -239,7 +228,7 @@ const Shop = () => {
               </div>
               <div className='form__input form__input--mb-sm'>
                 <div className='input-label'>Select Currency</div>
-                <MySelect
+                <Select
                   name='select-2'
                   defaultValue={{ value: 'BNB', label: 'BNB' }}
                   options={[

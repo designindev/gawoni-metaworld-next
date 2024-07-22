@@ -68,7 +68,7 @@ body {
 
 .wrapper {
   .section:first-child {
-    @include lg-min {
+    @include xl-min {
       padding-top: $section-padding + 30px;
     }
 
@@ -1064,6 +1064,8 @@ body {
     display: flex;
     margin-left: -20px;
     margin-right: -20px;
+    position: relative;
+    z-index: 9;
     &-item {
       display: flex;
       align-items: center;
@@ -1074,6 +1076,7 @@ body {
       margin-right: 8px;
     }
     &-input {
+      width: 207px;
     }
   }
 }
@@ -1089,6 +1092,8 @@ body {
 
 .download {
   &__items {
+    justify-content: center;
+
     &-item {
       text-align: center;
       padding-top: 30px;
@@ -1160,7 +1165,7 @@ body {
     }
   }
   &__short-info {
-    @include md {
+    @include lg {
       margin-top: 40px;
     }
   }
@@ -1188,6 +1193,9 @@ body {
       @include lg {
         font-size: 16px;
         margin-top: 20px;
+      }
+      &::before {
+        top: 3px;
       }
     }
     &-descr {
@@ -1253,7 +1261,7 @@ body {
       height: 10px;
       border-radius: 50%;
       background-color: $color-primary;
-      @include md {
+      @include lg {
         top: 0;
         margin: 0 auto;
         right: 0;

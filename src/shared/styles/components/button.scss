@@ -141,6 +141,10 @@
 
   &--lg {
     height: 64px;
+
+    @include lg {
+      height: 54px;
+    }
   }
 }
 

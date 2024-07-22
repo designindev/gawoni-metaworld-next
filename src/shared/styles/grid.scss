@@ -80,3 +80,10 @@
     padding-right: 20px;
   }
 }
+
+.row {
+  @include xl-min {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}

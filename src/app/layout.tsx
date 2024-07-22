@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Sans } from 'next/font/google'
+import { IBM_Plex_Sans, Roboto_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 import classNames from 'classnames'
 import { StoreProvider } from './StoreProvider'
@@ -11,10 +11,12 @@ import 'swiper/css/thumbs'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import './App.scss'
 
-const IBM_FLEX_SANS = IBM_Plex_Sans({
+export const IBM_FLEX_SANS = IBM_Plex_Sans({
   weight: ['300', '400', '500', '600'],
   subsets: ['latin'],
+  variable: '--font-imb',
 })
+
 const Whyte900 = localFont({
   src: './Whyte-Black.woff2',
   variable: '--font-whyte-900',
@@ -48,8 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={classNames(Whyte500.variable, Whyte700.variable, Whyte700I.variable, Whyte900.variable)}>
-      <head></head>
-      <body className={IBM_FLEX_SANS.className}>
+      <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>

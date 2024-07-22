@@ -19,7 +19,7 @@ $color-success-hover: lighten($color-success, 10%);
 $color-gray: #aaa;
 // color
 // font
-$font: 'Roboto';
+$font: var(--font-imb);
 // font
 // text
 $text-font-size: 16px;
@@ -66,7 +66,7 @@ $container-max-widths: (
   xl: 1200px,
   // xxl: 1310px,
   // xxxl: 1560px,
-  // xxxxl: 1870px,,,,
+  // xxxxl: 1870px,,,,,,,,,,,
 );
 // color nft
 $color-nft-common: #b3b3b3;

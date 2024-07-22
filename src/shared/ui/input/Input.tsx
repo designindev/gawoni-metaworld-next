@@ -60,7 +60,6 @@ export const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>((
         ) : (
           <textarea ref={ref as ForwardedRef<HTMLTextAreaElement>} {...allProps} />
         )}
-        {/* {iconType && <InputIcon type={iconType} />} */}
       </div>
       {errorSlot}
     </>

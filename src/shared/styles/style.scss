@@ -25,33 +25,38 @@
 @import './components/swiper';
 // components
 
-.bg--common {
+.bg-common {
   background: $color-nft-common;
 }
 
-.bg--uncommon {
+.bg-uncommon {
   background: $color-nft-uncommon;
 }
 
-.bg--epic {
+.bg-epic {
   background: $color-nft-epic;
 }
 
-.bg--rare {
+.bg-rare {
   background: $color-nft-rare;
 }
 
-.bg--one-of-a-kind {
+.bg-one-of-a-kind {
   background: $color-nft-on-of-kind;
   color: $color-text;
 }
 
-.bg--signature {
+.bg-signature {
   background: $color-nft-signature;
   color: $color-text;
 }
 
-.bg--legendary {
+.bg-mystic {
+  background: $color-nft-mystic;
+  color: $color-text;
+}
+
+.bg-legendary {
   background: $color-nft-legendary;
   color: $color-text;
 }
@@ -64,6 +69,9 @@ body {
 .main {
   .section:first-child {
     padding-top: $section-padding + 30px;
+    @include lg {
+      padding-top: 50px;
+    }
   }
 }
 
@@ -155,6 +163,11 @@ body {
       &:hover,
       &--active {
         color: $color-secondary;
+      }
+      @include xl {
+        padding-left: 16px;
+        padding-right: 16px;
+        font-size: 16px;
       }
       @include lg {
         padding-left: 14px;
@@ -768,20 +781,10 @@ body {
     }
     &-date {
       margin-bottom: 20px;
-      padding-left: 25px;
-      position: relative;
       font-size: 14px;
-      min-height: 23px;
 
-      &::before {
-        content: '';
-        position: absolute;
+      .text-icon {
         top: -3px;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        background: center / contain no-repeat;
-        background-image: url(/images/icons/date.svg);
       }
     }
 
@@ -1288,6 +1291,7 @@ body {
 }
 
 .nft-detail {
+  margin-bottom: -24px;
   &__item {
     &--left {
     }
@@ -1297,10 +1301,35 @@ body {
     }
   }
   &__block {
-    padding: 24px;
+    padding: 24px 24px 20px;
     border-radius: 8px;
     background-color: $color-dark-nearly;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
+    @include sm {
+      padding: 16px;
+    }
+
+    &--sm {
+      padding: 16px;
+      margin-bottom: 8px;
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 5px 16px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+  &__accordion {
+    padding: 0;
+    margin-bottom: 16px;
+    .nft-detail__list {
+      display: none;
+    }
   }
   &__title,
   &__subtitle {
@@ -1308,18 +1337,37 @@ body {
     font-family: var(--font-whyte-700);
   }
   &__title {
-    margin-bottom: 10px;
+    line-height: 1.15;
+    margin-top: -10px;
+    margin-bottom: 25px;
+    @include xl {
+      margin-bottom: 10px;
+    }
   }
   &__subtitle {
     font-family: var(--font-whyte-700-i);
     color: $color-primary;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
+    @include xl {
+      margin-bottom: 20px;
+    }
   }
   &__rarity {
+    margin-bottom: 30px;
+  }
+  &__list {
+    &-mt-lg {
+      margin-top: 45px;
+    }
+  }
+  &__image {
     margin-bottom: 20px;
   }
+  &__progress-bar {
+    margin-bottom: 10px;
+  }
   &__button {
-    margin-top: 30px;
+    margin-top: 45px;
   }
 }
 
@@ -1327,8 +1375,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px;
-  background: $color-nft-mystic;
+  padding: 8px 24px;
   border-radius: 8px;
   color: $color-dark;
 
@@ -1343,25 +1390,97 @@ body {
 }
 
 .detail-list {
-  margin-bottom: -15px;
   padding-bottom: 1px;
 
   &__item {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     &--row {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
   }
   &__item--row &__label {
     margin-right: 10px;
     margin-bottom: 0;
   }
+  &__item--row &__value {
+    @include xl-min {
+      font-size: 18px;
+    }
+
+    &--fz-24 {
+      font-size: 24px;
+      @include xl {
+        font-size: 20px;
+      }
+    }
+  }
   &__label {
     color: $color-gray;
-    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
   }
   &__value {
+    margin-left: auto;
+
+    @include xl {
+      font-size: 14px;
+    }
+    &:last-child {
+    }
+
+    &--fz-18 {
+      font-size: 18px;
+    }
+    &--w-150 {
+      text-align: center;
+      width: 150px;
+    }
+  }
+
+  &__params {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    border-bottom: 1px solid #fff;
+    &-item {
+    }
+  }
+  &__copy-link {
+    margin-top: 10px;
+  }
+  &__button {
+    margin-top: 15px;
+    text-align: right;
+  }
+}
+
+.progress-bar {
+  &__label {
+    font-weight: 500;
+    font-size: 18px;
+    &--sm {
+      font-size: 14px;
+    }
+  }
+  &__line {
+    height: 10px;
+    background-color: #fff;
+    margin: 10px 0;
+    border-radius: 1000px;
+
+    &-fill {
+      border-radius: inherit;
+      background-color: $color-secondary;
+      width: 50%;
+      height: 100%;
+    }
   }
 }

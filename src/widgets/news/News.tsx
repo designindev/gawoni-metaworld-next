@@ -65,7 +65,8 @@ export const News = async () => {
                 </div>
                 <div className='items__text news__items-text'>
                   <div className='news__items-date'>
-                    <p>{item.pubDate}</p>
+                    <div className='text-icon text-icon--date text-icon--left'></div>
+                    {item.pubDate}
                   </div>
                   <h3 className='items__title h3 h3--fz-28 text-title news__items-title'>{item.title}</h3>
                   <div className='items__descr news__items-descr'>

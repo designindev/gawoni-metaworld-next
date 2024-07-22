@@ -8,7 +8,7 @@ interface AnchorHTML extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 type Color = 'primary' | 'secondary' | 'dangerous' | 'success' | 'white'
-type Size = 'md' | 'lg'
+type Size = 'sm' | 'md' | 'lg'
 
 export type ButtonProps = {
   children?: ReactNode

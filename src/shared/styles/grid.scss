@@ -75,6 +75,8 @@
 .col-xl-8,
 .col-xl-9,
 .col-xl-auto {
-  padding-left: 20px;
-  padding-right: 20px;
+  @include xl-min {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

@@ -1,9 +1,9 @@
-.text-center {
-  text-align: center;
-}
-
 .text-bold {
   font-weight: 700;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
 }
 
 .text-white {
@@ -91,6 +91,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
+  vertical-align: top;
 
   &--left {
     margin-right: 10px;
@@ -110,13 +111,17 @@
     height: 28px;
   }
 
+  &--fz-14 {
+    font-size: 14px;
+  }
+
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 20px;
-    height: 20px;
+    right: 0;
+    bottom: 0;
     background: center / contain no-repeat;
   }
 
@@ -132,6 +137,30 @@
     }
   }
 
+  &--date {
+    &::before {
+      background-image: url(/images/icons/date.svg);
+    }
+  }
+
+  &--copy {
+    &::before {
+      background-image: url(/images/icons/copy.svg);
+    }
+  }
+
+  &--minus {
+    &::before {
+      background-image: url(/images/icons/minus.svg);
+    }
+  }
+
+  &--plus {
+    &::before {
+      background-image: url(/images/icons/plus.svg);
+    }
+  }
+
   &--chevron,
   &--chevron-up,
   &--chevron-down {
@@ -144,5 +173,20 @@
   }
   &--chevron-down {
     transform: rotate(-90deg);
+  }
+}
+
+.text-copy-link {
+  padding-right: 30px;
+  position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-height: 20px;
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
   }
 }

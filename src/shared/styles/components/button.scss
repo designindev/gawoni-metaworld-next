@@ -31,6 +31,11 @@
   color: #000;
   transition: background-color 0.3s, border-color 0.3s, top 0.3s;
 
+  @include xl {
+    min-width: 170px;
+    height: 44px;
+  }
+
   @include lg {
     min-width: 150px;
     font-size: 16px;
@@ -121,6 +126,17 @@
   &--w-lg {
     max-width: 100%;
     width: 336px;
+  }
+
+  &--sm {
+    height: 36px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  &--sm#{&}--border {
+    border-width: 1px;
+    font-size: 16px;
+    min-width: 1px;
   }
 
   &--lg {

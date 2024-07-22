@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: $text-font-family, sans-serif;
   font-size: $text-font-size;
   color: #fff;
   line-height: $text-line-height;
@@ -142,6 +142,10 @@ sup {
 
 .mt-40 {
   margin-top: 40px;
+}
+
+.fz-24 {
+  font-size: 24px;
 }
 
 .fz-20 {

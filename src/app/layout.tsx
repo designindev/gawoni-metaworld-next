@@ -24,7 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
+      <body>
+        {/* className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)} */}
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>

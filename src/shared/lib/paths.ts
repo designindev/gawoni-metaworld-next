@@ -1,3 +1,4 @@
+import { AnchorHTMLAttributes } from 'react'
 import { config } from './config'
 
 type PATH_PAGE = {
@@ -29,14 +30,14 @@ export const PATH_PAGE = {
 
 export const PATH_IMAGE = (image: string) => `${config.SITE_ENDPOINT}/${image}`
 
-export type PATH_MENU = { href: string; label: string; sub?: PATH_MENU[] }
+export type PATH_MENU = { href: string; label: string; sub?: PATH_MENU[] } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 export const PATH_MENU = [
   {
     href: PATH_PAGE.root,
     label: 'Home',
   },
-  { href: PATH_PAGE.news, label: 'News' },
+  { href: 'https://medium.com/@gawooni', label: 'News', target: '_blank' },
   {
     href: PATH_PAGE.games.root,
     label: 'Games',

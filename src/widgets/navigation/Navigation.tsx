@@ -1,7 +1,6 @@
 'use client'
 
 import classNames from 'classnames'
-import { usePathname } from 'next/navigation'
 import { PATH_MENU } from 'shared/lib'
 import Navigationitem from './Navigationitem'
 

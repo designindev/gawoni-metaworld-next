@@ -8,13 +8,14 @@ type Props = { el: PATH_MENU }
 
 const Navigationitem = (props: Props) => {
   const { el } = props
+  const { label, sub, ...rest } = el
 
   const [visible, setVisible] = useState(false)
 
   const pathName = usePathname()
 
   const isActive = pathName === el.href
-  const hasSub = Boolean(el.sub)
+  const hasSub = Boolean(sub)
 
   const className = classNames('nav__list-link', {
     'nav__list-link--active': isActive,
@@ -32,12 +33,12 @@ const Navigationitem = (props: Props) => {
     >
       {hasSub ? (
         <div className={className} onClick={onClick}>
-          {el.label}
+          {label}
           <i className='text-icon text-icon--right text-icon--chevron-down'></i>
         </div>
       ) : (
-        <Link href={el.href} className={className}>
-          {el.label}
+        <Link {...rest} className={className}>
+          {label}
         </Link>
       )}
       {el.sub && (
@@ -47,9 +48,11 @@ const Navigationitem = (props: Props) => {
           })}
         >
           {el.sub.map((el, i) => {
+            const { label, sub, ...rest } = el
+
             return (
               <li key={i} className='nav__list-item'>
-                <Link href={el.href} className={'nav__list-link'}>
+                <Link {...rest} className={'nav__list-link'}>
                   {el.label}
                 </Link>
               </li>

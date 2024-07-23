@@ -1427,23 +1427,6 @@ body {
       padding: 16px;
       margin-bottom: 8px;
     }
-
-    &-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-      padding: 5px 16px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-  }
-  &__accordion {
-    padding: 0;
-    margin-bottom: 16px;
-    .nft-detail__list {
-      display: none;
-    }
   }
   &__title,
   &__subtitle {
@@ -1476,12 +1459,47 @@ body {
   }
   &__image {
     margin-bottom: 20px;
+
+    img {
+      @include sm {
+        padding: 0;
+      }
+    }
   }
   &__progress-bar {
     margin-bottom: 10px;
   }
   &__button {
     margin-top: 45px;
+  }
+}
+
+.accordion {
+  border-radius: 8px;
+  background-color: $color-dark-nearly;
+  margin-bottom: 16px;
+
+  &--active &__title {
+    .text-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 5px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    .text-icon {
+      transition: transform 0.3s;
+    }
+  }
+
+  &__content {
+    padding: 16px;
   }
 }
 
@@ -1524,15 +1542,9 @@ body {
     margin-bottom: 0;
   }
   &__item--row &__value {
+    text-align: right;
     @include xl-min {
       font-size: 18px;
-    }
-
-    &--fz-24 {
-      font-size: 24px;
-      @include xl {
-        font-size: 20px;
-      }
     }
   }
   &__label {
@@ -1543,20 +1555,30 @@ body {
   }
   &__value {
     margin-left: auto;
+    font-size: 16px;
 
-    @include xl {
-      font-size: 14px;
-    }
-    &:last-child {
+    &--fz-14-mobile {
+      @include sm {
+        font-size: 14px;
+      }
     }
 
     &--fz-18 {
       font-size: 18px;
     }
+
+    &--fz-24 {
+      font-size: 24px;
+    }
     &--w-150 {
       text-align: center;
       width: 150px;
+      padding: 0 10px;
     }
+  }
+
+  &__item--row &__value--w-150 {
+    text-align: center;
   }
 
   &__params {
@@ -1613,6 +1635,7 @@ body {
     }
     .form {
       width: 100%;
+      font-size: 16px;
     }
   }
 

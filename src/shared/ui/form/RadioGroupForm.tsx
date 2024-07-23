@@ -1,3 +1,5 @@
+'use client'
+
 import { FieldValues, Path, useFormContext } from 'react-hook-form'
 import { InputErrorMessageForm } from './InputErrorMessageForm'
 import { RadioInput } from '../radio-input/RadioInput'

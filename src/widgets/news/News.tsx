@@ -75,7 +75,7 @@ export const News = async () => {
                     <p>{item.descr}</p>
                   </div>
                   <div className='items__descr news__items-link'>
-                    <Link href={item.link} target='_blank' className='text-link text-link--arrow text-secondary'>
+                    <Link href={'https://medium.com/@gawooni'} target='_blank' className='text-link text-link--arrow text-secondary'>
                       READ MORE
                     </Link>
                   </div>

@@ -31,7 +31,7 @@ export const StoreProvider = ({ children }: Props) => {
   return (
     <Provider store={storeRef.current}>
       {children}
-      <ToastContainer />
+      <ToastContainer position='bottom-right' />
     </Provider>
   )
 }

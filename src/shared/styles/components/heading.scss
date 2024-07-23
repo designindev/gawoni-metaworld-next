@@ -54,6 +54,14 @@
     }
   }
 
+  &--fz-56 {
+    font-size: 56px;
+
+    @include lg {
+      font-size: 40px;
+    }
+  }
+
   &--fz-48 {
     font-size: 48px;
 

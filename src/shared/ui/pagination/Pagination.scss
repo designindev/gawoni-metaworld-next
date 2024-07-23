@@ -19,17 +19,37 @@
     transition: all 0.3s;
 
     &--arrow {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: url(/images/icons/chevron.svg);
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(/images/icons/chevron.svg);
+        transition: opacity 0.3s;
+      }
+      &::after {
+        background-image: url(/images/icons/chevron-black.svg);
+        opacity: 0;
+      }
 
       &-prev {
         margin-right: 30px;
+        @include lg {
+          margin-right: 10px;
+        }
       }
 
       &-next {
         margin-left: 30px;
         transform: rotate(180deg);
+        @include lg {
+          margin-left: 10px;
+        }
       }
     }
 
@@ -54,6 +74,7 @@
     &--selected,
     &:hover {
       background-color: $color-gray;
+      color: $color-text;
     }
 
     &--number:active {
@@ -64,6 +85,12 @@
     &--disabled {
       background-color: $color-disabled;
       pointer-events: none;
+      &::before {
+        opacity: 0;
+      }
+      &::after {
+        opacity: 1;
+      }
     }
     &--ellipsis {
       &:hover {

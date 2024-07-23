@@ -66,7 +66,7 @@ export const Games = () => {
                     <i className='text-icon text-icon--left text-icon--info'></i>
                     Game Info
                   </Button>
-                  <Button href='#' className='games__items-hover-btn' color='white' border>
+                  <Button href={PATH_PAGE.shop.root} className='games__items-hover-btn' color='white' border>
                     <i className='text-icon text-icon--left text-icon--cart'></i>
                     Game Store
                   </Button>

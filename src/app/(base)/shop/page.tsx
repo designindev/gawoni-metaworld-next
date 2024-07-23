@@ -23,17 +23,16 @@ const Shop = () => {
   return (
     <section className='section s-shop'>
       <div className='container s-shop__container'>
-        <h1 className='h1 section__heading'>NFT Shop</h1>
+        <h1 className='h1 h1--fz-56 section__heading'>NFT Shop</h1>
         <div className='shop s-shop__shop'>
-          <div className='shop__filter filter'>
-            <Filters count={count} onChange={onChangeFilter} />
-          </div>
+          <Filters count={count} onChange={onChangeFilter} className='shop__filter' />
           <div className='row items shop__items'>
             {mockItems.map((item, i) => {
-              return <NftCard key={i} nft={item} className='col-lg-3 col-12 item-bg--grid' />
+              return <NftCard key={i} nft={item} className='col-xl-3 col-lg-4 col-sm-6 col-12 item-bg--grid' />
             })}
           </div>
-          <Pagination onChangePage={onChangePage} count={800} limit={8} page={page} className='mt-55' />
+          <Pagination onChangePage={onChangePage} count={800} siblingCount={1} limit={8} page={page} className='mt-55 d-none d-lg-flex' />
+          <Pagination onChangePage={onChangePage} count={800} siblingCount={0} limit={8} page={page} className='mt-55 d-lg-none' />
         </div>
       </div>
     </section>

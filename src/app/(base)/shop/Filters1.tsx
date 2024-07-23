@@ -1,6 +1,7 @@
 'use client'
 
-import { useRef } from 'react'
+import classNames from 'classnames'
+import { useRef, useState } from 'react'
 import { ActionMeta, SingleValue } from 'react-select'
 import { Select } from 'shared/ui'
 import { Button } from 'shared/ui/button/Button'
@@ -37,6 +38,7 @@ const filters = [
 
 type Props = {
   count: number
+  className: string
   onChange: (
     newValue: SingleValue<{ value: string; label: string }>,
     actionMeta: ActionMeta<{
@@ -50,6 +52,7 @@ export const Filters = (props: Props) => {
   const select1Ref = useRef<any>(null)
   const select2Ref = useRef<any>(null)
   const select3Ref = useRef<any>(null)
+  const [active, setActive] = useState(false)
 
   const refs = [select1Ref, select2Ref, select3Ref]
 
@@ -60,29 +63,56 @@ export const Filters = (props: Props) => {
   }
 
   return (
-    <div>
-      <div className='filter__top'>
-        <div className='filter__left'>
-          <div className='filter__label h3 h3--fz-32'>Filters</div>
-          <div className='filter__number'>{props.count}</div>
-        </div>
-        <div className='filter__right'>
-          <Button color={'white'} onClick={clearValue} border>
-            Clear all
-          </Button>
-        </div>
+    <div
+      className={classNames('filter', props.className, {
+        'filter--active': active,
+      })}
+    >
+      <div className='filter__btn-open d-lg-none'>
+        <Button onClick={() => setActive(true)} color='white' border maxWidth>
+          Filters <div className='filter__number'>{props.count}</div>
+        </Button>
       </div>
-      <div className='filter__items'>
-        {filters.map((el, i) => {
-          return (
-            <div key={i} className='filter__items-item'>
-              <div className='filter__items-label'>{el.label}</div>
-              <div className='filter__items-input'>
-                <Select onChange={props.onChange} placeholder={'All'} name={el.name} options={el.options} inputRef={refs[i]} isClearable />
+
+      <div className='filter__popup'>
+        <div className='filter__popup-overflow' onClick={() => setActive(false)}></div>
+        <div className='filter__popup-inner'>
+          <div className='filter__popup-inner-top'>
+            <div className='filter__top'>
+              <div className='filter__left'>
+                <div className='filter__label h3 h3--fz-32'>Filters</div>
+                <div className='filter__number'>{props.count}</div>
+              </div>
+              <div className='filter__right d-none d-lg-block'>
+                <Button color={'white'} onClick={clearValue} border>
+                  Clear all
+                </Button>
+              </div>
+              <div className='filter__right d-block d-lg-none'>
+                <Button color={'white'} onClick={clearValue} border link>
+                  Clear all <i className='text-icon text-icon--x text-icon--right'></i>
+                </Button>
               </div>
             </div>
-          )
-        })}
+            <div className='filter__items'>
+              {filters.map((el, i) => {
+                return (
+                  <div key={i} className='filter__items-item'>
+                    <div className='filter__items-label'>{el.label}</div>
+                    <div className='filter__items-input'>
+                      <Select onChange={props.onChange} placeholder={'All'} name={el.name} options={el.options} inputRef={refs[i]} isClearable />
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <div className='filter__button d-lg-none'>
+              <Button maxWidth onClick={() => setActive(false)}>
+                Accept
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

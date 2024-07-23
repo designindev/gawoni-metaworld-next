@@ -9,26 +9,20 @@ export type PaginationProps = {
   count?: number
   limit?: number
   lastPage?: number
+  siblingCount?: number
   selectedPages?: number[]
   onChangePage?: (page: number) => void
   className?: string
 }
 
-export const Pagination = ({
-  count,
-  page,
-  limit,
-  lastPage,
-  onChangePage,
-  selectedPages,
-  className,
-}: PaginationProps) => {
+export const Pagination = ({ count, page, limit, lastPage, onChangePage, siblingCount, selectedPages, className }: PaginationProps) => {
   const { items: pageNumbers } = usePagination({
     count,
     defaultPage: page,
     page,
     lastPage,
     selectedPages,
+    siblingCount,
     limit,
     onChange: onChangePage,
   })
@@ -46,18 +40,12 @@ export const Pagination = ({
           >
             {clickPage}
           </button>
-        ) : type === 'first' ||
-          type === 'prev' ||
-          type === 'next' ||
-          type === 'last' ? (
+        ) : type === 'first' || type === 'prev' || type === 'next' || type === 'last' ? (
           <button
             key={i}
-            className={classNames(
-              `pagination__page pagination__page--arrow pagination__page--arrow-${type}`,
-              {
-                'pagination__page--disabled': props.disabled,
-              }
-            )}
+            className={classNames(`pagination__page pagination__page--arrow pagination__page--arrow-${type}`, {
+              'pagination__page--disabled': props.disabled,
+            })}
             {...props}
           ></button>
         ) : (

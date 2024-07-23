@@ -2,14 +2,7 @@
 
 import { useState } from 'react'
 
-type TypePage =
-  | 'first'
-  | 'prev'
-  | 'next'
-  | 'last'
-  | 'page'
-  | 'start-ellipsis'
-  | 'end-ellipsis'
+type TypePage = 'first' | 'prev' | 'next' | 'last' | 'page' | 'start-ellipsis' | 'end-ellipsis'
 
 const buttonPage = (type: TypePage, page: number, lastPage: number): number => {
   switch (type) {
@@ -80,10 +73,7 @@ export const usePagination = (props: Params) => {
     return Array.from({ length }, (_, i) => start + i)
   }
   const startPages = range(1, Math.min(boundaryCount, lastPage))
-  const endPages = range(
-    Math.max(lastPage - boundaryCount + 1, boundaryCount + 1),
-    lastPage
-  )
+  const endPages = range(Math.max(lastPage - boundaryCount + 1, boundaryCount + 1), lastPage)
 
   const siblingsStart = Math.max(
     Math.min(
@@ -113,21 +103,13 @@ export const usePagination = (props: Params) => {
     ...startPages,
 
     // Start ellipsis
-    ...(siblingsStart > boundaryCount + 1
-      ? ['start-ellipsis' as TypePage]
-      : boundaryCount + 1 < lastPage - boundaryCount
-      ? [boundaryCount + 1]
-      : []),
+    ...(siblingsStart > boundaryCount + 1 ? ['start-ellipsis' as TypePage] : boundaryCount + 1 < lastPage - boundaryCount ? [boundaryCount + 1] : []),
 
     // Sibling pages
     ...range(siblingsStart, siblingsEnd),
 
     // End ellipsis
-    ...(siblingsEnd < lastPage - boundaryCount - 1
-      ? ['end-ellipsis' as TypePage]
-      : lastPage - boundaryCount > boundaryCount
-      ? [lastPage - boundaryCount]
-      : []),
+    ...(siblingsEnd < lastPage - boundaryCount - 1 ? ['end-ellipsis' as TypePage] : lastPage - boundaryCount > boundaryCount ? [lastPage - boundaryCount] : []),
 
     ...endPages,
     ...(hideNextButton ? [] : ['next' as TypePage]),
@@ -141,12 +123,7 @@ export const usePagination = (props: Params) => {
     const selected = isNumber && activePages.includes(el)
     const onClick = () => handleClick(clickPage)
     const disabled =
-      !defaultDisabled &&
-      (isNumber
-        ? selected
-        : el.indexOf('ellipsis') === -1 && (el === 'next' || el === 'last')
-        ? currentPage >= lastPage
-        : currentPage <= 1)
+      !defaultDisabled && (isNumber ? selected : el.indexOf('ellipsis') === -1 && (el === 'next' || el === 'last') ? currentPage >= lastPage : currentPage <= 1)
 
     return { type, clickPage, selected, onClick, disabled }
   })

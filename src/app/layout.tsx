@@ -8,7 +8,17 @@ import 'swiper/css/free-mode'
 // import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
+import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css'
 import './App.scss'
+
+// import 'bootstrap/scss/functions'
+// import 'bootstrap/scss/variables'
+// import 'bootstrap/scss/mixins/deprecate'
+// import 'bootstrap/scss/mixins/breakpoints'
+// import 'bootstrap/scss/mixins/grid-framework'
+// import 'bootstrap/scss/mixins/grid'
+// import 'bootstrap/scss/grid'
+// import 'bootstrap/scss/utilities/display'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

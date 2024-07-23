@@ -80,7 +80,7 @@
 
 .btn {
   &--border {
-    border-width: 3px;
+    border-width: 2px;
     background-color: transparent;
     box-shadow: none;
     border-style: solid;
@@ -102,9 +102,10 @@
 
   &--link {
     padding: 0;
-    border-bottom: 1px solid transparent;
+    border: none;
     height: auto;
     border-radius: 0;
+    min-width: 1px;
 
     &::before,
     &::after {

@@ -33,12 +33,11 @@
 
   @include xl {
     min-width: 170px;
-    height: 44px;
+    height: 48px;
   }
 
   @include lg {
     min-width: 150px;
-    font-size: 16px;
   }
 
   &::before,
@@ -51,7 +50,7 @@
     bottom: 0;
     border-radius: inherit;
     transition: all 0.3s;
-    clip-path: polygon(0 20px, 20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%);
+    // clip-path: polygon(0 20px, 20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%);
   }
 
   &::before {
@@ -81,7 +80,7 @@
 
 .btn {
   &--border {
-    border-width: 3px;
+    border-width: 2px;
     background-color: transparent;
     box-shadow: none;
     border-style: solid;
@@ -212,6 +211,7 @@
 
     &::before {
       border-color: $color-disabled;
+      background: none;
       background-color: $color-disabled;
     }
 

@@ -9,11 +9,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: scrollbar;
   overflow: auto;
-
-  &.js-popup-active,
-  &.js-menu-active {
-    overflow: hidden;
-  }
 }
 
 body {

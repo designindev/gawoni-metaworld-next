@@ -1,6 +1,9 @@
+'use client'
+
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
+import { onScrollToBlock } from 'shared/lib'
 
 interface ButtonHTML extends ButtonHTMLAttributes<HTMLButtonElement> {}
 interface AnchorHTML extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -43,9 +46,18 @@ export const Button = (props: ButtonProps) => {
   return (
     <>
       {'href' in rest ? (
-        <Link {...rest} href={rest.href} className={fullClassName}>
-          {children}
-        </Link>
+        // <Link {...rest} href={rest.href} className={fullClassName}>
+        //   {children}
+        // </Link>
+        rest.href[0] === '#' ? (
+          <a className={fullClassName} {...rest} onClick={(e) => onScrollToBlock(e, rest.href)}>
+            {children}
+          </a>
+        ) : (
+          <Link {...rest} href={rest.href} className={fullClassName}>
+            {children}
+          </Link>
+        )
       ) : (
         <button className={fullClassName} {...rest} disabled={disabled || loading}>
           {children}

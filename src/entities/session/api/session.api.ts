@@ -22,6 +22,9 @@ export const sessionApi = baseApi.injectEndpoints({
     resetPassword: build.mutation<void, ResetPasswordDto>({
       query: (body) => ({ url: sessionRoutes.RESET_PASSWORD, method: 'POST', body }),
     }),
+    newPassword: build.mutation<void, ResetPasswordDto>({
+      query: (body) => ({ url: sessionRoutes.NEW_PASSWORD, method: 'POST', body }),
+    }),
     logout: build.mutation<Session, { refreshToken: string }>({
       query: (body) => ({ url: sessionRoutes.LOGOUT, method: 'POST', body }),
     }),
@@ -32,4 +35,4 @@ export const sessionApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useRegisterMutation, useLoginMutation, useResetPasswordMutation } = sessionApi
+export const { useRegisterMutation, useLoginMutation, useResetPasswordMutation, useNewPasswordMutation } = sessionApi

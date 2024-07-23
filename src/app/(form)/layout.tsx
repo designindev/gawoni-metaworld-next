@@ -15,18 +15,14 @@ export default function FormLayout({
       <main className='wrapper'>
         <section className='section s-form'>
           <div className='container'>
-            <div className='row'>
-              <div className='col-lg-5 col-md-6 col-12'>
-                <div className='s-form__form'>{children}</div>
-              </div>
-              <div className='col-lg-7 col-md-6 col-12'>
-                <div className='s-form__right'>
-                  <div className='logo logo--xl s-form__logo'>
-                    <Image src={Logo} alt='Logo' priority />
-                  </div>
-                  <div className='s-form__image'>
-                    <Image src={FormImage} alt='' priority />
-                  </div>
+            <div className='row s-form__row'>
+              <div className='col-md-6 col-12 s-form__left'>{children}</div>
+              <div className='col-md-6 col-12 s-form__right'>
+                <div className='logo logo--xl s-form__logo'>
+                  <Image src={Logo} alt='Logo' priority />
+                </div>
+                <div className='s-form__image'>
+                  <Image src={FormImage} alt='' priority />
                 </div>
               </div>
             </div>

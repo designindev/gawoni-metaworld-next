@@ -42,7 +42,7 @@ export const News = async () => {
   const items = data.items.slice(0, 3) as any[]
 
   return (
-    <section className='section s-news'>
+    <section className='section s-news' id='news'>
       <div className='section__bg' style={{ backgroundImage: `url(/images/bg/news.png)` }}></div>
       <div className='container s-news__container news'>
         <div className='section__heading-wrapper s-news__heading-wrapper'>
@@ -50,7 +50,9 @@ export const News = async () => {
             <span className='section__heading-icon section__heading-icon--right'>latest News</span>
           </h2>
           <div className='section__heading-btn'>
-            <Button href={PATH_PAGE.news}>Read all news</Button>
+            <Button href={'https://medium.com/@gawooni'} target='_blank'>
+              Read all news
+            </Button>
           </div>
         </div>
         <div className='row items news__items'>

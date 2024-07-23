@@ -10,33 +10,7 @@ import 'swiper/css/free-mode'
 import 'swiper/css/thumbs'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import './App.scss'
-
-const IBM_FLEX_SANS = IBM_Plex_Sans({
-  weight: ['300', '400', '500', '600'],
-  subsets: ['latin'],
-  variable: '--font-imb',
-})
-
-const Whyte900 = localFont({
-  src: './Whyte-Black.woff2',
-  variable: '--font-whyte-900',
-  weight: '900',
-})
-const Whyte700 = localFont({
-  src: './Whyte-Bold.woff2',
-  variable: '--font-whyte-700',
-  weight: '700',
-})
-const Whyte700I = localFont({
-  src: './Whyte-BoldItalic.woff2',
-  variable: '--font-whyte-700-i',
-  weight: '700',
-})
-const Whyte500 = localFont({
-  src: './Whyte-Medium.woff2',
-  variable: '--font-whyte-500',
-  weight: '500',
-})
+import { IBM_FLEX_SANS } from './fonts'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -49,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' className={classNames(Whyte500.variable, Whyte700.variable, Whyte700I.variable, Whyte900.variable)}>
+    <html lang='en'>
       <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
         <StoreProvider>{children}</StoreProvider>
       </body>

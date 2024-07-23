@@ -216,7 +216,7 @@ const Shop = () => {
               <div className='form__input form__input--mb-sm'>
                 <div className='input-label'>Select Blockchain</div>
                 <Select
-                  name='select-1'
+                  name='blockchain'
                   defaultValue={{ value: 'Binance Smart Chain (BEP20)', label: 'Binance Smart Chain (BEP20)' }}
                   options={[
                     { value: 'Binance Smart Chain (BEP20)', label: 'Binance Smart Chain (BEP20)' },
@@ -229,7 +229,7 @@ const Shop = () => {
               <div className='form__input form__input--mb-sm'>
                 <div className='input-label'>Select Currency</div>
                 <Select
-                  name='select-2'
+                  name='currency'
                   defaultValue={{ value: 'BNB', label: 'BNB' }}
                   options={[
                     { value: 'BNB', label: 'BNB' },

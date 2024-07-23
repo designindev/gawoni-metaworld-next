@@ -21,6 +21,8 @@ export const PATH_PAGE = {
   register: '/register',
   login: '/login',
   resetPassword: '/reset-password',
+  checkEmail: '/check-email',
+  passwordResetSuccess: '/password-reset-success',
   404: '/404',
   error: '/error',
 } as const satisfies PATH_PAGE

@@ -2,26 +2,27 @@
 
 import { notifySuccess } from 'shared/lib/notify'
 import { useCallback } from 'react'
-import { ButtonForm, Form, InputForm } from 'shared/ui'
+import { Button, ButtonForm, Form, InputForm } from 'shared/ui'
 import classNames from 'classnames'
 import { ResetPasswordformSchema, resetPasswordFormSchema } from '../model/reset-password.schema'
 import { PATH_PAGE } from 'shared/lib'
 import { useResetPasswordMutation } from 'entities/session/api/session.api'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 type Props = {
-  onComplete?: () => void
   className?: string
 }
 
 export const ResetPasswordForm = (props: Props) => {
+  const router = useRouter()
+
   const [resetPassword] = useResetPasswordMutation()
 
   const onSubmitHandler = useCallback(
     async (data: ResetPasswordformSchema) => {
-      await resetPassword(data).unwrap()
-      props.onComplete && props.onComplete()
-      notifySuccess('You have successfully registered')
+      // await resetPassword(data).unwrap()
+      router.push(`${PATH_PAGE.checkEmail}?email=${data.email}`)
+      notifySuccess('You have successfully reseted password')
     },
     [props, resetPassword]
   )
@@ -34,17 +35,13 @@ export const ResetPasswordForm = (props: Props) => {
         // defaultValues={{ email: 'login@gmail.com', }}
         className={classNames('', props.className)}
       >
-        <div className='row'>
-          <div className='col-lg-6 col-12'>
-            <InputForm<ResetPasswordformSchema> type='text' name='email' label='Username' placeholder='Enter your username' />
-          </div>
-        </div>
-        <ButtonForm>Create account</ButtonForm>
-        <div className='form__link'>
-          Already have an account? &nbsp;
-          <Link href={PATH_PAGE.login} className='text-link text-primary'>
-            Log In
-          </Link>
+        <InputForm<ResetPasswordformSchema> type='email' name='email' label='Enter your email' placeholder='Enter your email' />
+
+        <div className='form__buttons'>
+          <ButtonForm lgWidth>Send</ButtonForm>
+          <Button href={PATH_PAGE.login} color='white' lgWidth border>
+            Back to log in
+          </Button>
         </div>
       </Form>
     </>

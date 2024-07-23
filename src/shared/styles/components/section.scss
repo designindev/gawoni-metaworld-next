@@ -59,7 +59,8 @@
       margin-bottom: 30px;
     }
 
-    &.h1 {
+    &.h1,
+    &.h1 + .section__descr {
       text-align: center;
     }
 
@@ -123,8 +124,23 @@
     }
     &-wrapper & {
     }
+
     &-wrapper &-btn {
       margin-top: 15px;
+    }
+  }
+
+  &__heading + &__descr {
+    margin-top: -25px;
+  }
+
+  &__descr {
+    text-transform: none;
+    font-size: 18px;
+    margin-bottom: 70px;
+
+    @include lg {
+      margin-bottom: 40px;
     }
   }
 }

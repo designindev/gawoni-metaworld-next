@@ -2,7 +2,7 @@
 
 import { notifySuccess } from 'shared/lib/notify'
 import { useCallback } from 'react'
-import { ButtonForm, Form, InputForm } from 'shared/ui'
+import { ButtonForm, Form, InputForm, Preloader } from 'shared/ui'
 import classNames from 'classnames'
 import { LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
 import { PATH_PAGE } from 'shared/lib'
@@ -44,7 +44,9 @@ export function LoginForm(props: Props) {
             Forgot Password?
           </Link>
         </div>
-        <ButtonForm className='form__button'>Log In</ButtonForm>
+        <ButtonForm className='form__button' lgWidth>
+          Log In
+        </ButtonForm>
         {isAuth}
         <div className='form__link'>
           Don’t have an account? &nbsp;

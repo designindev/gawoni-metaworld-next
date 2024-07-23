@@ -15,7 +15,7 @@ export const ButtonForm = (props: Props) => {
 
   return (
     // disabled={!isDirty}
-    <Button {...props} loading={isSubmitting} lgWidth>
+    <Button {...props} loading={isSubmitting}>
       {props.children}
     </Button>
   )

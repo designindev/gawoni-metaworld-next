@@ -43,6 +43,7 @@ export const Category = (props: Props) => {
             992: { slidesPerView: 3 },
             1200: { slidesPerView: 4 },
           }}
+          slidesPerGroup={4}
           className='swiper--visible items items--slider nfts__items'
           wrapperClass='items__slider nfts__items-slider'
           loop

@@ -9,6 +9,7 @@ import { SwiperPagination } from 'shared/ui/swiper/SwiperPagination'
 import { Button } from 'shared/ui/button/Button'
 import Image1 from './slide-1.jpg'
 import Image2 from './slide-2.jpg'
+import { onScrollToBlock } from 'shared/lib'
 
 const items = [
   {
@@ -61,7 +62,7 @@ export const Main = () => {
                       <p>{el.content}</p>
                     </div>
                     <div className='main__items-content-right'>
-                      <Button href='#' color='white' border maxWidth>
+                      <Button href='#news' color='white' border maxWidth>
                         Learn more
                       </Button>
                     </div>

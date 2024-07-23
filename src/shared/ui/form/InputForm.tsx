@@ -42,7 +42,7 @@ export const InputForm = <TFormValues extends Record<string, unknown>>(props: In
         filled={Boolean(getValues(name))}
         autoComplete='off'
         hasError={hasError && !rest.disabled}
-        errorSlot={<InputErrorMessageForm errors={errors} name={name as any} />}
+        errorSlot={<InputErrorMessageForm errors={errors} name={name} />}
       />
     </div>
   )

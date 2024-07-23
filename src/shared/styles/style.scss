@@ -596,25 +596,6 @@ body {
           right: 0;
         }
       }
-
-      // @include xl {
-      //   position: absolute;
-      //   bottom: 40px;
-      //   left: 0;
-      //   right: 0;
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      //   .swiper-button-prev,
-      //   .swiper-button-next {
-      //     position: relative;
-      //     margin: 0;
-      //   }
-      //   .swiper-pagination-bullets {
-      //     margin: 0 10px;
-      //     position: relative;
-      //   }
-      // }
     }
   }
 }
@@ -861,6 +842,8 @@ body {
       width: 400px;
       background: linear-gradient(270deg, #080808 0%, rgba(8, 8, 8, 0) 100%);
       z-index: 3;
+      user-select: none;
+      pointer-events: none;
     }
     .swiper-slide {
       transition: all 0.5s;
@@ -871,9 +854,11 @@ body {
     }
     .swiper-controls--bottom .swiper-button-next,
     .swiper-controls--bottom .swiper-button-prev {
-      position: absolute;
-      bottom: auto;
-      top: 235px;
+      @include lg-min {
+        position: absolute;
+        bottom: auto;
+        top: 235px;
+      }
     }
     .swiper-controls--bottom .swiper-button-prev {
       left: -5px;
@@ -885,6 +870,9 @@ body {
       @include r-min(1700) {
         padding-left: 100px;
         margin-right: -100px;
+      }
+      @include sm {
+        padding-right: 50px;
       }
     }
     &-controls {

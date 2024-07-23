@@ -29,21 +29,20 @@ export const Category = (props: Props) => {
         </div>
         <Swiper
           modules={[Navigation, Pagination]}
-          spaceBetween={40}
           navigation={{
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           }}
           pagination={{ clickable: true, el: '.swiper-pagination' }}
           watchSlidesProgress
+          spaceBetween={16}
           breakpoints={{
-            480: { slidesPerView: 1 },
-            576: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            992: { slidesPerView: 3 },
-            1200: { slidesPerView: 4 },
+            // 480: {  },
+            // 576: {  },
+            768: { slidesPerView: 2, slidesPerGroup: 2 },
+            992: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 30 },
+            1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 40 },
           }}
-          slidesPerGroup={4}
           className='swiper--visible items items--slider nfts__items'
           wrapperClass='items__slider nfts__items-slider'
           loop

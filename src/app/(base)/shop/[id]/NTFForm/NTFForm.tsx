@@ -1,12 +1,11 @@
 'use client'
 
-import { Button } from 'shared/ui/button/Button'
-import { Select } from 'shared/ui'
-import { FormEvent } from 'react'
+import { Button, Select } from 'shared/ui'
+import { FormEvent, useState } from 'react'
 
 import React from 'react'
 
-export const ShopForm = () => {
+export const NTFForm = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // logic
@@ -47,15 +46,7 @@ export const ShopForm = () => {
         <li className='detail-list__item detail-list__item--row'>
           <div className='detail-list__label'>Quantity</div>
           <div className='detail-list__value'>
-            <div className='input-count'>
-              <button className='input-count__operation input-count__operation--minus'>
-                <i className='text-icon text-icon--minus'></i>
-              </button>
-              <input type='text' className='input-count__input' value='1' onChange={() => {}} />
-              <button className='input-count__operation input-count__operation--plus'>
-                <i className='text-icon text-icon--plus'></i>
-              </button>
-            </div>
+            <InputCount />
           </div>
         </li>
         <li className='detail-list__item detail-list__item--row'>
@@ -67,5 +58,20 @@ export const ShopForm = () => {
         <Button maxWidth>MINT</Button>
       </div>
     </form>
+  )
+}
+
+export const InputCount = () => {
+  const [value, setValue] = useState(0)
+  return (
+    <div className='input-count'>
+      <button className='input-count__operation input-count__operation--minus' onClick={() => setValue((v) => v - 1)}>
+        <i className='text-icon text-icon--minus'></i>
+      </button>
+      <input type='number' className='input-count__input' value={value} onChange={(e) => setValue(Number(e.target.value))} />
+      <button className='input-count__operation input-count__operation--plus' onClick={() => setValue((v) => v + 1)}>
+        <i className='text-icon text-icon--plus'></i>
+      </button>
+    </div>
   )
 }

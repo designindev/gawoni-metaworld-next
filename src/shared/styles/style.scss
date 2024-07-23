@@ -1538,7 +1538,7 @@ body {
     }
   }
   &__item--row &__label {
-    margin-right: 10px;
+    margin-right: 5px;
     margin-bottom: 0;
   }
   &__item--row &__value {
@@ -1552,6 +1552,12 @@ body {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 15px;
+
+    &.text-uppercase {
+      @include sm {
+        font-size: 12px;
+      }
+    }
   }
   &__value {
     margin-left: auto;
@@ -1567,13 +1573,19 @@ body {
       font-size: 18px;
     }
 
-    &--fz-24 {
+    &#{&}--fz-24 {
       font-size: 24px;
     }
     &--w-150 {
       text-align: center;
       width: 150px;
-      padding: 0 10px;
+      padding: 0 5px;
+      @include sm {
+        width: 70px;
+      }
+      @include xs {
+        width: 50px;
+      }
     }
   }
 

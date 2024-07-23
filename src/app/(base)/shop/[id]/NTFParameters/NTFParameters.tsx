@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import ImageCar from './image.jpg'
 import classNames from 'classnames'
-import { ReactNode, useRef, useState } from 'react'
+import { AccordionItem } from './AccordionItem'
 
 const carParameters = [
   { label: 'SPEED', value: '1', params: ['1', '50', '150'] },
@@ -19,7 +19,7 @@ type Props = {
   bgClass: string
 }
 
-export const ShopCenter = (props: Props) => {
+export const NTFParameters = (props: Props) => {
   return (
     <>
       <div className={classNames('image image--cover image--square image--border nft-detail__image', props.bgClass)}>
@@ -97,96 +97,4 @@ export const ShopCenter = (props: Props) => {
       </AccordionItem>
     </>
   )
-}
-
-type AccordionItemProp = {
-  title: string
-  children: ReactNode
-}
-
-export const AccordionItem = (props: AccordionItemProp) => {
-  const { title, children } = props
-  const ref = useRef<HTMLDivElement>(null)
-  const [open, setOpen] = useState(false)
-  const onToggle = () => {
-    slideToggle(ref.current)
-    setOpen((o) => !o)
-  }
-
-  return (
-    <div
-      className={classNames('accordion', {
-        'accordion--active': open,
-      })}
-    >
-      <h4 className='accordion__title h6' onClick={onToggle}>
-        {title}
-        <i className='text-icon text-icon--chevron-down text-icon--md'></i>
-      </h4>
-      <div ref={ref} className='accordion__content' style={{ display: 'none' }}>
-        {children}
-      </div>
-    </div>
-  )
-}
-
-export const slideUp = (target: HTMLElement | null, duration = 500) => {
-  if (!target) return
-  target.style.transitionProperty = 'height, margin, padding'
-  target.style.transitionDuration = duration + 'ms'
-  target.style.boxSizing = 'border-box'
-  target.style.height = target.offsetHeight + 'px'
-  target.offsetHeight
-  target.style.overflow = 'hidden'
-  target.style.height = '0'
-  target.style.paddingTop = '0'
-  target.style.paddingBottom = '0'
-  target.style.marginTop = '0'
-  target.style.marginBottom = '0'
-  window.setTimeout(() => {
-    target.style.display = 'none'
-    target.style.removeProperty('height')
-    target.style.removeProperty('padding-top')
-    target.style.removeProperty('padding-bottom')
-    target.style.removeProperty('margin-top')
-    target.style.removeProperty('margin-bottom')
-    target.style.removeProperty('overflow')
-    target.style.removeProperty('transition-duration')
-    target.style.removeProperty('transition-property')
-  }, duration)
-}
-
-export const slideDown = (target: HTMLElement | null, duration = 500) => {
-  if (!target) return
-  target.style.removeProperty('display')
-  let display = window.getComputedStyle(target).display
-  if (display === 'none') display = 'block'
-  target.style.display = display
-  let height = target.offsetHeight
-  target.style.overflow = 'hidden'
-  target.style.height = '0'
-  target.style.paddingTop = '0'
-  target.style.paddingBottom = '0'
-  target.style.marginTop = '0'
-  target.style.marginBottom = '0'
-  target.offsetHeight
-  target.style.boxSizing = 'border-box'
-  target.style.transitionProperty = 'height, margin, padding'
-  target.style.transitionDuration = duration + 'ms'
-  target.style.height = height + 'px'
-  target.style.removeProperty('padding-top')
-  target.style.removeProperty('padding-bottom')
-  target.style.removeProperty('margin-top')
-  target.style.removeProperty('margin-bottom')
-  window.setTimeout(() => {
-    target.style.removeProperty('height')
-    target.style.removeProperty('overflow')
-    target.style.removeProperty('transition-duration')
-    target.style.removeProperty('transition-property')
-  }, duration)
-}
-
-export const slideToggle = (target: HTMLElement | null, duration = 500) => {
-  if (!target) return
-  window.getComputedStyle(target).display === 'none' ? slideDown(target, duration) : slideUp(target, duration)
 }

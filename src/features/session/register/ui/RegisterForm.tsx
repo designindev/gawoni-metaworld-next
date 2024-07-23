@@ -25,7 +25,7 @@ export const RegisterForm = (props: Props) => {
       props.onComplete && props.onComplete()
       notifySuccess('You have successfully registered')
     },
-    [props, register]
+    [props]
   )
 
   return (

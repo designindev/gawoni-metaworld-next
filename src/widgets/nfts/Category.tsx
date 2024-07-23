@@ -37,8 +37,6 @@ export const Category = (props: Props) => {
           watchSlidesProgress
           spaceBetween={16}
           breakpoints={{
-            // 480: {  },
-            // 576: {  },
             768: { slidesPerView: 2, slidesPerGroup: 2 },
             992: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 30 },
             1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 40 },

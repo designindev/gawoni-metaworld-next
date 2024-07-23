@@ -26,7 +26,7 @@ export default function Download() {
   return (
     <section className='section s-download'>
       <div className='container s-download__container'>
-        <h2 className='h1 section__heading'>play k4 rally</h2>
+        <h2 className='h1 h1--fz-64 section__heading'>play k4 rally</h2>
         <div className='row items download__items'>
           {items.map((el, i) => {
             return (
@@ -35,13 +35,11 @@ export default function Download() {
                 <i className='items__icon download__items-icon'>
                   <Image src={el.image} alt='' />
                 </i>
-                <div className='items__text download__items-text'>
-                  <h3 className='items__title h4 text-title download__items-title'>{el.title}</h3>
-                  <div className='download__items-btn'>
-                    <Button href='/' size='lg' maxWidth>
-                      {el.btn}
-                    </Button>
-                  </div>
+                <h3 className='items__title h4 text-title download__items-title'>{el.title}</h3>
+                <div className='download__items-btn'>
+                  <Button href='/' size='lg' maxWidth>
+                    {el.btn}
+                  </Button>
                 </div>
               </div>
             )

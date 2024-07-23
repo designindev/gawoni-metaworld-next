@@ -1,7 +1,27 @@
 // TODO: REFACTOR
 .container {
+  @include xxxl-min {
+    max-width: 1570px;
+  }
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
   @include xl-min {
-    max-width: 1560px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.row {
+  @include xl-min {
+    margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
@@ -78,12 +98,5 @@
   @include xl-min {
     padding-left: 20px;
     padding-right: 20px;
-  }
-}
-
-.row {
-  @include xl-min {
-    margin-left: -20px;
-    margin-right: -20px;
   }
 }

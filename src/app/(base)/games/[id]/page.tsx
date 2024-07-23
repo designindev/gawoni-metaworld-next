@@ -2,11 +2,12 @@ import { Button } from 'shared/ui/button/Button'
 import Logo from './logo.png'
 import Image from 'next/image'
 import { Social } from 'shared/ui'
-import { SliderWithThumb } from './game-slider'
+import { GameSlider } from './game-slider'
 import Slide1 from './slide-1.jpg'
 import Slide2 from './slide-2.jpg'
 import Slide3 from './slide-3.jpg'
 import Slide4 from './slide-4.jpg'
+import { PATH_PAGE } from 'shared/lib'
 
 const slides = [
   {
@@ -41,13 +42,15 @@ const Games = () => {
       <div className='section__bg section__bg--gradient'></div>
       <div className='container'>
         <div className='game-details'>
-          <SliderWithThumb slides={slides} className='game-details__slider' />
+          <GameSlider slides={slides} className='game-details__slider' />
           <div className='game-details__heading'>
             <div className='game-details__heading-logo'>
               <Image src={Logo} alt='' />
             </div>
             <div className='game-details__heading-button'>
-              <Button maxWidth>Play</Button>
+              <Button href={PATH_PAGE.download} maxWidth>
+                Play
+              </Button>
             </div>
           </div>
           <div className='game-details__info'>

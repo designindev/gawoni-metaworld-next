@@ -67,6 +67,8 @@ body {
 }
 
 .wrapper {
+  min-height: 900px;
+
   .section:first-child {
     @include xl-min {
       padding-top: $section-padding + 30px;
@@ -1111,6 +1113,8 @@ body {
       text-align: center;
       padding-top: 30px;
       padding-bottom: 30px;
+      display: flex;
+      flex-direction: column;
     }
     &-border {
       border: 1px solid #fff;
@@ -1119,13 +1123,14 @@ body {
     &-icon {
       display: block;
       line-height: 80px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     &-title {
       text-transform: uppercase;
+      margin-bottom: auto;
     }
     &-btn {
-      margin-top: 20px;
+      margin-top: 30px;
     }
   }
 }
@@ -1135,6 +1140,9 @@ body {
 .game-details {
   &__slider {
     margin-bottom: 48px;
+    @include md {
+      margin-bottom: 20px;
+    }
   }
   &__heading {
     @include md-min {
@@ -1142,11 +1150,9 @@ body {
       justify-content: space-between;
       align-items: center;
     }
-    @include md {
-      text-align: center;
-    }
 
     &-logo {
+      max-width: 180px;
     }
     &-button {
       max-width: 320px;
@@ -1155,7 +1161,10 @@ body {
         max-width: 260px;
       }
       @include md {
-        margin: 30px auto 0;
+        margin: 25px 0 0;
+      }
+      @include xs {
+        max-width: 100%;
       }
     }
   }
@@ -1166,10 +1175,6 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    @include lg {
-      text-align: center;
-      margin-top: 40px;
     }
   }
   &__tags {
@@ -1184,7 +1189,19 @@ body {
   }
   &__features {
     margin-top: 70px;
+    @include md {
+      margin-bottom: -16px;
+    }
+    @include lg {
+      margin-top: 50px;
+    }
+    @include md {
+      margin-top: 16px;
+    }
     &-item {
+      @include md {
+        margin-bottom: 16px;
+      }
       &.item-bg {
         padding-top: 35px;
         padding-bottom: 35px;
@@ -1216,6 +1233,9 @@ body {
   }
   &__banner {
     margin-top: 70px;
+    @include md {
+      margin-top: 16px;
+    }
   }
 }
 .short-info {
@@ -1230,6 +1250,7 @@ body {
     margin-right: 45px;
     position: relative;
     max-width: 256px;
+    font-size: 18px;
 
     &:last-child {
       margin-right: 0;
@@ -1245,11 +1266,10 @@ body {
     }
 
     @include lg {
-      padding-top: 30px;
       padding-left: 0;
       max-width: 100%;
-      text-align: center;
-      margin: 30px 0 0;
+      padding-top: 22px;
+      margin: 22px 0 0;
     }
 
     &:first-child {
@@ -1273,11 +1293,9 @@ body {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: $color-primary;
+      background-color: $color-secondary;
       @include lg {
         top: 0;
-        margin: 0 auto;
-        right: 0;
       }
     }
   }
@@ -1297,7 +1315,8 @@ body {
   text-align: center;
   align-items: center;
   justify-content: center;
-  padding: 50px 30px;
+  padding: 50px;
+  position: relative;
 
   @include xxl-min {
     background: center / contain no-repeat;
@@ -1306,11 +1325,23 @@ body {
   }
 
   @include xxl {
+    padding: 50px 30px;
     border: 1px solid $color-secondary;
-    padding: 30px;
-  }
-  @include sm {
-    padding: 30px 20px;
+    border-radius: 8px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: inherit;
+      border-radius: inherit;
+      background: $color-dark-nearly / cover no-repeat;
+      background-image: url(/images/bg/banner-mobile.jpg);
+      pointer-events: none;
+      z-index: -1;
+    }
   }
 
   &__inner {
@@ -1334,6 +1365,7 @@ body {
   margin-bottom: -16px;
   margin-left: -8px;
   margin-right: -8px;
+
   &__item {
     padding: 10px 32px;
     display: inline-block;
@@ -1352,21 +1384,29 @@ body {
   &__left {
   }
   &__right {
-    @include md {
-      display: none;
+    @include sm {
+      margin-top: 24px;
     }
   }
   &__image {
     border-radius: 12px;
     height: 100%;
 
+    @include sm {
+      border-radius: 8px;
+    }
+
     &--full {
-      @include md {
-        height: 400px;
-      }
       &::before {
         height: 100%;
         padding-top: 0;
+        @include sm {
+          height: 400px;
+        }
+        @include xs {
+          padding-top: 100%;
+          height: auto;
+        }
       }
     }
 
@@ -1374,25 +1414,32 @@ body {
       cursor: pointer;
       &::before {
         padding-top: 100%;
+
+        @include sm {
+          padding-top: 80%;
+        }
       }
     }
   }
   &__slider {
     &--full {
-      @include md-min {
+      @include sm-min {
         height: 100%;
       }
     }
     &--thumb {
-      height: 676px;
+      @include sm-min {
+        height: 400px;
+      }
+      @include lg-min {
+        height: 676px;
+      }
     }
   }
   &__slide {
     &--full {
     }
     &--thumb {
-      // width: 220px !important;
-      // height: 220px !important;
     }
     &.swiper-slide-thumb-active {
       .image {

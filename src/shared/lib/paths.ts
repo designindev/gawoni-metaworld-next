@@ -19,6 +19,7 @@ export const PATH_PAGE = {
   },
   marketplace: '/marketplace',
   connectWallet: '/connect-wallet',
+  download: '/download',
   register: '/register',
   login: '/login',
   resetPassword: '/reset-password',

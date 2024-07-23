@@ -17,7 +17,7 @@ type Props = {
   className?: string
 }
 
-export const SliderWithThumb = (props: Props) => {
+export const GameSlider = (props: Props) => {
   const { slides, className } = props
 
   const [thumbsSwiper, setThumbsSwiper] = useState<ISwiper | null>(null)
@@ -25,7 +25,7 @@ export const SliderWithThumb = (props: Props) => {
 
   return (
     <div className={classNames('row slider-with-thumbs', className)}>
-      <div className='col-xl-10 col-lg-9 col-md-9 col-12 slider-with-thumbs__left'>
+      <div className='col-xxl-10 col-xl-9 col-lg-9 col-md-9 col-sm-8 col-12 slider-with-thumbs__left'>
         <Swiper
           loop={true}
           spaceBetween={30}
@@ -46,19 +46,25 @@ export const SliderWithThumb = (props: Props) => {
               </div>
             </SwiperSlide>
           ))}
-          <SwiperControls className='slider-with-thumbs__controls' bottom>
+          {/* <SwiperControls className='slider-with-thumbs__controls' bottom>
             <SwiperButton side='left' circle />
             <SwiperPagination />
             <SwiperButton side='right' circle />
-          </SwiperControls>
+          </SwiperControls> */}
         </Swiper>
       </div>
-      <div className='col-xl-2 col-lg-3 col-md-3 col-12 slider-with-thumbs__right'>
+      <div className='col-xxl-2 col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12 slider-with-thumbs__right'>
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}
           spaceBetween={8}
-          direction='vertical'
+          direction='horizontal'
+          breakpoints={{
+            576: { direction: 'vertical' },
+            768: { direction: 'vertical' },
+            992: { direction: 'vertical' },
+            1200: { direction: 'vertical' },
+          }}
           slidesPerView={3}
           freeMode={true}
           watchSlidesProgress={true}

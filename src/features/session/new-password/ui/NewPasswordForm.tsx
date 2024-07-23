@@ -23,7 +23,7 @@ export const NewPasswordForm = (props: Props) => {
       router.push(PATH_PAGE.passwordResetSuccess)
       notifySuccess('You have successfully updated password')
     },
-    [props, newPassword]
+    [router]
   )
 
   return (

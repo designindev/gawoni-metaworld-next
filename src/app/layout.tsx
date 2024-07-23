@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Sans, Roboto_Mono } from 'next/font/google'
-import localFont from 'next/font/local'
 import classNames from 'classnames'
 import { StoreProvider } from './StoreProvider'
 import { IBM_FLEX_SANS } from './fonts'
@@ -24,8 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>
-        {/* className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)} */}
+      <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>

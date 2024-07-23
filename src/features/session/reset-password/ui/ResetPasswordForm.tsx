@@ -24,7 +24,7 @@ export const ResetPasswordForm = (props: Props) => {
       router.push(`${PATH_PAGE.checkEmail}?email=${data.email}`)
       notifySuccess('You have successfully reseted password')
     },
-    [props, resetPassword]
+    [router]
   )
 
   return (

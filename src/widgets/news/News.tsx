@@ -85,7 +85,7 @@ export const News = async () => {
           })}
         </div>
         <div className='mt-40 text-center'>
-          <Link href={PATH_PAGE.news} className='text-link text-primary fz-20'>
+          <Link href={'https://medium.com/@gawooni'} className='text-link text-primary fz-20'>
             Read all news
           </Link>
         </div>

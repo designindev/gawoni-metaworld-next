@@ -6,8 +6,10 @@ export const registerFormSchema = z
     email: z.string().email(),
     password: z.string().min(8),
     passwordConfirm: z.string().min(8),
-    country: z.string().refine((value) => value !== '', { message: 'Select a country' }),
-    // year: z.string().min(1).transform(Numer),
+    country: z
+      .object({ value: z.string(), label: z.string() }, { message: 'Select a country' })
+      .refine((value) => value.value !== '', { message: 'Select a country' })
+      .transform((v) => v.value),
   })
   .refine(({ password, passwordConfirm }) => password === passwordConfirm, {
     message: 'Passwords must match',

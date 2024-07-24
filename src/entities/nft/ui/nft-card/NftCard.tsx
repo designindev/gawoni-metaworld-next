@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { NFT } from 'entities/nft/model/nft.model'
 import Link from 'next/link'
-import { PATH_PAGE } from 'shared/lib'
+import { getBgClass, PATH_PAGE } from 'shared/lib'
 
 type Props = {
   nft: NFT
@@ -27,7 +27,7 @@ export const NftCard = (props: Props) => {
           <div className='nfts__items-rarity-label'>Rarity</div>
           <div
             className={classNames('nfts__items-rarity-value', {
-              [`nfts__items-rarity-value--${nft.color}`]: nft.color,
+              [getBgClass(nft.color)]: nft.color,
             })}
           >
             {nft.rarity}

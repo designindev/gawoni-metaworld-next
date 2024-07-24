@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux'
 import { selectIsAuth } from 'entities/session'
 
 type Props = {
-  onComplete?: () => void
   className?: string
 }
 
@@ -22,11 +21,10 @@ export function LoginForm(props: Props) {
 
   const onSubmitHandler = useCallback(
     async (data: LoginFormSchema) => {
-      await loginThunk(data).unwrap()
-      props.onComplete && props.onComplete()
+      // await loginThunk(data).unwrap()
       notifySuccess('You have successfully logged in')
     },
-    [props, loginThunk]
+    [props]
   )
 
   return (

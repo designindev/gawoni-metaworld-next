@@ -1,3 +1,4 @@
+import { NFT_COLOR } from 'shared/lib'
 import { NTFDto } from '../dto/ntf.dto'
 import { NFT } from '../model/nft.model'
 
@@ -8,5 +9,5 @@ export const ntfMapper = (dto: NTFDto): NFT => ({
   price: dto.price,
   rarity: dto.rarity,
   logos: dto.logos,
-  color: dto.color,
+  color: dto.color as NFT_COLOR,
 })

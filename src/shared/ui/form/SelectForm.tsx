@@ -1,18 +1,19 @@
 'use client'
 
 import get from 'lodash.get'
-import React, { InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
-import { FieldValues, Path, useFormContext } from 'react-hook-form'
-import { InputPropsUI } from 'shared/ui'
+import React, { InputHTMLAttributes, TextareaHTMLAttributes, useId } from 'react'
+import { Controller, FieldValues, Path, useFormContext } from 'react-hook-form'
+import { InputPropsUI, Select } from 'shared/ui'
 import { InputErrorMessageForm } from './InputErrorMessageForm'
 import classNames from 'classnames'
+import ReactSelect, { GroupBase, Props } from 'react-select'
 
 type SelectHTML = Omit<InputHTMLAttributes<HTMLSelectElement>, 'onBlur' | 'onChange'>
 
 export type InputFormProps<TFormValues extends FieldValues> = {
-  name: Path<TFormValues>
-  onChange?: (name: Path<TFormValues>, value: string) => void
-  onBlur?: (name: Path<TFormValues>, value: string) => void
+  name: string
+  onChange?: (name: string, value: string) => void
+  onBlur?: (name: string, value: string) => void
 } & SelectUI &
   SelectHTML
 
@@ -27,7 +28,9 @@ export const SelectForm = <TFormValues extends Record<string, unknown>>(props: I
   const {
     register,
     formState: { errors },
-  } = useFormContext<TFormValues>()
+    control,
+  } = useFormContext()
+  const id = useId()
 
   const errorMessages = get(errors, name)
   const hasError = !!(errors && errorMessages)
@@ -47,17 +50,14 @@ export const SelectForm = <TFormValues extends Record<string, unknown>>(props: I
           'input--error': hasError,
         })}
       >
-        <select className='input__input' {...(register && register(name, { onChange: onChangeHandler, onBlur: onBlurHandler }))}>
-          <option value=''>Выберите</option>
-          {options.map((el, i) => {
-            return (
-              <option key={i} value={el.value}>
-                {el.label}
-              </option>
-            )
-          })}
-        </select>
-        {/* <Select name='country' placeholder='Select your country' options={country} /> */}
+        <Controller
+          name={name}
+          control={control}
+          render={({ field }) => (
+            <ReactSelect instanceId={id} placeholder={'select'} className='input' classNamePrefix='react-select' options={props.options} {...field} />
+          )}
+          rules={{ required: true }}
+        />
         <InputErrorMessageForm errors={errors} name={name} />
       </div>
     </div>

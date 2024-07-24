@@ -1,3 +1,5 @@
+import { NFT_COLOR } from 'shared/lib'
+
 export type NFTId = string
 
 export type NFT = {
@@ -7,5 +9,5 @@ export type NFT = {
   price: string
   rarity: string
   logos: string
-  color: string
+  color: NFT_COLOR
 }

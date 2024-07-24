@@ -2,15 +2,25 @@
 
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules'
+import { FreeMode, Thumbs } from 'swiper/modules'
 import ISwiper from 'swiper'
 import Image, { StaticImageData } from 'next/image'
 import classNames from 'classnames'
-import { SwiperButton, SwiperControls, SwiperPagination } from 'shared/ui'
+import dynamic from 'next/dynamic'
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
-type Slide = {
-  image: StaticImageData
-}
+export type Slide =
+  | {
+      full: StaticImageData
+      thumb: StaticImageData
+      type: 'image'
+    }
+  | {
+      full: string
+      preview: string
+      thumb: StaticImageData
+      type: 'video'
+    }
 
 type Props = {
   slides: Slide[]
@@ -33,24 +43,31 @@ export const GameSlider = (props: Props) => {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           }}
-          pagination={{ clickable: true, el: '.swiper-pagination' }}
           thumbs={{ swiper }}
-          modules={[Navigation, Pagination, FreeMode, Thumbs]}
+          modules={[FreeMode, Thumbs]}
           className='slider-with-thumbs__slider slider-with-thumbs__slider--full'
           wrapperClass='slider-with-thumbs__slider-slider'
         >
           {slides.map((el, i) => (
             <SwiperSlide key={i} className='slider-with-thumbs__slide'>
-              <div className='image image--cover slider-with-thumbs__image slider-with-thumbs__image--full'>
-                <Image src={el.image} alt='' priority />
-              </div>
+              {el.type === 'video' ? (
+                <ReactPlayer
+                  className='slider-with-thumbs__video'
+                  width='100%'
+                  height='100%'
+                  // light={el.preview}
+                  url={el.full}
+                  playing={false}
+                  muted={true}
+                  controls={true}
+                />
+              ) : (
+                <div className='image image--cover slider-with-thumbs__image slider-with-thumbs__image--full'>
+                  <Image src={el.full} alt='' priority />
+                </div>
+              )}
             </SwiperSlide>
           ))}
-          {/* <SwiperControls className='slider-with-thumbs__controls' bottom>
-            <SwiperButton side='left' circle />
-            <SwiperPagination />
-            <SwiperButton side='right' circle />
-          </SwiperControls> */}
         </Swiper>
       </div>
       <div className='col-xxl-2 col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12 slider-with-thumbs__right'>
@@ -74,8 +91,12 @@ export const GameSlider = (props: Props) => {
         >
           {slides.map((el, i) => (
             <SwiperSlide key={i} className='slider-with-thumbs__slide slider-with-thumbs__slide--thumb'>
-              <div className='image image--cover slider-with-thumbs__image slider-with-thumbs__image--thumb'>
-                <Image src={el.image} alt='' priority />
+              <div
+                className={classNames('image image--cover slider-with-thumbs__image slider-with-thumbs__image--thumb', {
+                  'image--player': el.type === 'video',
+                })}
+              >
+                <Image src={el.thumb} alt='' priority />
               </div>
             </SwiperSlide>
           ))}

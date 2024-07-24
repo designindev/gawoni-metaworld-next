@@ -883,6 +883,10 @@ body {
       }
     }
     &-item {
+      transition: filter 0.3s;
+      &:hover {
+        filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.5));
+      }
     }
     &-img {
       border: 5px solid #777;
@@ -936,7 +940,6 @@ body {
         padding: 5px 20px;
         font-size: 14px;
         border-radius: 25px;
-        background: $color-nft-common;
       }
     }
 
@@ -984,6 +987,11 @@ body {
 
   &__link {
     display: inline-block;
+    transition: all 0.3s;
+
+    &:hover {
+      filter: drop-shadow(0 0 3px #fff);
+    }
   }
 }
 
@@ -1063,6 +1071,8 @@ body {
 }
 
 .filter {
+  &__bg {
+  }
   &__popup {
     @include lg {
       position: fixed;
@@ -1179,6 +1189,7 @@ body {
     text-align: center;
   }
 }
+
 .s-shop {
 }
 
@@ -1489,6 +1500,25 @@ body {
   &__right {
     @include sm {
       margin-top: 24px;
+    }
+  }
+  &__video {
+    .react-player__preview {
+      border-radius: 12px;
+    }
+    .react-player__shadow {
+      width: 100px !important;
+      height: 100px !important;
+    }
+    .react-player__play-icon {
+      width: 100px;
+      height: 100px;
+      background: center / contain no-repeat;
+      background-image: url(/images/icons/play.svg);
+      border: none !important;
+    }
+    video {
+      object-fit: cover;
     }
   }
   &__image {
@@ -1843,4 +1873,72 @@ body {
 
 .w-560 {
   max-width: 560px;
+}
+
+.MuiPagination-root {
+  display: flex;
+  justify-content: center;
+}
+
+.MuiPaginationItem-previousNext,
+.MuiPaginationItem-page {
+  background-color: $color-dark-nearly;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s;
+
+  @include xs {
+    width: 36px;
+    height: 36px;
+  }
+
+  &.Mui-selected,
+  &:hover {
+    background-color: $color-gray;
+    color: $color-text;
+  }
+
+  &.Mui-selected:hover {
+    background-color: $color-gray;
+    color: $color-text;
+  }
+}
+
+.MuiPaginationItem-ellipsis {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 1px;
+  @include sm {
+  }
+}
+
+.MuiPaginationItem-previousNext {
+  margin: 0 20px;
+
+  @include sm {
+    margin: 0 5px;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.MuiModal-backdrop {
+  background-color: rgba(#000, 0.6);
+  backdrop-filter: blur(4px);
+}
+.MuiDrawer-paper {
+  background-color: #000;
+  padding: 50px 30px;
+  color: #fff;
+  border: 5px solid #777;
+  border-radius: 12px 12px 0px 0px;
 }

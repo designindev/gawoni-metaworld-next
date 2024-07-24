@@ -1,9 +1,10 @@
 .preloader {
   text-align: center;
+  background-color: #000;
+  color: #00ff19;
+
   &--root {
     position: fixed;
-    background-color: #000;
-    color: #00ff19;
     top: 0;
     left: 0;
     right: 0;

@@ -4,9 +4,9 @@ import { NftCard } from 'entities/nft'
 import { mockItems } from 'entities/nft/api/items'
 import { usePaginationQuery } from 'shared/model'
 import { useState } from 'react'
-import { Pagination } from 'shared/ui'
 import { Filters } from './Filters1'
 import { ActionMeta, SingleValue } from 'react-select'
+import { Pagination } from 'shared/ui'
 
 const Shop = () => {
   const [page, onChangePage] = usePaginationQuery()
@@ -31,8 +31,8 @@ const Shop = () => {
               return <NftCard key={i} nft={item} className='col-xl-3 col-lg-4 col-sm-6 col-12 item-bg--grid' />
             })}
           </div>
-          <Pagination onChangePage={onChangePage} count={800} siblingCount={1} limit={8} page={page} className='mt-55 d-none d-lg-flex' />
-          <Pagination onChangePage={onChangePage} count={800} siblingCount={0} limit={8} page={page} className='mt-55 d-lg-none' />
+          <Pagination onChange={(_, page) => onChangePage(page)} page={page} count={100} shape='rounded' className='mt-55 d-none d-lg-flex' />
+          <Pagination onChange={(_, page) => onChangePage(page)} page={page} count={100} siblingCount={0} shape='rounded' className='mt-55 d-lg-none' />
         </div>
       </div>
     </section>

@@ -7,10 +7,11 @@ import Navigationitem from './Navigationitem'
 type Props = {
   navLinks: PATH_MENU[]
   visible: boolean
+  closeMenu: () => void
 }
 
 export const Navigation = (props: Props) => {
-  const { navLinks, visible } = props
+  const { navLinks, visible, closeMenu } = props
 
   return (
     <nav
@@ -20,7 +21,7 @@ export const Navigation = (props: Props) => {
     >
       <ul className='nav__list'>
         {navLinks.map((el, i) => {
-          return <Navigationitem el={el} key={i} />
+          return <Navigationitem el={el} key={i} closeMenu={closeMenu} />
         })}
       </ul>
     </nav>

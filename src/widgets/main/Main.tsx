@@ -9,7 +9,6 @@ import { SwiperPagination } from 'shared/ui/swiper/SwiperPagination'
 import { Button } from 'shared/ui/button/Button'
 import Image1 from './slide-1.jpg'
 import Image2 from './slide-2.jpg'
-import { onScrollToBlock } from 'shared/lib'
 
 const items = [
   {

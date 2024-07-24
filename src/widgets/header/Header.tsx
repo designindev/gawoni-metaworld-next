@@ -59,7 +59,7 @@ export const Header = () => {
         </div>
       </div>
       <div className='container'>
-        <Navigation navLinks={PATH_MENU} visible={activeMenu} />
+        <Navigation navLinks={PATH_MENU} visible={activeMenu} closeMenu={() => setActiveMenu(false)} />
       </div>
     </header>
   )

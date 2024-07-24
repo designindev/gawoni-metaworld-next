@@ -1,38 +1,35 @@
 import { Button } from 'shared/ui/button/Button'
 import Logo from './logo.png'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { Social } from 'shared/ui'
-import { GameSlider } from './game-slider'
+import { GameSlider, Slide } from './game-slider'
 import Slide1 from './slide-1.jpg'
 import Slide2 from './slide-2.jpg'
 import Slide3 from './slide-3.jpg'
 import Slide4 from './slide-4.jpg'
 import { PATH_PAGE } from 'shared/lib'
 
-const slides = [
+const slides: Slide[] = [
   {
-    image: Slide1,
+    full: Slide1,
+    thumb: Slide1,
+    type: 'image',
   },
   {
-    image: Slide2,
+    full: '/videos/video-1.mp4',
+    preview: Slide2.src,
+    thumb: Slide2,
+    type: 'video',
   },
   {
-    image: Slide3,
+    full: Slide3,
+    thumb: Slide3,
+    type: 'image',
   },
   {
-    image: Slide4,
-  },
-  {
-    image: Slide1,
-  },
-  {
-    image: Slide2,
-  },
-  {
-    image: Slide3,
-  },
-  {
-    image: Slide4,
+    full: Slide4,
+    thumb: Slide4,
+    type: 'image',
   },
 ]
 
@@ -43,6 +40,7 @@ const Games = () => {
       <div className='container'>
         <div className='game-details'>
           <GameSlider slides={slides} className='game-details__slider' />
+
           <div className='game-details__heading'>
             <div className='game-details__heading-logo'>
               <Image src={Logo} alt='' />

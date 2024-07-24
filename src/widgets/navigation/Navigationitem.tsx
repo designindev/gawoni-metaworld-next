@@ -4,10 +4,10 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { PATH_MENU } from 'shared/lib'
 
-type Props = { el: PATH_MENU }
+type Props = { el: PATH_MENU; closeMenu: () => void }
 
 const Navigationitem = (props: Props) => {
-  const { el } = props
+  const { el, closeMenu } = props
   const { label, sub, ...rest } = el
 
   const [visible, setVisible] = useState(false)
@@ -21,7 +21,7 @@ const Navigationitem = (props: Props) => {
     'nav__list-link--active': isActive,
   })
 
-  const onClick = () => {
+  const onToggleSubMenu = () => {
     setVisible((v) => !v)
   }
 
@@ -32,12 +32,12 @@ const Navigationitem = (props: Props) => {
       })}
     >
       {hasSub ? (
-        <div className={className} onClick={onClick}>
+        <div className={className} onClick={onToggleSubMenu}>
           {label}
           <i className='text-icon text-icon--right text-icon--chevron-down'></i>
         </div>
       ) : (
-        <Link {...rest} className={className}>
+        <Link {...rest} className={className} onClick={() => closeMenu()}>
           {label}
         </Link>
       )}
@@ -52,7 +52,14 @@ const Navigationitem = (props: Props) => {
 
             return (
               <li key={i} className='nav__list-item'>
-                <Link {...rest} className={'nav__list-link'}>
+                <Link
+                  {...rest}
+                  className={'nav__list-link'}
+                  onClick={() => {
+                    closeMenu()
+                    onToggleSubMenu()
+                  }}
+                >
                   {el.label}
                 </Link>
               </li>

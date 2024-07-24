@@ -60,8 +60,8 @@
   }
 }
 
-select {
-  option {
-    color: #000;
+.input--error .react-select {
+  &__control {
+    border-color: $color-error;
   }
 }

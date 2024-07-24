@@ -18,9 +18,8 @@
   text-align: center;
   vertical-align: top;
   white-space: normal;
-  border: none;
-  border-color: transparent;
-  border-radius: 5px;
+  border: 2px solid;
+  border-radius: 0;
   cursor: pointer;
   height: $btn-height;
   padding: 5px 30px;
@@ -78,9 +77,50 @@
   }
 }
 
+.btn--primary {
+  border-color: $color-primary;
+
+  &::before {
+    background: linear-gradient(-90deg, $color-primary 0%, #a8ffb0 100%);
+  }
+
+  &::after {
+    background: linear-gradient(-90deg, $color-primary 0%, $color-primary 100%);
+    filter: drop-shadow(0px 0px 15px #00ff19);
+  }
+
+  &:active {
+    &::before {
+      background: linear-gradient(-90deg, #05d219 0%, #05d219 100%);
+      filter: none;
+    }
+  }
+}
+
+.btn--white {
+  border-color: #fff;
+
+  &::before {
+    background-color: #fff;
+  }
+
+  &::after {
+    background-color: #fff;
+  }
+
+  &.btn--border {
+    &::after {
+      background-color: transparent;
+    }
+    &:hover {
+      color: #fff;
+      border-color: $color-secondary;
+    }
+  }
+}
+
 .btn {
   &--border {
-    border-width: 2px;
     background-color: transparent;
     box-shadow: none;
     border-style: solid;
@@ -144,62 +184,6 @@
 
     @include lg {
       height: 54px;
-    }
-  }
-}
-
-.btn--primary {
-  border-color: $color-primary;
-
-  &.btn--border:not(:hover):not(:active) {
-    color: $color-primary;
-  }
-
-  &::before {
-    background: linear-gradient(-90deg, $color-primary 0%, #a8ffb0 100%);
-  }
-
-  &::after {
-    background: linear-gradient(-90deg, $color-primary 0%, $color-primary 100%);
-  }
-
-  &:active {
-    &::before {
-      background: linear-gradient(-90deg, #05d219 0%, #05d219 100%);
-    }
-  }
-}
-
-.btn--secondary {
-  border-color: $color-secondary;
-
-  &::before {
-    background-color: $color-secondary;
-  }
-
-  &::after {
-    background-color: $color-secondary-hover;
-  }
-}
-
-.btn--white {
-  border-color: #fff;
-
-  &::before {
-    background-color: #fff;
-  }
-
-  &::after {
-    background-color: #fff;
-  }
-
-  &.btn--border {
-    &::after {
-      background-color: transparent;
-    }
-    &:hover {
-      color: #fff;
-      border-color: $color-secondary;
     }
   }
 }

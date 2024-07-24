@@ -46,9 +46,6 @@ export const Button = (props: ButtonProps) => {
   return (
     <>
       {'href' in rest ? (
-        // <Link {...rest} href={rest.href} className={fullClassName}>
-        //   {children}
-        // </Link>
         rest.href[0] === '#' ? (
           <a className={fullClassName} {...rest} onClick={(e) => onScrollToBlock(e, rest.href)}>
             {children}

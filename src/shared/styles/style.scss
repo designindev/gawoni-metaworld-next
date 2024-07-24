@@ -1557,6 +1557,7 @@ body {
   &__slider {
     &--full {
       @include sm-min {
+        max-height: 676px;
         height: 100%;
       }
     }

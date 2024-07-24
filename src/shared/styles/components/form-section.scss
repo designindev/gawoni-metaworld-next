@@ -1,0 +1,53 @@
+.s-form {
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include md-min {
+      padding-bottom: 100px;
+    }
+    .form {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+
+  .section__heading {
+    margin-bottom: 55px;
+  }
+
+  &__right {
+    text-align: right;
+    @include md {
+      display: none;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 105px;
+
+    @include lg {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 452.06px;
+      height: 452.06px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 255, 26, 0.19);
+      filter: blur(223.349px);
+    }
+    img {
+      position: relative;
+      z-index: 3;
+    }
+  }
+}

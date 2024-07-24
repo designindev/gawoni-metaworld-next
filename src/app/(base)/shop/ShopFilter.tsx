@@ -49,7 +49,7 @@ type Props = {
   ) => void
 }
 
-export const Filters = (props: Props) => {
+export const ShopFilter = (props: Props) => {
   const select1Ref = useRef<any>(null)
   const select2Ref = useRef<any>(null)
   const select3Ref = useRef<any>(null)

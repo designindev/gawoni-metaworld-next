@@ -1,11 +1,8 @@
 'use client'
 
-import React from 'react'
 import { A11y, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SwiperControls } from 'shared/ui/swiper/SwiperControls'
-import { SwiperButton } from 'shared/ui/swiper/SwiperButton'
-import { SwiperPagination } from 'shared/ui/swiper/SwiperPagination'
+import { SwiperControls, SwiperButton, SwiperPagination } from 'shared/ui'
 import { Button } from 'shared/ui/button/Button'
 import Image1 from './slide-1.jpg'
 import Image2 from './slide-2.jpg'

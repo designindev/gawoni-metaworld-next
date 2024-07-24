@@ -1,0 +1,11 @@
+.shop {
+  &__filter {
+    margin-bottom: 64px;
+    @include lg {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+.s-shop {
+}

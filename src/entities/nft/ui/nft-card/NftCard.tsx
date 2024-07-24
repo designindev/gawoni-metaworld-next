@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import classNames from 'classnames'
 import { NFT } from 'entities/nft/model/nft.model'
 import Link from 'next/link'

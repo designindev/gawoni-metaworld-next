@@ -3,7 +3,7 @@ import { Category } from './Category'
 
 export const Nfts = () => {
   return (
-    <section className='section s-nfts'>
+    <section className='section section--gradient s-nfts'>
       <div className='container s-nfts__container nfts'>
         <h2 className='h2 section__heading'>
           <span className='section__heading-icon'>NFTs</span>

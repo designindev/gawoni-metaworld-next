@@ -1,8 +1,8 @@
-import Image1 from './nfts-1.jpg'
-import Image2 from './nfts-2.jpg'
-import Image3 from './nfts-3.jpg'
-import Image4 from './nfts-4.jpg'
-import Logos from './logos.png'
+import Image1 from 'shared/images/nfts/nfts-1.jpg'
+import Image2 from 'shared/images/nfts/nfts-2.jpg'
+import Image3 from 'shared/images/nfts/nfts-3.jpg'
+import Image4 from 'shared/images/nfts/nfts-4.jpg'
+import Logos from 'shared/images/nfts/logos.png'
 import { NFT } from '../model/nft.model'
 
 export const mockItems: NFT[] = [

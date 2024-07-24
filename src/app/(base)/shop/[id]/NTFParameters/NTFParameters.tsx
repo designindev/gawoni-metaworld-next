@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import ImageCar from './image.jpg'
+import ImageCar from 'shared/images/nft-detail/image.jpg'
 import classNames from 'classnames'
 import { AccordionItem } from './AccordionItem'
 

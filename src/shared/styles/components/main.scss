@@ -1,0 +1,149 @@
+.main {
+  &__items {
+    &-container {
+      max-width: 100%;
+      @include xxxxl-min {
+        max-width: 1800px;
+      }
+    }
+    &-slider {
+    }
+    &-item {
+      height: 844px;
+      display: flex;
+      align-items: end;
+      padding-bottom: 70px;
+      @include xl {
+        padding-bottom: 110px;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center top;
+      z-index: -1;
+    }
+
+    &-title {
+      text-transform: uppercase;
+
+      &-first {
+      }
+      &-second {
+        display: block;
+        padding-left: 255px;
+        @include lg {
+          text-align: right;
+          margin-top: 5px;
+          padding-left: 30px;
+        }
+      }
+    }
+
+    &-content {
+      margin-top: 60px;
+      @include lg {
+        margin-top: 40px;
+      }
+      @include lg-min {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &-left {
+        max-width: 700px;
+        padding: 7px 30px 7px 15px;
+        border-left: 3px solid $color-secondary;
+        @include lg-min {
+        }
+        @include lg {
+          padding-left: 5px;
+          padding-right: 0;
+        }
+      }
+
+      &-right {
+        margin-top: 10px;
+        flex-shrink: 0;
+        max-width: 220px;
+        width: 100%;
+        @include lg {
+          margin-top: 15px;
+        }
+      }
+    }
+
+    &-controls {
+      &,
+      &.swiper-controls--bottom {
+        @include xl-min {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 30px;
+          justify-content: center;
+          flex-direction: column;
+
+          .swiper-pagination {
+            position: relative;
+            flex-direction: column;
+            margin: 20px 0;
+
+            &-bullet {
+              margin: 4px 0;
+              &::before {
+                width: 15px;
+                height: 15px;
+              }
+            }
+          }
+          .swiper-button-prev,
+          .swiper-button-next {
+            position: relative;
+            margin: 0 auto;
+            width: 44px;
+            height: 44px;
+            border-color: $color-secondary;
+            &:hover {
+              border-color: #fff;
+            }
+
+            &::before {
+              background-image: url('/images/icons/noun-arrow-secondary.svg');
+            }
+            &::after {
+              background-image: url('/images/icons/noun-arrow.svg');
+            }
+          }
+          .swiper-button-prev {
+            transform: rotate(90deg);
+          }
+          .swiper-button-next {
+            transform: rotate(90deg);
+          }
+        }
+        @include xxxxl-min {
+          left: 50%;
+          margin-left: 845px;
+        }
+        @include xl {
+          position: absolute;
+          bottom: 40px;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.s-main,
+.wrapper .s-main.section:first-child {
+  padding-top: 0;
+  padding-bottom: 0;
+}

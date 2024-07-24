@@ -13,6 +13,7 @@ export const AccordionItem = (props: Props) => {
   const { title, children } = props
   const ref = useRef<HTMLDivElement>(null)
   const [open, setOpen] = useState(false)
+
   const onToggle = () => {
     slideToggle(ref.current)
     setOpen((o) => !o)

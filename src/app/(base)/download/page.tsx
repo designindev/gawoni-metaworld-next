@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import DownloadImage1 from './download-1.svg'
-import DownloadImage2 from './download-2.svg'
-import DownloadImage3 from './download-3.svg'
-import { Button } from 'shared/ui/button/Button'
+import DownloadImage1 from 'shared/images/download/download-1.svg'
+import DownloadImage2 from 'shared/images/download/download-2.svg'
+import DownloadImage3 from 'shared/images/download/download-3.svg'
+import { Button } from 'shared/ui'
 
 const items = [
   {

@@ -3,8 +3,6 @@
 import { Button, Select } from 'shared/ui'
 import { FormEvent, useState } from 'react'
 
-import React from 'react'
-
 export const NTFForm = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -63,6 +61,7 @@ export const NTFForm = () => {
 
 export const InputCount = () => {
   const [value, setValue] = useState(0)
+
   return (
     <div className='input-count'>
       <button className='input-count__operation input-count__operation--minus' onClick={() => setValue((v) => v - 1)}>

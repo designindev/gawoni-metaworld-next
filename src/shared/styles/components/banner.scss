@@ -1,0 +1,50 @@
+.banner {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  position: relative;
+
+  @include xxl-min {
+    background: center / contain no-repeat;
+    background-image: url(/images/bg/banner.png);
+    min-height: 280px;
+  }
+
+  @include xxl {
+    padding: 50px 30px;
+    border: 1px solid $color-secondary;
+    border-radius: 8px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: inherit;
+      border-radius: inherit;
+      background: $color-dark-nearly / cover no-repeat;
+      background-image: url(/images/bg/banner-mobile.jpg);
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
+  &__inner {
+    max-width: 700px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  &__descr {
+    line-height: 1.5;
+  }
+  &__social {
+    margin-top: 30px;
+  }
+}

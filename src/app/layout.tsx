@@ -14,6 +14,7 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import './App.scss'
+import { Footer, Header } from 'widgets'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,7 +29,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
-        <StoreProvider>{children}</StoreProvider>
+        <Header />
+        <div className='header-height'></div>
+        <StoreProvider>
+          <main className='wrapper'>{children}</main>
+        </StoreProvider>
+        <Footer />
       </body>
     </html>
   )

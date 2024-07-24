@@ -1,0 +1,264 @@
+.game-details {
+  &__slider {
+    margin-bottom: 48px;
+    @include md {
+      margin-bottom: 20px;
+    }
+  }
+  &__heading {
+    @include md-min {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-logo {
+      max-width: 180px;
+    }
+    &-button {
+      max-width: 320px;
+      width: 100%;
+      @include xl {
+        max-width: 260px;
+      }
+      @include md {
+        margin: 25px 0 0;
+      }
+      @include xs {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__info {
+    margin-top: 20px;
+    @include lg-min {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__tags {
+    @include lg {
+      margin-bottom: 10px;
+    }
+  }
+  &__short-info {
+    @include lg {
+      margin-top: 40px;
+    }
+  }
+  &__features {
+    margin-top: 70px;
+    @include md {
+      margin-bottom: -16px;
+    }
+    @include lg {
+      margin-top: 50px;
+    }
+    @include md {
+      margin-top: 16px;
+    }
+    &-item {
+      @include md {
+        margin-bottom: 16px;
+      }
+      &.item-bg {
+        padding-top: 35px;
+        padding-bottom: 35px;
+      }
+    }
+    &-border {
+      border: 1px solid #fff;
+      border-radius: 8px;
+    }
+    &-title {
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+    &-descr,
+    &-list {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-top: 30px;
+      @include lg {
+        font-size: 16px;
+        margin-top: 20px;
+      }
+      &::before {
+        top: 3px;
+      }
+    }
+    &-descr {
+    }
+  }
+  &__banner {
+    margin-top: 70px;
+    @include md {
+      margin-top: 16px;
+    }
+  }
+}
+
+.short-info {
+  @include lg-min {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__item {
+    font-weight: 600;
+    padding-left: 50px;
+    margin-right: 45px;
+    position: relative;
+    max-width: 256px;
+    font-size: 18px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include xl-min {
+      font-size: 18px;
+    }
+
+    @include xl {
+      padding-left: 30px;
+      margin-right: 30px;
+    }
+
+    @include lg {
+      padding-left: 0;
+      max-width: 100%;
+      padding-top: 22px;
+      margin: 22px 0 0;
+    }
+
+    &:first-child {
+      padding-left: 0;
+      margin-left: 0;
+      @include lg {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      &::before {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: -5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $color-secondary;
+      @include lg {
+        top: 0;
+      }
+    }
+  }
+  &__label {
+    text-transform: uppercase;
+    color: $color-gray;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+  &__value {
+    line-height: 1.2;
+  }
+}
+
+.slider-with-thumbs {
+  &__left {
+  }
+  &__right {
+    @include sm {
+      margin-top: 24px;
+    }
+  }
+  &__video {
+    .react-player__preview {
+      border-radius: 12px;
+    }
+    .react-player__shadow {
+      width: 100px !important;
+      height: 100px !important;
+    }
+    .react-player__play-icon {
+      width: 100px;
+      height: 100px;
+      background: center / contain no-repeat;
+      background-image: url(/images/icons/play.svg);
+      border: none !important;
+    }
+    video {
+      object-fit: cover;
+    }
+  }
+  &__image {
+    border-radius: 12px;
+    height: 100%;
+
+    @include sm {
+      border-radius: 8px;
+    }
+
+    &--full {
+      &::before {
+        height: 100%;
+        padding-top: 0;
+        @include sm {
+          height: 400px;
+        }
+        @include xs {
+          padding-top: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    &--thumb {
+      cursor: pointer;
+      &::before {
+        padding-top: 100%;
+
+        @include sm {
+          padding-top: 80%;
+        }
+      }
+    }
+  }
+  &__slider {
+    &--full {
+      @include sm-min {
+        max-height: 676px;
+        height: 100%;
+      }
+    }
+    &--thumb {
+      @include sm-min {
+        height: 400px;
+      }
+      @include lg-min {
+        height: 676px;
+      }
+    }
+  }
+  &__slide {
+    &--full {
+    }
+    &--thumb {
+    }
+    &.swiper-slide-thumb-active {
+      .image {
+        &::after {
+          border: 3px solid $color-secondary;
+        }
+      }
+    }
+  }
+}

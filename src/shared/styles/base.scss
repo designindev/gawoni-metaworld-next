@@ -21,6 +21,9 @@ body {
   min-width: 320px;
   position: relative;
   overflow: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+
   @include sm {
     font-size: 14px;
     line-height: 1.2;
@@ -150,5 +153,62 @@ sup {
 .fz-18 {
   @include xl-min {
     font-size: 18px;
+  }
+}
+
+.w-560 {
+  max-width: 560px;
+}
+
+.bg-common {
+  background: $color-nft-common;
+}
+
+.bg-uncommon {
+  background: $color-nft-uncommon;
+}
+
+.bg-epic {
+  background: $color-nft-epic;
+}
+
+.bg-rare {
+  background: $color-nft-rare;
+}
+
+.bg-one-of-a-kind {
+  background: $color-nft-on-of-kind;
+  color: $color-text;
+}
+
+.bg-signature {
+  background: $color-nft-signature;
+  color: $color-text;
+}
+
+.bg-mystic {
+  background: $color-nft-mystic;
+  color: $color-text;
+}
+
+.bg-legendary {
+  background: $color-nft-legendary;
+  color: $color-text;
+}
+
+.wrapper {
+  min-height: 900px;
+
+  .section:first-child {
+    @include xl-min {
+      padding-top: $section-padding + 30px;
+    }
+
+    @include md {
+      padding-top: 50px;
+    }
+    @include sm {
+      padding-top: 30px;
+    }
   }
 }

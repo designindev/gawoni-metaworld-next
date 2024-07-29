@@ -167,6 +167,18 @@
     }
   }
 
+  &--edit {
+    &::before {
+      background-image: url(/images/icons/edit.svg);
+    }
+  }
+
+  &--delete-danger {
+    &::before {
+      background-image: url(/images/icons/delete-danger.svg);
+    }
+  }
+
   &--chevron,
   &--chevron-up,
   &--chevron-down {

@@ -10,7 +10,7 @@ interface AnchorHTML extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
 }
 
-type Color = 'primary' | 'secondary' | 'dangerous' | 'success' | 'white'
+type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'light' | 'dark'
 type Size = 'sm' | 'md' | 'lg'
 
 export type ButtonProps = {
@@ -30,7 +30,7 @@ export const Button = (props: ButtonProps) => {
   const { children, color = 'primary', size = 'md', border, lgWidth, maxWidth, link, loading, disabled, className, ...rest } = props
 
   const fullClassName = classNames(
-    `btn btn--${color}`,
+    `btn btn-${border ? 'outline-' : ''}${color}`,
     `btn btn--${size}`,
     {
       'btn--w-lg': lgWidth,

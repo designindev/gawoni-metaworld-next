@@ -1,3 +1,4 @@
+export { Filter } from './filter/Filter'
 export { Footer } from './footer/Footer'
 export { Games } from './games/Games'
 export { Header } from './header/Header'

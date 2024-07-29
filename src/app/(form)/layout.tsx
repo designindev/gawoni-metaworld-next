@@ -12,7 +12,7 @@ export default function FormLayout({
       <section className='section s-form'>
         <div className='container'>
           <div className='row s-form__row'>
-            <div className='col-md-6 col-12 s-form__left'>{children}</div>
+            <div className='col-md-6 col-12 s-form__left text-center'>{children}</div>
             <div className='col-md-6 col-12 s-form__right'>
               <div className='logo logo--xl s-form__logo'>
                 <Image src={Logo} alt='Logo' priority />

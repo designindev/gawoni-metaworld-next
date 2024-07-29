@@ -49,7 +49,7 @@ export const Main = () => {
                 <div className='main__items-image' style={{ backgroundImage: `url(${el.image.src})` }}></div>
                 <div className='container main__items-container'>
                   <div className='header-height'></div>
-                  <h1 className='h1 main__items-title'>
+                  <h1 className='h1 h1--fz-72 main__items-title'>
                     <span className='main__items-title-first text-primary'>{el.title}</span>
                     <span className='main__items-title-second'>{el.titleSecond}</span>
                   </h1>
@@ -58,7 +58,7 @@ export const Main = () => {
                       <p>{el.content}</p>
                     </div>
                     <div className='main__items-content-right'>
-                      <Button href='#news' color='white' border maxWidth>
+                      <Button href='#news' color={'light'} border maxWidth>
                         Learn more
                       </Button>
                     </div>

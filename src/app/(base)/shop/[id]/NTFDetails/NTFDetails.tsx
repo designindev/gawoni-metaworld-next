@@ -60,7 +60,7 @@ export const NTFDetails = (props: Props) => {
                       <i className='text-icon text-icon--copy text-copy-link__icon'></i>
                     </div>
                     <div className='detail-list__button'>
-                      <Button color='white' size='sm' border>
+                      <Button color={'light'} size='sm' border>
                         Add to your wallet
                       </Button>
                     </div>

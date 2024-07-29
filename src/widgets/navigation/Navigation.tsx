@@ -15,11 +15,11 @@ export const Navigation = (props: Props) => {
 
   return (
     <nav
-      className={classNames('nav header__nav', {
-        'nav--active': visible,
+      className={classNames('navigation header__nav', {
+        'navigation--active': visible,
       })}
     >
-      <ul className='nav__list'>
+      <ul className='navigation__list'>
         {navLinks.map((el, i) => {
           return <Navigationitem el={el} key={i} closeMenu={closeMenu} />
         })}

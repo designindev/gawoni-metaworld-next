@@ -17,8 +17,8 @@ const Navigationitem = (props: Props) => {
   const isActive = pathName === el.href
   const hasSub = Boolean(sub)
 
-  const className = classNames('nav__list-link', {
-    'nav__list-link--active': isActive,
+  const className = classNames('navigation__list-link', {
+    'navigation__list-link--active': isActive,
   })
 
   const onToggleSubMenu = () => {
@@ -27,8 +27,8 @@ const Navigationitem = (props: Props) => {
 
   return (
     <li
-      className={classNames('nav__list-item', {
-        'nav__list-item--sub': hasSub,
+      className={classNames('navigation__list-item', {
+        'navigation__list-item--sub': hasSub,
       })}
     >
       {hasSub ? (
@@ -43,18 +43,18 @@ const Navigationitem = (props: Props) => {
       )}
       {el.sub && (
         <ul
-          className={classNames('nav__list-sub', {
-            'nav__list-sub--active': visible,
+          className={classNames('navigation__list-sub', {
+            'navigation__list-sub--active': visible,
           })}
         >
           {el.sub.map((el, i) => {
             const { label, sub, ...rest } = el
 
             return (
-              <li key={i} className='nav__list-item'>
+              <li key={i} className='navigation__list-item'>
                 <Link
                   {...rest}
-                  className={'nav__list-link'}
+                  className={'navigation__list-link'}
                   onClick={() => {
                     closeMenu()
                     onToggleSubMenu()

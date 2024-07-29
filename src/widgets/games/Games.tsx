@@ -61,11 +61,11 @@ export const Games = () => {
                   </div>
                 </div>
                 <div className='games__items-hover'>
-                  <Button href={PATH_PAGE.games.slug(item.id)} className='games__items-hover-btn' color='white' border>
+                  <Button href={PATH_PAGE.games.slug(item.id)} className='games__items-hover-btn' color={'light'} border>
                     <i className='text-icon text-icon--left text-icon--info'></i>
                     Game Info
                   </Button>
-                  <Button href={PATH_PAGE.shop.root} className='games__items-hover-btn' color='white' border>
+                  <Button href={PATH_PAGE.shop.root} className='games__items-hover-btn' color={'light'} border>
                     <i className='text-icon text-icon--left text-icon--cart'></i>
                     Game Store
                   </Button>

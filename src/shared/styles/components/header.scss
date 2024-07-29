@@ -56,7 +56,7 @@
   }
 }
 
-.nav {
+.navigation {
   @include md {
     visibility: hidden;
     transform: translate(100%, 0);
@@ -69,6 +69,7 @@
   &__list {
     display: flex;
     justify-content: center;
+    padding: 0;
     @include md {
       flex-direction: column;
       text-align: right;

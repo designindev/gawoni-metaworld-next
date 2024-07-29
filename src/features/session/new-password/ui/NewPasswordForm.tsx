@@ -39,7 +39,7 @@ export const NewPasswordForm = (props: Props) => {
 
         <div className='form__buttons'>
           <ButtonForm lgWidth>Send</ButtonForm>
-          <Button href={PATH_PAGE.login} color='white' lgWidth border>
+          <Button href={PATH_PAGE.login} color={'light'} lgWidth border>
             Back to log in
           </Button>
         </div>

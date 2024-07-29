@@ -4,11 +4,6 @@
 .h4,
 .h5,
 .h6 {
-  font-weight: 400;
-  font-size: $text-font-size;
-  line-height: 1.3;
-  font-weight: 500;
-  font-family: 'Whyte';
   @include sm {
     font-size: 14px;
   }
@@ -18,47 +13,46 @@
 .h2 {
   font-weight: 900;
   font-family: 'Whyte';
+  font-size: 56px;
 }
 
 .h1 {
-  font-size: 72px;
-  @include xxxl {
-    font-size: 66px;
-  }
-  @include xxl {
-    font-size: 60px;
-  }
-  @include xl {
-    font-size: 56px;
-  }
   @include lg {
-    font-size: 50px;
-  }
-  @include md {
-    font-size: 44px;
-  }
-  @include sm {
-    font-size: 42px;
-  }
-  @include xs {
     font-size: 40px;
   }
-  @include xxs {
-    font-size: 28px;
+
+  &--fz-72 {
+    @include xxxl {
+      font-size: 66px;
+    }
+    @include xxl {
+      font-size: 60px;
+    }
+    @include xl {
+      font-size: 56px;
+    }
+    @include lg {
+      font-size: 50px;
+    }
+    @include md {
+      font-size: 44px;
+    }
+    @include sm {
+      font-size: 42px;
+    }
+    @include xs {
+      font-size: 40px;
+    }
+    @include xxs {
+      font-size: 28px;
+    }
   }
+
   &--fz-64 {
     font-size: 64px;
 
     @include lg {
       font-size: 52px;
-    }
-  }
-
-  &--fz-56 {
-    font-size: 56px;
-
-    @include lg {
-      font-size: 40px;
     }
   }
 
@@ -75,7 +69,6 @@
 }
 
 .h2 {
-  font-size: 56px;
   @include xl {
     font-size: 50px;
   }

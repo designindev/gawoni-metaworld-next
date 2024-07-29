@@ -20,7 +20,7 @@ const CheckEmail = () => {
             <Button href={PATH_PAGE.resetPassword} lgWidth>
               Resend email
             </Button>
-            <Button href={PATH_PAGE.login} color='white' lgWidth border>
+            <Button href={PATH_PAGE.login} color={'light'} lgWidth border>
               Back to log in
             </Button>
           </div>

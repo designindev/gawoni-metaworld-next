@@ -2,17 +2,22 @@ import type { Metadata } from 'next'
 import classNames from 'classnames'
 import { StoreProvider } from './StoreProvider'
 import { IBM_FLEX_SANS } from './fonts'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
-import 'swiper/css/free-mode'
+import 'swiper/css/bundle'
+// import 'swiper/css'
+// import 'swiper/css/effect-fade'
+// import 'swiper/css/free-mode'
 // import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
+// import 'swiper/css/thumbs'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
+import 'bootstrap/dist/css/bootstrap-grid.min.css'
+import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css'
 import './App.scss'
 import { Footer, Header } from 'widgets'
+import { ThemeProvider } from '@mui/material'
+import { theme } from './theme'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -29,9 +34,11 @@ export default function RootLayout({
       <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
         <Header />
         <div className='header-height'></div>
-        <StoreProvider>
-          <main className='wrapper'>{children}</main>
-        </StoreProvider>
+        <ThemeProvider theme={theme}>
+          <StoreProvider>
+            <main className='wrapper'>{children}</main>
+          </StoreProvider>
+        </ThemeProvider>
         <Footer />
       </body>
     </html>

@@ -30,7 +30,7 @@ export const Button = (props: ButtonProps) => {
   const { children, color = 'primary', size = 'md', border, lgWidth, maxWidth, link, loading, disabled, className, ...rest } = props
 
   const fullClassName = classNames(
-    `btn btn-${border ? 'outline-' : ''}${color}`,
+    `btn btn--${color}`,
     `btn btn--${size}`,
     {
       'btn--w-lg': lgWidth,

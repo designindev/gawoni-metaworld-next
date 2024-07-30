@@ -5,6 +5,7 @@ import Image3 from './game-3.jpg'
 import Image4 from './game-4.jpg'
 import { Button } from 'shared/ui/button/Button'
 import { PATH_PAGE } from 'shared/lib'
+import { Grid } from '@mui/material'
 
 const items = [
   {
@@ -42,38 +43,40 @@ export const Games = () => {
         <h2 className='h2 section__heading'>
           <span className='section__heading-icon'>our games</span>
         </h2>
-        <div className='row items games__items'>
+        <Grid container spacing={5} className='games__items'>
           {items.map((item, i) => {
             return (
-              <div key={i} className='col-md-6 col-12 items__item item-bg item-bg--grid games__items-item'>
-                <div className='item-bg__bg games__items-border'></div>
-                <div className='games__items-border-line games__items-border-line--1'></div>
-                <div className='games__items-border-line games__items-border-line--2'></div>
-                <div className='games__items-border-line games__items-border-line--3'></div>
-                <div className='games__items-border-line games__items-border-line--4'></div>
-                <div className='items__img image image--cover games__items-img'>
-                  <Image src={item.src} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
-                </div>
-                <div className='items__text games__items-text'>
-                  <h3 className='items__title h3 h3--fz-42 text-title games__items-title'>{item.title}</h3>
-                  <div className='items__descr text-descr games__items-descr fz-18'>
-                    <p>{item.descr}</p>
+              <Grid item md={6} key={i}>
+                <div className='games__items-item'>
+                  <div className='games__items-border'></div>
+                  <div className='games__items-border-line games__items-border-line--1'></div>
+                  <div className='games__items-border-line games__items-border-line--2'></div>
+                  <div className='games__items-border-line games__items-border-line--3'></div>
+                  <div className='games__items-border-line games__items-border-line--4'></div>
+                  <div className='items__img image image--cover games__items-img'>
+                    <Image src={item.src} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
+                  </div>
+                  <div className='items__text games__items-text'>
+                    <h3 className='items__title h3 h3--fz-42 text-title games__items-title'>{item.title}</h3>
+                    <div className='items__descr text-descr games__items-descr fz-18'>
+                      <p>{item.descr}</p>
+                    </div>
+                  </div>
+                  <div className='games__items-hover'>
+                    <Button href={PATH_PAGE.games.slug(item.id)} className='games__items-hover-btn' color={'light'} border>
+                      <i className='text-icon text-icon--left text-icon--info'></i>
+                      Game Info
+                    </Button>
+                    <Button href={PATH_PAGE.shop.root} className='games__items-hover-btn' color={'light'} border>
+                      <i className='text-icon text-icon--left text-icon--cart'></i>
+                      Game Store
+                    </Button>
                   </div>
                 </div>
-                <div className='games__items-hover'>
-                  <Button href={PATH_PAGE.games.slug(item.id)} className='games__items-hover-btn' color={'light'} border>
-                    <i className='text-icon text-icon--left text-icon--info'></i>
-                    Game Info
-                  </Button>
-                  <Button href={PATH_PAGE.shop.root} className='games__items-hover-btn' color={'light'} border>
-                    <i className='text-icon text-icon--left text-icon--cart'></i>
-                    Game Store
-                  </Button>
-                </div>
-              </div>
+              </Grid>
             )
           })}
-        </div>
+        </Grid>
       </div>
     </section>
   )

@@ -17,7 +17,7 @@ export const NTFDetails = (props: Props) => {
   }
 
   return (
-    <div>
+    <>
       <div className='nft-detail__block'>
         <h1 className='nft-detail__title h3 h3--fz-32'>k4 rally nft car - race edition #1 2023</h1>
         <div className='nft-detail__subtitle h4'>Race edition</div>
@@ -87,6 +87,6 @@ export const NTFDetails = (props: Props) => {
           </li>
         </ul>
       </div>
-    </div>
+    </>
   )
 }

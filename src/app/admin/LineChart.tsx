@@ -65,7 +65,7 @@ function LineChart() {
 
   return (
     <div className='chart'>
-      <h3 className='display-5'>Selling overview</h3>
+      <h3 className='h5'>Selling overview</h3>
       <div style={graphStyle}>
         <Line options={options} data={canvasData} />
       </div>

@@ -1,8 +1,12 @@
+import { Box } from '@mui/material'
+
 const ConnectWallet = () => {
   return (
     <section className='section'>
       <div className='container'>
-        <h1 className='h1 section__heading text-center'>Connect wallet</h1>
+        <Box component={'h1'} className='h1 section__heading' sx={{ textAlign: 'center' }}>
+          Connect wallet
+        </Box>
       </div>
     </section>
   )

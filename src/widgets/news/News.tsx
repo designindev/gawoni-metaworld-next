@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from 'shared/ui/button/Button'
@@ -29,35 +30,36 @@ export const News = async () => {
             </Button>
           </div>
         </div>
-        <div className='row items news__items'>
+        <Grid container spacing={4} className='items news__items'>
           {items.map((item, i) => {
             const image = findImage(item.content)
 
             return (
-              <div key={i} className='col-lg-4 col-md-6 col-12 items__item item-bg item-bg--grid news__items-item'>
-                <div className='item-bg__bg news__items-bg'></div>
-                <div className='items__img image image--cover news__items-img'>
-                  <Image src={image} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
+              <Grid key={i} item lg={4} md={6}>
+                <div className='news__items-item'>
+                  <div className='items__img image image--cover news__items-img'>
+                    <Image src={image} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
+                  </div>
+                  <div className='items__text news__items-text'>
+                    <div className='news__items-date'>
+                      <div className='text-icon text-icon--date text-icon--left'></div>
+                      {item.pubDate}
+                    </div>
+                    <h3 className='items__title h3 h3--fz-28 text-title news__items-title'>{item.title}</h3>
+                    <div className='items__descr news__items-descr'>
+                      <p>{item.descr}</p>
+                    </div>
+                    <div className='items__descr news__items-link'>
+                      <Link href={readAllLink} target='_blank' className='text-link text-link--arrow text-secondary'>
+                        READ MORE
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <div className='items__text news__items-text'>
-                  <div className='news__items-date'>
-                    <div className='text-icon text-icon--date text-icon--left'></div>
-                    {item.pubDate}
-                  </div>
-                  <h3 className='items__title h3 h3--fz-28 text-title news__items-title'>{item.title}</h3>
-                  <div className='items__descr news__items-descr'>
-                    <p>{item.descr}</p>
-                  </div>
-                  <div className='items__descr news__items-link'>
-                    <Link href={readAllLink} target='_blank' className='text-link text-link--arrow text-secondary'>
-                      READ MORE
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              </Grid>
             )
           })}
-        </div>
+        </Grid>
         <div className='mt-40 text-center'>
           <Link href={readAllLink} className='text-link text-primary fz-20'>
             Read all news

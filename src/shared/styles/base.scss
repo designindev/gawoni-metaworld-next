@@ -13,10 +13,11 @@ html {
 
 body {
   font-family: $text-font-family, sans-serif;
-  // font-size: $text-font-size;
+  font-size: $text-font-size;
   line-height: $text-line-height;
   font-weight: $text-font-weigth;
-  // background-color: #000;
+  background-color: #000;
+  color: #fff;
   min-width: 320px;
   position: relative;
   overflow: hidden;

@@ -6,6 +6,7 @@ import { SwiperControls, SwiperButton, SwiperPagination } from 'shared/ui'
 import { Button } from 'shared/ui/button/Button'
 import Image1 from './slide-1.jpg'
 import Image2 from './slide-2.jpg'
+import { Grid } from '@mui/material'
 
 const items = [
   {
@@ -53,6 +54,7 @@ export const Main = () => {
                     <span className='main__items-title-first text-primary'>{el.title}</span>
                     <span className='main__items-title-second'>{el.titleSecond}</span>
                   </h1>
+
                   <div className='main__items-content'>
                     <div className='main__items-content-left fz-18'>
                       <p>{el.content}</p>

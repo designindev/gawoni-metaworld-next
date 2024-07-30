@@ -3,18 +3,11 @@
     margin-bottom: -40px;
     &-item {
       margin-bottom: 40px;
-
-      &.item-bg--grid {
-        @include sm-min {
-          padding-left: 40px;
-          padding-right: 40px;
-          padding-bottom: 25px;
-        }
-      }
-    }
-    &-bg {
       background-color: #141414;
       border-radius: 8px;
+      padding: 20px;
+    }
+    &-bg {
     }
     &-img {
       border-radius: 8px;

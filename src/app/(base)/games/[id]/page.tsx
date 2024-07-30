@@ -5,6 +5,7 @@ import { GameSlider, Slide } from './game-slider'
 import Logo from 'shared/images/games/logo.png'
 import { PATH_PAGE } from 'shared/lib'
 import { slides } from './slides'
+import { Box, Grid } from '@mui/material'
 
 const Games = () => {
   return (
@@ -13,7 +14,6 @@ const Games = () => {
       <div className='container'>
         <div className='game-details'>
           <GameSlider slides={slides} className='game-details__slider' />
-
           <div className='game-details__heading'>
             <div className='game-details__heading-logo'>
               <Image src={Logo} alt='' />
@@ -44,25 +44,27 @@ const Games = () => {
               </li>
             </ul>
           </div>
-          <div className='row items game-details__features'>
-            <div className='col-lg-6 items__item item-bg item-bg--grid game-details__features-item'>
-              <div className='item-bg__bg game-details__features-border'></div>
-              <h4 className='game-details__features-title h4'>game description</h4>
-              <div className='game-details__features-descr text-descr'>
-                <p>The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2 2024</p>
-              </div>
-            </div>
-            <div className='col-lg-6 items__item item-bg item-bg--grid  game-details__features-item'>
-              <div className='item-bg__bg game-details__features-border'></div>
-              <h4 className='game-details__features-title h4'>game Features</h4>
-              <ul className='game-details__features-list text-list'>
-                <li>Lorem Ipsum dolor sit amet</li>
-                <li>Lorem Ipsum dolor sit amet</li>
-                <li>Lorem Ipsum dolor sit amet</li>
-                <li>Lorem Ipsum dolor sit amet</li>
-              </ul>
-            </div>
-          </div>
+          <Grid container spacing={4} className='game-details__features'>
+            <Grid item md={6}>
+              <Box className='game-details__features-item' sx={{ border: '1px solid #fff', borderRadius: 2, p: 5, height: '100%' }}>
+                <h4 className='game-details__features-title h4'>game description</h4>
+                <div className='game-details__features-descr text-descr'>
+                  <p>The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2 2024</p>
+                </div>
+              </Box>
+            </Grid>
+            <Grid item md={6}>
+              <Box className='game-details__features-item' sx={{ border: '1px solid #fff', borderRadius: 2, p: 5, height: '100%' }}>
+                <h4 className='game-details__features-title h4'>game Features</h4>
+                <ul className='game-details__features-list text-list'>
+                  <li>Lorem Ipsum dolor sit amet</li>
+                  <li>Lorem Ipsum dolor sit amet</li>
+                  <li>Lorem Ipsum dolor sit amet</li>
+                  <li>Lorem Ipsum dolor sit amet</li>
+                </ul>
+              </Box>
+            </Grid>
+          </Grid>
           <div className='banner game-details__banner'>
             <div className='banner__inner'>
               <h3 className='banner__title h3 h3--fz-28'>join our game community</h3>

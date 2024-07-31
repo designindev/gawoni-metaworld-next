@@ -1,6 +1,5 @@
 'use client'
 
-import classNames from 'classnames'
 import { Form, InputForm } from 'shared/ui'
 
 export default function AdminPage() {

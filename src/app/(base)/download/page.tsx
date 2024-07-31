@@ -1,8 +1,10 @@
+import { Box, Container, Grid, Typography, Button as ButtonUI } from '@mui/material'
 import Image from 'next/image'
+import Link from 'next/link'
 import DownloadImage1 from 'shared/images/download/download-1.svg'
 import DownloadImage2 from 'shared/images/download/download-2.svg'
 import DownloadImage3 from 'shared/images/download/download-3.svg'
-import { Button } from 'shared/ui'
+import { SignInForm } from './SignInForm'
 
 const items = [
   {
@@ -24,28 +26,45 @@ const items = [
 
 export default function Download() {
   return (
-    <section className='section s-download'>
-      <div className='container s-download__container'>
-        <h2 className='h1 h1--fz-64 section__heading'>play k4 rally</h2>
-        <div className='row items download__items'>
+    <Box component={'section'} className='section'>
+      <Container>
+        <Typography variant='sectionTitle' component='h1' textAlign={'center'}>
+          play k4 rally
+        </Typography>
+        <SignInForm/>
+        <Grid container spacing={8} justifyContent={'center'} display={'none'}>
           {items.map((el, i) => {
             return (
-              <div key={i} className='col-lg-4 col-sm-6 col-12 items__item item-bg item-bg--grid download__items-item'>
-                <div className='item-bg__bg download__items-border'></div>
-                <i className='items__icon download__items-icon'>
-                  <Image src={el.image} alt='' />
-                </i>
-                <h3 className='items__title h4 text-title download__items-title'>{el.title}</h3>
-                <div className='download__items-btn'>
-                  <Button href='/' size='lg' maxWidth>
-                    {el.btn}
-                  </Button>
-                </div>
-              </div>
+              <Grid item key={i} lg={4} sm={6}>
+                <Box
+                  sx={{
+                    height: '100%',
+                    paddingX: 6,
+                    paddingY: 8,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    border: '1px solid white',
+                    borderRadius: 4,
+                    textAlign: 'center',
+                  }}
+                >
+                  <Box sx={{ lineHeight: '80px', mb: 8 }}>
+                    <Image src={el.image} alt='' />
+                  </Box>
+                  <Typography variant='h4' component='h3' textTransform={'uppercase'} mb={'auto'}>
+                    {el.title}
+                  </Typography>
+                  <Box marginTop={'30px'}>
+                    <ButtonUI component={Link} href={'/'} variant='contained' color='primary' size='large' fullWidth>
+                      {el.btn}
+                    </ButtonUI>
+                  </Box>
+                </Box>
+              </Grid>
             )
           })}
-        </div>
-      </div>
-    </section>
+        </Grid>
+      </Container>
+    </Box>
   )
 }

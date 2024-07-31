@@ -18,6 +18,7 @@ import './App.scss'
 import { Footer, Header } from 'widgets'
 import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
+import { Providers } from './Providers'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -32,13 +33,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
-        <Header />
-        <div className='header-height'></div>
-        <ThemeProvider theme={theme}>
-          <StoreProvider>
-            <main className='wrapper'>{children}</main>
-          </StoreProvider>
-        </ThemeProvider>
+        <Providers>
+          <Header />
+          <div className='header-height'></div>
+          <main className='wrapper'>{children}</main>
+        </Providers>
         <Footer />
       </body>
     </html>

@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from 'shared/ui/button/Button'
@@ -21,16 +21,16 @@ export const News = async () => {
       <div className='section__bg' style={{ backgroundImage: `url(/images/bg/news.png)` }}></div>
       <div className='container s-news__container news'>
         <div className='section__heading-wrapper s-news__heading-wrapper'>
-          <h2 className='h2 section__heading'>
+          <Typography variant='sectionTitle' component='h2'>
             <span className='section__heading-icon section__heading-icon--right'>latest News</span>
-          </h2>
+          </Typography>
           <div className='section__heading-btn'>
             <Button href={readAllLink} target='_blank'>
               Read all news
             </Button>
           </div>
         </div>
-        <Grid container spacing={4} className='items news__items'>
+        <Grid container spacing={8} className='items news__items'>
           {items.map((item, i) => {
             const image = findImage(item.content)
 

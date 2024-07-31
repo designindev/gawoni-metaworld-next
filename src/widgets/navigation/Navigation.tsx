@@ -3,6 +3,8 @@
 import classNames from 'classnames'
 import { PATH_MENU } from 'shared/lib'
 import Navigationitem from './Navigationitem'
+import { useSession, signIn, signOut } from 'next-auth/react'
+import Link from 'next/link'
 
 type Props = {
   navLinks: PATH_MENU[]
@@ -10,8 +12,8 @@ type Props = {
   closeMenu: () => void
 }
 
-export const Navigation = (props: Props) => {
-  const { navLinks, visible, closeMenu } = props
+export const Navigation = ({ navLinks, visible, closeMenu }: Props) => {
+  const session = useSession()
 
   return (
     <nav
@@ -24,6 +26,16 @@ export const Navigation = (props: Props) => {
           return <Navigationitem el={el} key={i} closeMenu={closeMenu} />
         })}
       </ul>
+      {/* {session && session.data ? (
+        <>
+          <Link href={'/profile'}>Profile</Link>
+          <Link href={'#'} onClick={() => signOut({ callbackUrl: '/' })}>
+            Sign out
+          </Link>
+        </>
+      ) : (
+        <Link href={'/signin'}>Sign In</Link>
+      )} */}
     </nav>
   )
 }

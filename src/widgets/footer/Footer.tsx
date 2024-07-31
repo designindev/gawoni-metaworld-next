@@ -13,7 +13,7 @@ const navLinks = [
 export const Footer = () => {
   return (
     <Box component={'footer'} className='footer'>
-      <Container className='footer__container'>
+      <Container>
         <div className='footer__items'>
           <div className='footer__items-item footer__items-item--left'>
             <Link href='/' className='logo logo--lg footer__logo'>

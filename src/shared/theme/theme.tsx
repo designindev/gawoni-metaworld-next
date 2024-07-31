@@ -1,6 +1,8 @@
 'use client'
 
 import { createTheme } from '@mui/material'
+import { COLORS } from 'shared/const'
+import { MuiButton, MuiDrawer, MuiModal, MuiPagination, MuiPaginationItem, MuiTypography } from './components'
 
 export const theme = createTheme({
   components: {
@@ -9,65 +11,12 @@ export const theme = createTheme({
         maxWidth: 'xxxl',
       },
     },
-    MuiGrid: {
-      defaultProps: {
-        // spacing: { xs: 6, lg: 10 },
-      },
-    },
-    MuiButton: {
-      defaultProps: {
-        variant: 'contained',
-        color: 'primary',
-      },
-      styleOverrides: {
-        root: ({ ownerState }) => ({
-          display: 'inline-flex',
-          padding: '5px 30px',
-          height: '48px',
-          borderRadius: 0,
-          fontSize: '20px',
-          minWidth: '197px',
-          fontWeight: 500,
-          textTransform: 'none',
-          ...(ownerState.size === 'large' && {
-            height: '64px',
-          }),
-          ...(ownerState.variant === 'contained' &&
-            ownerState.color === 'primary' && {
-              background: 'linear-gradient(-90deg, #00ff19 0%, #a8ffb0 100%)',
-              border: '1px solid #00ff19',
-              '&:hover': {
-                background: 'linear-gradient(-90deg, #00ff19 0%, #00ff19 100%)',
-                filter: 'drop-shadow(0px 0px 15px #00ff19)',
-              },
-              '&:active': {
-                background: 'linear-gradient(-90deg, #05d219 0%, #05d219 100%)',
-                filter: 'none',
-              },
-            }),
-        }),
-        // root: {
-        //   fontSize: '24px',
-        //   borderRadius: 0,
-        //   border: '2px solid green',
-        // },
-      },
-      variants: [
-        {
-          props: { variant: 'dashed' },
-          style: {
-            textTransform: 'none',
-            border: `2px dashed blue`,
-          },
-        },
-        {
-          props: { variant: 'dashed', color: 'secondary' },
-          style: {
-            border: `4px dashed blue`,
-          },
-        },
-      ],
-    },
+    MuiButton,
+    MuiTypography,
+    MuiModal,
+    MuiPagination,
+    MuiPaginationItem,
+    MuiDrawer,
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),
@@ -89,18 +38,26 @@ export const theme = createTheme({
     h6: {
       fontSize: '16px',
     },
+    label: {
+      marginBottom: '10px',
+      fontWeight: 600,
+      color: 'gray',
+      fontSize: 14,
+    },
   },
   spacing: 4,
   palette: {
-    mode: 'dark',
     primary: {
-      main: '#00ff19',
+      main: COLORS.primary,
     },
     secondary: {
-      main: '#ff4501',
+      main: COLORS.secondary,
     },
     white: {
-      main: '#fff',
+      main: COLORS.white,
+    },
+    dark: {
+      main: COLORS.dark,
     },
   },
   breakpoints: {
@@ -154,9 +111,9 @@ theme.typography.h4 = {
 }
 theme.typography.sectionTitle = {
   ...theme.typography.h2,
-  marginBottom: '60px',
+  marginBottom: 15,
   [theme.breakpoints.down('sm')]: {
-    marginBottom: '30px',
+    marginBottom: 7,
   },
 }
 
@@ -174,18 +131,29 @@ declare module '@mui/material/styles' {
 
   interface TypographyVariants {
     sectionTitle: React.CSSProperties
+    label: React.CSSProperties
   }
 
-  // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     sectionTitle?: React.CSSProperties
+    label?: React.CSSProperties
+  }
+
+  interface Palette {
+    white: Palette['primary']
+    dark: Palette['primary']
+  }
+
+  interface PaletteOptions {
+    white?: PaletteOptions['primary']
+    dark?: PaletteOptions['primary']
   }
 }
 
-// Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     sectionTitle: true
+    label: true
   }
 }
 
@@ -195,15 +163,6 @@ declare module '@mui/material/Button' {
   }
   interface ButtonPropsColorOverrides {
     white: true
-  }
-}
-
-declare module '@mui/material/styles' {
-  interface Palette {
-    white: Palette['primary']
-  }
-
-  interface PaletteOptions {
-    white?: PaletteOptions['primary']
+    dark: true
   }
 }

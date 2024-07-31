@@ -8,7 +8,7 @@ import { Filter } from '../../../widgets/filter/Filter'
 import { ActionMeta, SingleValue } from 'react-select'
 import { Pagination } from 'shared/ui'
 import { Grid, useMediaQuery } from '@mui/material'
-import { Theme } from 'app/theme'
+import { Theme } from 'shared/theme/theme'
 
 export const ShopFilter = () => {
   const [page, onChangePage] = usePaginationQuery()
@@ -41,7 +41,7 @@ export const ShopFilter = () => {
         count={100}
         shape='rounded'
         siblingCount={matches ? 1 : 0}
-        sx={{ display: 'flex', justifyContent: 'center', mt: { xs: 10, lg: 14 } }}
+        sx={{ mt: { xs: 10, lg: 14 } }}
       />
     </>
   )

@@ -8,9 +8,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { Box, Container, Grid } from '@mui/material'
-import { Profile } from './Profile'
 
-export const Header = async ({ profileSlot }: { profileSlot?: React.ReactNode }) => {
+export const Header = ({ profileSlot }: { profileSlot?: React.ReactNode }) => {
   const [activeMenu, setActiveMenu] = useState(false)
 
   const onClick = () => {

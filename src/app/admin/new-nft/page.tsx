@@ -1,43 +1,58 @@
 'use client'
 
-import { Box, Container } from '@mui/material'
-import { Form, InputForm } from 'shared/ui'
+import { Box, Container, Grid, Stack, Typography } from '@mui/material'
+import { Input } from 'shared/ui'
+import { NewNFTEdition } from './NewNFTEdition'
+import { NewNFTAccordion } from './NewNFTAccordion'
 
-export default function AdminPage() {
+export default function NewNftPage() {
   return (
     <>
-      <Box component={'section'} className='section section--pb-0'>
+      <Box component={'section'} className='section'>
         <Container>
-          <h1 className='h1 text-uppercase section__heading section__heading--mb-sm'>add new nft</h1>
-          <div className='new-nft'>
-            <div className='row'>
-              <div className='col-md-5'>
-                <div className='new-nft__right'>1 of 2</div>
-              </div>
-              <div className='col-md-7'>
-                <div className='new-nft__right'>
-                  <div className='new-nft__label'>Basic Info</div>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <InputForm type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
-                    </div>
-                    <div className='col-md-6'>
-                      <InputForm type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
-                    </div>
-                    <div className='col-md-6'>
-                      <InputForm type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
-                    </div>
-                    <div className='col-md-6'>
-                      <InputForm type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
-                    </div>
-                    <div className='col-md-6'>
-                      <InputForm name='email' label='Username or email' placeholder='Enter your username or email' />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Typography variant='sectionTitle' component='h1'>
+            add new nft
+          </Typography>
+
+          <Stack spacing={12}>
+            <Grid container>
+              <Grid item md={5} xs={12}>
+                <Box>123</Box>
+              </Grid>
+              <Grid item md={7} xs={12}>
+                <Box sx={{ backgroundColor: 'dark.main', borderRadius: 6, p: 8 }}>
+                  <Typography variant='label'>Basic Info</Typography>
+                  <Grid container spacing={6} className='row'>
+                    <Grid item md={6} xs={12}>
+                      <Input type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <Input type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <Input type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <Input type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Input name='email' label='Username or email' placeholder='Enter your username or email' />
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Grid>
+            </Grid>
+            <Box sx={{ backgroundColor: 'dark.main', borderRadius: 6, p: 8 }}>
+              <Typography variant='label'>Basic Info</Typography>
+              <Input type='text' name='email' label='Binance Smart Chain (BEP20)' placeholder='Enter your username or email' />
+            </Box>
+            <Box>
+              <NewNFTEdition />
+            </Box>
+            <Box>
+              <NewNFTAccordion />
+            </Box>
+          </Stack>
         </Container>
       </Box>
     </>

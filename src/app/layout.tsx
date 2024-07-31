@@ -36,8 +36,8 @@ export default function RootLayout({
           <Header profileSlot={<Profile />} />
           <div className='header-height'></div>
           <main className='wrapper'>{children}</main>
+          <Footer />
         </Providers>
-        <Footer />
       </body>
     </html>
   )

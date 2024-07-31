@@ -41,26 +41,10 @@
 @import './components/filter';
 @import './components/tags';
 @import './components/banner';
-@import './components/MUI';
 // components
 
 .chart {
-  //   height: 365px;
   background: #141414;
   border-radius: 10px;
   padding: 20px 28px;
-}
-
-.new-nft {
-  &__right {
-    padding: 25px;
-    background-color: $color-dark-nearly;
-    border-radius: 24px;
-  }
-
-  &__label {
-    color: $color-gray;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
 }

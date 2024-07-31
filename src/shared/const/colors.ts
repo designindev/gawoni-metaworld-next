@@ -1,4 +1,11 @@
 export const COLORS = {
+  primary: '#00FF19',
+  secondary: '#ff4501',
+  dark: '#141414',
+  white: '#141414',
+  gray: '#aaa',
+
+  // nft color
   common: '#b3b3b3',
   uncommon: '#00bf13',
   rare: '#0038ff',

@@ -8,7 +8,7 @@ type Props = {
   closeMenu: () => void
 }
 
-export const Navigation = async (props: Props) => {
+export const Navigation = (props: Props) => {
   const { navLinks, visible, closeMenu } = props
   // const session = await getServerSession(authConfig)
 

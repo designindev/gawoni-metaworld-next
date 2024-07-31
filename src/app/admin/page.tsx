@@ -1,14 +1,9 @@
-'use client'
-
-import Chart from 'chart.js/auto'
-import { CategoryScale } from 'chart.js'
 import LineChart from './LineChart'
 import { Filter } from 'widgets/filter/Filter'
 import { NftCard } from 'entities/nft'
 import { mockItems } from 'entities/nft/api/items'
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
-
-Chart.register(CategoryScale)
+import Link from 'next/link'
 
 export default function AdminPage() {
   return (
@@ -23,9 +18,14 @@ export default function AdminPage() {
       </Box>
       <Box component='section' className='section'>
         <Container>
-          <Typography variant='sectionTitle' component='h2'>
-            All NFTs
-          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 8 }}>
+            <Typography variant='sectionTitle' component='h2' mb={0}>
+              All NFTs
+            </Typography>
+            <Button component={Link} href='/admin/new-nft'>
+              Add New
+            </Button>
+          </Box>
           <Filter count={3} bg />
           <Grid container spacing={{ xs: 6, lg: 10 }}>
             {mockItems.map((item, i) => {

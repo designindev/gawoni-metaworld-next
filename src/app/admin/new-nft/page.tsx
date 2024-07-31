@@ -1,12 +1,13 @@
 'use client'
 
+import { Box, Container } from '@mui/material'
 import { Form, InputForm } from 'shared/ui'
 
 export default function AdminPage() {
   return (
     <>
-      <section className='section section--pb-0'>
-        <div className='container'>
+      <Box component={'section'} className='section section--pb-0'>
+        <Container>
           <h1 className='h1 text-uppercase section__heading section__heading--mb-sm'>add new nft</h1>
           <div className='new-nft'>
             <div className='row'>
@@ -37,8 +38,8 @@ export default function AdminPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Box>
     </>
   )
 }

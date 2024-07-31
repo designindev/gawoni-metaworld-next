@@ -16,8 +16,9 @@ type Props = {
 }
 
 export function LoginForm(props: Props) {
-  const [loginThunk] = useLoginMutation()
-  const isAuth = useSelector(selectIsAuth)
+  // const [loginThunk] = useLoginMutation()
+  // const isAuth = useSelector(selectIsAuth)
+  const isauth = false
 
   const onSubmitHandler = useCallback(
     async (data: LoginFormSchema) => {
@@ -45,7 +46,6 @@ export function LoginForm(props: Props) {
         <ButtonForm className='form__button' lgWidth>
           Log In
         </ButtonForm>
-        {isAuth}
         <div className='form__link'>
           Don’t have an account? &nbsp;
           <Link href={PATH_PAGE.register} className='text-link text-primary'>

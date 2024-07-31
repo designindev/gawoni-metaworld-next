@@ -15,8 +15,7 @@ type Props = {
 
 export const ResetPasswordForm = (props: Props) => {
   const router = useRouter()
-
-  const [resetPassword] = useResetPasswordMutation()
+  // const [resetPassword] = useResetPasswordMutation()
 
   const onSubmitHandler = useCallback(
     async (data: ResetPasswordformSchema) => {

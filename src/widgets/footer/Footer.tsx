@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Logo from 'shared/images/logo.png'
 import { Social } from 'shared/ui'
+import { Container, Box } from '@mui/material'
 
 const navLinks = [
   { label: 'Disclaimer', href: '#' },
@@ -11,8 +12,8 @@ const navLinks = [
 
 export const Footer = () => {
   return (
-    <footer className='footer'>
-      <div className='container footer__container'>
+    <Box component={'footer'} className='footer'>
+      <Container className='footer__container'>
         <div className='footer__items'>
           <div className='footer__items-item footer__items-item--left'>
             <Link href='/' className='logo logo--lg footer__logo'>
@@ -41,7 +42,7 @@ export const Footer = () => {
             <Social />
           </div>
         </div>
-      </div>
-    </footer>
+      </Container>
+    </Box>
   )
 }

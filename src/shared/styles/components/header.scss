@@ -1,7 +1,4 @@
 .profile {
-  display: inline-flex;
-  align-items: center;
-
   &:hover &__text {
     color: $color-secondary;
   }
@@ -281,18 +278,6 @@
 }
 
 .header-line {
-  background-color: $color-dark-nearly;
-
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: $header-height;
-    @include md {
-      height: $header-height-mobile;
-    }
-  }
-
   &__item {
     @include md-min {
       width: 33%;
@@ -326,9 +311,9 @@
   padding: 0;
 
   &-height {
-    height: $header-height;
+    height: 85px;
     @include md {
-      height: $header-height-mobile;
+      height: 60px;
     }
   }
 
@@ -353,8 +338,8 @@
     @include md {
       position: absolute;
       right: 0;
-      top: $header-height-mobile;
-      height: calc(100vh - $header-height-mobile);
+      top: 60px;
+      height: calc(100vh - 60px);
       width: 260px;
     }
 

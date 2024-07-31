@@ -4,17 +4,14 @@ import Image from 'next/image'
 import Logo from 'shared/images/logo.png'
 import { Navigation } from '../navigation/Navigation'
 import { PATH_MENU, PATH_PAGE } from 'shared/lib/paths'
-import { Button } from 'shared/ui/button/Button'
 import Link from 'next/link'
 import { useState } from 'react'
 import classNames from 'classnames'
-import { Container, Grid } from '@mui/material'
-import { useSession } from 'next-auth/react'
+import { Box, Container, Grid } from '@mui/material'
+import { Profile } from './Profile'
 
-export const Header = () => {
+export const Header = async ({ profileSlot }: { profileSlot?: React.ReactNode }) => {
   const [activeMenu, setActiveMenu] = useState(false)
-  const session = useSession()
-  const isAuth = session.data
 
   const onClick = () => {
     setActiveMenu((v) => !v)
@@ -22,9 +19,9 @@ export const Header = () => {
 
   return (
     <header className='header'>
-      <div className='header-line header__line'>
+      <Box className='header-line header__line' sx={{ background: '#141414' }}>
         <Container className='header-line__container'>
-          <Grid container>
+          <Grid container sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 85 }}>
             <div className='header-line__item header-line__item--left'></div>
             <div className='header-line__item header-line__item--center'>
               <Link href={PATH_PAGE.root} className='logo header__logo'>
@@ -32,6 +29,7 @@ export const Header = () => {
               </Link>
             </div>
             <div className='header-line__item header-line__item--right'>
+              {profileSlot}
               <button
                 className={classNames('menu-burger header__burger', {
                   'menu-burger--active': activeMenu,
@@ -50,22 +48,13 @@ export const Header = () => {
                   </span>
                 </span>
               </button>
-
-              {isAuth ? (
-                <a href='/' className='profile header__profile'>
-                  <div className='profile__image'></div>
-                  <div className='profile__text'>John Doe</div>
-                </a>
-              ) : (
-                <Button href={PATH_PAGE.login}>Login</Button>
-              )}
             </div>
           </Grid>
         </Container>
-      </div>
-      <div className='container'>
+      </Box>
+      <Container>
         <Navigation navLinks={PATH_MENU} visible={activeMenu} closeMenu={() => setActiveMenu(false)} />
-      </div>
+      </Container>
     </header>
   )
 }

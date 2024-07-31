@@ -1,6 +1,6 @@
 'use client'
 
-import { Drawer } from '@mui/material'
+import { Box, Drawer } from '@mui/material'
 import classNames from 'classnames'
 import { useRef, useState } from 'react'
 import { ActionMeta, SingleValue } from 'react-select'
@@ -71,13 +71,8 @@ export const Filter = (props: Props) => {
           <div className='filter__label h3 h3--fz-32'>Filters</div>
           <div className='filter__number'>{props.count}</div>
         </div>
-        <div className='filter__right d-none d-lg-block'>
+        <div className='filter__right'>
           <Button color={'light'} onClick={clearValue} border>
-            Clear all
-          </Button>
-        </div>
-        <div className='filter__right d-block d-lg-none'>
-          <Button color={'light'} onClick={clearValue} border link>
             Clear all <i className='text-icon text-icon--x text-icon--right'></i>
           </Button>
         </div>
@@ -104,21 +99,34 @@ export const Filter = (props: Props) => {
         filter__bg: props.bg,
       })}
     >
-      <div className='d-none d-lg-block'>{FilterInner}</div>
-
-      <div className='filter__btn-open d-lg-none'>
-        <Button onClick={() => setOpen(true)} color={'light'} border maxWidth>
-          Filters <div className='filter__number'>{props.count}</div>
-        </Button>
-      </div>
-      <Drawer anchor='bottom' open={open} onClose={() => setOpen(false)} className='d-lg-none'>
+      <Box
+        sx={(theme) => ({
+          [theme.breakpoints.down('lg')]: {
+            display: 'none',
+          },
+        })}
+      >
         {FilterInner}
-        <div className='filter__button'>
-          <Button maxWidth onClick={() => setOpen(false)}>
-            Accept
+      </Box>
+      <Box
+        sx={(theme) => ({
+          [theme.breakpoints.up('lg')]: { display: 'none' },
+        })}
+      >
+        <Box className='filter__btn-open'>
+          <Button onClick={() => setOpen(true)} color={'light'} border maxWidth>
+            Filters <div className='filter__number'>{props.count}</div>
           </Button>
-        </div>
-      </Drawer>
+        </Box>
+        <Drawer anchor='bottom' open={open} onClose={() => setOpen(false)}>
+          {FilterInner}
+          <div className='filter__button'>
+            <Button maxWidth onClick={() => setOpen(false)}>
+              Accept
+            </Button>
+          </div>
+        </Drawer>
+      </Box>
     </div>
   )
 }

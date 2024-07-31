@@ -1,12 +1,12 @@
 'use client'
 
+import { Box, Container, Grid } from '@mui/material'
 import { A11y, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperControls, SwiperButton, SwiperPagination } from 'shared/ui'
 import { Button } from 'shared/ui/button/Button'
 import Image1 from './slide-1.jpg'
 import Image2 from './slide-2.jpg'
-import { Grid } from '@mui/material'
 
 const items = [
   {
@@ -27,7 +27,7 @@ const items = [
 
 export const Main = () => {
   return (
-    <section className='section section--reset-header-height s-main'>
+    <Box component={'section'} className='section s-main' sx={{ mt: { xs: '-60px', md: '-85px' } }}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
         effect={'fade'}
@@ -48,7 +48,7 @@ export const Main = () => {
             <SwiperSlide key={i} className='main__items-slide'>
               <div className='items__item main__items-item'>
                 <div className='main__items-image' style={{ backgroundImage: `url(${el.image.src})` }}></div>
-                <div className='container main__items-container'>
+                <Container className='main__items-container'>
                   <div className='header-height'></div>
                   <h1 className='h1 h1--fz-72 main__items-title'>
                     <span className='main__items-title-first text-primary'>{el.title}</span>
@@ -65,7 +65,7 @@ export const Main = () => {
                       </Button>
                     </div>
                   </div>
-                </div>
+                </Container>
               </div>
             </SwiperSlide>
           )
@@ -76,6 +76,6 @@ export const Main = () => {
           <SwiperButton side='right' circle />
         </SwiperControls>
       </Swiper>
-    </section>
+    </Box>
   )
 }

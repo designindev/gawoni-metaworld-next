@@ -1,10 +1,9 @@
-import { Box, Container, Grid, Typography, Button as ButtonUI } from '@mui/material'
+import { Box, Container, Grid, Typography, Button } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import DownloadImage1 from 'shared/images/download/download-1.svg'
 import DownloadImage2 from 'shared/images/download/download-2.svg'
 import DownloadImage3 from 'shared/images/download/download-3.svg'
-import { SignInForm } from './SignInForm'
 
 const items = [
   {
@@ -31,11 +30,11 @@ export default function Download() {
         <Typography variant='sectionTitle' component='h1' textAlign={'center'}>
           play k4 rally
         </Typography>
-        <SignInForm/>
-        <Grid container spacing={8} justifyContent={'center'} display={'none'}>
+
+        <Grid container spacing={{ xs: 6, lg: 10 }} justifyContent={'center'}>
           {items.map((el, i) => {
             return (
-              <Grid item key={i} lg={4} sm={6}>
+              <Grid item key={i} lg={4} sm={6} xs={12}>
                 <Box
                   sx={{
                     height: '100%',
@@ -54,11 +53,9 @@ export default function Download() {
                   <Typography variant='h4' component='h3' textTransform={'uppercase'} mb={'auto'}>
                     {el.title}
                   </Typography>
-                  <Box marginTop={'30px'}>
-                    <ButtonUI component={Link} href={'/'} variant='contained' color='primary' size='large' fullWidth>
-                      {el.btn}
-                    </ButtonUI>
-                  </Box>
+                  <Button component={Link} href={'/'} size='large' fullWidth sx={{ marginTop: '30px' }}>
+                    {el.btn}
+                  </Button>
                 </Box>
               </Grid>
             )

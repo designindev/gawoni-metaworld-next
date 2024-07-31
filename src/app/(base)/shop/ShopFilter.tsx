@@ -7,12 +7,14 @@ import { useState } from 'react'
 import { Filter } from '../../../widgets/filter/Filter'
 import { ActionMeta, SingleValue } from 'react-select'
 import { Pagination } from 'shared/ui'
-import { Grid } from '@mui/material'
+import { Grid, useMediaQuery } from '@mui/material'
+import { Theme } from 'app/theme'
 
 export const ShopFilter = () => {
   const [page, onChangePage] = usePaginationQuery()
   const [filters, setFilters] = useState<Record<string, string>>({})
   const count = Object.values(filters).filter((el) => el).length
+  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'))
 
   const onChangeFilter = (newValue: SingleValue<{ value: string; label: string }>, actionMeta: ActionMeta<{ value: string; label: string }>) => {
     const name = actionMeta.name
@@ -24,17 +26,23 @@ export const ShopFilter = () => {
   return (
     <>
       <Filter count={count} onChange={onChangeFilter} className='shop__filter' />
-      <Grid container spacing={4}>
+      <Grid container spacing={{ xs: 6, lg: 10 }}>
         {mockItems.map((item, i) => {
           return (
-            <Grid item key={i} xl={3} lg={4} sm={6}>
+            <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
               <NftCard nft={item} />
             </Grid>
           )
         })}
       </Grid>
-      <Pagination onChange={(_, page) => onChangePage(page)} page={page} count={100} shape='rounded' className='mt-55 d-none d-lg-flex' />
-      <Pagination onChange={(_, page) => onChangePage(page)} page={page} count={100} siblingCount={0} shape='rounded' className='mt-55 d-lg-none' />
+      <Pagination
+        onChange={(_, page) => onChangePage(page)}
+        page={page}
+        count={100}
+        shape='rounded'
+        siblingCount={matches ? 1 : 0}
+        sx={{ display: 'flex', justifyContent: 'center', mt: { xs: 10, lg: 14 } }}
+      />
     </>
   )
 }

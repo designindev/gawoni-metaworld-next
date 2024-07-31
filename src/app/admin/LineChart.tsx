@@ -2,6 +2,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js'
+import { Typography } from '@mui/material'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler)
 
@@ -65,7 +66,9 @@ function LineChart() {
 
   return (
     <div className='chart'>
-      <h3 className='h5'>Selling overview</h3>
+      <Typography variant='h5' component='h3' mb={3}>
+        Selling overview
+      </Typography>
       <div style={graphStyle}>
         <Line options={options} data={canvasData} />
       </div>

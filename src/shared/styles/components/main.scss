@@ -1,7 +1,6 @@
 .main {
   &__items {
     &-container {
-      max-width: 100%;
       @include xxxxl-min {
         max-width: 1800px;
       }

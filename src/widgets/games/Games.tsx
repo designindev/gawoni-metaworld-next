@@ -5,7 +5,7 @@ import Image3 from './game-3.jpg'
 import Image4 from './game-4.jpg'
 import { Button } from 'shared/ui/button/Button'
 import { PATH_PAGE } from 'shared/lib'
-import { Grid } from '@mui/material'
+import { Box, Container, Grid } from '@mui/material'
 
 const items = [
   {
@@ -37,17 +37,17 @@ const items = [
 
 export const Games = () => {
   return (
-    <section className='section s-games'>
+    <Box component={'section'} className='section s-games'>
       <div className='section__bg' style={{ backgroundImage: `url(/images/bg/games.png)` }}></div>
-      <div className='container s-games__container games'>
+      <Container className='s-games__container games'>
         <h2 className='h2 section__heading'>
           <span className='section__heading-icon'>our games</span>
         </h2>
-        <Grid container spacing={5} className='games__items'>
+        <Grid container spacing={{ xs: 6, lg: 10 }} className='games__items'>
           {items.map((item, i) => {
             return (
               <Grid item md={6} key={i}>
-                <div className='games__items-item'>
+                <Box className='games__items-item' sx={{ height: '100%' }}>
                   <div className='games__items-border'></div>
                   <div className='games__items-border-line games__items-border-line--1'></div>
                   <div className='games__items-border-line games__items-border-line--2'></div>
@@ -72,12 +72,12 @@ export const Games = () => {
                       Game Store
                     </Button>
                   </div>
-                </div>
+                </Box>
               </Grid>
             )
           })}
         </Grid>
-      </div>
-    </section>
+      </Container>
+    </Box>
   )
 }

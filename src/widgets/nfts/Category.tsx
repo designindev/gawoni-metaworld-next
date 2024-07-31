@@ -2,9 +2,7 @@
 
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SwiperControls } from '../../shared/ui/swiper/SwiperControls'
-import { SwiperButton } from '../../shared/ui/swiper/SwiperButton'
-import { SwiperPagination } from '../../shared/ui/swiper/SwiperPagination'
+import { SwiperControls, SwiperButton, SwiperPagination } from 'shared/ui'
 import { NftCard } from 'entities/nft'
 import { mockItems } from 'entities/nft/api/items'
 import { Button } from 'shared/ui/button/Button'

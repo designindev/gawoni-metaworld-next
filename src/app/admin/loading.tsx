@@ -1,13 +1,14 @@
+import { Box, Container } from '@mui/material'
 import { Preloader } from 'shared/ui'
 
 export default function Loading() {
   return (
     <>
-      <section className='section'>
-        <div className='container'>
+      <Box component='section' className='section'>
+        <Container>
           <Preloader />
-        </div>
-      </section>
+        </Container>
+      </Box>
     </>
   )
 }

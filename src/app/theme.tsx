@@ -4,10 +4,20 @@ import { createTheme } from '@mui/material'
 
 export const theme = createTheme({
   components: {
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: 'xxxl',
+      },
+    },
+    MuiGrid: {
+      defaultProps: {
+        // spacing: { xs: 6, lg: 10 },
+      },
+    },
     MuiButton: {
       defaultProps: {
-        // The props to change the default for.
-        // disableRipple: true, // No more ripple, on the whole application 💣!
+        variant: 'contained',
+        color: 'primary',
       },
       styleOverrides: {
         root: ({ ownerState }) => ({
@@ -58,17 +68,26 @@ export const theme = createTheme({
         },
       ],
     },
-    MuiContainer: {
-      defaultProps: {
-        maxWidth: 'xl'
-      }
-    }
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),
     htmlFontSize: 16,
     h1: {
       fontFamily: 'Whyte',
+    },
+    h2: {},
+    h3: {
+      fontSize: '40px',
+    },
+    h4: {
+      fontSize: '24px',
+      lineHeight: '1.3',
+    },
+    h5: {
+      fontSize: '18px',
+    },
+    h6: {
+      fontSize: '16px',
     },
   },
   spacing: 4,
@@ -87,13 +106,18 @@ export const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1570,
+      sm: 576,
+      md: 768,
+      lg: 1024,
+      xl: 1200,
+      xxl: 1360,
+      xxxl: 1570,
+      xxxxl: 1870,
     },
   },
 })
+
+export type Theme = typeof theme
 
 theme.typography.h2 = {
   fontFamily: 'Whyte',
@@ -137,6 +161,17 @@ theme.typography.sectionTitle = {
 }
 
 declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: true
+    sm: true
+    md: true
+    lg: true
+    xl: true
+    xxl: true
+    xxxl: true
+    xxxxl: true
+  }
+
   interface TypographyVariants {
     sectionTitle: React.CSSProperties
   }

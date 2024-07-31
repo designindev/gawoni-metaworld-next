@@ -16,7 +16,7 @@ type Props = {
 }
 
 export const RegisterForm = (props: Props) => {
-  const [register] = useRegisterMutation()
+  // const [register] = useRegisterMutation()
   const router = useRouter()
 
   const onSubmitHandler = useCallback(

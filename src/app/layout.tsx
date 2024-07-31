@@ -12,13 +12,12 @@ import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
-import 'bootstrap/dist/css/bootstrap-grid.min.css'
-import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css'
+// import 'bootstrap/dist/css/bootstrap-grid.min.css'
+// import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css'
 import './App.scss'
 import { Footer, Header } from 'widgets'
-import { ThemeProvider } from '@mui/material'
-import { theme } from './theme'
 import { Providers } from './Providers'
+import { Profile } from 'widgets/header/Profile'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -34,7 +33,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
         <Providers>
-          <Header />
+          <Header profileSlot={<Profile />} />
           <div className='header-height'></div>
           <main className='wrapper'>{children}</main>
         </Providers>

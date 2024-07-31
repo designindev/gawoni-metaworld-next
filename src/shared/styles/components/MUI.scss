@@ -1,6 +1,4 @@
 .MuiPagination-root {
-  display: flex;
-  justify-content: center;
 }
 
 .MuiPaginationItem-previousNext,
@@ -37,8 +35,6 @@
   font-size: 16px;
   font-weight: 500;
   min-width: 1px;
-  @include sm {
-  }
 }
 
 .MuiPaginationItem-previousNext {

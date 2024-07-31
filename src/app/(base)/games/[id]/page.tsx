@@ -5,13 +5,13 @@ import { GameSlider, Slide } from './game-slider'
 import Logo from 'shared/images/games/logo.png'
 import { PATH_PAGE } from 'shared/lib'
 import { slides } from './slides'
-import { Box, Grid } from '@mui/material'
+import { Container, Box, Grid } from '@mui/material'
 
 const Games = () => {
   return (
-    <section className='section'>
+    <Box component='section' className='section'>
       <div className='section__bg section__bg--gradient'></div>
-      <div className='container'>
+      <Container>
         <div className='game-details'>
           <GameSlider slides={slides} className='game-details__slider' />
           <div className='game-details__heading'>
@@ -44,7 +44,7 @@ const Games = () => {
               </li>
             </ul>
           </div>
-          <Grid container spacing={4} className='game-details__features'>
+          <Grid container spacing={{ xs: 6, lg: 10 }} className='game-details__features'>
             <Grid item md={6}>
               <Box className='game-details__features-item' sx={{ border: '1px solid #fff', borderRadius: 2, p: 5, height: '100%' }}>
                 <h4 className='game-details__features-title h4'>game description</h4>
@@ -78,8 +78,8 @@ const Games = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Box>
   )
 }
 

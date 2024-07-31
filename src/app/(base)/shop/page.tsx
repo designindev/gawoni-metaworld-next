@@ -1,13 +1,14 @@
+import { Box, Container } from '@mui/material'
 import { ShopFilter } from './ShopFilter'
 
 const Shop = () => {
   return (
-    <section className='section'>
-      <div className='container'>
+    <Box component='section' className='section'>
+      <Container>
         <h1 className='h1 section__heading text-center'>NFT Shop</h1>
         <ShopFilter />
-      </div>
-    </section>
+      </Container>
+    </Box>
   )
 }
 

@@ -14,7 +14,7 @@ type Props = {
 }
 
 export const NewPasswordForm = (props: Props) => {
-  const [newPassword] = useNewPasswordMutation()
+  // const [newPassword] = useNewPasswordMutation()
   const router = useRouter()
 
   const onSubmitHandler = useCallback(

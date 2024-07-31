@@ -7,6 +7,7 @@ import ISwiper from 'swiper'
 import Image, { StaticImageData } from 'next/image'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
+import { Grid } from '@mui/material'
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 export type Slide =
@@ -34,8 +35,8 @@ export const GameSlider = (props: Props) => {
   const swiper = thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
 
   return (
-    <div className={classNames('row slider-with-thumbs', className)}>
-      <div className='col-xxl-10 col-xl-9 col-lg-9 col-md-9 col-sm-8 col-12 slider-with-thumbs__left'>
+    <Grid container spacing={{ xs: 6, lg: 10 }} className={classNames('slider-with-thumbs', className)}>
+      <Grid item lg={10} sm={8} xs={12} className='slider-with-thumbs__left'>
         <Swiper
           loop={true}
           spaceBetween={30}
@@ -69,8 +70,8 @@ export const GameSlider = (props: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-      <div className='col-xxl-2 col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12 slider-with-thumbs__right'>
+      </Grid>
+      <Grid item lg={2} sm={4} xs={12} className='slider-with-thumbs__right'>
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}
@@ -101,7 +102,7 @@ export const GameSlider = (props: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   )
 }

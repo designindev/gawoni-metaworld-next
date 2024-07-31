@@ -6,38 +6,41 @@ import LineChart from './LineChart'
 import { Filter } from 'widgets/filter/Filter'
 import { NftCard } from 'entities/nft'
 import { mockItems } from 'entities/nft/api/items'
-import { Button } from 'shared/ui'
-import { Container } from '@mui/material'
-import { Button as ButtonMUI } from '@mui/material'
+import { Box, Button, Container, Grid, Typography } from '@mui/material'
 
 Chart.register(CategoryScale)
 
 export default function AdminPage() {
   return (
     <>
-      <section className='section section--pb-0'>
-        <Container maxWidth='xl'>
-          <h1 className='h1 text-uppercase section__heading section__heading--mb-sm'>overview</h1>
-          <ButtonMUI variant='text'>Text</ButtonMUI>
-          <ButtonMUI variant='contained'>Contained</ButtonMUI>
-          <ButtonMUI variant='outlined'>Outlined</ButtonMUI>
+      <Box component={'section'} className='section' mb={0}>
+        <Container>
+          <Typography variant='sectionTitle' component='h1'>
+            overview
+          </Typography>
           <LineChart />
         </Container>
-      </section>
-      <section className='section'>
-        <div className='container'>
-          <h1 className='h1 text-uppercase section__heading section__heading--mb-sm'>All NFTs</h1>
+      </Box>
+      <Box component='section' className='section'>
+        <Container>
+          <Typography variant='sectionTitle' component='h2'>
+            All NFTs
+          </Typography>
           <Filter count={3} bg />
-          <div className='row items'>
+          <Grid container spacing={{ xs: 6, lg: 10 }}>
             {mockItems.map((item, i) => {
-              return <NftCard key={i} nft={item} className='col-xl-3 col-lg-4 col-sm-6 col-12 item-bg--grid' hasButtons />
+              return (
+                <Grid item key={i} xl={3} lg={4} sm={6}>
+                  <NftCard nft={item} />
+                </Grid>
+              )
             })}
-          </div>
-          <div className='text-center mt-5'>
-            <Button lgWidth>Load More</Button>
-          </div>
-        </div>
-      </section>
+          </Grid>
+          <Box sx={{ mt: 14, textAlign: 'center' }}>
+            <Button>Load More</Button>
+          </Box>
+        </Container>
+      </Box>
     </>
   )
 }

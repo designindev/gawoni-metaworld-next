@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material'
+import { Container, Box, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from 'shared/ui/button/Button'
@@ -17,9 +17,9 @@ export const News = async () => {
   const items = data.items.slice(0, 3) as any[]
 
   return (
-    <section className='section s-news' id='news'>
+    <Box className='section s-news' id='news'>
       <div className='section__bg' style={{ backgroundImage: `url(/images/bg/news.png)` }}></div>
-      <div className='container s-news__container news'>
+      <Container className='s-news__container news'>
         <div className='section__heading-wrapper s-news__heading-wrapper'>
           <Typography variant='sectionTitle' component='h2'>
             <span className='section__heading-icon section__heading-icon--right'>latest News</span>
@@ -30,7 +30,7 @@ export const News = async () => {
             </Button>
           </div>
         </div>
-        <Grid container spacing={8} className='items news__items'>
+        <Grid container spacing={{ xs: 6, lg: 10 }} className='items news__items'>
           {items.map((item, i) => {
             const image = findImage(item.content)
 
@@ -60,12 +60,12 @@ export const News = async () => {
             )
           })}
         </Grid>
-        <div className='mt-40 text-center'>
+        <Box mt={10} textAlign={'center'}>
           <Link href={readAllLink} className='text-link text-primary fz-20'>
             Read all news
           </Link>
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Container>
+    </Box>
   )
 }

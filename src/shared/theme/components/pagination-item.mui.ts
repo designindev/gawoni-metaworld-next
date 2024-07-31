@@ -3,7 +3,6 @@ import { Components } from '@mui/material'
 
 const style = {
   backgroundColor: COLORS.dark,
-  color: '#fff',
   minWidth: '44px',
   height: '44px',
   [`@media only screen and (max-width: ${BREAKPOINTS.sm}px)`]: {

@@ -5,6 +5,27 @@ import { BREAKPOINTS, COLORS } from 'shared/const'
 import { MuiButton, MuiDrawer, MuiModal, MuiPagination, MuiPaginationItem, MuiTypography } from './components'
 
 export const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    background: {
+      default: '#000',
+    },
+    text: {
+      primary: '#fff',
+    },
+    primary: {
+      main: COLORS.primary,
+    },
+    secondary: {
+      main: COLORS.secondary,
+    },
+    white: {
+      main: COLORS.white,
+    },
+    dark: {
+      main: COLORS.dark,
+    },
+  },
   components: {
     MuiContainer: {
       defaultProps: {
@@ -15,7 +36,6 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: COLORS.dark,
-          color: '#fff',
           marginBottom: '48px',
           borderRadius: '30px',
           '&:first-of-type': {
@@ -56,6 +76,41 @@ export const theme = createTheme({
         },
       },
     },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          position: 'relative',
+          transform: 'none',
+          marginBottom: '15px',
+          color: '#fff',
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      defaultProps: {},
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+        },
+        notchedOutline: {
+          top: '0',
+          borderColor: '#fff',
+          '& legend': {
+            display: 'none',
+          },
+        },
+        input: {
+          padding: '0 12px',
+          height: '48px',
+        },
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: 'outlined',
+        fullWidth: true,
+      },
+    },
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),
@@ -85,20 +140,6 @@ export const theme = createTheme({
     },
   },
   spacing: 4,
-  palette: {
-    primary: {
-      main: COLORS.primary,
-    },
-    secondary: {
-      main: COLORS.secondary,
-    },
-    white: {
-      main: COLORS.white,
-    },
-    dark: {
-      main: COLORS.dark,
-    },
-  },
   breakpoints: {
     values: BREAKPOINTS,
   },

@@ -1,7 +1,7 @@
 'use client'
 
 import { createTheme } from '@mui/material'
-import { COLORS } from 'shared/const'
+import { BREAKPOINTS, COLORS } from 'shared/const'
 import { MuiButton, MuiDrawer, MuiModal, MuiPagination, MuiPaginationItem, MuiTypography } from './components'
 
 export const theme = createTheme({
@@ -11,12 +11,51 @@ export const theme = createTheme({
         maxWidth: 'xxxl',
       },
     },
-    MuiButton,
-    MuiTypography,
-    MuiModal,
-    MuiPagination,
-    MuiPaginationItem,
-    MuiDrawer,
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          backgroundColor: COLORS.dark,
+          color: '#fff',
+          marginBottom: '48px',
+          borderRadius: '30px',
+          '&:first-of-type': {
+            borderRadius: '30px',
+            margin: '0',
+            marginBottom: '48px',
+          },
+          '&:last-of-type': {
+            borderRadius: '30px',
+          },
+          '&.Mui-expanded': {
+            margin: 0,
+            marginBottom: '48px',
+          },
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          padding: '32px 24px',
+        },
+        content: {
+          margin: 0,
+          fontSize: 20,
+          fontFamily: 'Whyte',
+          fontWeight: 700,
+          '&.Mui-expanded': {
+            margin: 0,
+          },
+        },
+      },
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          padding: '0 24px 24px',
+        },
+      },
+    },
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),
@@ -61,18 +100,19 @@ export const theme = createTheme({
     },
   },
   breakpoints: {
-    values: {
-      xs: 0,
-      sm: 576,
-      md: 768,
-      lg: 1024,
-      xl: 1200,
-      xxl: 1360,
-      xxxl: 1570,
-      xxxxl: 1870,
-    },
+    values: BREAKPOINTS,
   },
 })
+
+theme.components = {
+  ...theme.components,
+  MuiButton,
+  MuiTypography,
+  MuiModal,
+  MuiPagination,
+  MuiPaginationItem,
+  MuiDrawer,
+}
 
 export type Theme = typeof theme
 

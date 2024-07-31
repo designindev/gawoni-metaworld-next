@@ -1,6 +1,9 @@
 import { Components } from '@mui/material'
 
-export const MuiButton: Components['MuiButton'] = {
+// type Button = Components['MuiButton']
+type Button = Pick<Components, 'MuiButton'>['MuiButton']
+
+export const MuiButton: Button = {
   defaultProps: {
     variant: 'contained',
     color: 'primary',

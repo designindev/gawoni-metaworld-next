@@ -2,7 +2,7 @@ export const COLORS = {
   primary: '#00FF19',
   secondary: '#ff4501',
   dark: '#141414',
-  white: '#141414',
+  white: '#fff',
   gray: '#aaa',
 
   // nft color

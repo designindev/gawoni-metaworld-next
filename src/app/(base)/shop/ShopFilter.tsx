@@ -6,8 +6,7 @@ import { usePaginationQuery } from 'shared/model'
 import { useState } from 'react'
 import { Filter } from '../../../widgets/filter/Filter'
 import { ActionMeta, SingleValue } from 'react-select'
-import { Pagination } from 'shared/ui'
-import { Grid, useMediaQuery } from '@mui/material'
+import { Grid, Pagination, useMediaQuery } from '@mui/material'
 import { Theme } from 'shared/theme/theme'
 
 export const ShopFilter = () => {

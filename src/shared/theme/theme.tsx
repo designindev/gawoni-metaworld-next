@@ -17,10 +17,10 @@ export const theme = createTheme({
       main: COLORS.primary,
     },
     secondary: {
-      main: COLORS.secondary,
+      main: COLORS.white,
     },
     white: {
-      main: COLORS.white,
+      main: '#fff',
     },
     dark: {
       main: COLORS.dark,
@@ -133,7 +133,6 @@ export const theme = createTheme({
       fontSize: '16px',
     },
     label: {
-      marginBottom: '10px',
       fontWeight: 600,
       color: 'gray',
       fontSize: 14,

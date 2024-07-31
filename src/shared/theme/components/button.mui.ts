@@ -1,9 +1,6 @@
 import { Components } from '@mui/material'
 
-// type Button = Components['MuiButton']
-type Button = Pick<Components, 'MuiButton'>['MuiButton']
-
-export const MuiButton: Button = {
+export const MuiButton: Components['MuiButton'] = {
   defaultProps: {
     variant: 'contained',
     color: 'primary',
@@ -34,20 +31,19 @@ export const MuiButton: Button = {
             filter: 'none',
           },
         }),
+      ...(ownerState.color === 'white' && {}),
     }),
+    startIcon: {
+      '&>*:nth-of-type(1)': {
+        fontSize: '24px',
+      },
+    },
   },
   variants: [
     {
-      props: { variant: 'dashed' },
+      props: { variant: 'outlined' },
       style: {
-        textTransform: 'none',
-        border: `2px dashed blue`,
-      },
-    },
-    {
-      props: { variant: 'dashed', color: 'secondary' },
-      style: {
-        border: `4px dashed blue`,
+        borderRadius: '4px',
       },
     },
   ],

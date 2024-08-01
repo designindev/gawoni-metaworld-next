@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import { Box, Container, Grid } from '@mui/material'
 import { Profile } from './Profile'
 
-export const Header = ({ profileSlot }: { profileSlot?: React.ReactNode }) => {
+export const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false)
 
   const onClick = () => {

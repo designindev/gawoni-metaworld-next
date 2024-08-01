@@ -17,7 +17,6 @@ import '@fontsource/roboto/700.css'
 import './App.scss'
 import { Footer, Header } from 'widgets'
 import { Providers } from './Providers'
-import { Profile } from 'widgets/header/Profile'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -33,7 +32,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
         <Providers>
-          <Header profileSlot={<Profile />} />
+          <Header />
           <div className='header-height'></div>
           <main className='wrapper'>{children}</main>
           <Footer />

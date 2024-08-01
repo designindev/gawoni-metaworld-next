@@ -2,7 +2,7 @@
 
 import { notifySuccess } from 'shared/lib/notify'
 import { useCallback } from 'react'
-import { ButtonForm, Form, InputForm, Preloader } from 'shared/ui'
+import { ButtonForm, Form, InputForm } from 'shared/ui'
 import classNames from 'classnames'
 import { LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
 import { PATH_PAGE } from 'shared/lib'

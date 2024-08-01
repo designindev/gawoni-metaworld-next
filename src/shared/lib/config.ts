@@ -6,8 +6,8 @@ const envVariables = z.object({
 })
 
 const env = envVariables.parse({
-  API_ENDPOINT: process.env.APP_API_ENDPOINT ?? 'https:google.ua',
-  SITE_ENDPOINT: process.env.APP_SITE_ENDPOINT ?? 'https:google.ua',
+  API_ENDPOINT: process.env.NEXT_PUBLIC_SITE_ENDPOINT,
+  SITE_ENDPOINT: process.env.NEXT_PUBLIC_API_ENDPOINT,
 })
 
 export const config = {

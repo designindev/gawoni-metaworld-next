@@ -307,7 +307,6 @@ theme.typography.h2 = {
   },
 }
 theme.typography.h3 = {
-  fontSize: '40px',
   [theme.breakpoints.down('xl')]: {
     fontSize: '36px',
   },
@@ -317,7 +316,6 @@ theme.typography.h3 = {
 }
 
 theme.typography.h4 = {
-  fontSize: '24px',
   [theme.breakpoints.down('lg')]: {
     fontSize: '21px',
   },

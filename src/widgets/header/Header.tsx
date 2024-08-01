@@ -7,8 +7,9 @@ import { PATH_MENU, PATH_PAGE } from 'shared/lib/paths'
 import Link from 'next/link'
 import { useState } from 'react'
 import classNames from 'classnames'
-import { Box, Container, Grid } from '@mui/material'
+import { Box, Container, Grid, IconButton, Stack } from '@mui/material'
 import { Profile } from './Profile'
+import MenuIcon from '@mui/icons-material/Menu'
 
 export const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false)
@@ -18,43 +19,40 @@ export const Header = () => {
   }
 
   return (
-    <header className='header'>
-      <Box className='header-line header__line' sx={{ background: '#141414' }}>
-        <Container className='header-line__container'>
-          <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', height: 85 }}>
-            <div className='header-line__item header-line__item--left'></div>
-            <div className='header-line__item header-line__item--center'>
-              <Link href={PATH_PAGE.root} className='logo header__logo'>
+    <Box component={'header'} position={'absolute'} top={0} left={0} right={0} zIndex={99}>
+      <Box className='header-line header__line' sx={{ backgroundColor: 'dark.main' }}>
+        <Container>
+          <Stack
+            flexDirection={'row'}
+            justifyContent={'space-around'}
+            alignItems={'center'}
+            height={{ xs: 60, lg: 85 }}
+            pl={'30%'}
+          >
+            <Box>
+              <Link href={PATH_PAGE.root} className='logo'>
                 <Image src={Logo} alt='Logo' priority />
               </Link>
-            </div>
-            <div className='header-line__item header-line__item--right'>
+            </Box>
+            <Box>
               <Profile />
-              <button
-                className={classNames('menu-burger header__burger', {
-                  'menu-burger--active': activeMenu,
-                })}
+              <IconButton
                 onClick={onClick}
+                size='large'
+                edge='start'
+                sx={{ display: { lg: 'none' } }}
+                color={'inherit'}
+                aria-label='menu'
               >
-                <span className='menu-burger__lines'>
-                  <span className='menu-burger__hamburger'>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </span>
-                  <span className='menu-burger__cross'>
-                    <span></span>
-                    <span></span>
-                  </span>
-                </span>
-              </button>
-            </div>
-          </Grid>
+                <MenuIcon />
+              </IconButton>
+            </Box>
+          </Stack>
         </Container>
       </Box>
       <Container>
         <Navigation navLinks={PATH_MENU} visible={activeMenu} closeMenu={() => setActiveMenu(false)} />
       </Container>
-    </header>
+    </Box>
   )
 }

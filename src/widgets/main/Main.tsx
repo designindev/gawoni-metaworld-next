@@ -49,7 +49,7 @@ export const Main = () => {
               <div className='items__item main__items-item'>
                 <div className='main__items-image' style={{ backgroundImage: `url(${el.image.src})` }}></div>
                 <Container className='main__items-container'>
-                  <div className='header-height'></div>
+                  <Box sx={{ height: { md: '85px', xs: '60px' } }}></Box>
                   <h1 className='h1 h1--fz-72 main__items-title'>
                     <span className='main__items-title-first text-primary'>{el.title}</span>
                     <span className='main__items-title-second'>{el.titleSecond}</span>

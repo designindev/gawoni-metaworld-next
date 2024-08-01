@@ -26,11 +26,11 @@ export const Profile = () => {
   }
 
   return (
-    <>
+    <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
       {status === 'loading' ? (
         <CircularProgress />
       ) : session ? (
-        <Box>
+        <>
           <Box
             onClick={handleOpen}
             // href='/admin'
@@ -47,21 +47,35 @@ export const Profile = () => {
               },
             }}
           >
-            <Box width={50} height={50} display={'flex'} alignItems={'center'} justifyContent={'center'} borderRadius={'50%'} sx={{ backgroundColor: '#000' }}>
+            <Box
+              width={50}
+              height={50}
+              display={'flex'}
+              alignItems={'center'}
+              justifyContent={'center'}
+              borderRadius={'50%'}
+              sx={{ backgroundColor: '#000' }}
+            >
               <PermIdentityIcon />
             </Box>
             <Box fontWeight={500}>{session.user?.name}</Box>
           </Box>
-          <Menu id='basic-menu' anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{ 'aria-labelledby': 'basic-button' }}>
+          <Menu
+            id='basic-menu'
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{ 'aria-labelledby': 'basic-button' }}
+          >
             <MenuItem onClick={() => handleMenuItem('/admin')}>Admin panel</MenuItem>
             <MenuItem onClick={() => signOut({ callbackUrl: '/' })}>Logout</MenuItem>
           </Menu>
-        </Box>
+        </>
       ) : (
         <Button component={Link} href={PATH_PAGE.login}>
           Login
         </Button>
       )}
-    </>
+    </Box>
   )
 }

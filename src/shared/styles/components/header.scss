@@ -31,7 +31,7 @@
 }
 
 .navigation {
-  @include md {
+  @include lg {
     visibility: hidden;
     transform: translate(100%, 0);
     transition: all 0.3s;
@@ -44,7 +44,7 @@
     display: flex;
     justify-content: center;
     padding: 0;
-    @include md {
+    @include lg {
       flex-direction: column;
       text-align: right;
     }
@@ -54,7 +54,7 @@
 
     &-item--sub &-link {
       .text-icon {
-        @include md-min {
+        @include lg-min {
           display: none;
         }
       }
@@ -78,11 +78,7 @@
         font-size: 16px;
       }
       @include lg {
-        padding-left: 14px;
-        padding-right: 14px;
         font-size: 14px;
-      }
-      @include md {
         padding-left: 24px;
         padding-right: 24px;
         justify-content: flex-end;
@@ -102,12 +98,12 @@
       background-color: $color-dark-nearly;
       min-width: 265px;
       transition: all 0.2s;
-      @include md-min {
+      @include lg-min {
         opacity: 0;
         transform: translate(0, 20px);
         visibility: hidden;
       }
-      @include md {
+      @include lg {
         position: relative;
         padding-left: 30px;
         padding-right: 30px;
@@ -129,6 +125,36 @@
       white-space: nowrap;
       @include lg-min {
         padding: 0;
+      }
+    }
+  }
+}
+
+.header {
+  &__nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    @include lg {
+      position: absolute;
+      right: 0;
+      top: 60px;
+      height: calc(100vh - 60px);
+      width: 260px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $color-dark-nearly;
+      z-index: -1;
+
+      @include lg-min {
+        clip-path: polygon(0 0, 100% 0, calc(100% - 90px) 100%, 90px 100%);
       }
     }
   }
@@ -249,89 +275,6 @@
       &:nth-child(2) {
         width: 80%;
         transition-delay: 0.375s;
-      }
-    }
-  }
-}
-
-.header-line {
-  &__item {
-    @include md-min {
-      width: 33%;
-    }
-    &--left,
-    &--right {
-      @include md {
-        width: 40px;
-      }
-    }
-    &--center {
-      text-align: center;
-    }
-    &--right {
-      text-align: right;
-      .btn {
-        @include md {
-          display: none;
-        }
-      }
-    }
-  }
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  padding: 0;
-
-  &-height {
-    height: 85px;
-    @include md {
-      height: 60px;
-    }
-  }
-
-  &__burger {
-    @include md-min {
-      display: none;
-    }
-  }
-
-  &__logo {
-    text-align: center;
-    position: relative;
-    @include xl-min {
-      left: -45px;
-    }
-  }
-
-  &__nav {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    @include md {
-      position: absolute;
-      right: 0;
-      top: 60px;
-      height: calc(100vh - 60px);
-      width: 260px;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: $color-dark-nearly;
-      z-index: -1;
-
-      @include md-min {
-        clip-path: polygon(0 0, 100% 0, calc(100% - 90px) 100%, 90px 100%);
       }
     }
   }

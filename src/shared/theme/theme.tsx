@@ -183,6 +183,7 @@ theme.typography.h3 = {
     fontSize: '28px',
   },
 }
+
 theme.typography.h4 = {
   fontSize: '24px',
   [theme.breakpoints.down('lg')]: {
@@ -191,9 +192,9 @@ theme.typography.h4 = {
 }
 theme.typography.sectionTitle = {
   ...theme.typography.h2,
-  marginBottom: 15,
+  marginBottom: '60px',
   [theme.breakpoints.down('sm')]: {
-    marginBottom: 7,
+    marginBottom: '30px',
   },
 }
 

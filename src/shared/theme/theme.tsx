@@ -17,10 +17,10 @@ export const theme = createTheme({
       main: COLORS.primary,
     },
     secondary: {
-      main: COLORS.white,
+      main: COLORS.secondary,
     },
     white: {
-      main: '#fff',
+      main: COLORS.white,
     },
     dark: {
       main: COLORS.dark,

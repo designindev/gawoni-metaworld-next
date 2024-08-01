@@ -83,8 +83,6 @@ input[type='number'] {
 
 img,
 svg {
-  display: inline-block;
-  vertical-align: middle;
 }
 
 b,
@@ -108,36 +106,9 @@ a {
   }
 }
 
-*[data-href] {
-  cursor: pointer;
-}
-
-sup {
-  display: inline-block;
-  position: relative;
-  transform: scale(0.55);
-  transform-origin: left 0;
-}
-
-::placeholder {
-  color: $color-gray;
-
-  .js-input.js-error & {
-    color: $color-error;
-  }
-}
-
 ::selection {
   background-color: $color-secondary;
   color: #fff;
-}
-
-.mt-55 {
-  margin-top: 55px;
-}
-
-.mt-40 {
-  margin-top: 40px;
 }
 
 .fz-24 {

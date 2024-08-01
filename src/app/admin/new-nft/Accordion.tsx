@@ -3,8 +3,7 @@ import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { FormControl, Grid, Input, InputLabel, TextField } from '@mui/material'
-import { Input as InputUI } from 'shared/ui'
+import { Grid, TextField } from '@mui/material'
 
 export const NewNFTAccordion = () => {
   return (
@@ -49,7 +48,7 @@ export const NewNFTAccordion = () => {
         </AccordionDetails>
       </Accordion>
       <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls='panel2-content' id='panel2-header'>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls='panel2-content'>
           Upgrades & Boosts
         </AccordionSummary>
         <AccordionDetails>

@@ -14,6 +14,7 @@
     cursor: pointer;
     border: 2px solid #fff;
     transition: all 0.3s;
+    border-radius: 50%;
 
     @include xl {
       width: 32px;

@@ -21,7 +21,7 @@ export const Header = () => {
     <header className='header'>
       <Box className='header-line header__line' sx={{ background: '#141414' }}>
         <Container className='header-line__container'>
-          <Grid container sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 85 }}>
+          <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', height: 85 }}>
             <div className='header-line__item header-line__item--left'></div>
             <div className='header-line__item header-line__item--center'>
               <Link href={PATH_PAGE.root} className='logo header__logo'>

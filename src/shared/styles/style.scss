@@ -3,10 +3,6 @@
 @import './fonts';
 @import './reset';
 @import './base';
-// @import './grid';
-// @import './bootstrap';
-
-// Import Bootstrap and its default variables
 
 // content
 @import './components/heading';
@@ -25,10 +21,10 @@
 // form
 // components
 @import './components/section';
-@import './components/swiper';
-@import './components/progress-bar';
 @import './components/header';
 @import './components/footer';
+@import './components/swiper';
+@import './components/progress-bar';
 @import './components/main';
 @import './components/games';
 @import './components/form-section';

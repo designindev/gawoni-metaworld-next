@@ -1,5 +1,5 @@
-import { RootPreloader } from 'shared/ui'
+import { CircularProgress } from '@mui/material'
 
 export default function Loading() {
-  return <RootPreloader />
+  return <CircularProgress />
 }

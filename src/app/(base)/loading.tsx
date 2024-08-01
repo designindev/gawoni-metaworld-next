@@ -1,12 +1,11 @@
-import { Box, Container } from '@mui/material'
-import { Preloader } from 'shared/ui'
+import { Box, CircularProgress, Container } from '@mui/material'
 
 export default function Loading() {
   return (
     <>
       <Box component='section' className='section'>
         <Container>
-          <Preloader />
+          <CircularProgress />
         </Container>
       </Box>
     </>

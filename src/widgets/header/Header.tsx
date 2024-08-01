@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { Box, Container, Grid } from '@mui/material'
+import { Profile } from './Profile'
 
 export const Header = ({ profileSlot }: { profileSlot?: React.ReactNode }) => {
   const [activeMenu, setActiveMenu] = useState(false)
@@ -28,7 +29,7 @@ export const Header = ({ profileSlot }: { profileSlot?: React.ReactNode }) => {
               </Link>
             </div>
             <div className='header-line__item header-line__item--right'>
-              {profileSlot}
+              <Profile />
               <button
                 className={classNames('menu-burger header__burger', {
                   'menu-burger--active': activeMenu,

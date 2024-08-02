@@ -125,17 +125,6 @@
         }
       }
     }
-
-    &-wrapper {
-      display: flex;
-      justify-content: space-between;
-    }
-    &-wrapper & {
-    }
-
-    &-wrapper &-btn {
-      margin-top: 15px;
-    }
   }
 
   &__heading + &__descr {

@@ -2,6 +2,8 @@ import { Container, Box, Grid, Typography, Button } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight'
+import EastIcon from '@mui/icons-material/East'
 
 const findImage = (body: string) => {
   const imgRegex = /<img.*?src="(.*?)"/
@@ -24,22 +26,22 @@ export const News = async () => {
 
   return (
     <Box
-      className='section s-news'
+      className='section'
       id='news'
       sx={{ backgroundSize: 'cover', backgroundPosition: 'center', backgroundImage: 'url(/images/bg/news.png)' }}
     >
-      <Container className='s-news__container news'>
-        <div className='section__heading-wrapper'>
+      <Container>
+        <Box display={'flex'} justifyContent={'space-between'} mb={{ lg: 15, xs: 8 }}>
           <Typography variant='h1' component='h2'>
             <span className='section__heading-icon section__heading-icon--right'>latest News</span>
           </Typography>
-          <Box sx={{ display: { xs: 'none', lg: 'block' } }} className='section__heading-btn'>
+          <Box sx={{ display: { xs: 'none', lg: 'block' }, mt: 4 }}>
             <Button href={readAllLink} target='_blank'>
               Read all news
             </Button>
           </Box>
-        </div>
-        <Grid container spacing={{ xs: 6, lg: 10 }} className='items news__items'>
+        </Box>
+        <Grid container spacing={{ xs: 6, lg: 10 }}>
           {items.map((item, i) => {
             const image = findImage(item.content)
             const description = findDescription(item.content)
@@ -47,17 +49,35 @@ export const News = async () => {
             return (
               <Grid key={i} item lg={4} md={6}>
                 <Box sx={{ backgroundColor: 'dark.main', padding: 5, borderRadius: 2, height: '100%' }}>
-                  <Box sx={{ mb: 5, height: '250px', position: 'relative' }}>
+                  <Box
+                    sx={{
+                      mb: 5,
+                      position: 'relative',
+                      '&::before': {
+                        content: '""',
+                        display: 'block',
+                        pt: '60%',
+                      },
+                    }}
+                  >
                     <Image
                       src={image}
                       width={0}
                       height={0}
                       sizes='100vw'
-                      style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }}
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
                       alt=''
                     />
                   </Box>
-                  <Box sx={{ mb: 5, fontSize: 14 }} className='news__items-date'>
+                  <Box sx={{ mb: 5, fontSize: 14 }}>
                     <CalendarTodayIcon fontSize='small' sx={{ mr: 2, position: 'relative', top: -1 }} />
                     {item.pubDate}
                   </Box>
@@ -74,9 +94,33 @@ export const News = async () => {
                     <p>{description}</p>
                   </Box>
                   <Box sx={{ mt: 11 }}>
-                    <Link href={readAllLink} target='_blank' className='text-link text-link--arrow text-secondary'>
+                    <Box
+                      component={Link}
+                      href={readAllLink}
+                      target='_blank'
+                      sx={{
+                        color: 'secondary.main',
+                        textDecoration: 'underline',
+                        fontSize: { lg: 18, xs: 20 },
+                        textTransform: 'uppercase',
+                        fontWeight: 500,
+                        '&:hover .news-icon': {
+                          right: '-5px',
+                        },
+                      }}
+                    >
                       READ MORE
-                    </Link>
+                      <EastIcon
+                        sx={{
+                          ml: 2,
+                          position: 'relative',
+                          top: 5,
+                          right: 0,
+                          transition: 'right .3s',
+                        }}
+                        className='news-icon'
+                      />
+                    </Box>
                   </Box>
                 </Box>
               </Grid>
@@ -84,9 +128,13 @@ export const News = async () => {
           })}
         </Grid>
         <Box mt={10} textAlign={'center'}>
-          <Link href={readAllLink} className='text-link text-primary fz-20'>
+          <Box
+            component={Link}
+            href={readAllLink}
+            sx={{ color: 'primary.main', fontSize: 20, textDecoration: 'underline' }}
+          >
             Read all news
-          </Link>
+          </Box>
         </Box>
       </Container>
     </Box>

@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <Main />
       <Games />
-      {/* <News /> */}
-      {/* <Nfts /> */}
+      <News />
+      <Nfts />
     </>
   )
 }

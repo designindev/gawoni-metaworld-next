@@ -40,8 +40,7 @@ const items = [
 
 export const Games = () => {
   return (
-    <Box component={'section'} className='section s-games'>
-      <div className='section__bg' style={{ backgroundImage: `url(/images/bg/games.png)` }}></div>
+    <Box component={'section'} className='section' sx={{ backgroundImage: `url(/images/bg/games.png)` }}>
       <Container className='games'>
         <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
           <span className='section__heading-icon'>our games</span>

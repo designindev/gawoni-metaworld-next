@@ -1,11 +1,11 @@
 import { Chart } from './Chart'
-import { Filter } from 'widgets/filter/Filter'
 import { NftCard } from 'entities/nft'
 import { mockItems } from 'entities/nft/api/items'
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import AddIcon from '@mui/icons-material/Add'
 import { PATH_PAGE } from 'shared/lib'
+import { AdminFilter } from './AdminFilter'
 
 export default function AdminPage() {
   return (
@@ -31,7 +31,7 @@ export default function AdminPage() {
               </Box>
             </Button>
           </Stack>
-          <Filter count={3} bg />
+          <AdminFilter />
           <Grid container spacing={{ xs: 6, lg: 10 }}>
             {mockItems.map((item, i) => {
               return (

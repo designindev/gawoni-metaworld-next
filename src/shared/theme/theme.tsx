@@ -304,6 +304,7 @@ export const theme = createTheme({
 export type Theme = typeof theme
 
 theme.typography.h2 = {
+  ...theme.typography.h2,
   [theme.breakpoints.down('xl')]: {
     fontSize: '50px',
   },
@@ -318,6 +319,7 @@ theme.typography.h2 = {
   },
 }
 theme.typography.h3 = {
+  ...theme.typography.h3,
   [theme.breakpoints.down('xl')]: {
     fontSize: '36px',
   },
@@ -327,12 +329,10 @@ theme.typography.h3 = {
 }
 
 theme.typography.h4 = {
+  ...theme.typography.h4,
   [theme.breakpoints.down('lg')]: {
     fontSize: '21px',
   },
-}
-theme.typography.h5 = {
-  fontSize: '20px',
 }
 
 declare module '@mui/material/styles' {

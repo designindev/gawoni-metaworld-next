@@ -3,16 +3,18 @@ import Image1 from './game-1.jpg'
 import Image2 from './game-2.jpg'
 import Image3 from './game-3.jpg'
 import Image4 from './game-4.jpg'
-import { Button } from 'shared/ui/button/Button'
 import { PATH_PAGE } from 'shared/lib'
-import { Box, Container, Grid } from '@mui/material'
+import { Box, Button, Container, Grid, Typography } from '@mui/material'
+import InfoOutlined from '@mui/icons-material/Info'
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 
 const items = [
   {
     id: '1',
     src: Image1.src,
     title: 'K 4 rally',
-    descr: 'The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2 2024',
+    descr:
+      'The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2 2024',
   },
   {
     id: '2',
@@ -24,7 +26,8 @@ const items = [
     id: '3',
     src: Image3.src,
     title: 'Racing game',
-    descr: 'Another spectacular blockchain racing game is already in development. We will be announcing more on this shortly.',
+    descr:
+      'Another spectacular blockchain racing game is already in development. We will be announcing more on this shortly.',
   },
   {
     id: '4',
@@ -39,39 +42,204 @@ export const Games = () => {
   return (
     <Box component={'section'} className='section s-games'>
       <div className='section__bg' style={{ backgroundImage: `url(/images/bg/games.png)` }}></div>
-      <Container className='s-games__container games'>
-        <h2 className='h2 section__heading'>
+      <Container className='games'>
+        <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
           <span className='section__heading-icon'>our games</span>
-        </h2>
-        <Grid container spacing={{ xs: 6, lg: 10 }} className='games__items'>
+        </Typography>
+        <Grid container spacing={{ xs: 6, lg: 10 }}>
           {items.map((item, i) => {
             return (
-              <Grid item md={6} key={i}>
-                <Box className='games__items-item' sx={{ height: '100%' }}>
-                  <div className='games__items-border'></div>
-                  <div className='games__items-border-line games__items-border-line--1'></div>
-                  <div className='games__items-border-line games__items-border-line--2'></div>
-                  <div className='games__items-border-line games__items-border-line--3'></div>
-                  <div className='games__items-border-line games__items-border-line--4'></div>
-                  <div className='items__img image image--cover games__items-img'>
-                    <Image src={item.src} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
-                  </div>
-                  <div className='items__text games__items-text'>
-                    <h3 className='items__title h3 h3--fz-42 text-title games__items-title'>{item.title}</h3>
-                    <div className='items__descr text-descr games__items-descr fz-18'>
+              <Grid
+                item
+                md={6}
+                sx={{
+                  '&:nth-child(3n + 2) .game-title': {
+                    color: 'secondary.main',
+                  },
+                  '&:nth-child(3n + 3) .game-title': {
+                    color: 'secondary.main',
+                  },
+                }}
+                key={i}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    padding: { lg: '25px 25px 50px', xs: '16px 25px 55px' },
+                    height: '100%',
+                    '&:hover .game-hover--out': {
+                      opacity: 0,
+                    },
+                    '&:hover .game-hover--in': {
+                      opacity: 1,
+                      visibility: 'visible',
+                    },
+                    '&:hover .game-button': {
+                      transform: 'translate(0, 0)',
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      border: '3px solid #fff;',
+                      clipPath: {
+                        lg: 'polygon(45px 0%, calc(100% - 45px) 0%, 100% 45px, 100% calc(100% - 45px), calc(100% - 45px) 100%, 45px 100%, 0% calc(100% - 45px), 0% 45px)',
+                        xs: 'polygon(30px 0%, calc(100% - 30px) 0%, 100% 30px, 100% calc(100% - 30px), calc(100% - 30px) 100%, 30px 100%, 0% calc(100% - 30px), 0% 30px)',
+                      },
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      width: { lg: 62, xs: 40 },
+                      height: 3,
+                      backgroundColor: '#fff',
+                      zIndex: 9,
+                      top: 0,
+                      left: { lg: -18, xs: 3 },
+                      transformOrigin: 'top right',
+                      transform: 'rotate(-45deg)',
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      width: { lg: 62, xs: 40 },
+                      height: 3,
+                      backgroundColor: '#fff',
+                      zIndex: 9,
+                      top: 0,
+                      right: { lg: -18, xs: 3 },
+                      transformOrigin: 'top left',
+                      transform: 'rotate(45deg)',
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      width: { lg: 62, xs: 40 },
+                      height: 3,
+                      backgroundColor: '#fff',
+                      zIndex: 9,
+                      bottom: 0,
+                      left: { lg: -18, xs: 3 },
+                      transformOrigin: 'bottom right',
+                      transform: 'rotate(45deg)',
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      width: { lg: 62, xs: 40 },
+                      height: 3,
+                      backgroundColor: '#fff',
+                      zIndex: 9,
+                      bottom: 0,
+                      right: { lg: -18, xs: 3 },
+                      transformOrigin: 'bottom left',
+                      transform: 'rotate(-45deg)',
+                    }}
+                  ></Box>
+                  <Box
+                    className='game-hover--out'
+                    sx={{
+                      mb: 5,
+                      position: 'relative',
+                      transition: 'all .3s',
+                      opacity: 1,
+                      height: 275,
+                      clipPath:
+                        'polygon(35px 0%, calc(100% - 35px) 0%, 100% 35px, 100% calc(100% - 35px), 100% 100%, 0 100%, 0% 100%, 0% 35px)',
+                    }}
+                  >
+                    <Image
+                      src={item.src}
+                      width={0}
+                      height={0}
+                      sizes='100vw'
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
+                      alt=''
+                    />
+                  </Box>
+                  <Box className='game-hover--out' sx={{ transition: 'all .3s', opacity: 1 }}>
+                    <Typography
+                      className='game-title'
+                      variant='h2'
+                      component='h2'
+                      fontWeight={500}
+                      color={'primary.main'}
+                      textTransform={'uppercase'}
+                      fontSize={42}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Box fontSize={18} mt={3}>
                       <p>{item.descr}</p>
-                    </div>
-                  </div>
-                  <div className='games__items-hover'>
-                    <Button href={PATH_PAGE.games.slug(item.id)} className='games__items-hover-btn' color={'light'} border>
-                      <i className='text-icon text-icon--left text-icon--info'></i>
+                    </Box>
+                  </Box>
+                  <Box
+                    className='game-hover--in'
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      display: 'flex',
+                      justifyContent: 'center',
+                      flexDirection: 'column',
+                      opacity: 0,
+                      visibility: 'hidden',
+                      transition: 'opacity 0.3s visibility 0.3s',
+                    }}
+                  >
+                    <Button
+                      className='game-button'
+                      color='white'
+                      variant='outlined'
+                      href={PATH_PAGE.games.slug(item.id)}
+                      sx={{
+                        maxWidth: 300,
+                        width: '100%',
+                        m: '20px auto',
+                        height: 77,
+                        transition: 'all .3s',
+                        transform: 'translate(0, -100%)',
+                      }}
+                    >
+                      <InfoOutlined fontSize='small' sx={{ mr: 2 }} />
                       Game Info
                     </Button>
-                    <Button href={PATH_PAGE.shop.root} className='games__items-hover-btn' color={'light'} border>
-                      <i className='text-icon text-icon--left text-icon--cart'></i>
+                    <Button
+                      className='game-button'
+                      color='white'
+                      variant='outlined'
+                      href={PATH_PAGE.shop.root}
+                      sx={{
+                        maxWidth: 300,
+                        width: '100%',
+                        m: '20px auto',
+                        height: 77,
+                        transition: 'all .3s',
+                        transform: 'translate(0, 100%)',
+                      }}
+                    >
+                      <ShoppingCartOutlinedIcon fontSize='small' sx={{ mr: 2 }} />
                       Game Store
                     </Button>
-                  </div>
+                  </Box>
                 </Box>
               </Grid>
             )

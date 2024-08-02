@@ -261,6 +261,16 @@ export const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: COLORS.dark,
+          borderRadius: '16px',
+          fontSize: 16,
+          height: 40,
+        },
+      },
+    },
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),

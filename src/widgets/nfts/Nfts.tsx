@@ -10,7 +10,7 @@ export const Nfts = () => {
           <span className='section__heading-icon'>NFTs</span>
         </Typography>
 
-        <Stack gap={60}>
+        <Stack gap={15}>
           <Category title='New nft releases' />
           <Category title='top sellers' />
         </Stack>

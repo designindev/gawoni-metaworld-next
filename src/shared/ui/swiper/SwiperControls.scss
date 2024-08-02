@@ -30,6 +30,12 @@
     .swiper-pagination-bullets {
       position: relative;
       margin: 0 15px;
+
+      @include xs {
+        max-width: 170px;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
     }
   }
 

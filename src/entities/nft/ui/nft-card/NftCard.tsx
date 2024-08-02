@@ -45,9 +45,10 @@ export const NftCard = ({ nft, hasButtons }: Props) => {
             top: 0,
             left: 0,
             width: '100%',
-            height: 'auto',
+            height: '100%',
             border: '5px solid #777',
             borderRadius: 'inherit',
+            objectFit: 'cover',
           }}
           alt=''
         />

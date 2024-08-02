@@ -29,10 +29,14 @@
       }
     }
     .swiper-controls--bottom .swiper-button-prev {
-      left: -5px;
+      @include lg-min {
+        left: -5px;
+      }
     }
     .swiper-controls--bottom .swiper-button-next {
-      right: -5px;
+      @include lg-min {
+        right: -5px;
+      }
     }
     &.swiper {
       @include r-min(1700) {

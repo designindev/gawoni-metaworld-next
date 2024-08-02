@@ -20,7 +20,6 @@ export default function NewNftPage() {
           <Typography variant='h2' component='h1' mb={8}>
             add new nft
           </Typography>
-
           <Stack spacing={12}>
             <Box>
               <Grid container spacing={10}>

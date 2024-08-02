@@ -12,6 +12,7 @@ type Props = {
 export const NftCard = ({ nft, hasButtons }: Props) => {
   return (
     <Box
+      pt={'312px'}
       sx={{
         position: 'relative',
         transition: 'filter .3s',
@@ -27,11 +28,15 @@ export const NftCard = ({ nft, hasButtons }: Props) => {
       ></Box>
       <Box
         sx={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
           borderRadius: 3,
           '&::before': {
             content: '""',
             display: 'block',
-            height: 542,
           },
         }}
       >
@@ -55,10 +60,7 @@ export const NftCard = ({ nft, hasButtons }: Props) => {
       </Box>
       <Box
         sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
+          position: 'relative',
           padding: '15px 15px 20px',
           background: 'rgba(20, 20, 20, 0.6)',
           borderTop: '4px solid #777',

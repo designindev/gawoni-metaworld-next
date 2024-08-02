@@ -338,8 +338,13 @@ export const theme = createTheme({
 
 export type Theme = typeof theme
 
+theme.typography.h1 = {
+  ...theme.typography.h1,
+  [theme.breakpoints.down('xl')]: {
+    fontSize: '48px',
+  },
+}
 theme.typography.h2 = {
-  ...theme.typography.h2,
   [theme.breakpoints.down('xl')]: {
     fontSize: '50px',
   },

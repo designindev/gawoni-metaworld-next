@@ -12,8 +12,6 @@ export const authConfig: AuthOptions = {
       authorize(credentials, req) {
         if (!credentials || !credentials.emailOrLogin || !credentials.password) return null
 
-        console.log(credentials)
-
         const currentUser = users.find((user) => user.email === credentials.emailOrLogin)
 
         if (currentUser && currentUser.password === credentials.password) {
@@ -27,6 +25,6 @@ export const authConfig: AuthOptions = {
     }),
   ],
   pages: {
-    signIn: '/signin123',
+    signIn: '/login',
   },
 }

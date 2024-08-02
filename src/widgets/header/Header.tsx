@@ -6,8 +6,7 @@ import { Navigation } from '../navigation/Navigation'
 import { PATH_MENU, PATH_PAGE } from 'shared/lib/paths'
 import Link from 'next/link'
 import { useState } from 'react'
-import classNames from 'classnames'
-import { Box, Container, Grid, IconButton, Stack } from '@mui/material'
+import { Box, Container, IconButton, Stack } from '@mui/material'
 import { Profile } from './Profile'
 import MenuIcon from '@mui/icons-material/Menu'
 
@@ -22,25 +21,29 @@ export const Header = () => {
     <Box component={'header'} position={'absolute'} top={0} left={0} right={0} zIndex={99}>
       <Box className='header-line header__line' sx={{ backgroundColor: 'dark.main' }}>
         <Container>
-          <Stack
-            flexDirection={'row'}
-            justifyContent={'space-around'}
-            alignItems={'center'}
-            height={{ xs: 60, lg: 85 }}
-            pl={'30%'}
-          >
-            <Box>
+          <Stack flexDirection={'row'} justifyContent={'flex-end'} alignItems={'center'} height={{ xs: 60, lg: 85 }}>
+            <Box
+              position={'absolute'}
+              top={0}
+              left={0}
+              right={0}
+              textAlign={'center'}
+              height={{ xs: 60, lg: 85 }}
+              display={'flex'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              zIndex={1}
+            >
               <Link href={PATH_PAGE.root} className='logo'>
                 <Image src={Logo} alt='Logo' priority />
               </Link>
             </Box>
-            <Box>
+            <Box position={'relative'} zIndex={2}>
               <Profile />
               <IconButton
                 onClick={onClick}
-                size='large'
                 edge='start'
-                sx={{ display: { lg: 'none' } }}
+                sx={{ display: { lg: 'none' }, mr: -2, fontSize: '30px' }}
                 color={'inherit'}
                 aria-label='menu'
               >

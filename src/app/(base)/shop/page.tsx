@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material'
+import { Box, CircularProgress, Container } from '@mui/material'
 import { ShopFilter } from './ShopFilter'
 
 const Shop = () => {

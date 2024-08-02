@@ -44,6 +44,11 @@ export const theme = createTheme({
       defaultProps: {
         maxWidth: 'xxxl',
       },
+      styleOverrides: {
+        root: {
+          padding: '0 15px!important',
+        },
+      },
     },
     MuiButton: {
       defaultProps: {
@@ -100,6 +105,10 @@ export const theme = createTheme({
           props: { variant: 'outlined' },
           style: {
             borderRadius: '4px',
+            borderWidth: '3px',
+            '&:hover': {
+              borderWidth: '3px',
+            },
           },
         },
       ],
@@ -268,6 +277,13 @@ export const theme = createTheme({
           borderRadius: '16px',
           fontSize: 16,
           height: 40,
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          color: '#000',
         },
       },
     },

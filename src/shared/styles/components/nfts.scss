@@ -49,6 +49,7 @@
     }
     &-controls {
       @include lg-min {
+        margin-left: -100px;
         padding-right: 100px;
       }
     }

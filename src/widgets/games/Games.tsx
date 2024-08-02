@@ -64,7 +64,7 @@ export const Games = () => {
                 <Box
                   sx={{
                     position: 'relative',
-                    padding: { lg: '25px 25px 50px', xs: '16px 25px 55px' },
+                    padding: { lg: '25px 25px 50px', xs: '16px 20px 55px' },
                     height: '100%',
                     '&:hover .game-hover--out': {
                       opacity: 0,
@@ -100,7 +100,7 @@ export const Games = () => {
                       backgroundColor: '#fff',
                       zIndex: 9,
                       top: 0,
-                      left: { lg: -18, xs: 3 },
+                      left: { lg: -18, xs: -10 },
                       transformOrigin: 'top right',
                       transform: 'rotate(-45deg)',
                     }}
@@ -113,7 +113,7 @@ export const Games = () => {
                       backgroundColor: '#fff',
                       zIndex: 9,
                       top: 0,
-                      right: { lg: -18, xs: 3 },
+                      right: { lg: -18, xs: -10 },
                       transformOrigin: 'top left',
                       transform: 'rotate(45deg)',
                     }}
@@ -126,7 +126,7 @@ export const Games = () => {
                       backgroundColor: '#fff',
                       zIndex: 9,
                       bottom: 0,
-                      left: { lg: -18, xs: 3 },
+                      left: { lg: -18, xs: -10 },
                       transformOrigin: 'bottom right',
                       transform: 'rotate(45deg)',
                     }}
@@ -139,7 +139,7 @@ export const Games = () => {
                       backgroundColor: '#fff',
                       zIndex: 9,
                       bottom: 0,
-                      right: { lg: -18, xs: 3 },
+                      right: { lg: -18, xs: -10 },
                       transformOrigin: 'bottom left',
                       transform: 'rotate(-45deg)',
                     }}
@@ -147,13 +147,15 @@ export const Games = () => {
                   <Box
                     className='game-hover--out'
                     sx={{
-                      mb: 5,
+                      mb: 7,
                       position: 'relative',
                       transition: 'all .3s',
                       opacity: 1,
                       height: 275,
-                      clipPath:
-                        'polygon(35px 0%, calc(100% - 35px) 0%, 100% 35px, 100% calc(100% - 35px), 100% 100%, 0 100%, 0% 100%, 0% 35px)',
+                      clipPath: {
+                        lg: 'polygon(35px 0%, calc(100% - 35px) 0%, 100% 35px, 100% calc(100% - 35px), 100% 100%, 0 100%, 0% 100%, 0% 35px)',
+                        xs: 'polygon(25px 0%, calc(100% - 25px) 0%, 100% 25px, 100% calc(100% - 25px), 100% 100%, 0 100%, 0% 100%, 0% 25px)',
+                      },
                     }}
                   >
                     <Image
@@ -184,7 +186,7 @@ export const Games = () => {
                     >
                       {item.title}
                     </Typography>
-                    <Box fontSize={18} mt={3}>
+                    <Box fontSize={18} mt={5}>
                       <p>{item.descr}</p>
                     </Box>
                   </Box>

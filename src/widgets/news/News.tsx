@@ -78,12 +78,16 @@ export const News = async () => {
                     />
                   </Box>
                   <Box sx={{ mb: 5, fontSize: 14 }}>
-                    <CalendarTodayIcon fontSize='small' sx={{ mr: 2, position: 'relative', top: -1 }} />
+                    <CalendarTodayIcon
+                      fontSize='small'
+                      sx={{ mr: 2, position: 'relative', verticalAlign: 'middle', top: -2 }}
+                    />
                     {item.pubDate}
                   </Box>
                   <Typography
                     variant='h3'
                     fontSize={'28px'}
+                    fontWeight={500}
                     display={'block'}
                     component='h3'
                     sx={{ textTransform: 'uppercase', lineHeight: 1.2 }}
@@ -127,11 +131,13 @@ export const News = async () => {
             )
           })}
         </Grid>
-        <Box mt={10} textAlign={'center'}>
+        <Box mt={10} textAlign={'center'} display={{ lg: 'none' }}>
           <Box
             component={Link}
             href={readAllLink}
-            sx={{ color: 'primary.main', fontSize: 20, textDecoration: 'underline' }}
+            fontSize={20}
+            color={'primary.main'}
+            sx={{ textDecoration: 'underline' }}
           >
             Read all news
           </Box>

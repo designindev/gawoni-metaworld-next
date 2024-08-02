@@ -3,7 +3,7 @@
 
 .swiper-controls {
   &--bottom {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,10 +29,11 @@
 
     .swiper-pagination-bullets {
       position: relative;
-      margin: 0 15px;
+      margin: 5px 15px;
+      flex-wrap: wrap;
 
       @include xs {
-        max-width: 170px;
+        max-width: 220px;
         margin-left: 5px;
         margin-right: 5px;
       }

@@ -4,7 +4,7 @@ export default function Loading() {
   return (
     <>
       <Box component='section' className='section'>
-        <Container>
+        <Container sx={{ textAlign: 'center' }}>
           <CircularProgress />
         </Container>
       </Box>

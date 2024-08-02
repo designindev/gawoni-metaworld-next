@@ -18,10 +18,15 @@ export const Category = (props: Props) => {
   return (
     <Box>
       <Box display='flex' justifyContent='space-between' alignItems='center' mb={11}>
-        <Typography variant='h4' component='h3' fontWeight={700} textTransform='uppercase' mr={8}>
+        <Typography variant='h4' component='h3' fontWeight={700} fontFamily={'whyte'} textTransform='uppercase' mr={8}>
           {title}
         </Typography>
-        <Button href={PATH_PAGE.shop.root}>Show all</Button>
+        <Button href={PATH_PAGE.shop.root} sx={{ display: { lg: 'inline-flex', xs: 'none' } }}>
+          Show all
+        </Button>
+        <Button href={PATH_PAGE.shop.root} size={'small'} sx={{ display: { lg: 'none' } }}>
+          Show all
+        </Button>
       </Box>
       <Swiper
         modules={[Navigation, Pagination]}

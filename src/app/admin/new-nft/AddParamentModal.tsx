@@ -3,12 +3,16 @@
 import { Box, Typography, TextField, Button, Stack } from '@mui/material'
 import { CustomedModal, ModalProps } from './Modal'
 
-export const AddChainModal = (props: Omit<ModalProps, 'children'>) => {
+type Props = Omit<ModalProps, 'children'> & {
+  title: string
+}
+
+export const AddParamentModal = (props: Props) => {
   return (
     <>
       <CustomedModal {...props}>
         <Typography variant='h3' fontSize={26} fontFamily={'Whyte'}>
-          Add parameter
+          {props.title}
         </Typography>
         <Stack spacing={7}>
           <TextField label='Name*' placeholder='Enter parameter name' />

@@ -5,6 +5,7 @@ import { mockItems } from 'entities/nft/api/items'
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import AddIcon from '@mui/icons-material/Add'
+import { PATH_PAGE } from 'shared/lib'
 
 export default function AdminPage() {
   return (
@@ -23,7 +24,7 @@ export default function AdminPage() {
             <Typography variant='h1' component='h2'>
               All NFTs
             </Typography>
-            <Button component={Link} href='/admin/new-nft' sx={{ minWidth: '1px' }}>
+            <Button component={Link} href='/admin/new-nft' sx={{ minWidth: { sm: '197px', xs: '1px' } }}>
               <Box display={{ sm: 'inline', xs: 'none' }}>Add New</Box>
               <Box display={{ sm: 'none', xs: 'inline' }}>
                 <AddIcon fontSize='large' sx={{ verticalAlign: 'middle' }} />
@@ -35,7 +36,7 @@ export default function AdminPage() {
             {mockItems.map((item, i) => {
               return (
                 <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
-                  <NftCard nft={item} hasButtons />
+                  <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} hasButtons />
                 </Grid>
               )
             })}

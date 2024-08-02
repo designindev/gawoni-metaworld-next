@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Container, Grid } from '@mui/material'
+import { Box, CircularProgress, Container, Grid, Stack } from '@mui/material'
 import Image from 'next/image'
 import FormImage from 'shared/images/bg/form-img.png'
 import Logo from 'shared/images/logo.png'
@@ -15,9 +15,7 @@ export default function FormLayout({
           <Grid container>
             <Grid
               item
-              display={'flex'}
-              alignItems={'center'}
-              lg={6}
+              lg={7}
               md={8}
               xs={12}
               sx={{
@@ -26,9 +24,11 @@ export default function FormLayout({
                 },
               }}
             >
-              {children}
+              <Stack display={'flex'} alignItems={'center'}>
+                {children}
+              </Stack>
             </Grid>
-            <Grid item lg={6} md={4} xs={12} className='s-form__right' sx={{ textAlign: 'right' }}>
+            <Grid item lg={5} md={4} xs={12} className='s-form__right' sx={{ textAlign: 'right' }}>
               <div className='logo logo--xl s-form__logo'>
                 <Image src={Logo} alt='Logo' priority />
               </div>

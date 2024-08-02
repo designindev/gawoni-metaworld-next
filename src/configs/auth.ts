@@ -6,13 +6,13 @@ export const authConfig: AuthOptions = {
   providers: [
     Credentials({
       credentials: {
-        emailOrLogin: { label: 'Email', type: 'email', required: true },
+        emailOrLogin: { label: 'Email or login', type: 'text', required: true },
         password: { label: 'Password', type: 'password', required: true },
       },
       authorize(credentials, req) {
         if (!credentials || !credentials.emailOrLogin || !credentials.password) return null
 
-        const currentUser = users.find((user) => user.email === credentials.emailOrLogin)
+        const currentUser = users.find((user) => user.userOrLogin === credentials.emailOrLogin)
 
         if (currentUser && currentUser.password === credentials.password) {
           const { password, ...userWithoutPass } = currentUser

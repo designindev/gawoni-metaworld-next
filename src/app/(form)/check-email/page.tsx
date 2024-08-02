@@ -7,7 +7,7 @@ import Link from 'next/link'
 const CheckEmail = () => {
   return (
     <>
-      <Box maxWidth={560}>
+      <Box maxWidth={560} width={'100%'}>
         <Typography variant='h1' component='h1' mb={8} textAlign={'center'} fontSize={48}>
           Check your email
         </Typography>

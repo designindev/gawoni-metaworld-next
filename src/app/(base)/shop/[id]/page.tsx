@@ -1,8 +1,8 @@
 import { getBgClass, NFT_COLOR } from 'shared/lib'
-import { NTFForm } from './NTFForm/NTFForm'
-import { NTFParameters } from './NTFParameters/NTFParameters'
-import { NTFDetails } from './NTFDetails/NTFDetails'
-import { Box, Container } from '@mui/material'
+import { NTFForm } from 'widgets/NTFForm/NTFForm'
+import { NTFParameters } from 'widgets/NTFParameters/NTFParameters'
+import { NTFDetails } from 'widgets/NTFDetails/NTFDetails'
+import { Box, Container, Grid } from '@mui/material'
 
 const color: NFT_COLOR = 'mystic'
 
@@ -12,17 +12,17 @@ const Shop = () => {
   return (
     <Box component='section' className='section'>
       <Container>
-        <div className='row nft-detail'>
-          <div className='col-lg-4 col-md-9 col-12 ml-auto mr-auto col-12 nft-detail__item nft-detail__item--center'>
+        <Grid container spacing={12} className='row'>
+          <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
             <NTFParameters bgClass={bgClass} />
-          </div>
-          <div className='col-lg-4 col-md-6 col-12 nft-detail__item nft-detail__item--left order-lg-first'>
+          </Grid>
+          <Grid item lg={4} md={6} xs={12} sx={{ order: { lg: -1, xs: 0 } }}>
             <NTFDetails bgClass={bgClass} />
-          </div>
-          <div className='col-lg-4 col-md-6 col-12 nft-detail__item nft-detail__item--right'>
+          </Grid>
+          <Grid item lg={4} md={6} xs={12}>
             <NTFForm />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   )

@@ -345,6 +345,7 @@ theme.typography.h1 = {
   },
 }
 theme.typography.h2 = {
+  ...theme.typography.h2,
   [theme.breakpoints.down('xl')]: {
     fontSize: '50px',
   },

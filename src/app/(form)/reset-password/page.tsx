@@ -4,7 +4,7 @@ import { ResetPasswordForm } from 'features/session/reset-password'
 const ResetPassword = () => {
   return (
     <>
-      <Box maxWidth={560}>
+      <Box maxWidth={560} width={'100%'}>
         <Typography variant='h1' component='h1' mb={8} textAlign={'center'} fontSize={48}>
           Password reset
         </Typography>

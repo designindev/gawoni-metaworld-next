@@ -31,7 +31,7 @@ const items = [
   },
   {
     color: '#EADF65',
-    name: '#EADF65',
+    name: 'Race edition',
   },
 ]
 
@@ -39,6 +39,8 @@ export const Edition = () => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
+
+  const [active, setActive] = useState<null | number>(null)
 
   return (
     <>
@@ -84,10 +86,13 @@ export const Edition = () => {
               },
             }}
           >
-            <IconButton aria-label='Create new edition' sx={{ backgroundColor: '#fff', mb: 4, width: 46, height: 46 }}>
+            <IconButton
+              aria-label='Create new edition'
+              sx={{ backgroundColor: 'dark.main', color: '#fff', mb: 4, width: 46, height: 46 }}
+            >
               <AddIcon />
             </IconButton>
-            <Typography variant='h3' sx={{ fontSize: '26px', fontFamily: 'Whyte' }}>
+            <Typography variant='h3' fontSize={26} fontFamily={'Whyte'} fontWeight={900}>
               Create new edition
             </Typography>
           </Stack>
@@ -96,16 +101,30 @@ export const Edition = () => {
         {items.map((el, i) => {
           return (
             <SwiperSlide key={i}>
-              <Stack border={'3px solid #777'} py={8} px={8} height={155} justifyContent={'center'}>
+              <Stack
+                border={'3px solid'}
+                borderColor={active === i ? 'white' : '#777'}
+                py={8}
+                px={8}
+                height={155}
+                justifyContent={'center'}
+                sx={{
+                  cursor: 'pointer',
+                  transition: 'all .3s',
+                  '&:hover': {
+                    borderColor: 'primary.main',
+                  },
+                }}
+                onClick={() => setActive(i)}
+              >
                 <Box sx={{ width: 24, height: 24, backgroundColor: el.color, borderRadius: '50%', mb: 6 }}></Box>
-                <Typography variant='h3' sx={{ fontSize: '26px', color: el.color }}>
+                <Typography variant='h3' fontSize={26} fontFamily={'Whyte'} fontWeight={900} color={el.color}>
                   {el.name}
                 </Typography>
               </Stack>
             </SwiperSlide>
           )
         })}
-
         <Box
           position={'absolute'}
           top={0}

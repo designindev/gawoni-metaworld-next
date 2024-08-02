@@ -79,7 +79,6 @@
   &-prev#{&}-disabled,
   &-next#{&}-disabled {
     opacity: 0.8;
-    background-color: $color-disabled;
     border-color: $color-disabled;
     pointer-events: auto;
   }

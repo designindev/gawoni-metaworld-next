@@ -1,14 +1,20 @@
 export const users = [
   {
     id: '1',
-    email: 'user1@gmail.com',
+    userOrLogin: 'user1',
     name: 'User 1',
     password: '12345678',
   },
   {
     id: '2',
-    email: 'user2@gmail.com',
+    userOrLogin: 'user2',
     name: 'User 2',
+    password: '12345678',
+  },
+  {
+    id: '3',
+    userOrLogin: 'user3',
+    name: 'User 3',
     password: '12345678',
   },
 ]

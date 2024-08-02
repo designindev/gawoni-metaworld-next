@@ -7,9 +7,10 @@ import { Box, Button, Chip, Stack, Typography } from '@mui/material'
 type Props = {
   nft: NFT
   hasButtons?: boolean
+  link?: string
 }
 
-export const NftCard = ({ nft, hasButtons }: Props) => {
+export const NftCard = ({ nft, hasButtons, link }: Props) => {
   return (
     <Box
       pt={'312px'}
@@ -17,15 +18,17 @@ export const NftCard = ({ nft, hasButtons }: Props) => {
         position: 'relative',
         transition: 'filter .3s',
         '&:hover': {
-          filter: 'drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.5))',
+          filter: link ? 'drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.5))' : 0,
         },
       }}
     >
-      <Box
-        component={Link}
-        href={PATH_PAGE.shop.slug(nft.id)}
-        sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 4 }}
-      ></Box>
+      {link && (
+        <Box
+          component={Link}
+          href={link}
+          sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 4 }}
+        ></Box>
+      )}
       <Box
         sx={{
           position: 'absolute',

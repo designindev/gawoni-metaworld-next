@@ -49,7 +49,7 @@ export const Category = (props: Props) => {
         {mockItems.map((item, i) => {
           return (
             <SwiperSlide key={i}>
-              <NftCard nft={item} />
+              <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} />
             </SwiperSlide>
           )
         })}

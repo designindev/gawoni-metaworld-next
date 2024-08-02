@@ -22,7 +22,7 @@ export const RegisterForm = () => {
       password: '', //'12345678',
       passwordConfirm: '', //'12345678',
       country: '', //country[0].value,
-      year: '', // '10,
+      age: '', // '10,
     },
   })
 
@@ -107,7 +107,7 @@ export const RegisterForm = () => {
           </Grid>
           <Grid item sm={6} xs={12}>
             <Controller
-              name={'year'}
+              name={'age'}
               control={control}
               render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
                 <TextField
@@ -118,8 +118,8 @@ export const RegisterForm = () => {
                   inputRef={ref}
                   value={value}
                   fullWidth
-                  label='Year'
-                  placeholder='Enter your year'
+                  label='Age'
+                  placeholder='Enter your age'
                 />
               )}
             />

@@ -45,6 +45,10 @@
     &::after {
       background: center / 54px no-repeat;
       background-image: url(/images/icons/play.svg);
+
+      @include sm {
+        background-size: 40px;
+      }
     }
   }
 }

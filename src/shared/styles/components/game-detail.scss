@@ -1,33 +1,7 @@
 .game-details {
   &__slider {
-    margin-bottom: 48px;
-    @include md {
-      margin-bottom: 20px;
-    }
   }
   &__heading {
-    @include md-min {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    &-logo {
-      max-width: 180px;
-    }
-    &-button {
-      max-width: 320px;
-      width: 100%;
-      @include xl {
-        max-width: 260px;
-      }
-      @include md {
-        margin: 25px 0 0;
-      }
-      @include xs {
-        max-width: 100%;
-      }
-    }
   }
 
   &__info {
@@ -49,24 +23,10 @@
     }
   }
   &__features {
-    margin-top: 70px;
-    @include md {
-      margin-bottom: -16px;
-    }
-    @include lg {
-      margin-top: 50px;
-    }
-    @include md {
-      margin-top: 16px;
-    }
     &-item {
       height: 100%;
       @include md {
         margin-bottom: 16px;
-      }
-      &.item-bg {
-        padding-top: 35px;
-        padding-bottom: 35px;
       }
     }
     &-border {
@@ -175,9 +135,6 @@
   &__left {
   }
   &__right {
-    @include sm {
-      margin-top: 24px;
-    }
   }
   &__video {
     .react-player__preview {

@@ -272,12 +272,14 @@ export const theme = createTheme({
     },
     MuiChip: {
       styleOverrides: {
-        root: {
+        root: ({ ownerState }) => ({
           backgroundColor: COLORS.dark,
           borderRadius: '16px',
-          fontSize: 16,
+          fontSize: ownerState.size === 'medium' ? 18 : 16,
           height: 40,
-        },
+          paddingLeft: '30px',
+          paddingRight: '30px',
+        }),
       },
     },
     MuiPaper: {

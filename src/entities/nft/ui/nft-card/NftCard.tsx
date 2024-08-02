@@ -87,10 +87,9 @@ export const NftCard = ({ nft, hasButtons }: Props) => {
           <Image src={nft.logos} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
         </Box>
         <Stack direction='row' mt={6} spacing={2}>
-          <Chip sx={{ width: '100%' }} label='K 4 Rally' />
-          <Chip sx={{ width: '100%' }} label='Car' />
+          <Chip sx={{ width: '100%' }} label='K 4 Rally' size={'small'} />
+          <Chip sx={{ width: '100%' }} label='Car' size={'small'} />
         </Stack>
-
         {hasButtons && (
           <Stack direction='row' mt={6} spacing={2}>
             <Button color='white' variant='outlined' size={'small'} sx={{ minWidth: '1px', width: '50%' }}>

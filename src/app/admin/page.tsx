@@ -10,7 +10,7 @@ export default function AdminPage() {
     <>
       <Box component={'section'} className='section' mb={0}>
         <Container>
-          <Typography variant='sectionTitle' component='h1'>
+          <Typography variant='h1' component='h1'>
             overview
           </Typography>
           <LineChart />
@@ -19,7 +19,7 @@ export default function AdminPage() {
       <Box component='section' className='section'>
         <Container>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 8 }}>
-            <Typography variant='sectionTitle' component='h2' mb={0}>
+            <Typography variant='h1' component='h2' mb={0}>
               All NFTs
             </Typography>
             <Button component={Link} href='/admin/new-nft'>

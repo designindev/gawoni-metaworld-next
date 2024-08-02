@@ -27,7 +27,7 @@ export default function Download() {
   return (
     <Box component={'section'} className='section'>
       <Container>
-        <Typography variant='sectionTitle' component='h1' textAlign={'center'}>
+        <Typography variant='h1' component='h1' textAlign={'center'}>
           play k4 rally
         </Typography>
 

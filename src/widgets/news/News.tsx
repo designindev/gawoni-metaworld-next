@@ -23,10 +23,14 @@ export const News = async () => {
   const items = data.items.slice(0, 3) as any[]
 
   return (
-    <Box className='section s-news' id='news' sx={{ backgroundSize: 'cover', backgroundPosition: 'center', backgroundImage: 'url(/images/bg/news.png)' }}>
+    <Box
+      className='section s-news'
+      id='news'
+      sx={{ backgroundSize: 'cover', backgroundPosition: 'center', backgroundImage: 'url(/images/bg/news.png)' }}
+    >
       <Container className='s-news__container news'>
         <div className='section__heading-wrapper'>
-          <Typography variant='sectionTitle' component='h2'>
+          <Typography variant='h1' component='h2'>
             <span className='section__heading-icon section__heading-icon--right'>latest News</span>
           </Typography>
           <Box sx={{ display: { xs: 'none', lg: 'block' } }} className='section__heading-btn'>
@@ -57,7 +61,13 @@ export const News = async () => {
                     <CalendarTodayIcon fontSize='small' sx={{ mr: 2, position: 'relative', top: -1 }} />
                     {item.pubDate}
                   </Box>
-                  <Typography variant='h3' fontSize={'28px'} display={'block'} component='h3' sx={{ textTransform: 'uppercase', lineHeight: 1.2 }}>
+                  <Typography
+                    variant='h3'
+                    fontSize={'28px'}
+                    display={'block'}
+                    component='h3'
+                    sx={{ textTransform: 'uppercase', lineHeight: 1.2 }}
+                  >
                     {item.title}
                   </Typography>
                   <Box sx={{ fontSize: { xs: 14, lg: 16 }, mt: 3 }}>

@@ -21,33 +21,6 @@
     font-size: 40px;
   }
 
-  &--fz-72 {
-    @include xxxl {
-      font-size: 66px;
-    }
-    @include xxl {
-      font-size: 60px;
-    }
-    @include xl {
-      font-size: 56px;
-    }
-    @include lg {
-      font-size: 50px;
-    }
-    @include md {
-      font-size: 44px;
-    }
-    @include sm {
-      font-size: 42px;
-    }
-    @include xs {
-      font-size: 40px;
-    }
-    @include xxs {
-      font-size: 28px;
-    }
-  }
-
   &--fz-64 {
     font-size: 64px;
 

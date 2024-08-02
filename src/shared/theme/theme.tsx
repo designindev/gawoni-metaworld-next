@@ -79,6 +79,14 @@ export const theme = createTheme({
                 color: '#000',
                 borderRadius: '6px',
               }),
+            ...(ownerState.variant === 'outlined' &&
+              ownerState.color === 'white' && {
+                borderColor: '#fff',
+                '&:hover': {
+                  borderColor: COLORS.secondary,
+                  backgroundColor: COLORS.secondary,
+                },
+              }),
           }
         },
         startIcon: {
@@ -259,20 +267,27 @@ export const theme = createTheme({
     htmlFontSize: 16,
     h1: {
       fontFamily: 'Whyte',
+      fontSize: '56px',
+      textTransform: 'uppercase',
+      fontWeight: '900',
     },
-    h2: {},
+    h2: {
+      fontFamily: 'Whyte',
+      fontSize: '56px',
+      textTransform: 'uppercase',
+      fontWeight: '900',
+    },
     h3: {
       fontSize: '40px',
     },
     h4: {
-      fontSize: '24px',
-      lineHeight: '1.3',
+      fontSize: '32px',
     },
     h5: {
-      fontSize: '18px',
+      fontSize: '24px',
     },
     h6: {
-      fontSize: '16px',
+      fontSize: '18px',
     },
     label: {
       fontWeight: 600,
@@ -289,10 +304,6 @@ export const theme = createTheme({
 export type Theme = typeof theme
 
 theme.typography.h2 = {
-  fontFamily: 'Whyte',
-  fontSize: '56px',
-  textTransform: 'uppercase',
-  fontWeight: '900',
   [theme.breakpoints.down('xl')]: {
     fontSize: '50px',
   },
@@ -324,14 +335,6 @@ theme.typography.h5 = {
   fontSize: '20px',
 }
 
-theme.typography.sectionTitle = {
-  ...theme.typography.h2,
-  marginBottom: '60px',
-  [theme.breakpoints.down('sm')]: {
-    marginBottom: '30px',
-  },
-}
-
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
     xs: true
@@ -345,12 +348,10 @@ declare module '@mui/material/styles' {
   }
 
   interface TypographyVariants {
-    sectionTitle: React.CSSProperties
     label: React.CSSProperties
   }
 
   interface TypographyVariantsOptions {
-    sectionTitle?: React.CSSProperties
     label?: React.CSSProperties
   }
 

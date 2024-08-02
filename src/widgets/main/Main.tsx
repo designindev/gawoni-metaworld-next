@@ -1,12 +1,12 @@
 'use client'
 
-import { Box, Container, Grid } from '@mui/material'
+import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import { A11y, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperControls, SwiperButton, SwiperPagination } from 'shared/ui'
-import { Button } from 'shared/ui/button/Button'
 import Image1 from './slide-1.jpg'
 import Image2 from './slide-2.jpg'
+import { onScrollToBlock } from 'shared/lib'
 
 const items = [
   {
@@ -27,7 +27,7 @@ const items = [
 
 export const Main = () => {
   return (
-    <Box component={'section'} className='section s-main' sx={{ mt: { xs: '-60px', md: '-85px' } }}>
+    <Box component={'section'} mt={{ xs: '-60px', md: '-85px' }}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
         effect={'fade'}
@@ -46,27 +46,62 @@ export const Main = () => {
         {items.map((el, i) => {
           return (
             <SwiperSlide key={i} className='main__items-slide'>
-              <div className='items__item main__items-item'>
-                <div className='main__items-image' style={{ backgroundImage: `url(${el.image.src})` }}></div>
-                <Container className='main__items-container'>
+              <Box
+                height={844}
+                display={'flex'}
+                alignItems={'flex-end'}
+                pb={{ xs: '110px', xl: '70px' }}
+                sx={{
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center top',
+                  backgroundImage: `url(${el.image.src})`,
+                }}
+              >
+                <Container maxWidth={'xxxxl'}>
                   <Box sx={{ height: { md: '85px', xs: '60px' } }}></Box>
-                  <h1 className='h1 h1--fz-72 main__items-title'>
-                    <span className='main__items-title-first text-primary'>{el.title}</span>
-                    <span className='main__items-title-second'>{el.titleSecond}</span>
-                  </h1>
 
-                  <div className='main__items-content'>
-                    <div className='main__items-content-left fz-18'>
+                  <Typography
+                    variant='h1'
+                    component='h2'
+                    fontSize={{ xxxxl: 72, xxxl: 66, xxl: 66, xl: 60, lg: 56, md: 50, sm: 44, xs: 40 }}
+                  >
+                    <Box component={'span'} color={'primary.main'}>
+                      {el.title}
+                    </Box>
+                    <Box
+                      component={'span'}
+                      display={'block'}
+                      pl={{ lg: 63, xs: 8 }}
+                      mt={{ lg: 0, xs: 1 }}
+                      className='main__items-title-second'
+                    >
+                      {el.titleSecond}
+                    </Box>
+                  </Typography>
+
+                  <Box mt={{ lg: 15, xs: 10 }} display={{ lg: 'flex', xs: 'block' }} justifyContent={'space-between'}>
+                    <Box
+                      fontSize={'18px'}
+                      p={{ lg: '7px 30px 7px 15px', xs: '7px 0 7px 10px' }}
+                      borderLeft={'3px solid'}
+                      borderColor={'secondary.main'}
+                      maxWidth={700}
+                    >
                       <p>{el.content}</p>
-                    </div>
-                    <div className='main__items-content-right'>
-                      <Button href='#news' color={'light'} border maxWidth>
+                    </Box>
+                    <Box mt={{ lg: 2, xs: 3 }} flexShrink={0} maxWidth={220} width={'100%'}>
+                      <Button
+                        color='white'
+                        variant='outlined'
+                        href={'news'}
+                        onClick={(e) => onScrollToBlock(e, '#news')}
+                      >
                         Learn more
                       </Button>
-                    </div>
-                  </div>
+                    </Box>
+                  </Box>
                 </Container>
-              </div>
+              </Box>
             </SwiperSlide>
           )
         })}

@@ -1,7 +1,17 @@
 'use client'
 
 import { Line } from 'react-chartjs-2'
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from 'chart.js'
 import { Typography } from '@mui/material'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler)
@@ -66,7 +76,7 @@ function LineChart() {
 
   return (
     <div className='chart'>
-      <Typography variant='h5' component='h3' mb={3}>
+      <Typography variant='h6' component='h3' mb={3}>
         Selling overview
       </Typography>
       <div style={graphStyle}>

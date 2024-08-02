@@ -57,7 +57,7 @@ export const Main = () => {
                   backgroundImage: `url(${el.image.src})`,
                 }}
               >
-                <Box sx={{ height: { md: '85px', xs: '60px' } }}></Box>
+                <Box sx={{ height: { lg: '85px', xs: '60px' } }}></Box>
                 <Container maxWidth={'xxxxl'}>
                   <Typography
                     variant='h1'

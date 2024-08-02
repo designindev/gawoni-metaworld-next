@@ -1,13 +1,17 @@
+import { Box, Typography } from '@mui/material'
 import { RegisterForm } from 'features/session/register'
 
 const Register = () => {
   return (
-    <>
-      <h2 className='h1 h1--fz-48 section__heading'>welcome!</h2>
-      <div className='section__descr'>If you’re here for the first time, please create your account below</div>
-
+    <Box>
+      <Typography variant='h1' component='h1' mb={{ lg: 8, xs: 2 }} textAlign={'center'} fontSize={48}>
+        welcome!
+      </Typography>
+      <Typography variant='body1' textAlign={'center'} mb={{ lg: 18, xs: 12 }}>
+        If you’re here for the first time, please create your account below
+      </Typography>
       <RegisterForm />
-    </>
+    </Box>
   )
 }
 

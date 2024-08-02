@@ -1,69 +1,180 @@
 'use client'
 
 import { notifySuccess } from 'shared/lib/notify'
-import { useCallback } from 'react'
-import { ButtonForm, Form, InputForm, RadioGroupForm, Select, SelectForm } from 'shared/ui'
-import classNames from 'classnames'
+import { useCallback, useId, useState } from 'react'
 import { RegisterFormSchema, registerFormSchema } from '../model/register-form.schema'
 import { PATH_PAGE } from 'shared/lib'
-import { useRegisterMutation } from 'entities/session/api/session.api'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { country } from '../model/country'
+import { Box, Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { Controller, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-type Props = {
-  className?: string
-}
-
-export const RegisterForm = (props: Props) => {
-  // const [register] = useRegisterMutation()
+export const RegisterForm = () => {
   const router = useRouter()
+  const { control, handleSubmit } = useForm<RegisterFormSchema>({
+    resolver: zodResolver(registerFormSchema),
+    criteriaMode: 'all',
+    defaultValues: {
+      username: '', //'username',
+      email: '', //'login@gmail.com',
+      password: '', //'12345678',
+      passwordConfirm: '', //'12345678',
+      country: '', //country[0].value,
+      year: '', // '10,
+    },
+  })
 
   const onSubmitHandler = useCallback(
     async (data: RegisterFormSchema) => {
-      // await register(data).unwrap()
-      console.log(data)
-      return
       router.push(PATH_PAGE.login)
       notifySuccess('You have successfully registered')
     },
-    [props]
+    [router]
   )
 
   return (
     <>
-      <Form<RegisterFormSchema>
-        onSubmit={onSubmitHandler}
-        validationSchema={registerFormSchema}
-        defaultValues={{ username: 'username', email: 'login@gmail.com', password: '12345678', passwordConfirm: '12345678' }}
-        className={classNames('', props.className)}
-      >
-        <div className='row'>
-          <div className='col-lg-6 col-12'>
-            <InputForm<RegisterFormSchema> type='text' name='username' label='Username' placeholder='Enter your username' />
-          </div>
-          <div className='col-lg-6 col-12'>
-            <InputForm<RegisterFormSchema> type='text' name='email' label='Email' placeholder='Enter your email' />
-          </div>
-          <div className='col-lg-6 col-12'>
-            <SelectForm<RegisterFormSchema> name='country' label='Country' options={country} />
-          </div>
-          <div className='col-lg-6 col-12'></div>
-          <div className='col-lg-6 col-12'>
-            <InputForm<RegisterFormSchema> type='password' name='password' label='Password' placeholder='Create password' />
-          </div>
-          <div className='col-lg-6 col-12'>
-            <InputForm<RegisterFormSchema> type='password' name='passwordConfirm' label='Confirm password' placeholder='Confirm password' />
-          </div>
-        </div>
-        <ButtonForm lgWidth>Create account</ButtonForm>
-        <div className='form__link'>
-          Already have an account? &nbsp;
-          <Link href={PATH_PAGE.login} className='text-link text-primary'>
-            Log In
-          </Link>
-        </div>
-      </Form>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <Grid container rowSpacing={8} columnSpacing={{ lg: 10, xs: 6 }}>
+          <Grid item sm={6} xs={12}>
+            <Controller
+              name={'username'}
+              control={control}
+              render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+                <TextField
+                  helperText={error ? error.message : null}
+                  error={!!error}
+                  onChange={onChange}
+                  inputRef={ref}
+                  value={value}
+                  label='Username'
+                  placeholder='Enter your username'
+                />
+              )}
+            />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+            <Controller
+              name={'email'}
+              control={control}
+              render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+                <TextField
+                  helperText={error ? error.message : null}
+                  error={!!error}
+                  onChange={onChange}
+                  inputRef={ref}
+                  value={value}
+                  label='Email'
+                  placeholder='Enter your email'
+                />
+              )}
+            />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+            <Controller
+              name='country'
+              control={control}
+              render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+                <FormControl error={Boolean(error)} fullWidth>
+                  <InputLabel id='country'>Country</InputLabel>
+                  <Select
+                    labelId='demo-simple-select-label'
+                    id='country'
+                    label='Age'
+                    onChange={onChange}
+                    inputRef={ref}
+                    value={value}
+                    fullWidth
+                  >
+                    <MenuItem value=''>
+                      <em>Select your country</em>
+                    </MenuItem>
+                    {country.map((el, i) => {
+                      return (
+                        <MenuItem key={i} value={el.value}>
+                          {el.label}
+                        </MenuItem>
+                      )
+                    })}
+                  </Select>
+                  {error && <FormHelperText>{error.message}</FormHelperText>}
+                </FormControl>
+              )}
+              rules={{ required: true }}
+            />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+            <Controller
+              name={'year'}
+              control={control}
+              render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+                <TextField
+                  type={'number'}
+                  helperText={error ? error.message : null}
+                  error={!!error}
+                  onChange={onChange}
+                  inputRef={ref}
+                  value={value}
+                  fullWidth
+                  label='Year'
+                  placeholder='Enter your year'
+                />
+              )}
+            />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+            <Controller
+              name={'password'}
+              control={control}
+              render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+                <TextField
+                  type={'password'}
+                  helperText={error ? error.message : null}
+                  error={!!error}
+                  onChange={onChange}
+                  inputRef={ref}
+                  value={value}
+                  fullWidth
+                  label='Password'
+                  placeholder='Create password'
+                />
+              )}
+            />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+            <Controller
+              name={'passwordConfirm'}
+              control={control}
+              render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+                <TextField
+                  type={'password'}
+                  helperText={error ? error.message : null}
+                  error={!!error}
+                  onChange={onChange}
+                  inputRef={ref}
+                  value={value}
+                  fullWidth
+                  label='Confirm password'
+                  placeholder='Confirm password'
+                />
+              )}
+            />
+          </Grid>
+        </Grid>
+        <Box textAlign={'center'} mt={13}>
+          <Button type={'submit'} sx={{ maxWidth: '336px', width: '100%' }}>
+            Create account
+          </Button>
+          <Box mt={18}>
+            Already have an account? &nbsp;
+            <Box component={Link} href={PATH_PAGE.login} color={'primary.main'} sx={{ textDecoration: 'underline' }}>
+              Log In
+            </Box>
+          </Box>
+        </Box>
+      </form>
     </>
   )
 }

@@ -3,12 +3,9 @@
   padding-top: $section-padding;
   padding-bottom: $section-padding;
   @include xl {
-    padding: 100px 0;
+    padding: 70px 0;
   }
   @include md {
-    padding: 80px 0;
-  }
-  @include sm {
     padding: 60px 0;
   }
 

@@ -218,6 +218,11 @@ export const theme = createTheme({
         },
       },
     },
+    MuiSelect: {
+      styleOverrides: {
+        root: {},
+      },
+    },
     MuiInputLabel: {
       styleOverrides: {
         root: {
@@ -230,6 +235,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           padding: '0 12px',
+          height: '48px',
         },
       },
     },
@@ -248,7 +254,6 @@ export const theme = createTheme({
         },
         input: {
           padding: '0',
-          height: '48px',
           '&::placeholder': {
             color: '#aaa!important',
           },
@@ -320,6 +325,9 @@ export const theme = createTheme({
       fontWeight: 600,
       color: 'gray',
       fontSize: 14,
+    },
+    body1: {
+      fontSize: 18,
     },
   },
   spacing: 4,

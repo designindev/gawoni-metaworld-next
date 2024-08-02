@@ -20,6 +20,10 @@ export function LoginForm(props: Props) {
   const { control, handleSubmit } = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
     criteriaMode: 'all',
+    defaultValues: {
+      emailOrLogin: '',
+      password: '',
+    },
   })
 
   const onSubmitHandler = useCallback(
@@ -49,11 +53,13 @@ export function LoginForm(props: Props) {
           <Controller
             name={'emailOrLogin'}
             control={control}
-            render={({ field: { onChange }, fieldState: { error } }) => (
+            render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
               <TextField
                 helperText={error ? error.message : null}
                 error={!!error}
                 onChange={onChange}
+                inputRef={ref}
+                value={value}
                 fullWidth
                 label='Username or email'
                 placeholder='Enter your username or email'
@@ -63,13 +69,14 @@ export function LoginForm(props: Props) {
           <Controller
             name={'password'}
             control={control}
-            render={({ field: { onChange, ref }, fieldState: { error } }) => (
+            render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
               <TextField
                 type={'password'}
                 helperText={error ? error.message : null}
                 error={!!error}
                 onChange={onChange}
                 inputRef={ref}
+                value={value}
                 fullWidth
                 label='Password'
                 placeholder='Create password'

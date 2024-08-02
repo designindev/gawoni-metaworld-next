@@ -15,7 +15,8 @@ export default function FormLayout({
           <Grid container>
             <Grid
               item
-              md={6}
+              lg={6}
+              md={8}
               xs={12}
               sx={{
                 '@media only screen and (min-width: 1200px)': {
@@ -25,7 +26,7 @@ export default function FormLayout({
             >
               {children}
             </Grid>
-            <Grid item md={6} xs={12} className='s-form__right' sx={{ textAlign: 'right' }}>
+            <Grid item lg={6} md={4} xs={12} className='s-form__right' sx={{ textAlign: 'right' }}>
               <div className='logo logo--xl s-form__logo'>
                 <Image src={Logo} alt='Logo' priority />
               </div>

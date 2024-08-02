@@ -34,7 +34,7 @@ export default function RootLayout({
       <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
         <Providers>
           <Header />
-          <Box sx={{ height: { md: '85px', xs: '60px' } }}></Box>
+          <Box sx={{ height: { lg: '85px', xs: '60px' } }}></Box>
           <main className='wrapper'>{children}</main>
           <Footer />
         </Providers>

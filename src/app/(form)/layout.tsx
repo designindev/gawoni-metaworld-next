@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from '@mui/material'
+import { Box, CircularProgress, Container, Grid } from '@mui/material'
 import Image from 'next/image'
 import FormImage from 'shared/images/bg/form-img.png'
 import Logo from 'shared/images/logo.png'
@@ -15,6 +15,8 @@ export default function FormLayout({
           <Grid container>
             <Grid
               item
+              display={'flex'}
+              alignItems={'center'}
               lg={6}
               md={8}
               xs={12}

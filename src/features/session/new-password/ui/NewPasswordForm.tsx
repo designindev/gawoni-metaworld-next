@@ -14,12 +14,10 @@ type Props = {
 }
 
 export const NewPasswordForm = (props: Props) => {
-  // const [newPassword] = useNewPasswordMutation()
   const router = useRouter()
 
   const onSubmitHandler = useCallback(
     async (data: NewPasswordFormSchema) => {
-      // await resetPassword(data).unwrap()
       router.push(PATH_PAGE.passwordResetSuccess)
       notifySuccess('You have successfully updated password')
     },
@@ -31,11 +29,21 @@ export const NewPasswordForm = (props: Props) => {
       <Form<NewPasswordFormSchema>
         onSubmit={onSubmitHandler}
         validationSchema={newPasswordFormSchema}
-        defaultValues={{ password: '12345678', passwordConfirm: '12345678' }}
+        // defaultValues={{ password: '12345678', passwordConfirm: '12345678' }}
         className={classNames('', props.className)}
       >
-        <InputForm<NewPasswordFormSchema> type='password' name='password' label='Password' placeholder='Create password' />
-        <InputForm<NewPasswordFormSchema> type='password' name='passwordConfirm' label='Confirm password' placeholder='Confirm password' />
+        <InputForm<NewPasswordFormSchema>
+          type='password'
+          name='password'
+          label='Password'
+          placeholder='Create password'
+        />
+        <InputForm<NewPasswordFormSchema>
+          type='password'
+          name='passwordConfirm'
+          label='Confirm password'
+          placeholder='Confirm password'
+        />
 
         <div className='form__buttons'>
           <ButtonForm lgWidth>Send</ButtonForm>

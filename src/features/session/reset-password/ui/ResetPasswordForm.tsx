@@ -6,20 +6,13 @@ import { Button, ButtonForm, Form, InputForm } from 'shared/ui'
 import classNames from 'classnames'
 import { ResetPasswordformSchema, resetPasswordFormSchema } from '../model/reset-password.schema'
 import { PATH_PAGE } from 'shared/lib'
-import { useResetPasswordMutation } from 'entities/session/api/session.api'
 import { useRouter } from 'next/navigation'
 
-type Props = {
-  className?: string
-}
-
-export const ResetPasswordForm = (props: Props) => {
+export const ResetPasswordForm = () => {
   const router = useRouter()
-  // const [resetPassword] = useResetPasswordMutation()
 
   const onSubmitHandler = useCallback(
     async (data: ResetPasswordformSchema) => {
-      // await resetPassword(data).unwrap()
       router.push(`${PATH_PAGE.checkEmail}?email=${data.email}`)
       notifySuccess('You have successfully reseted password')
     },
@@ -28,14 +21,13 @@ export const ResetPasswordForm = (props: Props) => {
 
   return (
     <>
-      <Form<ResetPasswordformSchema>
-        onSubmit={onSubmitHandler}
-        validationSchema={resetPasswordFormSchema}
-        // defaultValues={{ email: 'login@gmail.com', }}
-        className={classNames('', props.className)}
-      >
-        <InputForm<ResetPasswordformSchema> type='email' name='email' label='Enter your email' placeholder='Enter your email' />
-
+      <Form<ResetPasswordformSchema> onSubmit={onSubmitHandler} validationSchema={resetPasswordFormSchema}>
+        <InputForm<ResetPasswordformSchema>
+          type='email'
+          name='email'
+          label='Enter your email'
+          placeholder='Enter your email'
+        />
         <div className='form__buttons'>
           <ButtonForm lgWidth>Send</ButtonForm>
           <Button href={PATH_PAGE.login} color={'light'} lgWidth border>

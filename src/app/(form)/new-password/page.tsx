@@ -1,13 +1,16 @@
+import { Typography } from '@mui/material'
 import { NewPasswordForm } from 'features/session/new-password'
 
 const NewPassword = () => {
   return (
     <>
       <div className='w-560'>
-        <h2 className='h1 h1--fz-48 section__heading'>reset password</h2>
-        <div className='section__descr'>
-          <p>Create a new password for your account</p>
-        </div>
+        <Typography variant='h1' component='h1' mb={8} textAlign={'center'} fontSize={48}>
+          reset password
+        </Typography>
+        <Typography variant='body1' textAlign={'center'} mb={{ lg: 18, xs: 12 }}>
+          Create a new password for your account
+        </Typography>
         <NewPasswordForm />
       </div>
     </>

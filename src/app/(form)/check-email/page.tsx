@@ -1,31 +1,36 @@
 import { PATH_PAGE } from 'shared/lib'
-import { Button } from 'shared/ui'
 import Email from './Email'
 import { Suspense } from 'react'
+import { Box, Button, Stack, Typography } from '@mui/material'
+import Link from 'next/link'
 
 const CheckEmail = () => {
   return (
     <>
-      <div className='w-560'>
-        <h2 className='h1 h1--fz-48 section__heading'>Check your email</h2>
-        <div className='section__descr'>
-          <p>
-            <Suspense fallback={<></>}>
-              <Email />
-            </Suspense>
-          </p>
-        </div>
-        <div className='form'>
-          <div className='form__buttons'>
-            <Button href={PATH_PAGE.resetPassword} lgWidth>
-              Resend email
-            </Button>
-            <Button href={PATH_PAGE.login} color={'light'} lgWidth border>
-              Back to log in
-            </Button>
-          </div>
-        </div>
-      </div>
+      <Box maxWidth={560}>
+        <Typography variant='h1' component='h1' mb={8} textAlign={'center'} fontSize={48}>
+          Check your email
+        </Typography>
+        <Typography variant='body1' textAlign={'center'} mb={{ lg: 18, xs: 12 }}>
+          <Suspense fallback={<></>}>
+            <Email />
+          </Suspense>
+        </Typography>
+        <Stack spacing={6} alignItems={'center'}>
+          <Button component={Link} href={PATH_PAGE.resetPassword} sx={{ maxWidth: 336, width: '100%' }}>
+            Resend email
+          </Button>
+          <Button
+            component={Link}
+            href={PATH_PAGE.login}
+            color={'white'}
+            variant='outlined'
+            sx={{ maxWidth: 336, width: '100%' }}
+          >
+            Back to log in
+          </Button>
+        </Stack>
+      </Box>
     </>
   )
 }

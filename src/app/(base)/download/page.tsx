@@ -27,7 +27,7 @@ export default function Download() {
   return (
     <Box component={'section'} className='section'>
       <Container>
-        <Typography variant='h1' component='h1' textAlign={'center'}>
+        <Typography variant='h1' component='h1' textAlign={'center'} fontSize={64} mb={{ lg: 15, xs: 8 }}>
           play k4 rally
         </Typography>
 
@@ -47,13 +47,20 @@ export default function Download() {
                     textAlign: 'center',
                   }}
                 >
-                  <Box sx={{ lineHeight: '80px', mb: 8 }}>
+                  <Box sx={{ height: '100px', lineHeight: '100px', mb: 2 }}>
                     <Image src={el.image} alt='' />
                   </Box>
-                  <Typography variant='h4' component='h3' textTransform={'uppercase'} mb={'auto'}>
+                  <Typography
+                    variant='h5'
+                    component='h3'
+                    textTransform={'uppercase'}
+                    mb={'auto'}
+                    fontWeight={700}
+                    fontFamily={'Whyte'}
+                  >
                     {el.title}
                   </Typography>
-                  <Button component={Link} href={'/'} size='large' fullWidth sx={{ marginTop: '30px' }}>
+                  <Button component={Link} href={'/'} size='large' fullWidth sx={{ marginTop: '30px', height: 64 }}>
                     {el.btn}
                   </Button>
                 </Box>

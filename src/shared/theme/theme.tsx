@@ -19,7 +19,7 @@ const hoverAndSelected = {
 
 export const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: 'dark',
     background: {
       default: '#000',
     },
@@ -255,6 +255,9 @@ export const theme = createTheme({
         },
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {},
+    },
     MuiTextField: {
       defaultProps: {
         variant: 'outlined',
@@ -283,11 +286,7 @@ export const theme = createTheme({
       },
     },
     MuiPaper: {
-      styleOverrides: {
-        root: {
-          color: '#000',
-        },
-      },
+      styleOverrides: {},
     },
   },
   typography: {

@@ -12,16 +12,12 @@ export default function FormLayout({
     <>
       <Box component={'section'} className='section'>
         <Container>
-          <Grid container spacing={{ xs: 6, lg: 10 }} className='row s-form__row'>
+          <Grid container>
             <Grid
               item
               md={6}
               xs={12}
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                textAlign: 'center',
                 '@media only screen and (min-width: 1200px)': {
                   paddingBottom: '100px',
                 },

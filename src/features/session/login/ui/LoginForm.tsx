@@ -1,69 +1,104 @@
 'use client'
 
-import { notifySuccess } from 'shared/lib/notify'
-import { useCallback } from 'react'
-import { ButtonForm, Form, InputForm } from 'shared/ui'
-import classNames from 'classnames'
+import { notifyError, notifySuccess } from 'shared/lib/notify'
+import { useCallback, useState } from 'react'
 import { LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
 import { PATH_PAGE } from 'shared/lib'
-import { useLoginMutation } from 'entities/session/api/session.api'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { Box, Button, Stack, TextField } from '@mui/material'
+import { Controller, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 type Props = {
   className?: string
 }
 
 export function LoginForm(props: Props) {
-  // const [loginThunk] = useLoginMutation()
-  // const isAuth = useSelector(selectIsAuth)
   const router = useRouter()
+  const { control, handleSubmit } = useForm<LoginFormSchema>({
+    resolver: zodResolver(loginFormSchema),
+    criteriaMode: 'all',
+  })
 
   const onSubmitHandler = useCallback(
     async (data: LoginFormSchema) => {
       const res = await signIn('credentials', {
-        email: data.email,
+        emailOrLogin: data.emailOrLogin,
         password: data.password,
         redirect: false,
       })
 
-      if (res && !res.error) {
+      const success = res && !res.error
+
+      if (success) {
         router.push('/admin')
+        notifySuccess('You have successfully logged in')
       } else {
-        console.log(res)
+        notifyError('Email, login or password is incorrect')
       }
-      // await loginThunk(data).unwrap()
-      notifySuccess('You have successfully logged in')
     },
-    [props]
+    [router]
   )
 
   return (
     <>
-      <Form<LoginFormSchema>
-        onSubmit={onSubmitHandler}
-        validationSchema={loginFormSchema}
-        // defaultValues={{ email: 'login@gmail.com', password: '12345678' }}
-        className={classNames(props.className)}
-      >
-        <InputForm<LoginFormSchema> type='text' name='email' label='Username or email' placeholder='Enter your username or email' />
-        <InputForm<LoginFormSchema> type='password' name='password' label='Password' placeholder='Create password' />
-        <div className='form__link form__link--forgot'>
-          <Link href={PATH_PAGE.resetPassword} className='text-link text-primary'>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <Stack spacing={9}>
+          <Controller
+            name={'emailOrLogin'}
+            control={control}
+            render={({ field: { onChange }, fieldState: { error } }) => (
+              <TextField
+                helperText={error ? error.message : null}
+                error={!!error}
+                onChange={onChange}
+                fullWidth
+                label='Username or email'
+                placeholder='Enter your username or email'
+              />
+            )}
+          />
+          <Controller
+            name={'password'}
+            control={control}
+            render={({ field: { onChange, ref }, fieldState: { error } }) => (
+              <TextField
+                type={'password'}
+                helperText={error ? error.message : null}
+                error={!!error}
+                onChange={onChange}
+                inputRef={ref}
+                fullWidth
+                label='Password'
+                placeholder='Create password'
+              />
+            )}
+          />
+        </Stack>
+        <Box textAlign={'right'} mt={4}>
+          <Box
+            component={Link}
+            href={PATH_PAGE.resetPassword}
+            color={'primary.main'}
+            sx={{ textDecoration: 'underline' }}
+          >
             Forgot Password?
-          </Link>
-        </div>
-        <ButtonForm className='form__button' lgWidth>
-          Log In
-        </ButtonForm>
-        <div className='form__link'>
-          Don’t have an account? &nbsp;
-          <Link href={PATH_PAGE.register} className='text-link text-primary'>
-            Sign Up
-          </Link>
-        </div>
-      </Form>
+          </Box>
+        </Box>
+        <Box textAlign={'center'} mt={13}>
+          <Button type={'submit'} sx={{ maxWidth: '336px', width: '100%' }}>
+            Log In
+          </Button>
+          <Box mt={18}>
+            Don’t have an account? &nbsp;
+            <Box component={Link} href={PATH_PAGE.register} color={'primary.main'} sx={{ textDecoration: 'underline' }}>
+              Sign Up
+            </Box>
+          </Box>
+        </Box>
+      </form>
     </>
   )
 }

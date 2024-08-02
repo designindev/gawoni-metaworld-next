@@ -1,3 +1,3 @@
 export { default } from 'next-auth/middleware'
 
-export const config = { matcher: ['/admin', '/admin/:path*'], redirect: '/' }
+export const config = { matcher: ['/admin', '/admin/:path*'] }

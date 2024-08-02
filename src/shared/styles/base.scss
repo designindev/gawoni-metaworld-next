@@ -166,7 +166,9 @@ a {
 }
 
 .wrapper {
-  min-height: 900px;
+  @include lg-min {
+    min-height: 900px;
+  }
 
   .section:first-child {
     @include xl-min {

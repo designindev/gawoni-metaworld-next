@@ -1,11 +1,14 @@
+import { Box, Typography } from '@mui/material'
 import { LoginForm } from 'features/session/login'
 
-const LoginPage = () => {
+const LoginPage = async () => {
   return (
-    <>
-      <h2 className='h1 h1--fz-48 section__heading'>welcome back!</h2>
+    <Box maxWidth={560}>
+      <Typography variant='h1' component='h1' mb={{ lg: 21, xs: 8 }} textAlign={'center'} fontSize={48}>
+        welcome back!
+      </Typography>
       <LoginForm />
-    </>
+    </Box>
   )
 }
 

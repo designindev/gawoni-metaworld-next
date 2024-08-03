@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { notifySuccess } from 'shared/lib'
 import { details } from './details'
-import { Box, Button, IconButton } from '@mui/material'
+import { Box, Button, IconButton, Typography } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 type Props = {
@@ -20,8 +20,29 @@ export const NTFDetails = (props: Props) => {
   return (
     <>
       <div className='nft-detail__block'>
-        <h1 className='nft-detail__title h3 h3--fz-32'>k4 rally nft car - race edition #1 2023</h1>
-        <div className='nft-detail__subtitle h4'>Race edition</div>
+        <Typography
+          variant='h4'
+          component={'h1'}
+          textTransform={'uppercase'}
+          fontWeight={700}
+          lineHeight={1.15}
+          mb={{ lg: 6, xs: 2 }}
+          mt={-2}
+        >
+          k4 rally nft car - race edition #1 2023
+        </Typography>
+        <Typography
+          variant='h5'
+          component={'h2'}
+          textTransform={'uppercase'}
+          fontWeight={700}
+          fontStyle={'italic'}
+          color={'primary.main'}
+          mb={{ lg: 11, xs: 5 }}
+          mt={-2}
+        >
+          Race edition
+        </Typography>
         <div className={classNames('rarity nft-detail__rarity', props.bgClass)}>
           <div className='rarity__label'>Mystic</div>
           <div className='rarity__price'>$20.00</div>

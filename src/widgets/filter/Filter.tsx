@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Drawer, Button } from '@mui/material'
+import { Box, Drawer, Button, Typography } from '@mui/material'
 import classNames from 'classnames'
 import { useRef, useState } from 'react'
 import { ActionMeta, SingleValue } from 'react-select'
@@ -68,7 +68,9 @@ export const Filter = (props: Props) => {
     <>
       <div className='filter__top'>
         <div className='filter__left'>
-          <div className='filter__label h3 h3--fz-32'>Filters</div>
+          <Typography variant='h4' component={'h3'}>
+            Filters
+          </Typography>
           <div className='filter__number'>{props.count}</div>
         </div>
         <div className='filter__right'>

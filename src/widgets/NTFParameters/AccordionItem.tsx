@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { ReactNode, useRef, useState } from 'react'
 import { slideToggle } from 'shared/lib'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Typography } from '@mui/material'
 
 type Props = {
   title: string
@@ -26,10 +27,22 @@ export const AccordionItem = (props: Props) => {
         'accordion--active': open,
       })}
     >
-      <h4 className='accordion__title h6' onClick={onToggle}>
+      <Typography
+        variant='h6'
+        component={'h4'}
+        display={'flex'}
+        alignItems={'center'}
+        justifyContent={'space-between'}
+        height={56}
+        p={'5px 16px'}
+        fontWeight={500}
+        sx={{ cursor: 'pointer' }}
+        onClick={onToggle}
+        fontSize={16}
+      >
         {title}
         <ExpandMoreIcon />
-      </h4>
+      </Typography>
       <div ref={ref} className='accordion__content' style={{ display: 'none' }}>
         {children}
       </div>

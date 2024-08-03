@@ -3,17 +3,17 @@
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperControls, SwiperButton, SwiperPagination } from 'shared/ui'
-import { NftCard } from 'entities/nft'
-import { mockItems } from 'entities/nft/api/items'
-import { PATH_PAGE } from 'shared/lib'
+import { NFT, NftCard } from 'entities/nft'
+import { PATH_PAGE, useAppDispatch } from 'shared/lib'
 import { Box, Button, Typography } from '@mui/material'
 
 type Props = {
   title: string
+  items: NFT[]
 }
 
 export const Category = (props: Props) => {
-  const { title } = props
+  const { title, items } = props
 
   return (
     <Box>
@@ -46,7 +46,7 @@ export const Category = (props: Props) => {
         wrapperClass='items__slider nfts__items-slider'
         loop
       >
-        {mockItems.map((item, i) => {
+        {items.map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} />

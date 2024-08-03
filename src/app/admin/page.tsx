@@ -1,5 +1,4 @@
 import { Chart } from './Chart'
-import { mockItems } from 'entities/nft/api/items'
 import { Box, Container, Typography } from '@mui/material'
 import { Items } from './Items'
 

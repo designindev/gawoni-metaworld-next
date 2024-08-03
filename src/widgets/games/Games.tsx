@@ -52,10 +52,10 @@ export const Games = () => {
                 item
                 md={6}
                 sx={{
-                  '&:nth-child(3n + 2) .game-title': {
+                  '&:nth-of-type(3n + 2) .game-title': {
                     color: 'secondary.main',
                   },
-                  '&:nth-child(3n + 3) .game-title': {
+                  '&:nth-of-type(3n + 3) .game-title': {
                     color: 'secondary.main',
                   },
                 }}

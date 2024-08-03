@@ -10,7 +10,7 @@ export const mockItems: NFT[] = [
     id: '1',
     src: Image1.src,
     title: 'K 4 Race edition #1',
-    price: '$20',
+    price: '$201',
     rarity: 'Epic',
     logos: Logos.src,
     color: 'epic',
@@ -44,9 +44,9 @@ export const mockItems: NFT[] = [
   },
   {
     id: '5',
-    src: Image1.src,
+    src: Image2.src,
     title: 'K 4 Race edition #1',
-    price: '$20',
+    price: '$20123',
     rarity: 'Epic',
     logos: Logos.src,
     color: 'epic',
@@ -62,7 +62,7 @@ export const mockItems: NFT[] = [
   },
   {
     id: '7',
-    src: Image3.src,
+    src: Image2.src,
     title: 'K 4 Race edition #1',
     price: '$20',
     rarity: 'One of a kind',
@@ -71,7 +71,7 @@ export const mockItems: NFT[] = [
   },
   {
     id: '8',
-    src: Image4.src,
+    src: Image2.src,
     title: 'K 4 Race edition #1',
     price: '$20',
     rarity: 'Signature',

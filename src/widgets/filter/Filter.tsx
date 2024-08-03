@@ -130,7 +130,7 @@ export const Filter = (props: Props) => {
     </>
   )
 
-  const bgStyle = props.hasBg ? { padding: 6, bgColor: 'dark.main', borderRadius: 4 } : {}
+  const bgStyle = props.hasBg ? { padding: 6, bgcolor: 'dark.main', borderRadius: 4 } : {}
 
   return (
     <Box {...bgStyle} mb={{ lg: 12, xs: 10 }}>

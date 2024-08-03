@@ -44,7 +44,7 @@ export const NewPasswordForm = (props: Props) => {
           label='Confirm password'
           placeholder='Confirm password'
         />
-        <Stack alignItems={'center'} spacing={6}>
+        <Stack alignItems={'center'} spacing={6} mt={6}>
           <Button>Send</Button>
           <Button color={'white'} variant={'outlined'} href={PATH_PAGE.login} fullWidth>
             Back to log in

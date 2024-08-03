@@ -28,7 +28,7 @@ export const ResetPasswordForm = () => {
           label='Enter your email'
           placeholder='Enter your email'
         />
-        <Stack alignItems={'center'} spacing={6}>
+        <Stack alignItems={'center'} spacing={6} mt={6}>
           <Button fullWidth>Send</Button>
           <Button color={'white'} variant={'outlined'} href={PATH_PAGE.login} fullWidth>
             Back to log in

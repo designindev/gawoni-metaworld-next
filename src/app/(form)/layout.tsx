@@ -16,7 +16,6 @@ export default function FormLayout({
             <Grid
               item
               lg={7}
-              md={8}
               xs={12}
               sx={{
                 '@media only screen and (min-width: 1200px)': {
@@ -24,17 +23,48 @@ export default function FormLayout({
                 },
               }}
             >
-              <Stack display={'flex'} alignItems={'center'}>
+              <Stack display={'flex'} alignItems={'center'} justifyContent={'center'} height={'100%'}>
                 {children}
               </Stack>
             </Grid>
-            <Grid item lg={5} md={4} xs={12} className='s-form__right' sx={{ textAlign: 'right' }}>
-              <div className='logo logo--xl s-form__logo'>
+            <Grid
+              item
+              lg={5}
+              xs={12}
+              className='s-form__right'
+              sx={{ textAlign: 'right', display: { lg: 'block', xs: 'none' } }}
+            >
+              <Box sx={{ mb: { lg: 26, xs: 12 } }} className='logo logo--xl'>
                 <Image src={Logo} alt='Logo' priority />
-              </div>
-              <div className='s-form__image'>
-                <Image src={FormImage} alt='' priority />
-              </div>
+              </Box>
+              <Box
+                display={'inline-block'}
+                position={'relative'}
+                sx={{
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    width: '452.06px',
+                    height: '452.06px',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    background: 'rgba(0, 255, 26, 0.19)',
+                    filter: 'blur(223.349px)',
+                  },
+                }}
+              >
+                <Box
+                  component={Image}
+                  src={FormImage}
+                  alt=''
+                  priority
+                  sx={{
+                    position: 'relative',
+                    zIndex: 3,
+                  }}
+                />
+              </Box>
             </Grid>
           </Grid>
         </Container>

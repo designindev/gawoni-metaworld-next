@@ -37,7 +37,7 @@ export const GameSlider = (props: Props) => {
   return (
     <Box>
       <Grid container spacing={{ xs: 6, lg: 10 }} className={classNames('slider-with-thumbs', className)}>
-        <Grid item lg={10} sm={8} xs={12} className='slider-with-thumbs__left'>
+        <Grid item xxl={10} lg={9} sm={8} xs={12} className='slider-with-thumbs__left'>
           <Swiper
             loop={true}
             spaceBetween={30}
@@ -69,7 +69,7 @@ export const GameSlider = (props: Props) => {
             ))}
           </Swiper>
         </Grid>
-        <Grid item lg={2} sm={4} xs={12} className='slider-with-thumbs__right'>
+        <Grid item xxl={2} lg={3} sm={4} xs={12} className='slider-with-thumbs__right'>
           <Swiper
             onSwiper={setThumbsSwiper}
             loop={true}

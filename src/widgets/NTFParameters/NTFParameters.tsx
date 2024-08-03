@@ -4,6 +4,7 @@ import Image from 'next/image'
 import ImageCar from 'shared/images/nft-detail/image.jpg'
 import classNames from 'classnames'
 import { AccordionItem } from './AccordionItem'
+import { Box } from '@mui/material'
 
 const carParameters = [
   { label: 'SPEED', value: '1', params: ['1', '50', '150'] },
@@ -67,31 +68,45 @@ export const NTFParameters = (props: Props) => {
         <ul className='detail-list nft-detail__list'>
           <li className='detail-list__item detail-list__item--row'>
             <div className='detail-list__label text-uppercase'>car part slots</div>
-            <div className='detail-list__value text-secondary'>4</div>
+            <Box color={'primary.main'} className='detail-list__value'>
+              4
+            </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
             <div className='detail-list__label text-uppercase'>Parameter boosts</div>
-            <div className='detail-list__value text-secondary'>2</div>
+            <Box color={'primary.main'} className='detail-list__value'>
+              2
+            </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
             <div className='detail-list__label text-uppercase'>Parameter boosts used</div>
-            <div className='detail-list__value text-secondary'>2</div>
+            <Box color={'primary.main'} className='detail-list__value'>
+              2
+            </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
             <div className='detail-list__label text-uppercase'>Parameter boosted</div>
-            <div className='detail-list__value text-secondary'>Speed acceleration</div>
+            <Box color={'primary.main'} className='detail-list__value'>
+              Speed acceleration
+            </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
             <div className='detail-list__label text-uppercase'>sk4r reward bonus</div>
-            <div className='detail-list__value text-secondary'>0%</div>
+            <Box color={'primary.main'} className='detail-list__value'>
+              0%
+            </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
             <div className='detail-list__label text-uppercase'>sk4r daily drop rate</div>
-            <div className='detail-list__value text-secondary'>0%</div>
+            <Box color={'primary.main'} className='detail-list__value'>
+              0%
+            </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
             <div className='detail-list__label text-uppercase'>sk4r tournament fees reduction </div>
-            <div className='detail-list__value text-secondary'>0%</div>
+            <Box color={'primary.main'} className='detail-list__value'>
+              0%
+            </Box>
           </li>
         </ul>
       </AccordionItem>

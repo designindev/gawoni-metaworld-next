@@ -2,6 +2,7 @@
 
 import { Button, Select } from 'shared/ui'
 import { FormEvent, useState } from 'react'
+import { Box } from '@mui/material'
 
 export const NTFForm = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -49,7 +50,9 @@ export const NTFForm = () => {
         </li>
         <li className='detail-list__item detail-list__item--row'>
           <div className='detail-list__label'>Total</div>
-          <div className='detail-list__value text-secondary detail-list__value--fz-24 text-right'>$20.00 (0.0794 BNB)</div>
+          <Box color={'secondary.main'} className='detail-list__value  detail-list__value--fz-24 text-right'>
+            $20.00 (0.0794 BNB)
+          </Box>
         </li>
       </ul>
       <div className='nft-detail__button'>
@@ -67,7 +70,12 @@ export const InputCount = () => {
       <button className='input-count__operation input-count__operation--minus' onClick={() => setValue((v) => v - 1)}>
         <i className='text-icon text-icon--minus'></i>
       </button>
-      <input type='number' className='input-count__input' value={value} onChange={(e) => setValue(Number(e.target.value))} />
+      <input
+        type='number'
+        className='input-count__input'
+        value={value}
+        onChange={(e) => setValue(Number(e.target.value))}
+      />
       <button className='input-count__operation input-count__operation--plus' onClick={() => setValue((v) => v + 1)}>
         <i className='text-icon text-icon--plus'></i>
       </button>

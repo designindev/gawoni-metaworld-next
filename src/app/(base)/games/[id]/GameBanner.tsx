@@ -11,9 +11,10 @@ export const GameBanner = () => {
       padding={'50px 30px'}
       borderRadius={2}
       border={'1px solid'}
-      borderColor={'secondary.main'}
+      borderColor={{ xl: 'transparent', xs: 'secondary.main' }}
       sx={{
         backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
         backgroundImage: { xxl: 'url(/images/bg/banner.png)', xs: 'none' },
         minHeight: { xxl: '280px', xs: 'auto' },
       }}
@@ -30,7 +31,6 @@ export const GameBanner = () => {
           borderRadius: 'inherit',
           backgroundSize: 'cover',
           backgroundImage: 'url(/images/bg/banner-mobile.jpg)',
-          backgroundColor: 'red',
           pointerEvents: 'none',
           zIndex: -1,
         }}

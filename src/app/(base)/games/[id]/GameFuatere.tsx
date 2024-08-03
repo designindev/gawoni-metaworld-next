@@ -1,4 +1,7 @@
-import { Box, Grid, Typography } from '@mui/material'
+'use client'
+
+import { Box, Grid, styled, Typography } from '@mui/material'
+import { ReactNode } from 'react'
 
 export const GameFeature = () => {
   return (
@@ -9,12 +12,10 @@ export const GameFeature = () => {
             <Typography variant='h5' component={'h4'} fontWeight={900} fontFamily={'Whyte'} textTransform={'uppercase'}>
               game description
             </Typography>
-            <Box mt={6} fontSize={20} lineHeight={1.5}>
-              <p>
-                The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2
-                2024
-              </p>
-            </Box>
+            <Typography variant='body1' mt={6} fontSize={20} lineHeight={1.5}>
+              The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2
+              2024
+            </Typography>
           </Box>
         </Grid>
         <Grid item md={6} xs={12}>
@@ -22,15 +23,41 @@ export const GameFeature = () => {
             <Typography variant='h5' component={'h4'} fontWeight={900} fontFamily={'Whyte'} textTransform={'uppercase'}>
               game Features
             </Typography>
-            <ul className='game-details__features-list text-list'>
-              <li>Lorem Ipsum dolor sit amet</li>
-              <li>Lorem Ipsum dolor sit amet</li>
-              <li>Lorem Ipsum dolor sit amet</li>
-              <li>Lorem Ipsum dolor sit amet</li>
-            </ul>
+            <Box component={'ul'}>
+              <Li>Lorem Ipsum dolor sit amet</Li>
+              <Li>Lorem Ipsum dolor sit amet</Li>
+              <Li>Lorem Ipsum dolor sit amet</Li>
+              <Li>Lorem Ipsum dolor sit amet</Li>
+            </Box>
           </Box>
         </Grid>
       </Grid>
+    </Box>
+  )
+}
+
+const Li = ({ children }: { children: ReactNode }) => {
+  return (
+    <Box
+      component={'li'}
+      mt={4}
+      pl={11}
+      minHeight={28}
+      position={'relative'}
+      sx={{
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '28px',
+          height: '28px',
+          background: 'center / contain no-repeat',
+          backgroundImage: 'url(/images/icons/h2-icon-primary.svg)',
+        },
+      }}
+    >
+      {children}
     </Box>
   )
 }

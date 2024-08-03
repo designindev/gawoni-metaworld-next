@@ -1,11 +1,10 @@
 'use client'
 
-import { Button } from 'shared/ui/button/Button'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { notifySuccess } from 'shared/lib'
 import { details } from './details'
-import { Box, IconButton } from '@mui/material'
+import { Box, Button, IconButton } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 type Props = {
@@ -72,7 +71,7 @@ export const NTFDetails = (props: Props) => {
                       </Box>
                     </Box>
                     <div className='detail-list__button'>
-                      <Button color={'light'} size='sm' border>
+                      <Button color='white' variant={'outlined'} size='small'>
                         Add to your wallet
                       </Button>
                     </div>

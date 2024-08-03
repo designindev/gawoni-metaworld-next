@@ -2,12 +2,13 @@
 
 import { notifySuccess } from 'shared/lib/notify'
 import { useCallback } from 'react'
-import { Button, ButtonForm, Form, InputForm } from 'shared/ui'
+import { ButtonForm, Form, InputForm } from 'shared/ui'
 import classNames from 'classnames'
 import { NewPasswordFormSchema, newPasswordFormSchema } from '../model/new-password.schema'
 import { PATH_PAGE } from 'shared/lib'
 import { useNewPasswordMutation, useResetPasswordMutation } from 'entities/session/api/session.api'
 import { useRouter } from 'next/navigation'
+import { Button } from '@mui/material'
 
 type Props = {
   className?: string
@@ -46,8 +47,8 @@ export const NewPasswordForm = (props: Props) => {
         />
 
         <div className='form__buttons'>
-          <ButtonForm lgWidth>Send</ButtonForm>
-          <Button href={PATH_PAGE.login} color={'light'} lgWidth border>
+          <ButtonForm>Send</ButtonForm>
+          <Button color={'white'} variant={'outlined'} href={PATH_PAGE.login} fullWidth>
             Back to log in
           </Button>
         </div>

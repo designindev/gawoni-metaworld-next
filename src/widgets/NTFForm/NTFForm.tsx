@@ -1,8 +1,8 @@
 'use client'
 
-import { Button, Select } from 'shared/ui'
+import { Select } from 'shared/ui'
 import { FormEvent } from 'react'
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import { InputCount } from 'shared/ui/input-count/InputCount'
 
 export const NTFForm = () => {
@@ -57,7 +57,7 @@ export const NTFForm = () => {
         </li>
       </ul>
       <div className='nft-detail__button'>
-        <Button maxWidth>MINT</Button>
+        <Button fullWidth>MINT</Button>
       </div>
     </form>
   )

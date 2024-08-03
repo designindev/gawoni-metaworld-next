@@ -1,4 +1,3 @@
-export { Button } from './button/Button'
 export { Form, ButtonForm, InputErrorMessageForm, InputForm, RadioGroupForm, SelectForm } from './form'
 export { Input, type InputPropsUI, InputErrorMessage } from './input'
 export { Pagination } from './pagination/Pagination'

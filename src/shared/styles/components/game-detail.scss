@@ -1,8 +1,4 @@
 .slider-with-thumbs {
-  &__left {
-  }
-  &__right {
-  }
   &__video {
     .react-player__preview {
       border-radius: 12px;
@@ -72,10 +68,6 @@
     }
   }
   &__slide {
-    &--full {
-    }
-    &--thumb {
-    }
     &.swiper-slide-thumb-active {
       .image {
         &::after {

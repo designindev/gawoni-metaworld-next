@@ -28,44 +28,9 @@ body {
   }
 }
 
-button,
-input {
-  font-family: $text-font-family;
-  font-size: $text-font-size;
-}
-
 button {
-  cursor: pointer;
   background-color: transparent;
-  padding: 0;
   border: none;
-}
-
-input,
-textarea {
-  outline: none;
-
-  &:focus:required:invalid {
-    border-color: red;
-  }
-
-  &:required:valid {
-    border-color: green;
-  }
-}
-
-input,
-textarea,
-button,
-select {
-  appearance: none;
-}
-
-input:focus,
-textarea:focus,
-button:focus,
-select:focus {
-  outline: none;
 }
 
 // hide arrows
@@ -81,25 +46,7 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-img,
-svg {
-}
-
-b,
-strong {
-  font-weight: 700;
-}
-
 a {
-  color: #fff;
-  outline: none;
-  text-decoration: none;
-  transition: color 0.3s;
-
-  &:focus {
-    outline: none;
-  }
-
   &:hover,
   &:focus {
     text-decoration: none;
@@ -109,24 +56,6 @@ a {
 ::selection {
   background-color: $color-secondary;
   color: #fff;
-}
-
-.fz-24 {
-  font-size: 24px;
-}
-
-.fz-20 {
-  font-size: 20px;
-}
-
-.fz-18 {
-  @include xl-min {
-    font-size: 18px;
-  }
-}
-
-.w-560 {
-  max-width: 560px;
 }
 
 .bg-common {
@@ -183,9 +112,3 @@ a {
     }
   }
 }
-
-// ::placeholder {
-//   color: red !important;
-//   opacity: 1 !important;
-//   visibility: visible !important;
-// }

@@ -62,7 +62,9 @@ export const NTFForm = () => {
       <ul className='detail-list nft-detail__list nft-detail__list-mt-lg'>
         <li className='detail-list__item detail-list__item--row'>
           <div className='detail-list__label'>Price</div>
-          <div className='detail-list__value detail-list__value--fz-18'>$20.00 (0.0794 BNB)</div>
+          <Box fontSize={18} className='detail-list__value'>
+            $20.00 (0.0794 BNB)
+          </Box>
         </li>
         <li className='detail-list__item detail-list__item--row'>
           <div className='detail-list__label'>Quantity</div>
@@ -72,7 +74,12 @@ export const NTFForm = () => {
         </li>
         <li className='detail-list__item detail-list__item--row'>
           <div className='detail-list__label'>Total</div>
-          <Box color={'secondary.main'} className='detail-list__value  detail-list__value--fz-24 text-right'>
+          <Box
+            color={'secondary.main'}
+            fontSize={24}
+            textAlign={'right'}
+            className='detail-list__value  detail-list__value--fz-24'
+          >
             $20.00 (0.0794 BNB)
           </Box>
         </li>

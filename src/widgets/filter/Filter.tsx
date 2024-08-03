@@ -1,11 +1,10 @@
 'use client'
 
-import { Box, Drawer, Button, Typography, Stack } from '@mui/material'
-import classNames from 'classnames'
-import { useRef, useState } from 'react'
-import { ActionMeta, SingleValue } from 'react-select'
-import { Select } from 'shared/ui'
+import { Box, Drawer, Button, Typography, Stack, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
+import { ReactNode, useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
+import { Controller, useForm, useWatch } from 'react-hook-form'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 const filters = [
   {
@@ -38,30 +37,40 @@ const filters = [
 ]
 
 type Props = {
-  count: number
   className?: string
-  onChange?: (
-    newValue: SingleValue<{ value: string; label: string }>,
-    actionMeta: ActionMeta<{
-      value: string
-      label: string
-    }>
-  ) => void
-  bg?: boolean
+  onChange?: (value: string) => void
+  hasBg?: boolean
 }
 
-export const Filter = (props: Props) => {
-  const select1Ref = useRef<any>(null)
-  const select2Ref = useRef<any>(null)
-  const select3Ref = useRef<any>(null)
-  const [open, setOpen] = useState(false)
+export const country = [
+  { value: 'USA', label: 'USA' },
+  { value: 'Canada', label: 'Canada' },
+  { value: 'Francia', label: 'Francia' },
+  { value: 'England', label: 'England' },
+  { value: 'Ukraine', label: 'Ukraine' },
+]
 
-  const refs = [select1Ref, select2Ref, select3Ref]
+export const Filter = (props: Props) => {
+  const [open, setOpen] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const methods = useForm({
+    defaultValues: { game: '', category: '', rarity: '' },
+  })
+
+  const count = Object.values(useWatch({ control: methods.control })).filter((e) => e).length
 
   const clearValue = () => {
-    select1Ref.current?.clearValue()
-    select2Ref.current?.clearValue()
-    select3Ref.current?.clearValue()
+    methods.reset()
+    router.push(pathname, { scroll: false })
+  }
+
+  const onChangeHandler = (name: string, value: string) => {
+    const params = new URLSearchParams(searchParams.toString())
+    value === '' ? params.delete(name) : params.set(name, value)
+    router.push(pathname + '?' + params.toString(), { scroll: false })
   }
 
   const FilterInner = (
@@ -71,42 +80,49 @@ export const Filter = (props: Props) => {
           <Typography variant='h4' component={'h3'}>
             Filters
           </Typography>
-          <Box
-            width={{ lg: 40, xs: 32 }}
-            height={{ lg: 40, xs: 32 }}
-            lineHeight={{ lg: '40px', xs: '32px' }}
-            bgcolor={'secondary.main'}
-            borderRadius={'50%'}
-            textAlign={'center'}
-            fontSize={18}
-            fontWeight={500}
-            ml={4}
-          >
-            {props.count}
-          </Box>
+          <Number>{count}</Number>
         </Stack>
-        <Box>
-          <Button color={'white'} variant={'outlined'} onClick={clearValue} endIcon={<CloseIcon />}>
-            Clear all
-          </Button>
-        </Box>
+        <Button color={'white'} variant={'outlined'} onClick={clearValue} endIcon={<CloseIcon />}>
+          Clear all
+        </Button>
       </Stack>
 
       <Stack direction={{ lg: 'row', xs: 'column' }} spacing={5} flexWrap={'wrap'} position={'relative'} zIndex={4}>
         {filters.map((el, i) => {
           return (
             <Stack direction={{ lg: 'row', xs: 'column' }} spacing={5} alignItems={'center'} key={i}>
-              <Box m={{ lg: '0 0 8px', xs: '0 0 10px' }}>{el.label}</Box>
-              <Box width={{ lg: 207, xs: '100%' }}>
-                <Select
-                  onChange={props.onChange}
-                  placeholder={'All'}
-                  name={el.name}
-                  options={el.options}
-                  inputRef={refs[i]}
-                  isClearable
-                />
-              </Box>
+              <Controller
+                // @ts-ignore
+                name={el.name}
+                control={methods.control}
+                render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+                  <Stack component={FormControl} flexDirection={'row'} alignItems={'center'} gap={2} fullWidth>
+                    <InputLabel sx={{ overflow: 'initial', maxWidth: 'none' }}>{el.label}</InputLabel>
+                    <Select
+                      label='Age'
+                      inputRef={ref}
+                      onChange={(e) => {
+                        onChange(e)
+                        onChangeHandler(el.name, e.target.value)
+                      }}
+                      value={value}
+                      sx={{ width: { lg: 207, xs: '100%' } }}
+                      fullWidth
+                    >
+                      <MenuItem value=''>
+                        <em>All</em>
+                      </MenuItem>
+                      {el.options.map((el, i) => {
+                        return (
+                          <MenuItem key={i} value={el.value}>
+                            {el.label}
+                          </MenuItem>
+                        )
+                      })}
+                    </Select>
+                  </Stack>
+                )}
+              />
             </Stack>
           )
         })}
@@ -114,7 +130,7 @@ export const Filter = (props: Props) => {
     </>
   )
 
-  const bgStyle = props.bg ? { padding: 6, bgColor: 'dark.main', borderRadius: 4 } : {}
+  const bgStyle = props.hasBg ? { padding: 6, bgColor: 'dark.main', borderRadius: 4 } : {}
 
   return (
     <Box {...bgStyle} mb={{ lg: 12, xs: 10 }}>
@@ -132,11 +148,9 @@ export const Filter = (props: Props) => {
           [theme.breakpoints.up('lg')]: { display: 'none' },
         })}
       >
-        <Box>
-          <Button color={'white'} variant={'outlined'} onClick={() => setOpen(true)} fullWidth>
-            Filters <div className='filter__number'>{props.count}</div>
-          </Button>
-        </Box>
+        <Button color={'white'} variant={'outlined'} onClick={() => setOpen(true)} fullWidth>
+          Filters <Number>{count}</Number>
+        </Button>
         <Drawer anchor='bottom' open={open} onClose={() => setOpen(false)}>
           {FilterInner}
           <Box textAlign={'center'} mt={6}>
@@ -146,6 +160,24 @@ export const Filter = (props: Props) => {
           </Box>
         </Drawer>
       </Box>
+    </Box>
+  )
+}
+
+const Number = ({ children }: { children: ReactNode }) => {
+  return (
+    <Box
+      width={{ lg: 40, xs: 32 }}
+      height={{ lg: 40, xs: 32 }}
+      lineHeight={{ lg: '40px', xs: '32px' }}
+      bgcolor={'secondary.main'}
+      borderRadius={'50%'}
+      textAlign={'center'}
+      fontSize={18}
+      fontWeight={500}
+      ml={4}
+    >
+      {children}
     </Box>
   )
 }

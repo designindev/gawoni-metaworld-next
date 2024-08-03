@@ -223,6 +223,7 @@ export const theme = createTheme({
         root: {},
       },
     },
+    MuiFormControl: {},
     MuiInputLabel: {
       styleOverrides: {
         root: {
@@ -272,8 +273,8 @@ export const theme = createTheme({
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          display: 'block',
-          marginBottom: '15px',
+          // display: 'block',
+          // marginBottom: '15px',
           color: '#fff',
         },
       },

@@ -27,13 +27,7 @@ export default function FormLayout({
                 {children}
               </Stack>
             </Grid>
-            <Grid
-              item
-              lg={5}
-              xs={12}
-              className='s-form__right'
-              sx={{ textAlign: 'right', display: { lg: 'block', xs: 'none' } }}
-            >
+            <Grid item lg={5} xs={12} sx={{ textAlign: 'right', display: { lg: 'block', xs: 'none' } }}>
               <Box sx={{ mb: { lg: 26, xs: 12 } }} className='logo logo--xl'>
                 <Image src={Logo} alt='Logo' priority />
               </Box>

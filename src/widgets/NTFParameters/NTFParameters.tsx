@@ -27,13 +27,15 @@ export const NTFParameters = (props: Props) => {
         <Image src={ImageCar} alt='' priority />
       </div>
       <div className='progress-bar nft-detail__progress-bar'>
-        <div className='progress-bar__label'>
+        <Box fontSize={18} fontWeight={500}>
           Car level: <span className='text-secondary'>1</span>
-        </div>
-        <div className='progress-bar__line'>
-          <div className='progress-bar__line-fill' style={{ width: '26%' }}></div>
-        </div>
-        <div className='progress-bar__label progress-bar__label--sm'>BRL level: 0</div>
+        </Box>
+        <Box height={10} bgcolor={'#fff'} borderRadius={1000} my={2}>
+          <Box height={'inherit'} width={'50%'} bgcolor={'secondary.main'} borderRadius={'inherit'}></Box>
+        </Box>
+        <Box fontSize={14} fontWeight={500}>
+          BRL level: 0
+        </Box>
       </div>
       <AccordionItem title='Car Parameters'>
         <ul className='detail-list nft-detail__list'>

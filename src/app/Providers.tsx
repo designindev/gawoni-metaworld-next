@@ -7,6 +7,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+// TODO: change toast to Snackbar
+
 export const Providers = ({ children }: { children: React.ReactNode }) => (
   <SessionProvider>
     <ThemeProvider theme={theme}>

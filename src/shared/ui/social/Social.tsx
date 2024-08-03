@@ -5,11 +5,11 @@ import Soc1 from './discord.png'
 import Soc2 from './x.png'
 import Soc3 from './tg.png'
 import Soc4 from './medium.png'
+import { Box, Stack } from '@mui/material'
 
 type SocialName = 'discord' | 'x' | 'tg' | 'medium'
 
 type Props = {
-  className?: string
   hidden?: Partial<Record<SocialName, boolean>>
 }
 
@@ -21,19 +21,29 @@ const items: { image: StaticImageData; name: SocialName }[] = [
 ]
 
 export const Social = (props: Props) => {
-  const { className, hidden = {} } = props
+  const { hidden = {} } = props
 
   return (
-    <ul className={classNames('social footer__social', className)}>
+    <Stack direction='row' spacing={5} component={'ul'}>
       {items
         .filter((el) => !(hidden[el.name] === true))
         .map((el) => [
-          <li key={el.name} className='social__item'>
-            <Link href='#' className='social__link'>
-              <Image src={el.image} alt='Logo' priority />
-            </Link>
-          </li>,
+          <Box component={'li'} height={40} width={40} lineHeight={'40px'} textAlign={'center'} key={el.name}>
+            <Box
+              component={Link}
+              href='#'
+              display={'inline-block'}
+              sx={{
+                transition: 'filter .3s',
+                '&:hover': {
+                  filter: 'drop-shadow(0 0 3px #fff);',
+                },
+              }}
+            >
+              <Image src={el.image} alt='Social logo' priority style={{ verticalAlign: 'middle' }} />
+            </Box>
+          </Box>,
         ])}
-    </ul>
+    </Stack>
   )
 }

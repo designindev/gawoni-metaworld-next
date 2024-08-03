@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Container, Grid, Stack } from '@mui/material'
+import { Box, Container, Grid, Stack } from '@mui/material'
 import Image from 'next/image'
 import FormImage from 'shared/images/bg/form-img.png'
 import Logo from 'shared/images/logo.png'

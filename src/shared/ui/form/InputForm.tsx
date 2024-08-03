@@ -5,6 +5,7 @@ import React, { InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
 import { FieldValues, Path, useFormContext } from 'react-hook-form'
 import { Input, InputPropsUI } from 'shared/ui'
 import { InputErrorMessageForm } from './InputErrorMessageForm'
+import { Box } from '@mui/material'
 
 type InputHTML = Omit<InputHTMLAttributes<HTMLInputElement>, 'onBlur' | 'onChange'>
 type TextareaHTML = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'onBlur' | 'onChange'>
@@ -35,7 +36,7 @@ export const InputForm = <TFormValues extends Record<string, unknown>>(props: In
   }
 
   return (
-    <div className='form__input'>
+    <Box>
       <Input
         {...rest}
         {...(register && register(name, { onChange: onChangeHandler, onBlur: onBlurHandler }))}
@@ -44,6 +45,6 @@ export const InputForm = <TFormValues extends Record<string, unknown>>(props: In
         hasError={hasError && !rest.disabled}
         errorSlot={<InputErrorMessageForm errors={errors} name={name} />}
       />
-    </div>
+    </Box>
   )
 }

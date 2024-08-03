@@ -13,8 +13,8 @@ export const NTFForm = () => {
 
   return (
     <form onSubmit={onSubmit} className='nft-detail__block form'>
-      <div className='form__input form__input--mb-sm'>
-        <div className='input-label'>Select Blockchain</div>
+      <Box>
+        <Box>Select Blockchain</Box>
         <Select
           name='blockchain'
           defaultValue={{ value: 'Binance Smart Chain (BEP20)', label: 'Binance Smart Chain (BEP20)' }}
@@ -25,9 +25,9 @@ export const NTFForm = () => {
             { value: 'OKX Chain', label: 'OKX Chain' },
           ]}
         />
-      </div>
-      <div className='form__input form__input--mb-sm'>
-        <div className='input-label'>Select Currency</div>
+      </Box>
+      <Box>
+        <Box>Select Currency</Box>
         <Select
           name='currency'
           defaultValue={{ value: 'BNB', label: 'BNB' }}
@@ -37,7 +37,7 @@ export const NTFForm = () => {
             { value: 'Etherum', label: 'Etherum' },
           ]}
         />
-      </div>
+      </Box>
       <ul className='detail-list nft-detail__list nft-detail__list-mt-lg'>
         <li className='detail-list__item detail-list__item--row'>
           <div className='detail-list__label'>Price</div>

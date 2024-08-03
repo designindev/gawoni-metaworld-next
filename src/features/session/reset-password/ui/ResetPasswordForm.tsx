@@ -2,12 +2,11 @@
 
 import { notifySuccess } from 'shared/lib/notify'
 import { useCallback } from 'react'
-import { ButtonForm, Form, InputForm } from 'shared/ui'
-import classNames from 'classnames'
+import { Form, InputForm } from 'shared/ui'
 import { ResetPasswordformSchema, resetPasswordFormSchema } from '../model/reset-password.schema'
 import { PATH_PAGE } from 'shared/lib'
 import { useRouter } from 'next/navigation'
-import { Button } from '@mui/material'
+import { Button, Stack } from '@mui/material'
 
 export const ResetPasswordForm = () => {
   const router = useRouter()
@@ -29,12 +28,12 @@ export const ResetPasswordForm = () => {
           label='Enter your email'
           placeholder='Enter your email'
         />
-        <div className='form__buttons'>
-          <ButtonForm>Send</ButtonForm>
+        <Stack alignItems={'center'} spacing={6}>
+          <Button fullWidth>Send</Button>
           <Button color={'white'} variant={'outlined'} href={PATH_PAGE.login} fullWidth>
             Back to log in
           </Button>
-        </div>
+        </Stack>
       </Form>
     </>
   )

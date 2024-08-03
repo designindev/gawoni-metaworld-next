@@ -27,7 +27,7 @@ export const Footer = () => {
             <Box component={'nav'}>
               <Stack
                 component={'ul'}
-                flexDirection={{ sm: 'row', xs: 'column' }}
+                direction={{ sm: 'row', xs: 'column' }}
                 rowGap={10}
                 columnGap={20}
                 justifyContent={'space-between'}

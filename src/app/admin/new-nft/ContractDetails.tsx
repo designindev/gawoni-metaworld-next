@@ -1,13 +1,12 @@
 import { Box, Button, TextField, Typography, Modal, IconButton, Stack } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
-import { useFieldArray, useFormContext } from 'react-hook-form'
 import { useState } from 'react'
 
 export const ContractDetails = () => {
   return (
     <>
-      <Stack sx={{ backgroundColor: 'dark.main', borderRadius: 6, p: 6, gap: 5, alignContent: 'flex-start' }}>
+      <Stack bgcolor={'dark.main'} borderRadius={6} p={6} alignContent={'flex-start'} spacing={5}>
         <Typography variant='label'>Contract Details</Typography>
         <ContractDetail label={'Binance Smart Chain (BEP20)'} btnText='Add binance Smart Chain (BEP20)' open />
         <ContractDetail label={'Polygon'} btnText='Add polygon' open />
@@ -24,7 +23,7 @@ const ContractDetail = ({ label, btnText, open: defaultOpen }: { label: string; 
   return (
     <>
       {open ? (
-        <Stack flexDirection={'row'} gap={2} alignItems={'flex-start'}>
+        <Stack direction={'row'} spacing={2} alignItems={'flex-start'}>
           <TextField label={label} placeholder='Paste here' />
           <IconButton
             onClick={() => setOpen(false)}

@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, CircularProgress, Menu, MenuItem } from '@mui/material'
+import { Box, Button, CircularProgress, Menu, MenuItem, Stack } from '@mui/material'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
@@ -31,11 +31,12 @@ export const Profile = () => {
         <CircularProgress />
       ) : session ? (
         <>
-          <Box
-            onClick={handleOpen}
+          <Stack
             display={'inline-flex'}
+            direction={'row'}
+            spacing={4}
+            onClick={handleOpen}
             alignItems={'center'}
-            gap={4}
             sx={{
               cursor: 'pointer',
               '&:hover': {
@@ -58,7 +59,7 @@ export const Profile = () => {
               <PermIdentityIcon />
             </Box>
             <Box fontWeight={500}>{session.user?.name}</Box>
-          </Box>
+          </Stack>
           <Menu
             id='basic-menu'
             anchorEl={anchorEl}

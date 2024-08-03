@@ -56,14 +56,14 @@ export default function NewNftPage() {
               <Box>
                 <Grid container spacing={10}>
                   <Grid item md={5} xs={12}>
-                    <Box
+                    <Stack
+                      direction={'column'}
                       height={379}
                       border={'2px dashed #fff;'}
                       display={'flex'}
-                      flexDirection={'column'}
                       justifyContent={'center'}
                       alignItems={'center'}
-                      gap={10}
+                      spacing={10}
                       borderRadius={2}
                     >
                       <ImageIcon sx={{ height: 80, width: 80 }} />
@@ -73,7 +73,7 @@ export default function NewNftPage() {
                       <Button color='white' size='small' sx={{ minWidth: 212 }}>
                         Select files
                       </Button>
-                    </Box>
+                    </Stack>
                     <Grid container spacing={4} mt={5}>
                       <Grid item xs={4}>
                         <Box position={'relative'}>
@@ -125,7 +125,7 @@ export default function NewNftPage() {
                 <NewNFTAccordion />
               </Box>
               <Box>
-                <Stack flexDirection={'row'} justifyContent={'flex-end'} gap={4}>
+                <Stack direction={'row'} justifyContent={'flex-end'} spacing={4}>
                   <Button
                     size='large'
                     sx={{ width: { xs: '100%', sm: '453px' } }}
@@ -168,7 +168,7 @@ export default function NewNftPage() {
               </Grid>
             </Grid>
             <Box mt={12}>
-              <Stack flexDirection={'row'} justifyContent={'flex-end'} gap={4}>
+              <Stack direction={'row'} justifyContent={'flex-end'} spacing={4}>
                 <Button
                   size='large'
                   sx={{ width: { xs: '100%', sm: '453px' } }}

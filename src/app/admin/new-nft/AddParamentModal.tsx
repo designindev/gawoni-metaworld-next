@@ -18,7 +18,7 @@ export const AddParamentModal = (props: Props) => {
           <TextField label='Name*' placeholder='Enter parameter name' />
           <TextField label='Value' value={'1'} />
         </Stack>
-        <Stack flexDirection={'row'} justifyContent={'flex-end'} gap={4}>
+        <Stack direction={'row'} justifyContent={'flex-end'} spacing={4}>
           <Button
             sx={{ width: { xs: '100%', sm: 'auto' } }}
             color='white'

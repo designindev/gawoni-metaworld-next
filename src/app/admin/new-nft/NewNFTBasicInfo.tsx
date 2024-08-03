@@ -15,7 +15,7 @@ import React from 'react'
 export const NewNFTBasicInfo = () => {
   return (
     <>
-      <Stack sx={{ backgroundColor: 'dark.main', borderRadius: 6, p: 6, gap: 4 }}>
+      <Stack bgcolor={'dark.main'} borderRadius={6} p={6} spacing={4}>
         <Typography variant='label'>Basic Info</Typography>
         <Grid container rowSpacing={8} columnSpacing={6} className='row'>
           <Grid item md={6} xs={12}>

@@ -70,7 +70,7 @@ export const CreateNewEditionModal = (props: Omit<ModalProps, 'children'>) => {
             </RadioGroup>
           </FormControl>
         </Stack>
-        <Stack flexDirection={'row'} justifyContent={'flex-end'} gap={4}>
+        <Stack direction={'row'} justifyContent={'flex-end'} spacing={4}>
           <Button
             sx={{ width: { xs: '100%', sm: 'auto' } }}
             color='white'

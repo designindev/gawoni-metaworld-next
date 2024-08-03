@@ -14,13 +14,13 @@ export const Chart = () => {
         <LineChart
           xAxis={[
             {
-              data: ['Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Aug', 'Sep', 'Nov', 'Dec'],
+              data: ['Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
               scaleType: 'band' as const,
             },
           ]}
           series={[
             {
-              data: [0, 40, 50, 40, 70, 100, 45, 33, 40, 60, 50, 36],
+              data: [0, 40, 50, 40, 70, 100, 45, 35, 40, 60, 50, 36],
               color: COLORS.primary,
             },
           ]}

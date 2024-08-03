@@ -1,11 +1,11 @@
 'use client'
 
-import { Box, Drawer } from '@mui/material'
+import { Box, Drawer, Button } from '@mui/material'
 import classNames from 'classnames'
 import { useRef, useState } from 'react'
 import { ActionMeta, SingleValue } from 'react-select'
 import { Select } from 'shared/ui'
-import { Button } from 'shared/ui'
+import CloseIcon from '@mui/icons-material/Close'
 
 const filters = [
   {
@@ -72,8 +72,8 @@ export const Filter = (props: Props) => {
           <div className='filter__number'>{props.count}</div>
         </div>
         <div className='filter__right'>
-          <Button color={'light'} onClick={clearValue} border>
-            Clear all <i className='text-icon text-icon--x text-icon--right'></i>
+          <Button color={'white'} variant={'outlined'} onClick={clearValue} endIcon={<CloseIcon />}>
+            Clear all
           </Button>
         </div>
       </div>
@@ -84,7 +84,14 @@ export const Filter = (props: Props) => {
             <div key={i} className='filter__items-item'>
               <div className='filter__items-label'>{el.label}</div>
               <div className='filter__items-input'>
-                <Select onChange={props.onChange} placeholder={'All'} name={el.name} options={el.options} inputRef={refs[i]} isClearable />
+                <Select
+                  onChange={props.onChange}
+                  placeholder={'All'}
+                  name={el.name}
+                  options={el.options}
+                  inputRef={refs[i]}
+                  isClearable
+                />
               </div>
             </div>
           )
@@ -114,14 +121,14 @@ export const Filter = (props: Props) => {
         })}
       >
         <Box className='filter__btn-open'>
-          <Button onClick={() => setOpen(true)} color={'light'} border maxWidth>
+          <Button color={'white'} variant={'outlined'} onClick={() => setOpen(true)} fullWidth>
             Filters <div className='filter__number'>{props.count}</div>
           </Button>
         </Box>
         <Drawer anchor='bottom' open={open} onClose={() => setOpen(false)}>
           {FilterInner}
           <div className='filter__button'>
-            <Button maxWidth onClick={() => setOpen(false)}>
+            <Button onClick={() => setOpen(false)} fullWidth>
               Accept
             </Button>
           </div>

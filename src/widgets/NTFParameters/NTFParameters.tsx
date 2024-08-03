@@ -40,7 +40,9 @@ export const NTFParameters = (props: Props) => {
           {carParameters.map((el, i) => {
             return (
               <li key={i} className='detail-list__item detail-list__item--row'>
-                <div className='detail-list__label text-uppercase'>{el.label}</div>
+                <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+                  {el.label}
+                </Box>
                 <div
                   className={classNames('detail-list__value text-secondary', {
                     'detail-list__value--w-150': Boolean(el.params),
@@ -67,43 +69,57 @@ export const NTFParameters = (props: Props) => {
       <AccordionItem title='Upgrades & Boosts'>
         <ul className='detail-list nft-detail__list'>
           <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label text-uppercase'>car part slots</div>
+            <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+              car part slots
+            </Box>
             <Box color={'primary.main'} className='detail-list__value'>
               4
             </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label text-uppercase'>Parameter boosts</div>
+            <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+              Parameter boosts
+            </Box>
             <Box color={'primary.main'} className='detail-list__value'>
               2
             </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label text-uppercase'>Parameter boosts used</div>
+            <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+              Parameter boosts used
+            </Box>
             <Box color={'primary.main'} className='detail-list__value'>
               2
             </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label text-uppercase'>Parameter boosted</div>
+            <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+              Parameter boosted
+            </Box>
             <Box color={'primary.main'} className='detail-list__value'>
               Speed acceleration
             </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label text-uppercase'>sk4r reward bonus</div>
+            <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+              sk4r reward bonus
+            </Box>
             <Box color={'primary.main'} className='detail-list__value'>
               0%
             </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label text-uppercase'>sk4r daily drop rate</div>
+            <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+              sk4r daily drop rate
+            </Box>
             <Box color={'primary.main'} className='detail-list__value'>
               0%
             </Box>
           </li>
           <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label text-uppercase'>sk4r tournament fees reduction </div>
+            <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+              sk4r tournament fees reduction{' '}
+            </Box>
             <Box color={'primary.main'} className='detail-list__value'>
               0%
             </Box>

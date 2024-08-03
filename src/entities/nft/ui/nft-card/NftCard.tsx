@@ -3,6 +3,8 @@ import { NFT } from 'entities/nft/model/nft.model'
 import Link from 'next/link'
 import { getBgClass, PATH_PAGE } from 'shared/lib'
 import { Box, Button, Chip, Stack, Typography } from '@mui/material'
+import BorderColorIcon from '@mui/icons-material/BorderColor'
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
 
 type Props = {
   nft: NFT
@@ -97,12 +99,22 @@ export const NftCard = ({ nft, hasButtons, link }: Props) => {
         </Stack>
         {hasButtons && (
           <Stack direction='row' mt={6} spacing={2}>
-            <Button color='white' variant='outlined' size={'small'} sx={{ minWidth: '1px', width: '50%' }}>
-              <i className='text-icon text-icon--edit text-icon--left'></i>
+            <Button
+              color='white'
+              variant='outlined'
+              size={'small'}
+              sx={{ minWidth: '1px', width: '50%' }}
+              startIcon={<BorderColorIcon />}
+            >
               Edit
             </Button>
-            <Button color='error' variant='outlined' size={'small'} sx={{ minWidth: '1px', width: '50%' }}>
-              <i className='text-icon text-icon--delete-danger text-icon--left'></i>
+            <Button
+              color='error'
+              variant='outlined'
+              size={'small'}
+              sx={{ minWidth: '1px', width: '50%' }}
+              startIcon={<DeleteOutlineIcon />}
+            >
               Delete
             </Button>
           </Stack>

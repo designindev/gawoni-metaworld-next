@@ -3,6 +3,7 @@
 import classNames from 'classnames'
 import { ReactNode, useRef, useState } from 'react'
 import { slideToggle } from 'shared/lib'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 type Props = {
   title: string
@@ -27,7 +28,7 @@ export const AccordionItem = (props: Props) => {
     >
       <h4 className='accordion__title h6' onClick={onToggle}>
         {title}
-        <i className='text-icon text-icon--chevron-down text-icon--md'></i>
+        <ExpandMoreIcon />
       </h4>
       <div ref={ref} className='accordion__content' style={{ display: 'none' }}>
         {children}

@@ -52,14 +52,6 @@
       position: relative;
     }
 
-    &-item--sub &-link {
-      .text-icon {
-        @include lg-min {
-          display: none;
-        }
-      }
-    }
-
     &-link {
       display: flex;
       align-items: center;

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { PATH_MENU } from 'shared/lib'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 type Props = { el: PATH_MENU; closeMenu: () => void }
 
@@ -36,7 +37,7 @@ const Navigationitem = (props: Props) => {
       {hasSub ? (
         <div className={className} onClick={onToggleSubMenu}>
           {label}
-          <i className='text-icon text-icon--right text-icon--chevron-down'></i>
+          <ExpandMoreIcon sx={{ display: { lg: 'none', xs: 'block' }, mr: -1.5 }} />
         </div>
       ) : (
         <Link {...rest} className={className} onClick={() => closeMenu()}>

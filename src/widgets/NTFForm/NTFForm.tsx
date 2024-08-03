@@ -1,8 +1,9 @@
 'use client'
 
 import { Button, Select } from 'shared/ui'
-import { FormEvent, useState } from 'react'
+import { FormEvent } from 'react'
 import { Box } from '@mui/material'
+import { InputCount } from 'shared/ui/input-count/InputCount'
 
 export const NTFForm = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -59,26 +60,5 @@ export const NTFForm = () => {
         <Button maxWidth>MINT</Button>
       </div>
     </form>
-  )
-}
-
-export const InputCount = () => {
-  const [value, setValue] = useState(0)
-
-  return (
-    <div className='input-count'>
-      <button className='input-count__operation input-count__operation--minus' onClick={() => setValue((v) => v - 1)}>
-        <i className='text-icon text-icon--minus'></i>
-      </button>
-      <input
-        type='number'
-        className='input-count__input'
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
-      />
-      <button className='input-count__operation input-count__operation--plus' onClick={() => setValue((v) => v + 1)}>
-        <i className='text-icon text-icon--plus'></i>
-      </button>
-    </div>
   )
 }

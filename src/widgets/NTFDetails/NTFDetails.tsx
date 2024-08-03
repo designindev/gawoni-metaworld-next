@@ -5,6 +5,8 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { notifySuccess } from 'shared/lib'
 import { details } from './details'
+import { Box, IconButton } from '@mui/material'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 type Props = {
   bgClass: string
@@ -55,10 +57,20 @@ export const NTFDetails = (props: Props) => {
                 {el.value && <div className='detail-list__value'>{el.value}</div>}
                 {el.link && (
                   <>
-                    <div className='detail-list__copy-link text-copy-link' onClick={() => onCopy(el.link!)}>
-                      {el.link}
-                      <i className='text-icon text-icon--copy text-copy-link__icon'></i>
-                    </div>
+                    <Box position={'relative'}>
+                      <Box pr={8} textOverflow={'ellipsis'} overflow={'hidden'} minHeight={20}>
+                        {el.link}
+                      </Box>
+                      <Box
+                        component={IconButton}
+                        position={'absolute'}
+                        bottom={-5}
+                        right={-5}
+                        onClick={() => onCopy(el.link!)}
+                      >
+                        <ContentCopyIcon fontSize='small' />
+                      </Box>
+                    </Box>
                     <div className='detail-list__button'>
                       <Button color={'light'} size='sm' border>
                         Add to your wallet
@@ -79,9 +91,9 @@ export const NTFDetails = (props: Props) => {
               <p>
                 You don’t have a Metamask wallet? You need more information about how to register and mint a NFT? <br />
                 Please refer to our{' '}
-                <Link href='#' className='text-link text-primary'>
+                <Box component={Link} color={'primary.main'} href='#'>
                   FAQ
-                </Link>
+                </Box>
               </p>
             </div>
           </li>

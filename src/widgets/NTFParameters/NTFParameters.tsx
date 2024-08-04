@@ -23,10 +23,11 @@ type Props = {
 export const NTFParameters = (props: Props) => {
   return (
     <>
+      {/* TODO: ADD BORDER  */}
       <div className={classNames('image image--cover image--square image--border nft-detail__image', props.bgClass)}>
         <Image src={ImageCar} alt='' priority />
       </div>
-      <div className='progress-bar nft-detail__progress-bar'>
+      <Box>
         <Box fontSize={18} fontWeight={500}>
           Car level: <span className='text-secondary'>1</span>
         </Box>
@@ -36,7 +37,7 @@ export const NTFParameters = (props: Props) => {
         <Box fontSize={14} fontWeight={500}>
           BRL level: 0
         </Box>
-      </div>
+      </Box>
       <AccordionItem title='Car Parameters'>
         <ul className='detail-list nft-detail__list'>
           {carParameters.map((el, i) => {

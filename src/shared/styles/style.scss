@@ -13,10 +13,57 @@
 // form
 // components
 @import './components/section';
-@import './components/header';
 @import './components/swiper';
 @import './components/main';
 @import './components/nfts';
 @import './components/game-detail';
 @import './components/nft-detail';
 // components
+
+.navigation {
+  &__list {
+    &-item:hover &-sub {
+      opacity: 1;
+      transform: translate(0, 0);
+      visibility: visible;
+    }
+    &-sub {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding: 12px 16px 16px;
+      border-radius: 0 0 8px 8px;
+      transition: all 0.2s;
+      @include lg-min {
+        opacity: 0;
+        background-color: $color-dark-nearly;
+        min-width: 265px;
+        transform: translate(0, 20px);
+        visibility: hidden;
+      }
+      @include lg {
+        position: relative;
+        padding-left: 30px;
+        padding-right: 30px;
+        display: none;
+        &--active {
+          display: block;
+        }
+      }
+    }
+    &-sub &-item {
+      margin: 0 0 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &-sub &-link {
+      height: auto;
+      white-space: nowrap;
+      @include lg-min {
+        padding: 0;
+      }
+    }
+  }
+}

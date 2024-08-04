@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, CircularProgress, Menu, MenuItem, Stack } from '@mui/material'
+import { Avatar, Box, Button, CircularProgress, IconButton, Menu, MenuItem, Stack, Tooltip } from '@mui/material'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
@@ -31,41 +31,39 @@ export const Profile = () => {
         <CircularProgress />
       ) : session ? (
         <>
-          <Stack
-            display={'inline-flex'}
-            direction={'row'}
-            spacing={4}
-            onClick={handleOpen}
-            alignItems={'center'}
-            sx={{
-              cursor: 'pointer',
-              '&:hover': {
-                color: 'secondary.main',
-              },
-              '&:active .profile__text': {
-                textDecoration: 'underline',
-              },
-            }}
-          >
-            <Box
-              width={50}
-              height={50}
-              display={'flex'}
+          <Tooltip title='Open settings'>
+            <Stack
+              direction={'row'}
+              display={'inline-flex'}
               alignItems={'center'}
-              justifyContent={'center'}
-              borderRadius={'50%'}
-              sx={{ backgroundColor: '#000' }}
+              spacing={4}
+              onClick={handleOpen}
+              sx={{
+                cursor: 'pointer',
+                '&:hover': {
+                  color: 'secondary.main',
+                },
+                '&:active div:last-child': {
+                  textDecoration: 'underline',
+                },
+              }}
             >
-              <PermIdentityIcon />
-            </Box>
-            <Box fontWeight={500}>{session.user?.name}</Box>
-          </Stack>
+              <IconButton sx={{ p: 0 }}>
+                <Avatar sx={{ width: 50, height: 50, bgcolor: 'dark.main', color: '#fff' }}>
+                  <PermIdentityIcon />
+                </Avatar>
+              </IconButton>
+              <Box fontWeight={500}>{session.user?.name}</Box>
+            </Stack>
+          </Tooltip>
           <Menu
-            id='basic-menu'
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            MenuListProps={{ 'aria-labelledby': 'basic-button' }}
+            keepMounted
+            // anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            // transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            // MenuListProps={{ 'aria-labelledby': 'basic-button' }}
           >
             <MenuItem onClick={() => handleMenuItem('/admin')}>Admin panel</MenuItem>
             <MenuItem onClick={() => signOut({ callbackUrl: '/' })}>Logout</MenuItem>

@@ -1,27 +1,36 @@
 'use client'
 
+import * as React from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import Button from '@mui/material/Button'
+import AdbIcon from '@mui/icons-material/Adb'
+import { IconButton, Stack } from '@mui/material'
+import { Profile } from './Profile'
+import { PATH_MENU, PATH_PAGE } from 'shared/lib'
+import { Navigation } from 'widgets/navigation/Navigation'
+import MenuIcon from '@mui/icons-material/Menu'
+import Link from 'next/link'
 import Image from 'next/image'
 import Logo from 'shared/images/logo.png'
-import { Navigation } from '../navigation/Navigation'
-import { PATH_MENU, PATH_PAGE } from 'shared/lib/paths'
-import Link from 'next/link'
-import { useState } from 'react'
-import { Box, Container, IconButton, Stack } from '@mui/material'
-import { Profile } from './Profile'
-import MenuIcon from '@mui/icons-material/Menu'
 
-export const Header = () => {
-  const [activeMenu, setActiveMenu] = useState(false)
+const pages = ['Products', 'Pricing', 'Blog']
+
+export function Header() {
+  const [activeMenu, setActiveMenu] = React.useState(false)
 
   const onClick = () => {
     setActiveMenu((v) => !v)
   }
 
   return (
-    <Box component={'header'} position={'absolute'} top={0} left={0} right={0} zIndex={99}>
-      <Box className='header-line header__line' sx={{ backgroundColor: 'dark.main' }}>
+    <AppBar position='absolute' sx={{ bgcolor: 'transparent' }}>
+      <Box bgcolor={'dark.main'}>
         <Container>
-          <Stack flexDirection={'row'} justifyContent={'flex-end'} alignItems={'center'} height={{ xs: 60, lg: 85 }}>
+          <Toolbar disableGutters sx={{ justifyContent: 'flex-end', height: { lg: 85, xs: 60 } }}>
             <Box
               position={'absolute'}
               top={0}
@@ -34,10 +43,20 @@ export const Header = () => {
               alignItems={'center'}
               zIndex={1}
             >
-              <Link href={PATH_PAGE.root} className='logo'>
-                <Image src={Logo} alt='Logo' priority />
-              </Link>
+              <Box
+                display={'inline-block'}
+                component={Link}
+                href={PATH_PAGE.root}
+                sx={{
+                  width: { md: '213px', xs: '64px' },
+                  height: { md: '126', xs: '38px' },
+                  position: 'relative',
+                }}
+              >
+                <Image src={Logo} alt='Logo' layout='fill' objectFit='cover' priority />
+              </Box>
             </Box>
+
             <Box position={'relative'} zIndex={2}>
               <Profile />
               <IconButton
@@ -50,12 +69,12 @@ export const Header = () => {
                 <MenuIcon />
               </IconButton>
             </Box>
-          </Stack>
+          </Toolbar>
         </Container>
       </Box>
       <Container>
         <Navigation navLinks={PATH_MENU} visible={activeMenu} closeMenu={() => setActiveMenu(false)} />
       </Container>
-    </Box>
+    </AppBar>
   )
 }

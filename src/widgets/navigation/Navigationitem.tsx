@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { PATH_MENU } from 'shared/lib'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Box, BoxProps } from '@mui/material'
 
 type Props = { el: PATH_MENU; closeMenu: () => void }
 
@@ -28,21 +29,39 @@ const Navigationitem = (props: Props) => {
     setVisible((v) => !v)
   }
 
+  const boxProps: BoxProps = {
+    display: 'flex',
+    alignItems: 'center',
+    pl: { xl: 7, lg: 4, xs: 6 },
+    pr: { xl: 7, lg: 4, xs: 6 },
+    height: 55,
+    fontSize: { xl: 18, lg: 16, xs: 14 },
+    sx: {
+      cursor: 'pointer',
+      color: isActive ? 'secondary.main' : '#fff',
+      '&:hover': {
+        color: 'secondary.main',
+      },
+    },
+  }
+
   return (
-    <li
+    <Box
+      component={'li'}
+      position={'relative'}
       className={classNames('navigation__list-item', {
         'navigation__list-item--sub': hasSub,
       })}
     >
       {hasSub ? (
-        <div className={className} onClick={onToggleSubMenu}>
+        <Box {...boxProps} onClick={onToggleSubMenu}>
           {label}
           <ExpandMoreIcon sx={{ display: { lg: 'none', xs: 'block' }, mr: -1.5 }} />
-        </div>
+        </Box>
       ) : (
-        <Link {...rest} className={className} onClick={() => closeMenu()}>
+        <Box component={Link} {...rest} {...boxProps} onClick={() => closeMenu()}>
           {label}
-        </Link>
+        </Box>
       )}
       {el.sub && (
         <ul
@@ -70,7 +89,7 @@ const Navigationitem = (props: Props) => {
           })}
         </ul>
       )}
-    </li>
+    </Box>
   )
 }
 

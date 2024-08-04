@@ -28,8 +28,16 @@ export default function FormLayout({
               </Stack>
             </Grid>
             <Grid item lg={5} xs={12} sx={{ textAlign: 'right', display: { lg: 'block', xs: 'none' } }}>
-              <Box sx={{ mb: { lg: 26, xs: 12 } }} className='logo logo--xl'>
-                <Image src={Logo} alt='Logo' priority />
+              <Box
+                display={'inline-block'}
+                sx={{
+                  mb: { lg: 26, xs: 12 },
+                  width: { md: '414px', xs: '350px' },
+                  height: { md: '123px', xs: '104px' },
+                  position: 'relative',
+                }}
+              >
+                <Image src={Logo} alt='Logo' layout='fill' objectFit='cover' priority />
               </Box>
               <Box
                 display={'inline-block'}

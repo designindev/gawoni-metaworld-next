@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Logo from 'shared/images/logo.png'
 import { Social } from 'shared/ui'
 import { Container, Box, Stack } from '@mui/material'
+import { PATH_PAGE } from 'shared/lib'
 
 const navLinks = [
   { label: 'Disclaimer', href: '#' },
@@ -16,9 +17,18 @@ export const Footer = () => {
       <Container>
         <Stack direction={'row'} flexWrap={'wrap'} justifyContent={'space-between'} rowGap={10} columnGap={4}>
           <Box width={{ md: 'auto', xs: '100%' }}>
-            <Link href='/' className='logo logo--lg'>
-              <Image src={Logo} alt='Logo' priority />
-            </Link>
+            <Box
+              component={Link}
+              href={PATH_PAGE.root}
+              sx={{
+                display: 'inline-block',
+                width: { md: '350px', xs: '196px' },
+                height: { md: '104px', xs: '58px' },
+                position: 'relative',
+              }}
+            >
+              <Image src={Logo} alt='Logo' layout='fill' objectFit='cover' priority />
+            </Box>
           </Box>
           <Box>
             <Box mb={11} fontSize={{ sm: 16, xs: 14 }}>

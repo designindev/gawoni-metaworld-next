@@ -21,9 +21,6 @@
       height: 32px;
     }
 
-    &:hover {
-    }
-
     &::before,
     &::after {
       content: '';
@@ -79,7 +76,7 @@
   &-prev#{&}-disabled,
   &-next#{&}-disabled {
     opacity: 0.8;
-    border-color: $color-disabled;
+    border-color: #f3f3f3;
     pointer-events: auto;
   }
 

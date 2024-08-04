@@ -39,12 +39,10 @@ export const GameBanner = () => {
         <Typography variant='h4' fontSize={28} component={'h4'} fontWeight={900} textTransform={'uppercase'}>
           join our game community
         </Typography>
-        <Box mt={4} lineHeight={1.5}>
-          <p>
-            Lorem ipsum dolor sit amet consectetur. Tincidunt in ultrices pharetra massa in. Aliquam et scelerisque
-            cursus etiam diam id aliquam. Gravida quam sit et.
-          </p>
-        </Box>
+        <Typography variant='body1' mt={4} lineHeight={1.5}>
+          Lorem ipsum dolor sit amet consectetur. Tincidunt in ultrices pharetra massa in. Aliquam et scelerisque cursus
+          etiam diam id aliquam. Gravida quam sit et.
+        </Typography>
         <Box mt={8}>
           <Social hidden={{ tg: true }} />
         </Box>

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import classNames from 'classnames'
-import { StoreProvider } from './StoreProvider'
 import { IBM_FLEX_SANS } from './fonts'
 import 'swiper/css/bundle'
 // import 'swiper/css'

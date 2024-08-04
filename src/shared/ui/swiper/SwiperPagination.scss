@@ -45,19 +45,19 @@
 
     &:hover {
       &::before {
-        background-color: $color-secondary;
+        background-color: #ff4501;
       }
     }
 
     &.swiper-pagination-bullet-active {
       &::before {
-        background-color: $color-secondary;
+        background-color: #ff4501;
       }
     }
 
     &:active {
       &::before {
-        background-color: $color-secondary-hover;
+        background-color: #ff4501-hover;
       }
     }
   }

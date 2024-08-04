@@ -80,15 +80,17 @@ export const Main = () => {
                   </Typography>
 
                   <Box mt={{ lg: 17, xs: 10 }} display={{ lg: 'flex', xs: 'block' }} justifyContent={'space-between'}>
-                    <Box
+                    <Typography
+                      variant='body1'
+                      component={'p'}
                       fontSize={{ lg: 18, sm: 16, xs: 14 }}
                       p={{ lg: '7px 30px 7px 15px', xs: '7px 0 7px 10px' }}
                       borderLeft={'3px solid'}
                       borderColor={'secondary.main'}
                       maxWidth={700}
                     >
-                      <p>{el.content}</p>
-                    </Box>
+                      {el.content}
+                    </Typography>
                     <Box mt={{ lg: 4, xs: 3 }} flexShrink={0} maxWidth={220} width={'100%'}>
                       <Button
                         color='white'

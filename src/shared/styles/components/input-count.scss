@@ -15,7 +15,7 @@
     transition: border-color 0.3s;
 
     &:focus {
-      border-color: $color-secondary;
+      border-color: #ff4501;
     }
   }
 
@@ -38,7 +38,7 @@
     }
 
     &:hover {
-      background-color: $color-secondary;
+      background-color: #ff4501;
     }
   }
 }

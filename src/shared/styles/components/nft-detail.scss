@@ -4,7 +4,7 @@
   &__block {
     padding: 24px 24px 20px;
     border-radius: 8px;
-    background-color: $color-dark-nearly;
+    background-color: #141414;
     margin-bottom: 24px;
     @include sm {
       padding: 16px;
@@ -30,7 +30,7 @@
   }
   &__subtitle {
     font-style: italic;
-    color: $color-primary;
+    color: #00ff19;
     margin-bottom: 45px;
     @include xl {
       margin-bottom: 20px;
@@ -61,7 +61,7 @@
 
 .accordion {
   border-radius: 8px;
-  background-color: $color-dark-nearly;
+  background-color: #141414;
   margin-bottom: 16px;
 
   &__title {
@@ -106,7 +106,7 @@
     }
   }
   &__label {
-    color: $color-gray;
+    color: #aaa;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 15px;

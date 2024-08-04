@@ -3,7 +3,7 @@ import { slides } from './slides'
 import { Container, Box, Grid, Typography, Stack } from '@mui/material'
 import { GameInfo } from './GameInfo'
 import { GameBanner } from './GameBanner'
-import { GameFeature } from './GameFuatere'
+import { GameFeature } from './GameFuature'
 
 const Games = () => {
   return (

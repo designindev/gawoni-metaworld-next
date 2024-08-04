@@ -36,11 +36,6 @@
 }
 
 .swiper {
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-
   &--visible {
     overflow: visible !important;
 

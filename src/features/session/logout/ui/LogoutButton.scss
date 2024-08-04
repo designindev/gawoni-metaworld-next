@@ -4,7 +4,7 @@
 .logout-button {
   &__link {
     cursor: pointer;
-    color: $color-dangerous;
+    color: #f10b34;
     transition: all 0.3s;
     &:hover {
       opacity: 0.7;

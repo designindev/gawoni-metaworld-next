@@ -94,9 +94,9 @@ export const News = async () => {
                   >
                     {item.title}
                   </Typography>
-                  <Box sx={{ fontSize: { xs: 14, lg: 16 }, mt: 3 }}>
-                    <p>{description}</p>
-                  </Box>
+                  <Typography variant='body1' sx={{ mt: 3 }}>
+                    {description}
+                  </Typography>
                   <Box sx={{ mt: 11 }}>
                     <Box
                       component={Link}

@@ -27,7 +27,7 @@ export function Header() {
   }
 
   return (
-    <AppBar position='absolute' sx={{ bgcolor: 'transparent' }}>
+    <AppBar position='absolute' sx={{ background: 'none', bgcolor: 'transparent', boxShadow: 'none' }}>
       <Box bgcolor={'dark.main'}>
         <Container>
           <Toolbar disableGutters sx={{ justifyContent: 'flex-end', height: { lg: 85, xs: 60 } }}>

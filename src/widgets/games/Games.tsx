@@ -40,7 +40,14 @@ const items = [
 
 export const Games = () => {
   return (
-    <Box component={'section'} className='section' sx={{ backgroundImage: `url(/images/bg/games.png)` }}>
+    <Box
+      component={'section'}
+      className='section'
+      sx={{
+        backgroundSize: 'cover',
+        backgroundImage: `url(/images/bg/games.png)`,
+      }}
+    >
       <Container className='games'>
         <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
           <span className='section__heading-icon'>our games</span>
@@ -174,7 +181,10 @@ export const Games = () => {
                       alt=''
                     />
                   </Box>
-                  <Box className='game-hover--out' sx={{ transition: 'all .3s', opacity: 1 }}>
+                  <Box
+                    className='game-hover--out'
+                    sx={{ transition: 'all .3s', opacity: 1, position: 'relative', zIndex: 3 }}
+                  >
                     <Typography
                       className='game-title'
                       variant='h2'
@@ -186,9 +196,9 @@ export const Games = () => {
                     >
                       {item.title}
                     </Typography>
-                    <Box fontSize={18} mt={5}>
-                      <p>{item.descr}</p>
-                    </Box>
+                    <Typography variant='body1' mt={5}>
+                      {item.descr}
+                    </Typography>
                   </Box>
                   <Box
                     className='game-hover--in'

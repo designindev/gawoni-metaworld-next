@@ -17,6 +17,7 @@ import './App.scss'
 import { Footer, Header } from 'widgets'
 import { Providers } from './Providers'
 import { Box } from '@mui/material'
+import './api/nfts/db'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

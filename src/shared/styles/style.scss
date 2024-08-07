@@ -20,6 +20,12 @@
 @import './components/nft-detail';
 // components
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 ::selection {
   background-color: #ff4501;
   color: #fff;
@@ -62,6 +68,9 @@
 }
 
 .wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
   @include lg-min {
     min-height: 900px;
   }

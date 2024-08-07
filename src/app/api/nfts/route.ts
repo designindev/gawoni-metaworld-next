@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server'
-import { nfts } from './items'
+import { doc, getDocs, limit, query, setDoc } from 'firebase/firestore'
+import { nftsRef } from './db'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
+  const lim = Number(searchParams.get('limit') ?? 4)
+  const data = await getDocs(query(nftsRef, limit(lim)))
 
-  const page = Number(searchParams.get('page')) - 1
-
-  return NextResponse.json(nfts.slice(page * 4, page * 4 + 4))
+  return NextResponse.json(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
 }

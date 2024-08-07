@@ -42,27 +42,10 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: (theme) => ({
-        '*': {
-          boxSizing: 'border-box',
-        },
-        '*::before': {
-          boxSizing: 'border-box',
-        },
-        '*::after': {
-          boxSizing: 'border-box',
-        },
-        html: {
-          '-webkit-font-smoothing': 'antialiased',
-          '-moz-osx-font-smoothing': 'grayscale',
-          '-ms-overflow-style': 'scrollbar',
-          overflow: 'auto',
-        },
         body: {
           lineHeight: 1.3,
           minWidth: '320px',
           position: 'relative',
-          overflowX: 'hidden',
-          maxWidth: '1920px',
           margin: '0 auto',
           backgroundColor: theme.palette.dark,
           fontSize: 16,
@@ -81,13 +64,6 @@ export const theme = createTheme({
           '&:hover': {
             textDecoration: 'none',
           },
-        },
-        'input::-webkit-inner-spin-button': {
-          '-webkit-appearance': 'none',
-          margin: 0,
-        },
-        "input[type='number']": {
-          '-moz-appearance': 'textfield',
         },
       }),
     },

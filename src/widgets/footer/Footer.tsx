@@ -27,7 +27,7 @@ export const Footer = () => {
                 position: 'relative',
               }}
             >
-              <Image src={Logo} alt='Logo' layout='fill' objectFit='cover' priority />
+              <Image src={Logo} alt='Logo' priority />
             </Box>
           </Box>
           <Box>

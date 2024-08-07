@@ -13,8 +13,6 @@ export const ShopFilter = ({ items: i }: { items: NFT[] }) => {
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'))
   const { data: items = [] } = useNftsQuery({ page })
 
-  console.log(items)
-
   return (
     <>
       <Filter />

@@ -29,21 +29,31 @@ export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const storage = getStorage(app)
 
-export const nftsRef = collection(db, 'ntfs')
+export const nftsRef = collection(db, 'nfts')
 const nfts1Ref = ref(storage, 'nfts/nfts-1.jpg')
 const logosRef = ref(storage, 'nfts/logos.png')
+
+export const games = ['K 4 rally', 'tuk tuk rush', 'Racing game', 'Martial arts game']
+export const categories = ['Category 1', 'Category 2', 'Category 3']
+export const rarities = ['Common', 'Uncommon', 'Rare', 'Epic', 'Signature', 'Legendary', 'Mystic', 'On-of-kind']
+
 Promise.all([getDownloadURL(nfts1Ref), getDownloadURL(logosRef)]).then((url) => {
-  console.log(url)
   Array(10)
     .fill(null)
     .forEach((_, i) => {
       setDoc(doc(nftsRef, 'nfts-' + i), {
         src: url[0],
         title: 'K 4 Race edition #1',
-        price: '$20',
-        rarity: 'Epic',
+        game: games[randomInteger(0, games.length - 1)],
+        category: categories[randomInteger(0, categories.length - 1)],
+        rarity: rarities[randomInteger(0, rarities.length - 1)],
+        price: 20,
         logos: url[1],
-        color: 'epic',
       })
     })
 })
+
+function randomInteger(min: number, max: number) {
+  let rand = min + Math.random() * (max + 1 - min)
+  return Math.floor(rand)
+}

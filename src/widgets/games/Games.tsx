@@ -13,27 +13,27 @@ const items = [
     id: '1',
     src: Image1.src,
     title: 'K 4 rally',
-    descr:
+    description:
       'The first Blockchain Rally Racing Game powered by real Rally Champions and Motosport Brands Release: Q2 2024',
   },
   {
     id: '2',
     src: Image2.src,
     title: 'tuk tuk rush',
-    descr: 'The first game featuring Thailand and its iconic TUK TUK vehicle. Release Q4 2024.',
+    description: 'The first game featuring Thailand and its iconic TUK TUK vehicle. Release Q4 2024.',
   },
   {
     id: '3',
     src: Image3.src,
     title: 'Racing game',
-    descr:
+    description:
       'Another spectacular blockchain racing game is already in development. We will be announcing more on this shortly.',
   },
   {
     id: '4',
     src: Image4.src,
     title: 'Martial arts game',
-    descr:
+    description:
       "You want a spectacular martial arts blockchain game? We're already working on it. It will be the ultimate fighting game. We will be announcing more on this shortly.",
   },
 ]
@@ -197,7 +197,7 @@ export const Games = () => {
                       {item.title}
                     </Typography>
                     <Typography variant='body1' mt={5}>
-                      {item.descr}
+                      {item.description}
                     </Typography>
                   </Box>
                   <Box

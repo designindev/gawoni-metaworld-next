@@ -24,7 +24,7 @@ export const Social = (props: Props) => {
   const { hidden = {} } = props
 
   return (
-    <Stack direction='row' spacing={5} component={'ul'}>
+    <Stack direction='row' display={'inline-flex'} spacing={5} component={'ul'}>
       {items
         .filter((el) => !(hidden[el.name] === true))
         .map((el) => [

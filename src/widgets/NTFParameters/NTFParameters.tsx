@@ -5,6 +5,7 @@ import ImageCar from 'shared/images/nft-detail/image.jpg'
 import classNames from 'classnames'
 import { AccordionItem } from './AccordionItem'
 import { Box } from '@mui/material'
+import { getNftCss } from 'entities/nft'
 
 const carParameters = [
   { label: 'SPEED', value: '1', params: ['1', '50', '150'] },
@@ -16,17 +17,42 @@ const carParameters = [
   { label: 'Drive type', value: 'AWD' },
 ]
 
-type Props = {
-  bgClass: string
-}
-
-export const NTFParameters = (props: Props) => {
+export const NTFParameters = () => {
   return (
     <>
-      {/* TODO: ADD BORDER  */}
-      <div className={classNames('image image--cover image--square image--border nft-detail__image', props.bgClass)}>
-        <Image src={ImageCar} alt='' priority />
-      </div>
+      <Box
+        sx={{
+          ...getNftCss('Common'),
+          position: 'relative',
+          borderRadius: 3,
+          mb: 4,
+          '&::before': {
+            content: '""',
+            display: 'block',
+            pt: '100%',
+          },
+        }}
+      >
+        <Image
+          src={ImageCar}
+          width={0}
+          height={0}
+          sizes='100vw'
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            padding: 5,
+            borderRadius: 'inherit',
+          }}
+          alt=''
+          priority
+        />
+      </Box>
       <Box>
         <Box fontSize={18} fontWeight={500}>
           Car level: <span className='text-secondary'>1</span>

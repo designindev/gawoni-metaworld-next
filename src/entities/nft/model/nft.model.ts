@@ -49,6 +49,6 @@ const mapNftColor: Record<NFT_RARITY, string> = {
 export const getNftColor = (rarity: NFT_RARITY) => mapNftColor[rarity]
 
 export const getNftCss = (rarity: NFT_RARITY): CSSProperties => ({
-  background: getNftColor(rarity),
+  background: getNftColor(rarity) ?? mapNftColor['Common'],
   color: ['One-of-a-kind', 'Signature', 'Mystic', 'Legendary'].includes(rarity) ? '#000' : '#fff',
 })

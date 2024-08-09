@@ -6,12 +6,9 @@ import { notifySuccess } from 'shared/lib'
 import { details } from './details'
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import { getNftCss } from 'entities/nft'
 
-type Props = {
-  bgClass: string
-}
-
-export const NTFDetails = (props: Props) => {
+export const NTFDetails = () => {
   const onCopy = async (text: string) => {
     await navigator.clipboard.writeText(text)
     notifySuccess('Content copied to clipboard')
@@ -52,7 +49,7 @@ export const NTFDetails = (props: Props) => {
           borderRadius={2}
           color={'dark.main'}
           mb={6}
-          className={classNames(props.bgClass)}
+          sx={{ ...getNftCss('Common') }}
         >
           <Box fontWeight={500}>Mystic</Box>
           <Box fontWeight={600} fontSize={20}>

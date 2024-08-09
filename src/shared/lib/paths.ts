@@ -50,6 +50,5 @@ export const PATH_MENU = [
     ],
   },
   { href: PATH_PAGE.shop.root, label: 'NFT Shop' },
-  { href: PATH_PAGE.marketplace, label: 'Marketplace' },
   { href: PATH_PAGE.connectWallet, label: 'Connect Wallet' },
 ] as const satisfies PATH_MENU[]

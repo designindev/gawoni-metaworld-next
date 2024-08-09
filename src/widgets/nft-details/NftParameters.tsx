@@ -42,7 +42,10 @@ export const NftParameters = () => {
     <>
       <Box mb={10}>
         <Box fontSize={18} fontWeight={500}>
-          Car level: <span className='text-secondary'>1</span>
+          Car level:{' '}
+          <Box component={'span'} sx={{ color: 'secondary.main' }}>
+            1
+          </Box>
         </Box>
         <Box height={10} bgcolor={'#fff'} borderRadius={1000} my={2}>
           <Box height={'inherit'} width={'50%'} bgcolor={'secondary.main'} borderRadius={'inherit'}></Box>
@@ -86,7 +89,7 @@ export const NftParameters = () => {
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded {...accordionProps}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>Upgrades & Boosts</AccordionSummary>
+        <AccordionSummary expandIcon={<ExpandMoreIcon fontSize='large' />}>Upgrades & Boosts</AccordionSummary>
         <AccordionDetails>
           <ul className='detail-list nft-detail__list'>
             <li className='detail-list__item detail-list__item--row'>

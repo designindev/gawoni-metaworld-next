@@ -10,19 +10,16 @@ import Image1 from './images/Rectangle-1.jpg'
 import Image2 from './images/Rectangle-2.jpg'
 import Image3 from './images/Rectangle-3.jpg'
 import Image from 'next/image'
-import DeleteIcon from '@mui/icons-material/Delete'
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined'
 import { useState } from 'react'
 import { NTFParameters } from 'widgets/NTFParameters/NTFParameters'
 import { NTFDetails } from 'widgets/NTFDetails/NTFDetails'
-import { getBgClass, NFT_COLOR, notifySuccess, PATH_PAGE } from 'shared/lib'
+import { notifySuccess } from 'shared/lib'
 import ImageNFT from 'shared/images/nfts/nfts-1.jpg'
 import { NftCard } from 'entities/nft'
 import Logos from 'shared/images/nfts/logos.png'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-
-const color: NFT_COLOR = 'mystic'
 
 type FormValues = {
   fieldArray: { name: string }[]
@@ -32,7 +29,7 @@ export default function NewNftPage() {
   const [isPreview, setIsPreview] = useState(false)
   const route = useRouter()
   const methods = useForm<FormValues>()
-  const bgClass = getBgClass(color)
+  const bgClass = 'bg-mystic'
 
   const onToggle = () => {
     setIsPreview((p) => !p)
@@ -162,7 +159,6 @@ export default function NewNftPage() {
                     price: '$20',
                     rarity: 'Mystic',
                     logos: Logos.src,
-                    color: 'mystic',
                   }}
                 />
               </Grid>

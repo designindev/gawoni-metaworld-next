@@ -17,6 +17,7 @@ export type InputFormProps<TFormValues extends FieldValues> = {
 } & Omit<InputPropsUI, 'hasError' | 'errorSlot'> &
   (({ type: string } & InputHTML) | TextareaHTML)
 
+// TODO: delete
 export const InputForm = <TFormValues extends Record<string, unknown>>(props: InputFormProps<TFormValues>) => {
   const { name, onChange, onBlur, ...rest } = props
   const {

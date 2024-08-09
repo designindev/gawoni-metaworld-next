@@ -1,4 +1,4 @@
-import { NFT_COLOR } from 'shared/lib'
+import { CSSProperties } from 'react'
 
 export type NFTId = string
 
@@ -7,7 +7,47 @@ export type NFT = {
   src: string
   title: string
   price: string
-  rarity: string
+  rarity: NFT_RARITY
   logos: string
-  color: NFT_COLOR
 }
+
+export type NFT_RARITY =
+  | 'Common'
+  | 'Uncommon'
+  | 'Rare'
+  | 'Epic'
+  | 'Signature'
+  | 'Legendary'
+  | 'Mystic'
+  | 'One-of-a-kind'
+
+export const rarities: NFT_RARITY[] = [
+  'Common',
+  'Uncommon',
+  'Rare',
+  'Epic',
+  'Signature',
+  'Legendary',
+  'Mystic',
+  'One-of-a-kind',
+]
+export const games = ['K 4 rally', 'Tuk tuk rush', 'Racing game', 'Martial arts game']
+export const categories = ['Category 1', 'Category 2', 'Category 3']
+
+const mapNftColor: Record<NFT_RARITY, string> = {
+  Common: '#b3b3b3',
+  Uncommon: '#00bf13',
+  Rare: '#0038ff',
+  Epic: '#a700e2',
+  Signature: '#a700e2',
+  Legendary: '#ff881a',
+  Mystic: 'linear-gradient(130.42deg, #ce9335 0%, #fee5ac 49.12%, #ce9335 98.25%)',
+  'One-of-a-kind':
+    'inear-gradient(129.5deg, #2e62f6 0%, #fa9ffb 20%, #7df0cf 40%, #fbfecf 60%, #fcd9f1 80%, #91cdf7 100%',
+}
+
+export const getNftColor = (rarity: NFT_RARITY) => mapNftColor[rarity]
+
+export const getNftCss = (rarity: NFT_RARITY): CSSProperties => ({
+  background: getNftColor(rarity),
+})

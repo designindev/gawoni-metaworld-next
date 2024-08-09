@@ -3,6 +3,7 @@ import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 import { getDownloadURL, getStorage, ref } from 'firebase/storage'
 import { collection, doc, setDoc } from 'firebase/firestore'
+import { categories, games, rarities } from 'entities/nft'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCucNRWqOOGb6DF1lkKaHsu2qm9Mrfx7Mw',
@@ -22,12 +23,9 @@ export const nftsRef = collection(db, 'nfts')
 const nfts1Ref = ref(storage, 'nfts/nfts-1.jpg')
 const logosRef = ref(storage, 'nfts/logos.png')
 
-export const games = ['K 4 rally', 'tuk tuk rush', 'Racing game', 'Martial arts game']
-export const categories = ['Category 1', 'Category 2', 'Category 3']
-export const rarities = ['Common', 'Uncommon', 'Rare', 'Epic', 'Signature', 'Legendary', 'Mystic', 'On-of-kind']
-
+// TODO: REMOVE
 Promise.all([getDownloadURL(nfts1Ref), getDownloadURL(logosRef)]).then((url) => {
-  Array(10)
+  Array(200)
     .fill(null)
     .forEach((_, i) => {
       setDoc(doc(nftsRef, `nfts-${i}`), {

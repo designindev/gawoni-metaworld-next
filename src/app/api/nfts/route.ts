@@ -19,14 +19,15 @@ export async function GET(request: Request) {
     game && where('game', '==', game),
     category && where('category', '==', category),
     rarity && where('rarity', '==', rarity),
+    orderBy('title', 'asc'),
   ].filter(truthy)
 
-  const documentSnapshots = await getDocs(query(nftsRef, ...queries, orderBy('title'), limit((page - 1) * lim || 1)))
+  const documentSnapshots = await getDocs(query(nftsRef, ...queries, limit((page - 1) * lim || 1)))
   const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1]
 
-  const data = await getDocs(query(nftsRef, ...queries, orderBy('title'), startAfter(lastVisible), limit(lim)))
+  const data = await getDocs(query(nftsRef, ...queries, startAfter(lastVisible), limit(lim)))
 
-  const count = (await getCountFromServer(query(nftsRef, ...queries, orderBy('title')))).data().count
+  const count = (await getCountFromServer(query(nftsRef, ...queries))).data().count
   const numPages = Math.ceil(count / lim)
 
   return NextResponse.json({

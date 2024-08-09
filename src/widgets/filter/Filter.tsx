@@ -5,25 +5,7 @@ import { ReactNode, useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 import { Controller, FormProvider, useForm, useFormContext, useWatch } from 'react-hook-form'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { categories, games, rarities } from 'app/api/nfts/db'
-
-const filters = [
-  {
-    label: 'Game',
-    name: 'game',
-    options: games.map((el) => ({ value: el, label: el })),
-  },
-  {
-    label: 'Category',
-    name: 'category',
-    options: categories.map((el) => ({ value: el, label: el })),
-  },
-  {
-    label: 'Rarity',
-    name: 'rarity',
-    options: rarities.map((el) => ({ value: el, label: el })),
-  },
-] as const
+import { filters } from './filters'
 
 type Props = {
   className?: string
@@ -31,25 +13,19 @@ type Props = {
   hasBg?: boolean
 }
 
-export const country = [
-  { value: 'USA', label: 'USA' },
-  { value: 'Canada', label: 'Canada' },
-  { value: 'Francia', label: 'Francia' },
-  { value: 'England', label: 'England' },
-  { value: 'Ukraine', label: 'Ukraine' },
-]
-
 export const Filter = (props: Props) => {
   const [open, setOpen] = useState(false)
+  const searchParams = useSearchParams()
+  const game = searchParams.get('game') ?? ''
+  const category = searchParams.get('category') ?? ''
+  const rarity = searchParams.get('rarity') ?? ''
 
   const methods = useForm({
-    defaultValues: { game: '', category: '', rarity: '' },
+    defaultValues: { game, category, rarity },
   })
 
   const count = Object.values(useWatch({ control: methods.control })).filter((e) => e).length
-
   const bgStyle = props.hasBg ? { padding: 6, bgcolor: 'dark.main', borderRadius: 4 } : {}
-
   const filterInner = <FilterInner count={count} />
 
   return (

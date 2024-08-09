@@ -1,19 +1,8 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth, GoogleAuthProvider } from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
-import { getDownloadURL, getStorage, listAll, ref } from 'firebase/storage'
-import {
-  getDocs,
-  collection,
-  addDoc,
-  deleteDoc,
-  updateDoc,
-  doc,
-  getDoc,
-  setDoc,
-  query,
-  where,
-} from 'firebase/firestore'
+import { getDownloadURL, getStorage, ref } from 'firebase/storage'
+import { collection, doc, setDoc } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCucNRWqOOGb6DF1lkKaHsu2qm9Mrfx7Mw',
@@ -41,9 +30,9 @@ Promise.all([getDownloadURL(nfts1Ref), getDownloadURL(logosRef)]).then((url) => 
   Array(10)
     .fill(null)
     .forEach((_, i) => {
-      setDoc(doc(nftsRef, 'nfts-' + i), {
+      setDoc(doc(nftsRef, `nfts-${i}`), {
         src: url[0],
-        title: 'K 4 Race edition #1',
+        title: `K 4 Race edition ${i}`,
         game: games[randomInteger(0, games.length - 1)],
         category: categories[randomInteger(0, categories.length - 1)],
         rarity: rarities[randomInteger(0, rarities.length - 1)],

@@ -6,7 +6,7 @@ type Truthy<T> = T extends false | '' | 0 | null | undefined ? never : T // from
 
 const truthy = <T>(value: T): value is Truthy<T> => Boolean(value)
 
-const defaultLimit = 3
+const defaultLimit = 8
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const page = Number(searchParams.get('page') ?? 1)
@@ -23,7 +23,6 @@ export async function GET(request: Request) {
 
   const documentSnapshots = await getDocs(query(nftsRef, ...queries, orderBy('title'), limit((page - 1) * lim || 1)))
   const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1]
-  console.log((page - 1) * lim)
 
   const data = await getDocs(query(nftsRef, ...queries, orderBy('title'), startAfter(lastVisible), limit(lim)))
 

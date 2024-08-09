@@ -3,7 +3,7 @@ import { Category } from './Category'
 import { Box, Container, Stack, Typography } from '@mui/material'
 
 export const Nfts = async () => {
-  const items = await (await fetch('http://localhost:8088/api/nfts/', { cache: 'no-cache' })).json()
+  const { data: items } = await (await fetch('http://localhost:8088/api/nfts/', { cache: 'no-cache' })).json()
 
   return (
     <Box component={'section'} className='section section--gradient s-nfts'>

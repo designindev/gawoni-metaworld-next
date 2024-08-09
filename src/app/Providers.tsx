@@ -14,9 +14,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => (
     <ThemeProvider theme={theme}>
       <Global styles={reset} />
       <CssBaseline />
-      <StoreProvider>
-        <main className='wrapper'>{children}</main>
-      </StoreProvider>
+      <StoreProvider>{children}</StoreProvider>
       <ToastContainer position='bottom-right' />
     </ThemeProvider>
   </SessionProvider>

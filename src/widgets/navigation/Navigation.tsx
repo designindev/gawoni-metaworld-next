@@ -19,7 +19,7 @@ export const Navigation = (props: Props) => {
     <>
       <Toolbar
         component={'nav'}
-        sx={{
+        sx={(theme) => ({
           maxWidth: 1000,
           marginX: 'auto',
           position: { lg: 'relative', xs: 'absolute' },
@@ -32,6 +32,11 @@ export const Navigation = (props: Props) => {
           visibility: { lg: 'visible', xs: visible ? 'visible' : 'hidden' },
           transform: { lg: 'none', xs: visible ? 'translate(0, 0)' : 'translate(100%, 0)' },
           transition: 'transform .3s, visibility .3s',
+          [theme.breakpoints.down('lg')]: {
+            backgroundColor: 'dark.main',
+            pl: 0,
+            pr: 0,
+          },
           '&::before': {
             content: '""',
             position: 'absolute',
@@ -42,14 +47,18 @@ export const Navigation = (props: Props) => {
             backgroundColor: 'dark.main',
             zIndex: -1,
             clipPath: { lg: 'polygon(0 0, 100% 0, calc(100% - 90px) 100%, 90px 100%)', xs: 'none' },
+            [theme.breakpoints.down('lg')]: {
+              display: 'none',
+            },
           },
-        }}
+        })}
       >
         <Stack
           component={'ul'}
           direction={{ lg: 'row', xs: 'column' }}
           textAlign={{ lg: 'center', xs: 'right' }}
           justifyContent={'space-between'}
+          width={{ lg: 'auto', xs: '100%' }}
         >
           {navLinks
             .filter((el) => !(el.auth === true && !session))

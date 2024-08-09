@@ -26,10 +26,11 @@ const Navigationitem = (props: Props) => {
 
   const linkProps: BoxProps = {
     display: 'flex',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     pl: { xl: 7, lg: 4, xs: 6 },
     pr: { xl: 7, lg: 4, xs: 6 },
-    height: 55,
+    height: { lg: 65, xs: 45 },
     fontSize: { xl: 18, lg: 16, xs: 14 },
     sx: {
       cursor: 'pointer',
@@ -65,26 +66,26 @@ const Navigationitem = (props: Props) => {
       {el.sub && (
         <Stack
           component={'ul'}
-          spacing={6}
           position={'absolute'}
           top={'100%'}
           left={0}
-          paddingTop={3}
-          paddingBottom={4}
-          paddingX={4}
           borderRadius={'0 0 8px 8px'}
           sx={(theme) => ({
-            transition: 'all .3s',
-            opacity: 0,
-            visibility: 'hidden',
-            bgcolor: 'dark.main',
-            minWidth: '265px',
-            transform: 'translate(0, 20px)',
+            [theme.breakpoints.up('lg')]: {
+              bgcolor: 'dark.main',
+              minWidth: '265px',
+              transform: 'translate(0, 20px)',
+              transition: 'all .3s',
+              opacity: 0,
+              visibility: 'hidden',
+              padding: 4,
+            },
             [theme.breakpoints.down('lg')]: {
               position: 'relative',
               display: visible ? 'none' : 'block',
               paddingLeft: 8,
               paddingRight: 8,
+              textAlign: 'right',
             },
           })}
         >
@@ -95,14 +96,20 @@ const Navigationitem = (props: Props) => {
               <Box component={'li'} key={i} className='navigation__list-item' textAlign={'left'}>
                 <Box
                   component={Link}
-                  sx={{
-                    height: 'auto',
+                  sx={(theme) => ({
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: 40,
                     whiteSpace: 'nowrap',
                     transition: 'color .3s',
                     '&:hover': {
                       color: 'secondary.main',
                     },
-                  }}
+                    [theme.breakpoints.down('lg')]: {
+                      justifyContent: 'flex-end',
+                      pr: 4,
+                    },
+                  })}
                   {...rest}
                   onClick={() => {
                     closeMenu()

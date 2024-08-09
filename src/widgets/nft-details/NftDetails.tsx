@@ -1,19 +1,10 @@
 'use client'
 
-import classNames from 'classnames'
 import Link from 'next/link'
-import { notifySuccess } from 'shared/lib'
-import { details } from './details'
-import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import { Box, Stack, Typography } from '@mui/material'
 import { getNftCss } from 'entities/nft'
 
-export const NTFDetails = () => {
-  const onCopy = async (text: string) => {
-    await navigator.clipboard.writeText(text)
-    notifySuccess('Content copied to clipboard')
-  }
-
+export const NftDetails = () => {
   return (
     <>
       <div className='nft-detail__block'>
@@ -49,7 +40,7 @@ export const NTFDetails = () => {
           borderRadius={2}
           color={'dark.main'}
           mb={6}
-          sx={{ ...getNftCss('Common') }}
+          sx={{ ...getNftCss('Mystic') }}
         >
           <Box fontWeight={500}>Mystic</Box>
           <Box fontWeight={600} fontSize={20}>
@@ -78,39 +69,13 @@ export const NTFDetails = () => {
         </ul>
       </div>
       <div className='nft-detail__block nft-detail__block--sm'>
-        <ul className='detail-list nft-detail__list'>
-          {details.map((el, i) => {
-            return (
-              <li key={i} className='detail-list__item'>
-                {el.label && <div className='detail-list__label'>{el.label}</div>}
-                {el.value && <div className='detail-list__value'>{el.value}</div>}
-                {el.link && (
-                  <>
-                    <Box position={'relative'}>
-                      <Box pr={8} textOverflow={'ellipsis'} overflow={'hidden'} minHeight={20}>
-                        {el.link}
-                      </Box>
-                      <Box
-                        component={IconButton}
-                        position={'absolute'}
-                        bottom={-5}
-                        right={-5}
-                        onClick={() => onCopy(el.link!)}
-                      >
-                        <ContentCopyIcon fontSize='small' />
-                      </Box>
-                    </Box>
-                    <div className='detail-list__button'>
-                      <Button color='white' variant={'outlined'} size='small'>
-                        Add to your wallet
-                      </Button>
-                    </div>
-                  </>
-                )}
-              </li>
-            )
-          })}
-        </ul>
+        <div className='detail-list__label'>Contract Details</div>
+        <div className='detail-list__value'>
+          <p>
+            To view your NFT in your wallet, please go to your profile and click the “Add to Wallet” button below your
+            NFT”
+          </p>
+        </div>
       </div>
       <div className='nft-detail__block nft-detail__block--sm'>
         <ul className='detail-list nft-detail__list'>

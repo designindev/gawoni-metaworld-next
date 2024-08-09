@@ -12,8 +12,7 @@ import Image3 from './images/Rectangle-3.jpg'
 import Image from 'next/image'
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined'
 import { useState } from 'react'
-import { NTFParameters } from 'widgets/NTFParameters/NTFParameters'
-import { NTFDetails } from 'widgets/NTFDetails/NTFDetails'
+import { NftParameters, NftDetails } from 'widgets'
 import { notifySuccess } from 'shared/lib'
 import ImageNFT from 'shared/images/nfts/nfts-1.jpg'
 import { NftCard } from 'entities/nft'
@@ -145,10 +144,10 @@ export default function NewNftPage() {
           <Container>
             <Grid container spacing={12} className='row'>
               <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
-                <NTFParameters bgClass={bgClass} />
+                <NftParameters />
               </Grid>
               <Grid item lg={4} md={6} xs={12} sx={{ order: { lg: -1, xs: 0 } }}>
-                <NTFDetails bgClass={bgClass} />
+                <NftDetails />
               </Grid>
               <Grid item lg={4} md={6} xs={12}>
                 <NftCard

@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add'
 import { useState } from 'react'
 import { useNftsQuery } from 'entities/nft/api/nft.api'
 import { AdminFilter } from './AdminFilter'
-import { NftCard } from 'entities/nft'
+import { NftCard, NftCardSkeleton } from 'entities/nft'
 import { PATH_PAGE } from 'shared/lib'
 
 export const Items = () => {
@@ -63,7 +63,15 @@ export const Page = ({ page }: { page: number }) => {
   return (
     <>
       {isLoading ? (
-        <div>LOADING</div>
+        Array(4)
+          .fill(null)
+          .map((_, i) => {
+            return (
+              <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
+                <NftCardSkeleton />
+              </Grid>
+            )
+          })
       ) : (
         <>
           {nfts.map((item, i) => {

@@ -247,6 +247,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          fontSize: 12,
+        },
+      },
+    },
     MuiSelect: {
       styleOverrides: {
         root: {},

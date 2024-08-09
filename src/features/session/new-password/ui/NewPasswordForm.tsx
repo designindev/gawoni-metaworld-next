@@ -32,21 +32,23 @@ export const NewPasswordForm = (props: Props) => {
         // defaultValues={{ password: '12345678', passwordConfirm: '12345678' }}
         className={classNames('', props.className)}
       >
-        <InputForm<NewPasswordFormSchema>
-          type='password'
-          name='password'
-          label='Password'
-          placeholder='Create password'
-        />
-        <InputForm<NewPasswordFormSchema>
-          type='password'
-          name='passwordConfirm'
-          label='Confirm password'
-          placeholder='Confirm password'
-        />
+        <Stack spacing={6}>
+          <InputForm<NewPasswordFormSchema>
+            type='password'
+            name='password'
+            label='Password'
+            placeholder='Create password'
+          />
+          <InputForm<NewPasswordFormSchema>
+            type='password'
+            name='passwordConfirm'
+            label='Confirm password'
+            placeholder='Confirm password'
+          />
+        </Stack>
         <Stack alignItems={'center'} spacing={6} mt={6}>
           <Button>Send</Button>
-          <Button color={'white'} variant={'outlined'} href={PATH_PAGE.login} fullWidth>
+          <Button color={'white'} variant={'outlined'} href={PATH_PAGE.login}>
             Back to log in
           </Button>
         </Stack>

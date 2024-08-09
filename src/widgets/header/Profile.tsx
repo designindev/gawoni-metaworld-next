@@ -16,9 +16,7 @@ export const Profile = () => {
   const handleOpen = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget)
   }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
+  const handleClose = () => setAnchorEl(null)
 
   const handleMenuItem = (href: string) => {
     handleClose()
@@ -49,30 +47,27 @@ export const Profile = () => {
               }}
             >
               <IconButton sx={{ p: 0 }}>
-                <Avatar sx={{ width: 50, height: 50, bgcolor: 'dark.main', color: '#fff' }}>
+                <Avatar sx={{ width: 50, height: 50, bgcolor: '#000', color: '#fff' }}>
                   <PermIdentityIcon />
                 </Avatar>
               </IconButton>
               <Box fontWeight={500}>{session.user?.name}</Box>
             </Stack>
           </Tooltip>
-          <Menu
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            keepMounted
-            // anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            // transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            // MenuListProps={{ 'aria-labelledby': 'basic-button' }}
-          >
+          <Menu anchorEl={anchorEl} open={open} onClose={handleClose} keepMounted>
             <MenuItem onClick={() => handleMenuItem('/admin')}>Admin panel</MenuItem>
             <MenuItem onClick={() => signOut({ callbackUrl: '/' })}>Logout</MenuItem>
           </Menu>
         </>
       ) : (
-        <Button component={Link} href={PATH_PAGE.login}>
-          Login
-        </Button>
+        <Stack direction={'row'} spacing={2}>
+          <Button component={Link} href={PATH_PAGE.register} size='small' color='white' variant='outlined'>
+            Register
+          </Button>
+          <Button component={Link} href={PATH_PAGE.login} size='small'>
+            Login
+          </Button>
+        </Stack>
       )}
     </Box>
   )

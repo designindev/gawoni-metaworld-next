@@ -1,6 +1,5 @@
 'use client'
 
-import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
@@ -12,7 +11,7 @@ type Props = { el: PATH_MENU; closeMenu: () => void }
 
 const Navigationitem = (props: Props) => {
   const { el, closeMenu } = props
-  const { label, sub, ...rest } = el
+  const { label, sub, auth, ...rest } = el
 
   const [visible, setVisible] = useState(false)
 

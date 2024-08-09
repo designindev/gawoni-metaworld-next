@@ -31,7 +31,12 @@ export const PATH_PAGE = {
 
 export const PATH_IMAGE = (image: string) => `${config.SITE_ENDPOINT}/${image}`
 
-export type PATH_MENU = { href: string; label: string; sub?: PATH_MENU[] } & AnchorHTMLAttributes<HTMLAnchorElement>
+export type PATH_MENU = {
+  href: string
+  label: string
+  auth?: boolean
+  sub?: PATH_MENU[]
+} & AnchorHTMLAttributes<HTMLAnchorElement>
 
 export const PATH_MENU = [
   {
@@ -50,5 +55,5 @@ export const PATH_MENU = [
     ],
   },
   { href: PATH_PAGE.shop.root, label: 'NFT Shop' },
-  { href: PATH_PAGE.connectWallet, label: 'Connect Wallet' },
+  { href: PATH_PAGE.connectWallet, label: 'Connect Wallet', auth: true },
 ] as const satisfies PATH_MENU[]

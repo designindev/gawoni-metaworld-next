@@ -1,6 +1,9 @@
+'use client'
+
 import { PATH_MENU } from 'shared/lib'
 import Navigationitem from './Navigationitem'
 import { Stack, Toolbar } from '@mui/material'
+import { useSession } from 'next-auth/react'
 
 type Props = {
   navLinks: PATH_MENU[]
@@ -9,6 +12,7 @@ type Props = {
 }
 
 export const Navigation = (props: Props) => {
+  const { data: session, status } = useSession()
   const { navLinks, visible, closeMenu } = props
 
   return (
@@ -47,9 +51,11 @@ export const Navigation = (props: Props) => {
           textAlign={{ lg: 'center', xs: 'right' }}
           justifyContent={'space-between'}
         >
-          {navLinks.map((el, i) => {
-            return <Navigationitem el={el} key={i} closeMenu={closeMenu} />
-          })}
+          {navLinks
+            .filter((el) => !(el.auth === true && !session))
+            .map((el, i) => {
+              return <Navigationitem el={el} key={i} closeMenu={closeMenu} />
+            })}
         </Stack>
       </Toolbar>
     </>

@@ -4,10 +4,7 @@ import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import Button from '@mui/material/Button'
-import AdbIcon from '@mui/icons-material/Adb'
 import { IconButton, Stack } from '@mui/material'
 import { Profile } from './Profile'
 import { PATH_MENU, PATH_PAGE } from 'shared/lib'
@@ -16,8 +13,6 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from 'shared/images/logo.png'
-
-const pages = ['Products', 'Pricing', 'Blog']
 
 export function Header() {
   const [activeMenu, setActiveMenu] = React.useState(false)
@@ -56,7 +51,6 @@ export function Header() {
                 <Image src={Logo} alt='Logo' priority />
               </Box>
             </Box>
-
             <Box position={'relative'} zIndex={2}>
               <Profile />
               <IconButton

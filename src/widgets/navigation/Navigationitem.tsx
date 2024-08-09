@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { PATH_MENU } from 'shared/lib'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { Box, BoxProps } from '@mui/material'
+import { Box, BoxProps, Stack } from '@mui/material'
 
 type Props = { el: PATH_MENU; closeMenu: () => void }
 
@@ -21,15 +21,11 @@ const Navigationitem = (props: Props) => {
   const isActive = pathName === el.href
   const hasSub = Boolean(sub)
 
-  const className = classNames('navigation__list-link', {
-    'navigation__list-link--active': isActive,
-  })
-
   const onToggleSubMenu = () => {
     setVisible((v) => !v)
   }
 
-  const boxProps: BoxProps = {
+  const linkProps: BoxProps = {
     display: 'flex',
     alignItems: 'center',
     pl: { xl: 7, lg: 4, xs: 6 },
@@ -49,45 +45,77 @@ const Navigationitem = (props: Props) => {
     <Box
       component={'li'}
       position={'relative'}
-      className={classNames('navigation__list-item', {
-        'navigation__list-item--sub': hasSub,
-      })}
+      sx={{
+        '&:hover ul': {
+          opacity: 1,
+          transform: 'translate(0, 0)',
+          visibility: 'visible',
+        },
+      }}
     >
       {hasSub ? (
-        <Box {...boxProps} onClick={onToggleSubMenu}>
+        <Box {...linkProps} onClick={onToggleSubMenu}>
           {label}
           <ExpandMoreIcon sx={{ display: { lg: 'none', xs: 'block' }, mr: -1.5 }} />
         </Box>
       ) : (
-        <Box component={Link} {...rest} {...boxProps} onClick={() => closeMenu()}>
+        <Box component={Link} {...rest} {...linkProps} onClick={() => closeMenu()}>
           {label}
         </Box>
       )}
       {el.sub && (
-        <ul
-          className={classNames('navigation__list-sub', {
-            'navigation__list-sub--active': visible,
+        <Stack
+          component={'ul'}
+          spacing={6}
+          position={'absolute'}
+          top={'100%'}
+          left={0}
+          paddingTop={3}
+          paddingBottom={4}
+          paddingX={4}
+          borderRadius={'0 0 8px 8px'}
+          sx={(theme) => ({
+            transition: 'all .3s',
+            opacity: 0,
+            visibility: 'hidden',
+            bgcolor: 'dark.main',
+            minWidth: '265px',
+            transform: 'translate(0, 20px)',
+            [theme.breakpoints.down('lg')]: {
+              position: 'relative',
+              display: visible ? 'none' : 'block',
+              paddingLeft: 8,
+              paddingRight: 8,
+            },
           })}
         >
           {el.sub.map((el, i) => {
             const { label, sub, ...rest } = el
 
             return (
-              <li key={i} className='navigation__list-item'>
-                <Link
+              <Box component={'li'} key={i} className='navigation__list-item' textAlign={'left'}>
+                <Box
+                  component={Link}
+                  sx={{
+                    height: 'auto',
+                    whiteSpace: 'nowrap',
+                    transition: 'color .3s',
+                    '&:hover': {
+                      color: 'secondary.main',
+                    },
+                  }}
                   {...rest}
-                  className={'navigation__list-link'}
                   onClick={() => {
                     closeMenu()
                     onToggleSubMenu()
                   }}
                 >
                   {el.label}
-                </Link>
-              </li>
+                </Box>
+              </Box>
             )
           })}
-        </ul>
+        </Stack>
       )}
     </Box>
   )

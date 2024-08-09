@@ -48,8 +48,8 @@ export function Header() {
                 component={Link}
                 href={PATH_PAGE.root}
                 sx={{
-                  width: { md: '213px', xs: '64px' },
-                  height: { md: '126', xs: '38px' },
+                  width: { md: '213px', xs: '126px' },
+                  height: { md: '64px', xs: '38px' },
                   position: 'relative',
                 }}
               >

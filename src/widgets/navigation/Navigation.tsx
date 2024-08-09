@@ -1,15 +1,12 @@
-import classNames from 'classnames'
 import { PATH_MENU } from 'shared/lib'
 import Navigationitem from './Navigationitem'
-import { Box, Button, Stack, Toolbar } from '@mui/material'
+import { Stack, Toolbar } from '@mui/material'
 
 type Props = {
   navLinks: PATH_MENU[]
   visible: boolean
   closeMenu: () => void
 }
-
-const pages = ['Products', 'Pricing', 'Blog']
 
 export const Navigation = (props: Props) => {
   const { navLinks, visible, closeMenu } = props

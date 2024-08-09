@@ -3,19 +3,28 @@
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import AddIcon from '@mui/icons-material/Add'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNftsQuery } from 'entities/nft/api/nft.api'
 import { AdminFilter } from './AdminFilter'
 import { NftCard, NftCardSkeleton } from 'entities/nft'
 import { PATH_PAGE } from 'shared/lib'
+import { useSearchParams } from 'next/navigation'
 
 export const Items = () => {
-  const { data: { data: nfts = [], lastPage } = {}, isFetching } = useNftsQuery({ page: 1 })
   const [page, setPage] = useState(1)
+  const searchParams = useSearchParams()
+  const game = searchParams.get('game') ?? undefined
+  const category = searchParams.get('category') ?? undefined
+  const rarity = searchParams.get('rarity') ?? undefined
+  const { data: { data: nfts = [], lastPage } = {}, isFetching } = useNftsQuery({ page: 1, game, category, rarity })
 
   const onLoad = () => {
     setPage((p) => p + 1)
   }
+
+  useEffect(() => {
+    setPage(1)
+  }, [game, category, rarity])
 
   return (
     <>

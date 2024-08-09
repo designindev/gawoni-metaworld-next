@@ -10,7 +10,7 @@ import { NftCard, NftCardSkeleton } from 'entities/nft'
 import { PATH_PAGE } from 'shared/lib'
 
 export const Items = () => {
-  const { data: { data: nfts = [], lastPage } = {} } = useNftsQuery({ page: 1 })
+  const { data: { data: nfts = [], lastPage } = {}, isFetching } = useNftsQuery({ page: 1 })
   const [page, setPage] = useState(1)
 
   const onLoad = () => {
@@ -32,13 +32,23 @@ export const Items = () => {
       </Stack>
       <AdminFilter />
       <Grid container spacing={{ xs: 6, lg: 10 }}>
-        {nfts.map((nft, i) => {
-          return (
-            <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
-              <NftCard nft={nft} link={PATH_PAGE.shop.slug(nft.id)} hasButtons />
-            </Grid>
-          )
-        })}
+        {isFetching
+          ? Array(4)
+              .fill(null)
+              .map((_, i) => {
+                return (
+                  <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
+                    <NftCardSkeleton />
+                  </Grid>
+                )
+              })
+          : nfts.map((nft, i) => {
+              return (
+                <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
+                  <NftCard nft={nft} link={PATH_PAGE.shop.slug(nft.id)} hasButtons />
+                </Grid>
+              )
+            })}
         {Array(page)
           .slice(1)
           .fill(null)
@@ -58,7 +68,7 @@ export const Items = () => {
 }
 
 export const Page = ({ page }: { page: number }) => {
-  const { data: { data: nfts = [] } = {}, isLoading } = useNftsQuery({ page })
+  const { data: { data: nfts = [] } = {}, isLoading } = useNftsQuery({ page, limit: 4 })
 
   return (
     <>

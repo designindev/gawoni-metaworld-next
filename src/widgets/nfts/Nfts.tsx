@@ -1,10 +1,9 @@
 import React from 'react'
 import { Category } from './Category'
 import { Box, Container, Stack, Typography } from '@mui/material'
+import { nfts } from './items'
 
 export const Nfts = async () => {
-  const { data: items } = await (await fetch('http://localhost:8088/api/nfts/', { cache: 'no-cache' })).json()
-
   return (
     <Box component={'section'} className='section section--gradient s-nfts'>
       <Container className='s-nfts__container nfts'>
@@ -13,8 +12,8 @@ export const Nfts = async () => {
         </Typography>
 
         <Stack spacing={15}>
-          <Category title='New nft releases' items={items} />
-          <Category title='top sellers' items={items} />
+          <Category title='New nft releases' items={nfts} />
+          <Category title='top sellers' items={nfts} />
         </Stack>
       </Container>
     </Box>

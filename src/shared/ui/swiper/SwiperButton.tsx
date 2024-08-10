@@ -25,16 +25,14 @@ export const SwiperButton = ({ side = 'left', circle, ...rest }: BoxProps & Swip
 
   return (
     <Box
-      position={'absolute'}
-      top={0}
-      bottom={0}
+      position={'relative'}
       left={left ? '0' : 'auto'}
       right={right ? '0' : 'auto'}
-      my={'auto'}
       zIndex={5}
       width={{ xl: 56, xs: 32 }}
       height={{ xl: 56, xs: 32 }}
       border={'2px solid #fff'}
+      flexShrink={0}
       borderRadius={circle ? '50%' : 0}
       {...rest}
       sx={[

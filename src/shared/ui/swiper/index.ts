@@ -1,2 +1,1 @@
-export { SwiperButton } from './SwiperButton'
-export { SwiperPagination } from './SwiperPagination'
+export { SwiperControls } from './SwiperControls'

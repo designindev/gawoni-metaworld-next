@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { NFT, NftCard } from 'entities/nft'
 import { PATH_PAGE, useAppDispatch } from 'shared/lib'
 import { Box, Button, Typography } from '@mui/material'
+import { SwiperControls } from 'shared/ui'
 
 type Props = {
   title: string
@@ -34,37 +35,77 @@ export const Category = (props: Props) => {
           Show all
         </Button>
       </Box>
-      <Swiper
-        modules={[Navigation, Pagination]}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
-        pagination={{ clickable: true, el: '.swiper-pagination' }}
-        watchSlidesProgress
-        spaceBetween={16}
-        breakpoints={{
-          576: { slidesPerView: 2, slidesPerGroup: 2 },
-          992: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 30 },
-          1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 40 },
-        }}
-        className='swiper--visible items items--slider nfts__items'
-        wrapperClass='items__slider nfts__items-slider'
-        loop
-      >
-        {items.map((item, i) => {
-          return (
-            <SwiperSlide key={i}>
-              <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} />
-            </SwiperSlide>
-          )
+      <Box
+        sx={(theme) => ({
+          '& .swiper': {
+            overflow: 'visible',
+            [theme.breakpoints.up('lg')]: {
+              mr: -25,
+              pl: 25,
+            },
+            [theme.breakpoints.down('lg')]: {
+              pr: 12,
+            },
+          },
         })}
-        {/* <SwiperControls className='nfts__items-controls' bottom>
-          <SwiperButton side='left' circle />
-          <SwiperPagination />
-          <SwiperButton side='right' circle />
-        </SwiperControls> */}
-      </Swiper>
+      >
+        <Swiper
+          modules={[Navigation, Pagination]}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          pagination={{ clickable: true, el: '.swiper-pagination' }}
+          watchSlidesProgress
+          spaceBetween={16}
+          breakpoints={{
+            576: { slidesPerView: 2, slidesPerGroup: 2 },
+            992: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 30 },
+            1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 40 },
+          }}
+          wrapperClass='items__slider nfts__items-slider'
+          style={{}}
+          loop
+        >
+          {items.map((item, i) => {
+            return (
+              <SwiperSlide key={i} style={{ transition: 'opacity .5s', opacity: 1 }}>
+                <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} />
+              </SwiperSlide>
+            )
+          })}
+          <Box
+            position={'absolute'}
+            top={0}
+            left={'100%'}
+            ml={-50}
+            bottom={0}
+            width={400}
+            zIndex={3}
+            sx={{
+              background: 'linear-gradient(270deg, #080808 0%, rgba(8, 8, 8, 0) 100%)',
+              userSelect: 'none',
+              pointerEvents: 'none',
+            }}
+          />
+          <SwiperControls
+            mt={10}
+            justifyContent={'center'}
+            sx={(theme) => ({
+              [theme.breakpoints.up('lg')]: {
+                ml: -25,
+                pr: 25,
+              },
+            })}
+            swiperButtonProps={{
+              sx: {
+                position: 'absolute',
+                top: '235px',
+              },
+            }}
+          />
+        </Swiper>
+      </Box>
     </Box>
   )
 }

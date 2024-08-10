@@ -21,7 +21,7 @@ export const theme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: COLORS.dark,
+      default: '#000',
     },
     text: {
       primary: COLORS.white,
@@ -134,9 +134,9 @@ export const theme = createTheme({
           }
         },
         startIcon: {
-          '&>*:nth-of-type(1)': {
-            fontSize: '24px',
-          },
+          // '&>*:nth-of-type(1)': {
+          //   fontSize: '24px',
+          // },
         },
       },
       variants: [

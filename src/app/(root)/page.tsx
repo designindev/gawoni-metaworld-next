@@ -1,7 +1,4 @@
-import { Games } from 'widgets/games/Games'
-import { Main } from 'widgets/main/Main'
-import { News } from 'widgets/news/News'
-import { Nfts } from 'widgets/nfts/Nfts'
+import { Main, Games, News, Nfts } from 'widgets'
 
 export default function Home() {
   return (

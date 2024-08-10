@@ -1,36 +1,18 @@
 'use client'
 
-import { Box, BoxProps, Button, Container, Grid, styled, Typography } from '@mui/material'
-import { A11y, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules'
+import { Box, Button, Container, Typography } from '@mui/material'
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Image1 from './slide-1.jpg'
-import Image2 from './slide-2.jpg'
 import { onScrollToBlock } from 'shared/lib'
-import { Section, SwiperButton, SwiperPagination } from 'shared/ui'
-
-const items = [
-  {
-    image: Image1,
-    title: 'GAWOONI MetaWorld -',
-    titleSecond: 'blockchain gaming portal',
-    content:
-      'Lorem ipsum dolor sit amet consectetur. Feugiat ullamcorper quis porta pharetra nullam semper. Pellentesque egestas sed morbi magna nunc ornare nulla vivamus. Aenean egestas',
-  },
-  {
-    image: Image2,
-    title: '2GAWOONI MetaWorld -',
-    titleSecond: 'blockchain gaming portal',
-    content:
-      'Lorem ipsum dolor sit amet consectetur. Feugiat ullamcorper quis porta pharetra nullam semper. Pellentesque egestas sed morbi magna nunc ornare nulla vivamus. Aenean egestas',
-  },
-]
+import { Section, SwiperControls } from 'shared/ui'
+import { items } from './items'
 
 export const Main = () => {
   return (
-    <Section first pb={0}>
+    <Section first pt={0} pb={0}>
       <Swiper
-        modules={[Navigation, Pagination, EffectFade]}
-        effect={'fade'}
+        modules={[Navigation, Pagination]}
+        // effect={'fade'}
         spaceBetween={0}
         slidesPerView={1}
         pagination={{
@@ -42,6 +24,7 @@ export const Main = () => {
           nextEl: '.swiper-button-next',
         }}
         watchSlidesProgress
+        loop
       >
         {items.map((el, i) => {
           return (
@@ -50,46 +33,54 @@ export const Main = () => {
             </SwiperSlide>
           )
         })}
-        <Box
-          position={'absolute'}
-          top={0}
-          bottom={0}
-          right={30}
-          display={'flex'}
-          flexDirection={'column'}
-          justifyContent={'center'}
-          left={'50%'}
-          ml={205}
-        >
-          top: 0; bottom: 0; right: 30px; justify-content: center; flex-direction: column;
-          <SwiperButton
-            className='swiper-button-prev'
-            side='left'
-            circle
-            sx={{
-              transform: 'rotate(90deg)',
-              width: 44,
-              height: 44,
-              borderColor: '#ff4501',
-              position: 'relative',
-              mx: 'auto',
-            }}
-          />
-          <SwiperPagination className='swiper-pagination' />
-          <SwiperButton
-            className='swiper-button-next'
-            side='right'
-            circle
-            sx={{
-              transform: 'rotate(90deg)',
-              width: 44,
-              height: 44,
-              borderColor: '#ff4501',
-              position: 'relative',
-              mx: 'auto',
-            }}
-          />
-        </Box>
+        <SwiperControls
+          sx={(theme) => ({
+            position: 'absolute',
+            [theme.breakpoints.up('xxxxl')]: {
+              left: '50%',
+              ml: 205,
+            },
+            [theme.breakpoints.up('xl')]: {
+              top: 0,
+              bottom: 0,
+              right: 30,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
+            [theme.breakpoints.down('xl')]: {
+              bottom: '40px',
+              left: 15,
+              right: 15,
+            },
+          })}
+          swiperButtonProps={{
+            sx: (theme) => ({
+              [theme.breakpoints.up('xl')]: {
+                transform: 'rotate(90deg)',
+                width: 44,
+                height: 44,
+                borderColor: '#ff4501',
+                position: 'relative',
+                m: '0 auto',
+                '&::before': {
+                  backgroundImage: 'url(/images/icons/noun-arrow-secondary.svg)',
+                },
+                '&::after': {
+                  backgroundImage: 'url(/images/icons/noun-arrow.svg)',
+                },
+              },
+            }),
+          }}
+          swiperPaginationProps={{
+            sx: (theme) => ({
+              [theme.breakpoints.up('xl')]: {
+                flexDirection: 'column',
+                my: 5,
+              },
+            }),
+          }}
+        />
       </Swiper>
     </Section>
   )
@@ -145,3 +136,52 @@ const Slide = ({ slide }: { slide: (typeof items)[0] }) => {
     </Box>
   )
 }
+
+// export interface StatProps {
+//   value: number | string
+//   unit: string
+//   variant?: 'outlined'
+// }
+
+// interface StatOwnerState extends StatProps {
+//   // …key value pairs for the internal state that you want to style the slot
+//   // but don't want to expose to the users
+// }
+
+// const StatRoot = styled('div', {
+//   name: 'MuiStat',
+//   slot: 'root',
+// })<{ ownerState: StatOwnerState }>(({ theme, ownerState }) => ({}))
+
+// const StatValue = styled('div', {
+//   name: 'MuiStat',
+//   slot: 'value',
+// })<{ ownerState: StatOwnerState }>(({ theme }) => ({}))
+
+// const StatUnit = styled('div', {
+//   name: 'MuiStat',
+//   slot: 'unit',
+// })<{ ownerState: StatOwnerState }>(({ theme }) => ({}))
+
+// const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(inProps, ref) {
+//   const props = useThemeProps({ props: inProps, name: 'MuiStat' })
+//   const { value, unit, variant, ...other } = props
+
+//   const ownerState = { ...props, variant }
+
+//   return (
+//     <StatRoot ref={ref} ownerState={ownerState} {...other}>
+//       <StatValue ownerState={ownerState}>{value}</StatValue>
+//       <StatUnit ownerState={ownerState}>{unit}</StatUnit>
+//     </StatRoot>
+//   )
+// })
+
+// export default function StatFullTemplate() {
+//   return (
+//     <Stack direction='row' spacing={2}>
+//       <Stat value='1.9M' unit='Favorites' />
+//       <Stat value='5.1M' unit='Views' variant='outlined' />
+//     </Stack>
+//   )
+// }

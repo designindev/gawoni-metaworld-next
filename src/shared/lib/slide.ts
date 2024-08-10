@@ -1,3 +1,4 @@
+// TODO: DELETE
 export const slideUp = (target: HTMLElement | null, duration = 500) => {
   if (!target) return
   target.style.transitionProperty = 'height, margin, padding'

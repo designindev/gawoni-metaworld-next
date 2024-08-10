@@ -1,58 +1,58 @@
-@import './../../styles/vars';
-@import './../../styles/mixin';
+// @import './../../styles/vars';
+// @import './../../styles/mixin';
 
-.swiper-controls {
-  &--bottom {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+// .swiper-controls {
+//   &--bottom {
+//     margin-top: 30px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    .swiper-button-prev,
-    .swiper-button-next {
-      position: relative;
-      margin: 0;
-      // transform: translate(0, 0);
-      flex-shrink: 0;
-    }
-    .swiper-button-prev {
-      left: 0;
-    }
+//     .swiper-button-prev,
+//     .swiper-button-next {
+//       position: relative;
+//       margin: 0;
+//       // transform: translate(0, 0);
+//       flex-shrink: 0;
+//     }
+//     .swiper-button-prev {
+//       left: 0;
+//     }
 
-    .swiper-button-next {
-      right: 0;
-    }
-    .swiper-pagination,
-    .swiper-pagination-bullets.swiper-pagination-horizontal {
-      bottom: 0;
-    }
+//     .swiper-button-next {
+//       right: 0;
+//     }
+//     .swiper-pagination,
+//     .swiper-pagination-bullets.swiper-pagination-horizontal {
+//       bottom: 0;
+//     }
 
-    .swiper-pagination-bullets {
-      position: relative;
-      margin: 5px 15px;
-      flex-wrap: wrap;
+//     .swiper-pagination-bullets {
+//       position: relative;
+//       margin: 5px 15px;
+//       flex-wrap: wrap;
 
-      @include xs {
-        max-width: 220px;
-        margin-left: 5px;
-        margin-right: 5px;
-      }
-    }
-  }
+//       @include xs {
+//         max-width: 220px;
+//         margin-left: 5px;
+//         margin-right: 5px;
+//       }
+//     }
+//   }
 
-  &--bottom-pagination {
-    .swiper-button-next,
-    .swiper-button-prev {
-      bottom: 55px;
-    }
+//   &--bottom-pagination {
+//     .swiper-button-next,
+//     .swiper-button-prev {
+//       bottom: 55px;
+//     }
 
-    .swiper-pagination {
-      display: flex;
-      height: 55px;
-      padding: 0;
-      align-items: flex-end;
-      justify-content: center;
-      position: relative;
-    }
-  }
-}
+//     .swiper-pagination {
+//       display: flex;
+//       height: 55px;
+//       padding: 0;
+//       align-items: flex-end;
+//       justify-content: center;
+//       position: relative;
+//     }
+//   }
+// }

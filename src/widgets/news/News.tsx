@@ -34,9 +34,7 @@ export const News = async () => {
       <Container>
         <Box display={'flex'} justifyContent={'space-between'} mb={{ lg: 15, xs: 8 }}>
           <Typography variant='h1' component='h2'>
-            <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
-              <TitleWithIcon side='right'>latest News</TitleWithIcon>
-            </Typography>
+            <TitleWithIcon side='right'>latest News</TitleWithIcon>
           </Typography>
           <Box sx={{ display: { xs: 'none', lg: 'block' }, mt: 4 }}>
             <Button href={readAllLink} target='_blank'>

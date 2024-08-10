@@ -4,12 +4,12 @@
       &,
       &.swiper-controls--bottom {
         @include xl-min {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          right: 30px;
-          justify-content: center;
-          flex-direction: column;
+          // position: absolute;
+          // top: 0;
+          // bottom: 0;
+          // right: 30px;
+          // justify-content: center;
+          // flex-direction: column;
 
           .swiper-pagination {
             position: relative;
@@ -26,11 +26,6 @@
           }
           .swiper-button-prev,
           .swiper-button-next {
-            position: relative;
-            margin: 0 auto;
-            width: 44px;
-            height: 44px;
-            border-color: #ff4501;
             &:hover {
               border-color: #fff;
             }
@@ -41,12 +36,6 @@
             &::after {
               background-image: url('/images/icons/noun-arrow.svg');
             }
-          }
-          .swiper-button-prev {
-            transform: rotate(90deg);
-          }
-          .swiper-button-next {
-            transform: rotate(90deg);
           }
         }
         @include xxxxl-min {

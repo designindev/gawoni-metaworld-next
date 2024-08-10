@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
 import classNames from 'classnames'
 import { IBM_FLEX_SANS, Whyte } from './fonts'
-import 'swiper/css/bundle'
-// import 'swiper/css'
-// import 'swiper/css/effect-fade'
-// import 'swiper/css/free-mode'
-// import 'swiper/css/navigation'
-// import 'swiper/css/thumbs'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
@@ -31,19 +25,14 @@ export default function RootLayout({
     <html lang='en'>
       <body className={classNames(IBM_FLEX_SANS.variable, Whyte.variable)}>
         <Providers>
-          <Header />
-          <Box sx={{ height: { lg: '85px', xs: '60px' } }}></Box>
-          <Box
-            component={'main'}
-            maxWidth={1920}
-            mx={'auto'}
-            overflow={'hidden'}
-            position={'relative'}
-            minHeight={{ lg: 900, xs: 'auto' }}
-          >
-            {children}
+          <Box overflow={'hidden'} position={'relative'}>
+            <Header />
+            <Box sx={{ height: { lg: '85px', xs: '60px' } }}></Box>
+            <Box component={'main'} maxWidth={1920} mx={'auto'} minHeight={{ lg: 900, xs: 'auto' }}>
+              {children}
+            </Box>
+            <Footer />
           </Box>
-          <Footer />
         </Providers>
       </body>
     </html>

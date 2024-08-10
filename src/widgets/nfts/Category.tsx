@@ -60,11 +60,11 @@ export const Category = (props: Props) => {
             </SwiperSlide>
           )
         })}
-        <SwiperControls className='nfts__items-controls' bottom>
+        {/* <SwiperControls className='nfts__items-controls' bottom>
           <SwiperButton side='left' circle />
           <SwiperPagination />
           <SwiperButton side='right' circle />
-        </SwiperControls>
+        </SwiperControls> */}
       </Swiper>
     </Box>
   )

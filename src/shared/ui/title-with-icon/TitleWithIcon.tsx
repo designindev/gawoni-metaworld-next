@@ -1,7 +1,7 @@
-import { Box } from '@mui/material'
+import { Box, BoxProps } from '@mui/material'
 import { ReactNode } from 'react'
 
-export const TitleWithIcon = ({ children, side = 'left' }: { children: ReactNode; side?: 'left' | 'right' }) => {
+export const TitleWithIcon = ({ side = 'left', ...rest }: BoxProps & { side?: 'left' | 'right' }) => {
   const left = side === 'left'
   const right = side === 'right'
 
@@ -12,7 +12,9 @@ export const TitleWithIcon = ({ children, side = 'left' }: { children: ReactNode
       pl={left ? { lg: 19, sm: 15, xs: 13 } : 0}
       pr={right ? { lg: 19, sm: 15, xs: 13 } : 0}
       position={'relative'}
+      {...rest}
       sx={{
+        ...rest.sx,
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -25,8 +27,6 @@ export const TitleWithIcon = ({ children, side = 'left' }: { children: ReactNode
           backgroundImage: `url(/images/icons/h2-icon-${left ? 'secondary' : 'primary'}.svg)`,
         },
       }}
-    >
-      {children}
-    </Box>
+    />
   )
 }

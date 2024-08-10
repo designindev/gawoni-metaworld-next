@@ -64,11 +64,12 @@ export function Header() {
               <IconButton
                 onClick={onClick}
                 edge='start'
-                sx={{ display: { lg: 'none' }, mr: -2, fontSize: '30px' }}
+                sx={{ display: { lg: 'none' }, mr: -2 }}
+                size='large'
                 color={'inherit'}
                 aria-label='menu'
               >
-                <MenuIcon />
+                <MenuIcon sx={{ fontSize: 24 }} />
               </IconButton>
             </Box>
           </Toolbar>

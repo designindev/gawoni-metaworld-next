@@ -51,9 +51,7 @@ export const Games = () => {
     >
       <Container className='games'>
         <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
-          <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
-            <TitleWithIcon>our games</TitleWithIcon>
-          </Typography>
+          <TitleWithIcon>our games</TitleWithIcon>
         </Typography>
         <Grid container spacing={{ xs: 6, lg: 10 }}>
           {items.map((item, i) => {

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight'
 import EastIcon from '@mui/icons-material/East'
-import { TitleWithIcon } from 'shared/ui'
+import { Section, TitleWithIcon } from 'shared/ui'
 
 const findImage = (body: string) => {
   const imgRegex = /<img.*?src="(.*?)"/
@@ -26,8 +26,7 @@ export const News = async () => {
   const items = data.items.slice(0, 3) as any[]
 
   return (
-    <Box
-      className='section'
+    <Section
       id='news'
       sx={{ backgroundSize: 'cover', backgroundPosition: 'center', backgroundImage: 'url(/images/bg/news.png)' }}
     >
@@ -144,6 +143,6 @@ export const News = async () => {
           </Box>
         </Box>
       </Container>
-    </Box>
+    </Section>
   )
 }

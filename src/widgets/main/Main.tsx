@@ -6,13 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Image1 from './slide-1.jpg'
 import Image2 from './slide-2.jpg'
 import { onScrollToBlock } from 'shared/lib'
-import { SwiperButton, SwiperPagination } from 'shared/ui'
-// import 'swiper/css/free-mode'
-// import 'swiper/css/thumbs'
-// import 'swiper/css'
-// import 'swiper/css/navigation'
-// import 'swiper/css/pagination'
-// import 'swiper/css/effect-fade'
+import { Section, SwiperButton, SwiperPagination } from 'shared/ui'
 
 const items = [
   {
@@ -30,10 +24,6 @@ const items = [
       'Lorem ipsum dolor sit amet consectetur. Feugiat ullamcorper quis porta pharetra nullam semper. Pellentesque egestas sed morbi magna nunc ornare nulla vivamus. Aenean egestas',
   },
 ]
-
-const Section = (props: BoxProps & { first?: boolean }) => {
-  return <Box component={'section'} pt={25} pb={25} mt={{ md: '-85px', xs: '-60px' }} {...props} />
-}
 
 export const Main = () => {
   return (

@@ -2,12 +2,13 @@ import React, { ReactNode } from 'react'
 import { Category } from './Category'
 import { Box, Container, Stack, Typography } from '@mui/material'
 import { nfts } from './items'
-import { TitleWithIcon } from 'shared/ui'
+import { Section, TitleWithIcon } from 'shared/ui'
 
 export const Nfts = async () => {
+  // TODO: ADD GRADIENT
   return (
-    <Box component={'section'} className='section section--gradient s-nfts'>
-      <Container className='s-nfts__container nfts'>
+    <Section>
+      <Container>
         <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
           <TitleWithIcon>Nft</TitleWithIcon>
         </Typography>
@@ -17,6 +18,6 @@ export const Nfts = async () => {
           <Category title='top sellers' items={nfts} />
         </Stack>
       </Container>
-    </Box>
+    </Section>
   )
 }

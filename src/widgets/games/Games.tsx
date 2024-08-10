@@ -7,7 +7,7 @@ import { PATH_PAGE } from 'shared/lib'
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import InfoOutlined from '@mui/icons-material/Info'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
-import { TitleWithIcon } from 'shared/ui'
+import { Section, TitleWithIcon } from 'shared/ui'
 
 const items = [
   {
@@ -41,9 +41,7 @@ const items = [
 
 export const Games = () => {
   return (
-    <Box
-      component={'section'}
-      className='section'
+    <Section
       sx={{
         backgroundSize: 'cover',
         backgroundImage: `url(/images/bg/games.png)`,
@@ -258,6 +256,6 @@ export const Games = () => {
           })}
         </Grid>
       </Container>
-    </Box>
+    </Section>
   )
 }

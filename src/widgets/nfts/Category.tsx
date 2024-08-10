@@ -2,7 +2,6 @@
 
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SwiperControls, SwiperButton, SwiperPagination } from 'shared/ui'
 import { NFT, NftCard } from 'entities/nft'
 import { PATH_PAGE, useAppDispatch } from 'shared/lib'
 import { Box, Button, Typography } from '@mui/material'

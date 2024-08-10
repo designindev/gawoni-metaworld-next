@@ -4,6 +4,7 @@ import Link from 'next/link'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight'
 import EastIcon from '@mui/icons-material/East'
+import { TitleWithIcon } from 'shared/ui'
 
 const findImage = (body: string) => {
   const imgRegex = /<img.*?src="(.*?)"/
@@ -33,7 +34,9 @@ export const News = async () => {
       <Container>
         <Box display={'flex'} justifyContent={'space-between'} mb={{ lg: 15, xs: 8 }}>
           <Typography variant='h1' component='h2'>
-            <span className='section__heading-icon section__heading-icon--right'>latest News</span>
+            <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
+              <TitleWithIcon side='right'>latest News</TitleWithIcon>
+            </Typography>
           </Typography>
           <Box sx={{ display: { xs: 'none', lg: 'block' }, mt: 4 }}>
             <Button href={readAllLink} target='_blank'>

@@ -7,6 +7,7 @@ import { PATH_PAGE } from 'shared/lib'
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import InfoOutlined from '@mui/icons-material/Info'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+import { TitleWithIcon } from 'shared/ui'
 
 const items = [
   {
@@ -50,7 +51,9 @@ export const Games = () => {
     >
       <Container className='games'>
         <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
-          <span className='section__heading-icon'>our games</span>
+          <Typography variant='h1' component='h2' mb={{ lg: 15, xs: 8 }}>
+            <TitleWithIcon>our games</TitleWithIcon>
+          </Typography>
         </Typography>
         <Grid container spacing={{ xs: 6, lg: 10 }}>
           {items.map((item, i) => {

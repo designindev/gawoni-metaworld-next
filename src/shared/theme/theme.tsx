@@ -21,10 +21,10 @@ export const theme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: '#000',
+      default: COLORS.dark,
     },
     text: {
-      primary: '#fff',
+      primary: COLORS.white,
     },
     primary: {
       main: COLORS.primary,
@@ -42,9 +42,6 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: (theme) => ({
-        body: {
-          // backgroundColor: theme.palette.dark,
-        },
         '*': {
           boxSizing: 'border-box',
         },
@@ -58,6 +55,16 @@ export const theme = createTheme({
         '::selection': {
           backgroundColor: '#ff4501',
           color: '#fff',
+        },
+        section: {
+          paddingTop: '110px',
+          paddingBottom: '110px',
+          [theme.breakpoints.down('xl')]: {
+            padding: '70px 0',
+          },
+          [theme.breakpoints.down('lg')]: {
+            padding: '60px 0',
+          },
         },
         button: {
           backgroundColor: 'transparent',

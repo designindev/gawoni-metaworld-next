@@ -1,3 +1,3 @@
 export const nftRoutes = {
-  NFTS: '/nfts/',
+  fetchNfts: '/nfts/',
 }

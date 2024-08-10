@@ -9,14 +9,14 @@ import { Paginated } from 'shared/model/paginated'
 
 export const nftApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    nfts: build.query<
+    fetchNfts: build.query<
       Paginated<NFT>,
       { page?: number; limit?: number; game?: string; category?: string; rarity?: string }
     >({
-      query: (params) => ({ url: nftRoutes.NFTS, params }),
+      query: (params) => ({ url: nftRoutes.fetchNfts, params }),
       transformResponse: (response: Paginated<NTFDto>) => ({ ...response, data: response.data.map(ntfMapper) }),
     }),
   }),
 })
 
-export const { useNftsQuery } = nftApi
+export const { useFetchNftsQuery } = nftApi

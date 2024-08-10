@@ -4,7 +4,7 @@ import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import AddIcon from '@mui/icons-material/Add'
 import { useEffect, useState } from 'react'
-import { useNftsQuery } from 'entities/nft/api/nft.api'
+import { useFetchNftsQuery } from 'entities/nft/api/nft.api'
 import { AdminFilter } from './AdminFilter'
 import { NftCard, NftCardSkeleton } from 'entities/nft'
 import { PATH_PAGE } from 'shared/lib'
@@ -16,7 +16,12 @@ export const Items = () => {
   const game = searchParams.get('game') ?? undefined
   const category = searchParams.get('category') ?? undefined
   const rarity = searchParams.get('rarity') ?? undefined
-  const { data: { data: nfts = [], lastPage } = {}, isFetching } = useNftsQuery({ page: 1, game, category, rarity })
+  const { data: { data: nfts = [], lastPage } = {}, isFetching } = useFetchNftsQuery({
+    page: 1,
+    game,
+    category,
+    rarity,
+  })
 
   const onLoad = () => {
     setPage((p) => p + 1)
@@ -77,7 +82,7 @@ export const Items = () => {
 }
 
 export const Page = ({ page }: { page: number }) => {
-  const { data: { data: nfts = [] } = {}, isLoading } = useNftsQuery({ page, limit: 4 })
+  const { data: { data: nfts = [] } = {}, isLoading } = useFetchNftsQuery({ page, limit: 4 })
 
   return (
     <>

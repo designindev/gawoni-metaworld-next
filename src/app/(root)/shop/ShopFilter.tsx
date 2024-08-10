@@ -1,6 +1,6 @@
 'use client'
 
-import { NFT, NftCard, NftCardSkeleton, useNftsQuery } from 'entities/nft'
+import { NFT, NftCard, NftCardSkeleton, useFetchNftsQuery } from 'entities/nft'
 import { usePaginationQuery } from 'shared/model'
 import { Filter } from 'widgets/filter/Filter'
 import { Grid, Pagination, Skeleton, Stack, useMediaQuery } from '@mui/material'
@@ -15,7 +15,7 @@ export const ShopFilter = () => {
   const game = searchParams.get('game') ?? undefined
   const category = searchParams.get('category') ?? undefined
   const rarity = searchParams.get('rarity') ?? undefined
-  const { data: { data: nfts = [], count, lastPage } = {}, isFetching } = useNftsQuery({
+  const { data: { data: nfts = [], count, lastPage } = {}, isFetching } = useFetchNftsQuery({
     page,
     game,
     category,

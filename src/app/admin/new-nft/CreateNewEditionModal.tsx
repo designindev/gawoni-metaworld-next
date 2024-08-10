@@ -38,7 +38,7 @@ export const CreateNewEditionModal = (props: Omit<ModalProps, 'children'>) => {
   return (
     <>
       <CustomedModal {...props}>
-        <Typography variant='h3' fontSize={26} fontFamily={'Whyte'}>
+        <Typography variant='h3' fontSize={26} fontFamily={'var(--font-whyte)'}>
           Create new edition
         </Typography>
         <Stack spacing={7}>

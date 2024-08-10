@@ -11,7 +11,7 @@ export const AddParamentModal = (props: Props) => {
   return (
     <>
       <CustomedModal {...props}>
-        <Typography variant='h3' fontSize={26} fontFamily={'Whyte'}>
+        <Typography variant='h3' fontSize={26} fontFamily={'var(--font-whyte)'}>
           {props.title}
         </Typography>
         <Stack spacing={7}>

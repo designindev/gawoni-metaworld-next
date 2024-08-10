@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import classNames from 'classnames'
-import { IBM_FLEX_SANS } from './fonts'
+import { IBM_FLEX_SANS, Whyte } from './fonts'
 import 'swiper/css/bundle'
 // import 'swiper/css'
 // import 'swiper/css/effect-fade'
@@ -11,8 +11,6 @@ import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
-// import 'bootstrap/dist/css/bootstrap-grid.min.css'
-// import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css'
 import './App.scss'
 import { Footer, Header } from 'widgets'
 import { Providers } from './Providers'
@@ -31,11 +29,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={classNames(IBM_FLEX_SANS.className, IBM_FLEX_SANS.variable)}>
+      <body className={classNames(IBM_FLEX_SANS.variable, Whyte.variable)}>
         <Providers>
           <Header />
           <Box sx={{ height: { lg: '85px', xs: '60px' } }}></Box>
-          <main className='wrapper'>{children}</main>
+          <Box
+            component={'main'}
+            maxWidth={1920}
+            mx={'auto'}
+            overflow={'hidden'}
+            position={'relative'}
+            minHeight={{ lg: 900, xs: 'auto' }}
+          >
+            {children}
+          </Box>
           <Footer />
         </Providers>
       </body>

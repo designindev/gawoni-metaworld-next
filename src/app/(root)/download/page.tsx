@@ -56,7 +56,7 @@ export default function Download() {
                     textTransform={'uppercase'}
                     mb={'auto'}
                     fontWeight={700}
-                    fontFamily={'Whyte'}
+                    fontFamily={'var(--font-whyte)'}
                   >
                     {el.title}
                   </Typography>

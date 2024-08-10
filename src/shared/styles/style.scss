@@ -1,10 +1,5 @@
 @import './vars';
 @import './mixin';
-@import './fonts';
-
-// content
-@import './components/image';
-// content
 // form
 @import './components/input-text';
 @import './components/input-count';
@@ -17,73 +12,3 @@
 @import './components/game-detail';
 @import './components/nft-detail';
 // components
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-::selection {
-  background-color: #ff4501;
-  color: #fff;
-}
-
-// .bg-common {
-//   background: $color-nft-common;
-// }
-
-// .bg-uncommon {
-//   background: $color-nft-uncommon;
-// }
-
-// .bg-epic {
-//   background: $color-nft-epic;
-// }
-
-// .bg-rare {
-//   background: $color-nft-rare;
-// }
-
-// .bg-one-of-a-kind {
-//   background: $color-nft-on-of-kind;
-//   color: #000;
-// }
-
-// .bg-signature {
-//   background: $color-nft-signature;
-//   color: #000;
-// }
-
-// .bg-mystic {
-//   background: $color-nft-mystic;
-//   color: #000;
-// }
-
-// .bg-legendary {
-//   background: $color-nft-legendary;
-//   color: #000;
-// }
-
-.wrapper {
-  max-width: 1920px;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-  @include lg-min {
-    min-height: 900px;
-  }
-
-  .section:first-child {
-    @include xl-min {
-      padding-top: 110px + 30px;
-    }
-
-    @include md {
-      padding-top: 50px;
-    }
-    @include sm {
-      padding-top: 30px;
-    }
-  }
-}

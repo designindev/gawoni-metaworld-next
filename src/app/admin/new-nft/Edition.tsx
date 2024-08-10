@@ -44,7 +44,7 @@ export const Edition = () => {
 
   return (
     <>
-      <Typography variant={'h5'} component={'h3'} fontFamily={'Whyte'} fontWeight={'700'} mb={5}>
+      <Typography variant={'h5'} component={'h3'} fontFamily={'var(--font-whyte)'} fontWeight={'700'} mb={5}>
         Choose edition
       </Typography>
       <Box
@@ -92,7 +92,7 @@ export const Edition = () => {
             >
               <AddIcon />
             </IconButton>
-            <Typography variant='h3' fontSize={26} fontFamily={'Whyte'} fontWeight={900}>
+            <Typography variant='h3' fontSize={26} fontFamily={'var(--font-whyte)'} fontWeight={900}>
               Create new edition
             </Typography>
           </Stack>
@@ -118,7 +118,13 @@ export const Edition = () => {
                 onClick={() => setActive(i)}
               >
                 <Box sx={{ width: 24, height: 24, backgroundColor: el.color, borderRadius: '50%', mb: 6 }}></Box>
-                <Typography variant='h3' fontSize={26} fontFamily={'Whyte'} fontWeight={900} color={el.color}>
+                <Typography
+                  variant='h3'
+                  fontSize={26}
+                  fontFamily={'var(--font-whyte)'}
+                  fontWeight={900}
+                  color={el.color}
+                >
                   {el.name}
                 </Typography>
               </Stack>

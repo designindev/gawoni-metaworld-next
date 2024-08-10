@@ -9,7 +9,13 @@ export const GameFeature = () => {
       <Grid container spacing={{ xs: 6, lg: 10 }}>
         <Grid item md={6} xs={12}>
           <Box sx={{ border: '1px solid #fff', borderRadius: 2, px: 6, py: 10, height: '100%' }}>
-            <Typography variant='h5' component={'h4'} fontWeight={900} fontFamily={'Whyte'} textTransform={'uppercase'}>
+            <Typography
+              variant='h5'
+              component={'h4'}
+              fontWeight={900}
+              fontFamily={'var(--font-whyte)'}
+              textTransform={'uppercase'}
+            >
               game description
             </Typography>
             <Typography variant='body1' mt={6} fontSize={20} lineHeight={1.5}>
@@ -20,7 +26,13 @@ export const GameFeature = () => {
         </Grid>
         <Grid item md={6} xs={12}>
           <Box sx={{ border: '1px solid #fff', borderRadius: 2, px: 6, py: 10, height: '100%' }}>
-            <Typography variant='h5' component={'h4'} fontWeight={900} fontFamily={'Whyte'} textTransform={'uppercase'}>
+            <Typography
+              variant='h5'
+              component={'h4'}
+              fontWeight={900}
+              fontFamily={'var(--font-whyte)'}
+              textTransform={'uppercase'}
+            >
               game Features
             </Typography>
             <Box component={'ul'}>

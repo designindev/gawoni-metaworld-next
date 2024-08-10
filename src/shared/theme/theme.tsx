@@ -43,16 +43,21 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: (theme) => ({
         body: {
-          lineHeight: 1.3,
-          minWidth: '320px',
-          position: 'relative',
-          margin: '0 auto',
-          backgroundColor: theme.palette.dark,
-          fontSize: 16,
-          [theme.breakpoints.down('lg')]: {
-            fontSize: 14,
-            lineHeight: 1.2,
-          },
+          // backgroundColor: theme.palette.dark,
+        },
+        '*': {
+          boxSizing: 'border-box',
+        },
+        '*::before': {
+          boxSizing: 'border-box',
+        },
+        '*::after': {
+          boxSizing: 'border-box',
+        },
+
+        '::selection': {
+          backgroundColor: '#ff4501',
+          color: '#fff',
         },
         button: {
           backgroundColor: 'transparent',
@@ -333,15 +338,15 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),
-    htmlFontSize: 22,
+    htmlFontSize: 40,
     h1: {
-      fontFamily: 'Whyte',
+      fontFamily: 'var(--font-whyte)',
       fontSize: '56px',
       textTransform: 'uppercase',
       fontWeight: '900',
     },
     h2: {
-      fontFamily: 'Whyte',
+      fontFamily: 'var(--font-whyte)',
       fontSize: '56px',
       textTransform: 'uppercase',
       fontWeight: '900',
@@ -364,7 +369,11 @@ export const theme = createTheme({
       fontSize: 14,
     },
     body1: {
-      fontSize: 18,
+      fontSize: 16,
+      lineHeight: 1.5,
+    },
+    body2: {
+      fontSize: 14,
     },
   },
   spacing: 4,
@@ -453,6 +462,7 @@ declare module '@mui/material/Typography' {
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
+    // TODO: REMOVE
     dashed: true
   }
   interface ButtonPropsColorOverrides {

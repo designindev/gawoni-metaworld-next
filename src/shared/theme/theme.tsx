@@ -267,8 +267,14 @@ export const theme = createTheme({
       },
     },
     MuiSelect: {
+      defaultProps: {
+        displayEmpty: true,
+      },
       styleOverrides: {
         root: {},
+        icon: {
+          fontSize: 30,
+        },
       },
     },
     MuiFormControl: {},

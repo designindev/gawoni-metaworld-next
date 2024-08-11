@@ -1,4 +1,5 @@
-export { ControlledInput } from './controlled-input/Controlled-input'
+export { ControlledInput } from './controlled-input/ControlledInput'
+export { ControlledSelect } from './controlled-select/ControlledSelect'
 export { Form, InputErrorMessageForm, InputForm } from './form'
 export { Input, type InputPropsUI, InputErrorMessage } from './input'
 export { Pagination } from './pagination/Pagination'

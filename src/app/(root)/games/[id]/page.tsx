@@ -34,6 +34,7 @@ const Games = () => {
       <Container>
         <Stack spacing={{ lg: 18, xs: 6 }}>
           <Stack spacing={10}>
+            {/* // TODO: MOVE TO WIDGETS  */}
             <GameSlider slides={slides} />
             <GameInfo />
           </Stack>

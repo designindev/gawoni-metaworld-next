@@ -20,6 +20,7 @@ export const ControlledSelect = <TFormValues extends Record<string, unknown>>({
       name={name}
       control={control}
       render={({ field: { onChange, ref, value }, fieldState: { error } }) => (
+        // TODO: CHANGE TO TEXTFIELD
         <FormControl error={Boolean(error)} fullWidth={rest.fullWidth}>
           {rest.label && <InputLabel>{rest.label}</InputLabel>}
           <Select onChange={onChange} inputRef={ref} value={value} {...rest}>

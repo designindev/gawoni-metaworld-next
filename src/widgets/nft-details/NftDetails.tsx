@@ -46,7 +46,7 @@ export const NftDetails = () => {
             $20.00
           </Box>
         </Stack>
-        <Stack spacing={4} component={'ul'}>
+        <Stack component={'ul'} spacing={4}>
           <Stack component={'li'} direction={'row'} spacing={1} justifyContent={'space-between'} alignItems={'center'}>
             <Box color={'#aaa'} fontSize={14} fontWeight={600}>
               Edition

@@ -1,4 +1,5 @@
 export { ControlledInput } from './controlled-input/ControlledInput'
+export { ControlledInputCount } from './controlled-input-count/ControlledInputCount'
 export { ControlledSelect } from './controlled-select/ControlledSelect'
 export { Pagination } from './pagination/Pagination'
 export { Section } from './section/Section'

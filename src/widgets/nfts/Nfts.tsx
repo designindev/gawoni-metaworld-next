@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { Category } from './Category'
-import { Box, Container, Stack, Typography } from '@mui/material'
+import { Container, Stack, Typography } from '@mui/material'
 import { nfts } from './items'
 import { Section, TitleWithIcon } from 'shared/ui'
 

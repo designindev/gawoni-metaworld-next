@@ -47,6 +47,13 @@ export const Category = (props: Props) => {
               pr: 12,
             },
           },
+          '& .swiper-slide': {
+            opacity: 1,
+            transition: 'opacity .5s',
+          },
+          '& .swiper-slide-prev': {
+            opacity: 0,
+          },
         })}
       >
         <Swiper
@@ -63,13 +70,11 @@ export const Category = (props: Props) => {
             992: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 30 },
             1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 40 },
           }}
-          wrapperClass='items__slider nfts__items-slider'
-          style={{}}
           loop
         >
           {items.map((item, i) => {
             return (
-              <SwiperSlide key={i} style={{ transition: 'opacity .5s', opacity: 1 }}>
+              <SwiperSlide key={i}>
                 <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} />
               </SwiperSlide>
             )

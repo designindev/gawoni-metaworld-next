@@ -1,11 +1,12 @@
 import { Box, Container, Grid } from '@mui/material'
+import { Section } from 'shared/ui'
 import { NftImage, NftForm, NftDetails, NftParameters } from 'widgets'
 
 const Shop = () => {
   return (
-    <Box component='section' className='section'>
+    <Section>
       <Container>
-        <Grid container spacing={12} className='row'>
+        <Grid container spacing={12}>
           <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
             <NftImage />
             <NftForm />
@@ -18,7 +19,7 @@ const Shop = () => {
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </Section>
   )
 }
 

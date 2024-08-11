@@ -33,6 +33,7 @@ export const NewPasswordForm = (props: Props) => {
         className={classNames('', props.className)}
       >
         <Stack spacing={6}>
+          {/* TODO: TO REDO  */}
           <InputForm<NewPasswordFormSchema>
             type='password'
             name='password'

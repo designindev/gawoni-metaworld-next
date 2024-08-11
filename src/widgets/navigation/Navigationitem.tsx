@@ -93,7 +93,7 @@ const Navigationitem = (props: Props) => {
             const { label, sub, ...rest } = el
 
             return (
-              <Box component={'li'} key={i} className='navigation__list-item' textAlign={'left'}>
+              <Box component={'li'} key={i} textAlign={'left'}>
                 <Box
                   component={Link}
                   sx={(theme) => ({

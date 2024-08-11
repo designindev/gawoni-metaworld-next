@@ -4,7 +4,9 @@ import Link from 'next/link'
 import DownloadImage1 from 'shared/images/download/download-1.svg'
 import DownloadImage2 from 'shared/images/download/download-2.svg'
 import DownloadImage3 from 'shared/images/download/download-3.svg'
+import { Section } from 'shared/ui'
 
+// TODO: MOVE TO FILE
 const items = [
   {
     image: DownloadImage1,
@@ -25,7 +27,7 @@ const items = [
 
 export default function Download() {
   return (
-    <Box component={'section'} className='section'>
+    <Section>
       <Container>
         <Typography variant='h1' component='h1' textAlign={'center'} fontSize={64} mb={{ lg: 15, xs: 8 }}>
           play k4 rally
@@ -69,6 +71,6 @@ export default function Download() {
           })}
         </Grid>
       </Container>
-    </Box>
+    </Section>
   )
 }

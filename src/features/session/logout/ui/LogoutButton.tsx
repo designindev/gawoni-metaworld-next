@@ -1,9 +1,9 @@
 import { useAppDispatch } from 'shared/lib'
 import { logoutThunk } from '../model/logout.thunk'
 import { notifySuccess } from 'shared/lib'
-// import { IoLogOutOutline } from 'react-icons/io5'
 import './LogoutButton.scss'
 
+// TODO: REMOVE
 export function LogoutButton() {
   const dispatch = useAppDispatch()
 

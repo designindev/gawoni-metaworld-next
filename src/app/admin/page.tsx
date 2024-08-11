@@ -1,23 +1,24 @@
 import { Chart } from './Chart'
-import { Box, Container, Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { Items } from './Items'
+import { Section } from 'shared/ui'
 
 export default function AdminPage() {
   return (
     <>
-      <Box component={'section'} className='section' mb={0} sx={{ pb: '0!important' }}>
+      <Section mb={0} pb={0}>
         <Container>
           <Typography variant='h1' component='h1' mb={4}>
             overview
           </Typography>
           <Chart />
         </Container>
-      </Box>
-      <Box component='section' className='section' pt={'60px!important'}>
+      </Section>
+      <Section pt={15}>
         <Container>
           <Items />
         </Container>
-      </Box>
+      </Section>
     </>
   )
 }

@@ -1,11 +1,12 @@
-import { Box, CircularProgress, Container } from '@mui/material'
+import { CircularProgress, Container } from '@mui/material'
+import { Section } from 'shared/ui'
 
 export default function Loading() {
   return (
-    <Box component='section' className='section' width={'100%'}>
+    <Section width={'100%'}>
       <Container sx={{ textAlign: 'center' }}>
         <CircularProgress />
       </Container>
-    </Box>
+    </Section>
   )
 }

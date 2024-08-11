@@ -1,13 +1,14 @@
 import { GameSlider } from './GameSlider'
 import { slides } from './slides'
-import { Container, Box, Grid, Typography, Stack } from '@mui/material'
+import { Container, Box, Stack } from '@mui/material'
 import { GameInfo } from './GameInfo'
 import { GameBanner } from './GameBanner'
 import { GameFeature } from './GameFuature'
+import { Section } from 'shared/ui'
 
 const Games = () => {
   return (
-    <Box component='section' className='section'>
+    <Section>
       <Box
         position={'absolute'}
         top={0}
@@ -40,7 +41,7 @@ const Games = () => {
           <GameBanner />
         </Stack>
       </Container>
-    </Box>
+    </Section>
   )
 }
 

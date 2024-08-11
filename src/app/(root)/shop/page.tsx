@@ -1,16 +1,17 @@
 import { Box, Container, Typography } from '@mui/material'
 import { ShopFilter } from './ShopFilter'
+import { Section } from 'shared/ui'
 
 const Shop = async () => {
   return (
-    <Box component='section' className='section'>
+    <Section>
       <Container>
         <Typography variant={'h1'} component={'h1'} sx={{ textAlign: 'center' }}>
           NFT Shop
         </Typography>
         <ShopFilter />
       </Container>
-    </Box>
+    </Section>
   )
 }
 

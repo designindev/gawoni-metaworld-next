@@ -19,6 +19,7 @@ import { NftCard } from 'entities/nft'
 import Logos from 'shared/images/nfts/logos.png'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
+import { Section } from 'shared/ui'
 
 type FormValues = {
   fieldArray: { name: string }[]
@@ -28,7 +29,6 @@ export default function NewNftPage() {
   const [isPreview, setIsPreview] = useState(false)
   const route = useRouter()
   const methods = useForm<FormValues>()
-  const bgClass = 'bg-mystic'
 
   const onToggle = () => {
     setIsPreview((p) => !p)
@@ -42,8 +42,9 @@ export default function NewNftPage() {
 
   return (
     <FormProvider {...methods}>
+      {/* TODO: ADD NEW PAGE  */}
       {isPreview === false ? (
-        <Box component={'section'} className='section'>
+        <Section>
           <Container>
             <Typography variant='h1' component='h1' mb={8}>
               add new nft
@@ -138,11 +139,11 @@ export default function NewNftPage() {
               </Box>
             </Stack>
           </Container>
-        </Box>
+        </Section>
       ) : (
-        <Box component={'section'} className='section'>
+        <Section>
           <Container>
-            <Grid container spacing={12} className='row'>
+            <Grid container spacing={12}>
               <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
                 <NftParameters />
               </Grid>
@@ -179,7 +180,7 @@ export default function NewNftPage() {
               </Stack>
             </Box>
           </Container>
-        </Box>
+        </Section>
       )}
     </FormProvider>
   )

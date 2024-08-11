@@ -1,3 +1,4 @@
+export { ControlledInput } from './controlled-input/Controlled-input'
 export { Form, InputErrorMessageForm, InputForm } from './form'
 export { Input, type InputPropsUI, InputErrorMessage } from './input'
 export { Pagination } from './pagination/Pagination'

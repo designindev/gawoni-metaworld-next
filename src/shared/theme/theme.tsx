@@ -273,6 +273,9 @@ export const theme = createTheme({
     },
     MuiFormControl: {},
     MuiInputLabel: {
+      defaultProps: {
+        shrink: true,
+      },
       styleOverrides: {
         root: {
           position: 'relative',
@@ -282,9 +285,14 @@ export const theme = createTheme({
     },
     MuiInputBase: {
       styleOverrides: {
+        formControl: {},
         root: {
           padding: '0 12px',
           height: '48px',
+        },
+        input: {
+          '&::placeholder': { color: '#fff', opacity: 1 },
+          '&::-webkit-input-placeholder': { color: '#fff', opacity: 1 },
         },
       },
     },
@@ -303,14 +311,15 @@ export const theme = createTheme({
         },
         input: {
           padding: '0',
-          '&::placeholder': {
-            color: '#aaa!important',
-          },
         },
       },
     },
     MuiFormHelperText: {
-      styleOverrides: {},
+      styleOverrides: {
+        root: {
+          fontSize: 14,
+        },
+      },
     },
     MuiTextField: {
       defaultProps: {
@@ -354,6 +363,7 @@ export const theme = createTheme({
     },
     h2: {
       fontFamily: 'var(--font-whyte)',
+      // TODO: CHANGED TO 48PX
       fontSize: '56px',
       textTransform: 'uppercase',
       fontWeight: '900',

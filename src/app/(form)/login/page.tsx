@@ -4,6 +4,7 @@ import { LoginForm } from 'features/session/login'
 const LoginPage = async () => {
   return (
     <Box maxWidth={560} width={'100%'}>
+      {/* // TODO: REMOVED DEFAULT PROP COMPONENT  */}
       <Typography variant='h1' component='h1' mb={{ lg: 21, xs: 8 }} textAlign={'center'} fontSize={48}>
         welcome back!
       </Typography>

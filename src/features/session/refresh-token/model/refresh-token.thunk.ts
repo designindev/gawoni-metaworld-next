@@ -4,6 +4,7 @@ import { sessionApi } from 'entities/session'
 import { CURRENT_USER_TAG } from 'shared/api'
 import { wait } from 'shared/lib'
 
+// TODO: DELETE
 export const refreshTokenThunk = createAsyncThunk<void, { refreshToken: string }, { state: RootState }>(
   'session/refresh-token',
   async (body, { dispatch, getState }) => {

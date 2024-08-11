@@ -74,7 +74,7 @@ export const NftForm = () => {
           )}
         />
       </Stack>
-      <ul className='detail-list nft-detail__list nft-detail__list-mt-lg'>
+      <Box component={'ul'} className='detail-list nft-detail__list' mt={11}>
         <li className='detail-list__item detail-list__item--row'>
           <div className='detail-list__label'>Price</div>
           <Box fontSize={18} className='detail-list__value'>
@@ -98,12 +98,12 @@ export const NftForm = () => {
             $20.00 (0.0794 BNB)
           </Box>
         </li>
-      </ul>
-      <div className='nft-detail__button'>
+      </Box>
+      <Box mt={11}>
         <Button type='submit' fullWidth>
           MINT
         </Button>
-      </div>
+      </Box>
     </form>
   )
 }

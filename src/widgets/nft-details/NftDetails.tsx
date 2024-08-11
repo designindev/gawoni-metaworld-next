@@ -7,7 +7,7 @@ import { getNftCss } from 'entities/nft'
 export const NftDetails = () => {
   return (
     <>
-      <div className='nft-detail__block'>
+      <Box p={{ lg: 6, xs: 4 }} mb={{ lg: 6, xs: 2 }} bgcolor={'dark.main'} borderRadius={2}>
         <Typography
           variant='h4'
           component={'h1'}
@@ -38,7 +38,6 @@ export const NftDetails = () => {
           py={2}
           px={6}
           borderRadius={2}
-          color={'dark.main'}
           mb={6}
           sx={{ ...getNftCss('Mystic') }}
         >
@@ -47,52 +46,50 @@ export const NftDetails = () => {
             $20.00
           </Box>
         </Stack>
-        <ul className='detail-list nft-detail__list'>
-          <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label'>Edition</div>
-            <div className='detail-list__value'>K4 Rally NFT Car - Race Edition #1 2023</div>
-          </li>
-          <li className='detail-list__item detail-list__item--row'>
-            <div className='detail-list__label'>Car Model</div>
-            <div className='detail-list__value'>Monsun</div>
-          </li>
-        </ul>
-      </div>
-      <div className='nft-detail__block nft-detail__block--sm'>
-        <ul className='detail-list nft-detail__list'>
-          <li className='detail-list__item'>
-            <div className='detail-list__label'>Additional Details</div>
-            <div className='detail-list__value'>
-              <p>The K4 Rally Race Editition is an easy way to get into our Game and participate in Tournaments!</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div className='nft-detail__block nft-detail__block--sm'>
-        <div className='detail-list__label'>Contract Details</div>
-        <div className='detail-list__value'>
-          <p>
+        <Stack spacing={4} component={'ul'}>
+          <Stack component={'li'} direction={'row'} spacing={1} justifyContent={'space-between'} alignItems={'center'}>
+            <Box color={'#aaa'} fontSize={14} fontWeight={600}>
+              Edition
+            </Box>
+            <Box>K4 Rally NFT Car - Race Edition #1 2023</Box>
+          </Stack>
+          <Stack component={'li'} direction={'row'} spacing={1} justifyContent={'space-between'} alignItems={'center'}>
+            <Box color={'#aaa'} fontSize={14} fontWeight={600}>
+              Car Model
+            </Box>
+            <Box>Monsun</Box>
+          </Stack>
+        </Stack>
+      </Box>
+      <Stack spacing={{ lg: 6, xs: 2 }} component={'ul'}>
+        <Stack component={'li'} spacing={1} p={{ lg: 4, xs: 4 }} bgcolor={'dark.main'} borderRadius={2}>
+          <Box color={'#aaa'} fontSize={14} fontWeight={600}>
+            Additional Details
+          </Box>
+          <Box>The K4 Rally Race Editition is an easy way to get into our Game and participate in Tournaments!</Box>
+        </Stack>
+        <Stack component={'li'} spacing={1} p={{ lg: 4, xs: 4 }} bgcolor={'dark.main'} borderRadius={2}>
+          <Box color={'#aaa'} fontSize={14} fontWeight={600}>
+            Contract Details
+          </Box>
+          <Box>
             To view your NFT in your wallet, please go to your profile and click the “Add to Wallet” button below your
             NFT”
-          </p>
-        </div>
-      </div>
-      <div className='nft-detail__block nft-detail__block--sm'>
-        <ul className='detail-list nft-detail__list'>
-          <li className='detail-list__item'>
-            <div className='detail-list__label'>Guides</div>
-            <div className='detail-list__value detail-list__value--fz-14-mobile'>
-              <p>
-                You don’t have a Metamask wallet? You need more information about how to register and mint a NFT? <br />
-                Please refer to our{' '}
-                <Box component={Link} color={'primary.main'} href='#'>
-                  FAQ
-                </Box>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
+          </Box>
+        </Stack>
+        <Stack component={'li'} spacing={1} p={{ lg: 4, xs: 4 }} bgcolor={'dark.main'} borderRadius={2}>
+          <Box color={'#aaa'} fontSize={14} fontWeight={600}>
+            Guides
+          </Box>
+          <Box fontSize={{ lg: 16, xs: 14 }}>
+            You don’t have a Metamask wallet? You need more information about how to register and mint a NFT? <br />
+            Please refer to our{' '}
+            <Box component={Link} color={'primary.main'} href='#'>
+              FAQ
+            </Box>
+          </Box>
+        </Stack>
+      </Stack>
     </>
   )
 }

@@ -1,119 +1,86 @@
 .nft-detail {
-  margin-bottom: -24px;
+  // margin-bottom: -24px;
 
   &__block {
-    padding: 24px 24px 20px;
-    border-radius: 8px;
-    background-color: #141414;
-    margin-bottom: 24px;
-    @include sm {
-      padding: 16px;
-    }
+    // padding: 24px 24px 20px;
+    // border-radius: 8px;
+    // background-color: #141414;
+    // margin-bottom: 24px;
+    // @include sm {
+    //   padding: 16px;
+    // }
 
     &--sm {
-      padding: 16px;
-      margin-bottom: 8px;
+      // padding: 16px;
+      // margin-bottom: 8px;
     }
   }
   &__title,
   &__subtitle {
-    text-transform: uppercase;
-    font-weight: 700;
+    // text-transform: uppercase;
+    // font-weight: 700;
   }
   &__title {
-    line-height: 1.15;
-    margin-top: -10px;
-    margin-bottom: 25px;
-    @include xl {
-      margin-bottom: 10px;
-    }
+    // line-height: 1.15;
+    // margin-top: -10px;
+    // margin-bottom: 25px;
+    // @include xl {
+    //   margin-bottom: 10px;
+    // }
   }
   &__subtitle {
-    font-style: italic;
-    color: #00ff19;
-    margin-bottom: 45px;
-    @include xl {
-      margin-bottom: 20px;
-    }
+    // font-style: italic;
+    // color: #00ff19;
+    // margin-bottom: 45px;
+    // @include xl {
+    //   margin-bottom: 20px;
+    // }
   }
   &__rarity {
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
   }
   &__list {
     &-mt-lg {
-      margin-top: 45px;
+      // margin-top: 45px;
     }
-  }
-  &__image {
-    margin-bottom: 20px;
-
-    img {
-      @include sm {
-        padding: 0;
-      }
-    }
-  }
-
-  &__button {
-    margin-top: 45px;
-  }
-}
-
-.accordion {
-  border-radius: 8px;
-  background-color: #141414;
-  margin-bottom: 16px;
-
-  &__title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-    padding: 5px 16px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-
-  &__content {
-    padding: 16px;
   }
 }
 
 .detail-list {
-  padding-bottom: 1px;
+  // padding-bottom: 1px;
 
   &__item {
-    margin-bottom: 18px;
+    // margin-bottom: 18px;
 
     &:last-child {
-      margin-bottom: 0;
+      // margin-bottom: 0;
     }
 
     &--row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
     }
   }
   &__item--row &__label {
-    margin-right: 5px;
-    margin-bottom: 0;
+    // margin-right: 5px;
+    // margin-bottom: 0;
   }
   &__item--row &__value {
-    text-align: right;
-    @include xl-min {
-      font-size: 18px;
-    }
+    // text-align: right;
+    // @include xl-min {
+    //   font-size: 18px;
+    // }
   }
   &__label {
-    color: #aaa;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 15px;
+    // color: #aaa;
+    // font-size: 14px;
+    // font-weight: 600;
+    // margin-bottom: 15px;
   }
   &__value {
-    margin-left: auto;
-    font-size: 16px;
+    // margin-left: auto;
+    // font-size: 16px;
 
     &--fz-14-mobile {
       @include sm {

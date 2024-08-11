@@ -244,7 +244,7 @@ export const theme = createTheme({
         content: {
           margin: 0,
           fontSize: 20,
-          fontFamily: 'Whyte',
+          fontFamily: 'var(--font-whyte)',
           fontWeight: 700,
           '&.Mui-expanded': {
             margin: 0,

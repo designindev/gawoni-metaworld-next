@@ -363,8 +363,7 @@ export const theme = createTheme({
     },
     h2: {
       fontFamily: 'var(--font-whyte)',
-      // TODO: CHANGED TO 48PX
-      fontSize: '56px',
+      fontSize: '48px',
       textTransform: 'uppercase',
       fontWeight: '900',
     },
@@ -409,18 +408,19 @@ theme.typography.h1 = {
 }
 theme.typography.h2 = {
   ...theme.typography.h2,
-  [theme.breakpoints.down('xl')]: {
-    fontSize: '50px',
-  },
-  [theme.breakpoints.down('lg')]: {
-    fontSize: '40px',
-  },
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '30px',
-  },
-  [theme.breakpoints.down('xs')]: {
-    fontSize: '24px',
-  },
+  // TODO: MOVED
+  // [theme.breakpoints.down('xl')]: {
+  //   fontSize: '50px',
+  // },
+  // [theme.breakpoints.down('lg')]: {
+  //   fontSize: '40px',
+  // },
+  // [theme.breakpoints.down('sm')]: {
+  //   fontSize: '30px',
+  // },
+  // [theme.breakpoints.down('xs')]: {
+  //   fontSize: '24px',
+  // },
 }
 theme.typography.h3 = {
   ...theme.typography.h3,

@@ -8,7 +8,7 @@ const CheckEmail = () => {
   return (
     <>
       <Box maxWidth={560} width={'100%'}>
-        <Typography variant='h1' component='h1' mb={8} textAlign={'center'} fontSize={48}>
+        <Typography variant='h2' component='h1' textAlign={'center'} mb={8}>
           Check your email
         </Typography>
         <Typography variant='body1' textAlign={'center'} mb={{ lg: 18, xs: 12 }}>

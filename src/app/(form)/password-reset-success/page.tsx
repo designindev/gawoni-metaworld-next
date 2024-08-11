@@ -6,7 +6,7 @@ const PasswordResetSuccess = () => {
   return (
     <>
       <Box textAlign={'center'}>
-        <Typography variant='h1' component='h1' mb={{ lg: 8, xs: 2 }} textAlign={'center'} fontSize={48}>
+        <Typography variant='h2' component='h1' textAlign={'center'} mb={{ lg: 8, xs: 2 }}>
           Password reset successfully!
         </Typography>
         <Button component={Link} href={PATH_PAGE.login} sx={{ maxWidth: '336px', width: '100%' }}>

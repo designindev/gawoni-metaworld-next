@@ -10,6 +10,7 @@ export default function FormLayout({
 }>) {
   return (
     <>
+      {/* // TODO: CHANGED SECTION  */}
       <Box component={'section'} className='section'>
         <Container>
           <Grid container>

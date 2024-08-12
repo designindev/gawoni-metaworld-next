@@ -59,7 +59,7 @@ export const Items = () => {
           : nfts.map((nft, i) => {
               return (
                 <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
-                  <NftCard nft={nft} link={PATH_PAGE.shop.slug(nft.id)} hasButtons />
+                  <NftCard nft={nft} link={PATH_PAGE.nfts.slug(nft.id)} hasButtons />
                 </Grid>
               )
             })}
@@ -101,7 +101,7 @@ export const Page = ({ page }: { page: number }) => {
           {nfts.map((item, i) => {
             return (
               <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
-                <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} hasButtons />
+                <NftCard nft={item} link={PATH_PAGE.nfts.slug(item.id)} hasButtons />
               </Grid>
             )
           })}

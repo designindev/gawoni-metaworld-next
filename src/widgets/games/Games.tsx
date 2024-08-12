@@ -236,7 +236,7 @@ export const Games = () => {
                       className='game-button'
                       color='white'
                       variant='outlined'
-                      href={PATH_PAGE.shop.root}
+                      href={PATH_PAGE.nfts.root}
                       sx={{
                         maxWidth: 300,
                         width: '100%',

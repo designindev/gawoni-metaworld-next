@@ -13,9 +13,9 @@ export const PATH_PAGE = {
     root: '/games',
     slug: (slug: string) => `/games/${slug}`,
   },
-  shop: {
-    root: '/shop',
-    slug: (slug: string) => `/shop/${slug}`,
+  nfts: {
+    root: '/nfts',
+    slug: (slug: string) => `/nfts/${slug}`,
   },
   marketplace: '/marketplace',
   connectWallet: '/connect-wallet',
@@ -54,6 +54,6 @@ export const PATH_MENU = [
       { href: PATH_PAGE.games.slug('4'), label: 'Martial Arts Game' },
     ],
   },
-  { href: PATH_PAGE.shop.root, label: 'NFT Shop' },
+  { href: PATH_PAGE.nfts.root, label: 'NFT Shop' },
   { href: PATH_PAGE.connectWallet, label: 'Connect Wallet', auth: true },
 ] as const satisfies PATH_MENU[]

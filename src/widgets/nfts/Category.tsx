@@ -28,10 +28,10 @@ export const Category = (props: Props) => {
         >
           {title}
         </Typography>
-        <Button href={PATH_PAGE.shop.root} sx={{ display: { lg: 'inline-flex', xs: 'none' } }}>
+        <Button href={PATH_PAGE.nfts.root} sx={{ display: { lg: 'inline-flex', xs: 'none' } }}>
           Show all
         </Button>
-        <Button href={PATH_PAGE.shop.root} size={'small'} sx={{ display: { lg: 'none' } }}>
+        <Button href={PATH_PAGE.nfts.root} size={'small'} sx={{ display: { lg: 'none' } }}>
           Show all
         </Button>
       </Box>
@@ -75,7 +75,7 @@ export const Category = (props: Props) => {
           {items.map((item, i) => {
             return (
               <SwiperSlide key={i}>
-                <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} />
+                <NftCard nft={item} link={PATH_PAGE.nfts.slug(item.id)} />
               </SwiperSlide>
             )
           })}

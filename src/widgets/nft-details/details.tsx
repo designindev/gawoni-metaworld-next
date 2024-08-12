@@ -26,8 +26,8 @@ const details: Detail[] = [
   },
 ]
 
-// TODO: MOVE TO PROFILE LATER
-const Details = () => {
+// TODO: NOT USE / MOVE TO PROFILE LATER
+export const Details = () => {
   const onCopy = async (text: string) => {
     await navigator.clipboard.writeText(text)
     notifySuccess('Content copied to clipboard')

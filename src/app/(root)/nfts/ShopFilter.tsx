@@ -8,6 +8,7 @@ import { Theme } from 'shared/theme/theme'
 import { PATH_PAGE } from 'shared/lib'
 import { useSearchParams } from 'next/navigation'
 
+// TODO: MOVE TO WIDGETS
 export const ShopFilter = () => {
   const [page, onChangePage] = usePaginationQuery()
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'))
@@ -40,7 +41,7 @@ export const ShopFilter = () => {
           : nfts.map((item, i) => {
               return (
                 <Grid item key={i} xl={3} lg={4} sm={6} xs={12}>
-                  <NftCard nft={item} link={PATH_PAGE.shop.slug(item.id)} />
+                  <NftCard nft={item} link={PATH_PAGE.nfts.slug(item.id)} />
                 </Grid>
               )
             })}

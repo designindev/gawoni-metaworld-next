@@ -20,7 +20,7 @@ const buttonSxProps: SxProps = {
   },
 }
 
-export const ControlledInputCount = (props: Props) => {
+export const ControlledInputCount = (props: { onChange: (value: number) => void }) => {
   const { control } = useFormContext()
 
   return (
@@ -35,7 +35,12 @@ export const ControlledInputCount = (props: Props) => {
               color='secondary'
               sx={buttonSxProps}
               type='button'
-              onClick={() => onChange(String(Number(value) - 1))}
+              onClick={() => {
+                const newValue = value - 1
+                if (newValue <= 0) return
+                onChange(newValue)
+                props.onChange(newValue)
+              }}
             >
               <RemoveIcon fontSize={'large'} />
             </Button>
@@ -44,16 +49,21 @@ export const ControlledInputCount = (props: Props) => {
               value={value}
               onChange={onChange}
               inputRef={ref}
-              defaultValue='Hello world'
               inputProps={{ sx: { textAlign: 'center' } }}
               sx={{ width: 44, height: 44 }}
+              readOnly
             />
             <Button
               variant='text'
               color='secondary'
               sx={buttonSxProps}
               type='button'
-              onClick={() => onChange(String(Number(value) + 1))}
+              onClick={() => {
+                const newValue = value + 1
+                if (newValue > 10) return
+                onChange(newValue)
+                props.onChange(newValue)
+              }}
             >
               <AddIcon fontSize={'large'} />
             </Button>

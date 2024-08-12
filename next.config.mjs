@@ -14,6 +14,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'game.k4rally.io',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 }

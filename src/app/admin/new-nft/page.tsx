@@ -16,7 +16,7 @@ import { NftParameters, NftDetails } from 'widgets'
 import { notifySuccess } from 'shared/lib'
 import ImageNFT from 'shared/images/nfts/nfts-1.jpg'
 import { NftCard } from 'entities/nft'
-import Logos from 'shared/images/nfts/logos.png'
+// import Logos from 'shared/images/nfts/logos.png'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { Section } from 'shared/ui'
@@ -153,12 +153,25 @@ export default function NewNftPage() {
               <Grid item lg={4} md={6} xs={12}>
                 <NftCard
                   nft={{
-                    id: '1',
-                    src: ImageNFT.src,
-                    title: 'K 4 Race edition #1',
-                    price: '$20',
-                    rarity: 'Mystic',
-                    logos: Logos.src,
+                    id: 13,
+                    nft_name: 'Race Edition',
+                    name: 'K4 Rally NFT Car - Race Edition #1 2023',
+                    description:
+                      'The K4 Rally Race Edition is an easy way to get into our Game and participate in Tournaments!',
+                    image: 'car/k4race1-01.jpg',
+                    video: 'k4race1.mp4',
+                    model: 'Monsun',
+                    template_id: 19,
+                    template_type: 'CarTemplate',
+                    contract_name: 'K4 Rally NFT Car - Race Edition #1 2023',
+                    contract_abi: '[]',
+                    rarity: 'Common',
+                    brl_class: 0,
+                    price: '20.00',
+                    total_amount: 10000,
+                    mint_count: 11,
+                    show_in_marketplace: 1,
+                    homepage_order: 1,
                   }}
                 />
               </Grid>

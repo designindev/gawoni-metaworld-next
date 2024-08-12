@@ -5,7 +5,7 @@ import { Controller, FieldValues, Path, useFormContext } from 'react-hook-form'
 
 export type ControlledSelectProps<TFormValues extends FieldValues> = {
   name: Path<TFormValues>
-  options: { value: string; label: string }[]
+  options: { value: string | number; label: string }[]
 } & SelectProps
 
 export const ControlledSelect = <TFormValues extends Record<string, unknown>>({
@@ -23,7 +23,15 @@ export const ControlledSelect = <TFormValues extends Record<string, unknown>>({
         // TODO: CHANGE TO TEXTFIELD
         <FormControl error={Boolean(error)} fullWidth={rest.fullWidth}>
           {rest.label && <InputLabel>{rest.label}</InputLabel>}
-          <Select onChange={onChange} inputRef={ref} value={value} {...rest}>
+          <Select
+            {...rest}
+            onChange={(...e) => {
+              onChange(...e)
+              rest.onChange && rest.onChange(...e)
+            }}
+            inputRef={ref}
+            value={value}
+          >
             <MenuItem value=''>{rest.placeholder}</MenuItem>
             {options.map((el, i) => {
               return (

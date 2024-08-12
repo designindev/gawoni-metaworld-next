@@ -2,7 +2,7 @@ import { Box, Container, Typography } from '@mui/material'
 import { ShopFilter } from './ShopFilter'
 import { Section } from 'shared/ui'
 
-const Shop = async () => {
+const Nfts = async () => {
   return (
     <Section>
       <Container>
@@ -15,4 +15,4 @@ const Shop = async () => {
   )
 }
 
-export default Shop
+export default Nfts

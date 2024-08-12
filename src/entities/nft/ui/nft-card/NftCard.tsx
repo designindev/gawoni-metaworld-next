@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Box, Button, Chip, Stack, Typography } from '@mui/material'
 import BorderColorIcon from '@mui/icons-material/BorderColor'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
+import ReactPlayer from 'react-player'
 
 type Props = {
   nft: NFT
@@ -37,30 +38,34 @@ export const NftCard = ({ nft, hasButtons, link }: Props) => {
           bottom: 0,
           left: 0,
           right: 0,
+          border: '5px solid #777',
           borderRadius: 3,
-          '&::before': {
-            content: '""',
-            display: 'block',
-          },
         }}
       >
-        <Image
-          src={nft.src}
-          width={0}
-          height={0}
-          sizes='100vw'
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: '5px solid #777',
-            borderRadius: 'inherit',
-            objectFit: 'cover',
-          }}
-          alt=''
-        />
+        {nft.video ? (
+          <>
+            <video muted loop autoPlay style={{ width: '100%', borderRadius: 12 }}>
+              <source src={nft.video} type='video/mp4' />
+            </video>
+          </>
+        ) : (
+          <Image
+            src={nft.image}
+            width={0}
+            height={0}
+            sizes='100vw'
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              borderRadius: 'inherit',
+              objectFit: 'cover',
+            }}
+            alt=''
+          />
+        )}
       </Box>
       <Box
         sx={{
@@ -74,8 +79,17 @@ export const NftCard = ({ nft, hasButtons, link }: Props) => {
         }}
       >
         <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} mb={6}>
-          <Typography variant='h6' component='h4' fontWeight={700} textTransform='uppercase' mr={8}>
-            {nft.title}
+          <Typography
+            variant='h6'
+            component='h4'
+            fontWeight={700}
+            textTransform='uppercase'
+            mr={8}
+            minHeight={60}
+            display={'flex'}
+            alignItems={'center'}
+          >
+            {nft.name.split('-')[0]}
           </Typography>
           <Box fontSize={24} fontWeight={900}>
             {nft.price}$
@@ -90,7 +104,7 @@ export const NftCard = ({ nft, hasButtons, link }: Props) => {
           </Box>
         </Box>
         <Box mt={5} lineHeight={1.3}>
-          <Image src={nft.logos} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' />
+          {/* <Image src={nft.logos} width={0} height={0} sizes='100vw' style={{ width: '100%', height: 'auto' }} alt='' /> */}
         </Box>
         <Stack direction='row' mt={6} spacing={2}>
           <Chip sx={{ width: '100%' }} label='K 4 Rally' size={'small'} />

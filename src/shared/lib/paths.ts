@@ -2,8 +2,8 @@ import { AnchorHTMLAttributes } from 'react'
 import { config } from './config'
 
 type PATH_PAGE = {
-  root: string | ((...args: string[]) => string)
-  [page: string]: string | ((...args: string[]) => string) | PATH_PAGE
+  root: string | ((...args: (string | number)[]) => string)
+  [page: string]: string | ((...args: (string | number)[]) => string) | PATH_PAGE
 }
 
 export const PATH_PAGE = {
@@ -11,11 +11,11 @@ export const PATH_PAGE = {
   news: '/news',
   games: {
     root: '/games',
-    slug: (slug: string) => `/games/${slug}`,
+    slug: (slug: string | number) => `/games/${slug}`,
   },
   nfts: {
     root: '/nfts',
-    slug: (slug: string) => `/nfts/${slug}`,
+    slug: (slug: string | number) => `/nfts/${slug}`,
   },
   marketplace: '/marketplace',
   connectWallet: '/connect-wallet',
@@ -29,7 +29,8 @@ export const PATH_PAGE = {
   error: '/error',
 } as const satisfies PATH_PAGE
 
-export const PATH_IMAGE = (image: string) => `${config.SITE_ENDPOINT}/${image}`
+export const PATH_IMAGE = (image: string) => `${config.SITE_ENDPOINT}/img/${image}`
+export const PATH_VIDEO = (image: string) => `${config.SITE_ENDPOINT}/video/${image}`
 
 export type PATH_MENU = {
   href: string

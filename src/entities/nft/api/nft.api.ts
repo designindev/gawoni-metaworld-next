@@ -14,9 +14,21 @@ export const nftApi = baseApi.injectEndpoints({
       { page?: number; limit?: number; game?: string; category?: string; rarity?: string }
     >({
       query: (params) => ({ url: nftRoutes.fetchNfts, params }),
-      transformResponse: (response: Paginated<NTFDto>) => ({ ...response, data: response.data.map(ntfMapper) }),
+      transformResponse: (response: { items: NTFDto[]; total: number }) => ({
+        ...response,
+        // TODO: FIX IT
+        lastPage: 1,
+        limit: 1,
+        page: 1,
+        count: response.total,
+        data: response.items.map(ntfMapper),
+      }),
+    }),
+    fetchNft: build.query<NFT, { nftId: string }>({
+      query: ({ nftId }) => ({ url: nftRoutes.fetchNft(nftId) }),
+      transformResponse: (response: { item: NTFDto }) => ntfMapper(response.item),
     }),
   }),
 })
 
-export const { useFetchNftsQuery } = nftApi
+export const { useFetchNftsQuery, useFetchNftQuery } = nftApi

@@ -79,38 +79,32 @@ export const Category = (props: Props) => {
               </SwiperSlide>
             )
           })}
-          <Box
-            position={'absolute'}
-            top={0}
-            left={'100%'}
-            ml={-50}
-            bottom={0}
-            width={400}
-            zIndex={3}
-            sx={{
-              background: 'linear-gradient(270deg, #080808 0%, rgba(8, 8, 8, 0) 100%)',
-              userSelect: 'none',
-              pointerEvents: 'none',
-            }}
-          />
+          <Gradient />
           <SwiperControls
             mt={10}
             justifyContent={'center'}
-            sx={(theme) => ({
-              [theme.breakpoints.up('lg')]: {
-                ml: -25,
-                pr: 25,
-              },
-            })}
-            swiperButtonProps={{
-              sx: {
-                position: 'absolute',
-                top: '235px',
-              },
-            }}
+            sx={(theme) => ({ [theme.breakpoints.up('lg')]: { ml: -25, pr: 25 } })}
+            swiperButtonProps={{ sx: { position: 'absolute', top: '235px' } }}
           />
         </Swiper>
       </Box>
     </Box>
   )
 }
+
+const Gradient = () => (
+  <Box
+    position={'absolute'}
+    top={0}
+    left={'100%'}
+    ml={-50}
+    bottom={0}
+    width={400}
+    zIndex={3}
+    sx={{
+      background: 'linear-gradient(270deg, #080808 0%, rgba(8, 8, 8, 0) 100%)',
+      userSelect: 'none',
+      pointerEvents: 'none',
+    }}
+  />
+)

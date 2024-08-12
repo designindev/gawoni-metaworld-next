@@ -362,9 +362,7 @@ export const theme = createTheme({
         fontSizeSmall: 16,
         fontSizeMedium: 20,
         fontSizeLarge: 24,
-        root: {
-          fontSize: 16,
-        },
+        root: {},
       },
     },
   },

@@ -1,3 +1,4 @@
 export const nftRoutes = {
-  fetchNfts: '/nfts/',
+  fetchNfts: '/nft/homepage',
+  fetchNft: (nftId: string) => `/nft/${nftId}`,
 }

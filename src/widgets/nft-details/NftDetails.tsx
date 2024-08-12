@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { Box, Stack, Typography } from '@mui/material'
-import { getNftCss } from 'entities/nft'
+import { getNftCss, NFT } from 'entities/nft'
 
-export const NftDetails = () => {
+export const NftDetails = ({ nft: nftDetail }: { nft: NFT }) => {
   return (
     <>
       <Box p={{ lg: 6, xs: 4 }} mb={{ lg: 6, xs: 2 }} bgcolor={'dark.main'} borderRadius={2}>
@@ -17,7 +17,7 @@ export const NftDetails = () => {
           mb={{ lg: 6, xs: 2 }}
           mt={-2}
         >
-          k4 rally nft car - race edition #1 2023
+          {nftDetail.name}
         </Typography>
         <Typography
           variant='h5'
@@ -29,7 +29,7 @@ export const NftDetails = () => {
           mb={{ lg: 11, xs: 5 }}
           mt={-2}
         >
-          Race edition
+          {nftDetail.nft_name}
         </Typography>
         <Stack
           direction={'row'}
@@ -39,25 +39,25 @@ export const NftDetails = () => {
           px={6}
           borderRadius={2}
           mb={6}
-          sx={{ ...getNftCss('Mystic') }}
+          sx={{ ...getNftCss(nftDetail.rarity) }}
         >
-          <Box fontWeight={500}>Mystic</Box>
+          <Box fontWeight={500}>{nftDetail.rarity}</Box>
           <Box fontWeight={600} fontSize={20}>
-            $20.00
+            {nftDetail.price}
           </Box>
         </Stack>
         <Stack component={'ul'} spacing={4}>
-          <Stack component={'li'} direction={'row'} spacing={1} justifyContent={'space-between'} alignItems={'center'}>
+          <Stack component={'li'} direction={'row'} spacing={2} justifyContent={'space-between'} alignItems={'center'}>
             <Box color={'#aaa'} fontSize={14} fontWeight={600}>
               Edition
             </Box>
-            <Box>K4 Rally NFT Car - Race Edition #1 2023</Box>
+            <Box textAlign={'right'}>{nftDetail.name}</Box>
           </Stack>
-          <Stack component={'li'} direction={'row'} spacing={1} justifyContent={'space-between'} alignItems={'center'}>
+          <Stack component={'li'} direction={'row'} spacing={2} justifyContent={'space-between'} alignItems={'center'}>
             <Box color={'#aaa'} fontSize={14} fontWeight={600}>
               Car Model
             </Box>
-            <Box>Monsun</Box>
+            <Box textAlign={'right'}>{nftDetail.model}</Box>
           </Stack>
         </Stack>
       </Box>
@@ -66,7 +66,7 @@ export const NftDetails = () => {
           <Box color={'#aaa'} fontSize={14} fontWeight={600}>
             Additional Details
           </Box>
-          <Box>The K4 Rally Race Editition is an easy way to get into our Game and participate in Tournaments!</Box>
+          <Typography variant='body1'>{nftDetail.description}</Typography>
         </Stack>
         <Stack component={'li'} spacing={1} p={{ lg: 4, xs: 4 }} bgcolor={'dark.main'} borderRadius={2}>
           <Box color={'#aaa'} fontSize={14} fontWeight={600}>

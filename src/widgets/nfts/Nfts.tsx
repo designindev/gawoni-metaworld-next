@@ -1,11 +1,15 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect } from 'react'
 import { Category } from './Category'
 import { Container, Stack, Typography } from '@mui/material'
-import { nfts } from './items'
 import { Section, TitleWithIcon } from 'shared/ui'
+import { useFetchNftsQuery } from 'entities/nft'
 
-export const Nfts = async () => {
+export const Nfts = () => {
   // TODO: ADD GRADIENT
+  const { data: { data: nfts = [], count, lastPage } = {}, isFetching } = useFetchNftsQuery({})
+
   return (
     <Section>
       <Container>
@@ -15,7 +19,7 @@ export const Nfts = async () => {
 
         <Stack spacing={15}>
           <Category title='New nft releases' items={nfts} />
-          <Category title='top sellers' items={nfts} />
+          {/* <Category title='top sellers' items={[]} /> */}
         </Stack>
       </Container>
     </Section>

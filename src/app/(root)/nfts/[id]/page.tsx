@@ -1,21 +1,41 @@
-import { Box, Container, Grid } from '@mui/material'
+'use client'
+
+import { Box, CircularProgress, Container, Grid } from '@mui/material'
+import { useFetchNftQuery } from 'entities/nft'
+import { useParams } from 'next/navigation'
 import { Section } from 'shared/ui'
 import { NftImage, NftForm, NftDetails, NftParameters } from 'widgets'
 
-const Shop = () => {
+const Nft = () => {
+  const { id } = useParams() as { id: string }
+  const nftState = useFetchNftQuery({ nftId: id })
+
+  if (nftState.isLoading)
+    return (
+      <Section>
+        <Container sx={{ textAlign: 'center' }}>
+          <CircularProgress />
+        </Container>
+      </Section>
+    )
+
+  if (!nftState.isSuccess) return <div>Error</div>
+
+  const { data: nft } = nftState
+
   return (
     <Section>
       <Container>
         <Grid container spacing={12}>
           <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
-            <NftImage />
-            <NftForm />
+            <NftImage nft={nft} />
+            <NftForm nft={nft} />
           </Grid>
           <Grid item lg={4} md={6} xs={12} sx={{ order: { lg: -1, xs: 0 } }}>
-            <NftDetails />
+            <NftDetails nft={nft} />
           </Grid>
           <Grid item lg={4} md={6} xs={12}>
-            <NftParameters />
+            <NftParameters nft={nft} />
           </Grid>
         </Grid>
       </Container>
@@ -23,4 +43,4 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default Nft

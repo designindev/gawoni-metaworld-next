@@ -357,6 +357,16 @@ export const theme = createTheme({
     MuiPaper: {
       styleOverrides: {},
     },
+    MuiSvgIcon: {
+      styleOverrides: {
+        fontSizeSmall: 16,
+        fontSizeMedium: 20,
+        fontSizeLarge: 24,
+        root: {
+          fontSize: 16,
+        },
+      },
+    },
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),

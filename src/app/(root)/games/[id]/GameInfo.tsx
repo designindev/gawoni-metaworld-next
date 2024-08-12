@@ -41,7 +41,7 @@ export const GameInfo = () => {
           flexDirection={{ lg: 'row', xs: 'column' }}
           flexWrap={'wrap'}
           sx={(theme) => ({
-            '& li:first-child': {
+            '& li:first-of-type': {
               pl: 0,
               ml: 0,
               [theme.breakpoints.down('lg')]: {
@@ -50,7 +50,7 @@ export const GameInfo = () => {
               },
               '&::before': { display: 'none' },
             },
-            '& li:last-child': {
+            '& li:last-of-type': {
               mr: 0,
             },
           })}

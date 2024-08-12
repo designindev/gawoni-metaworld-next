@@ -48,7 +48,7 @@ export const Profile = () => {
             >
               <IconButton sx={{ p: 0 }}>
                 <Avatar sx={{ width: 50, height: 50, bgcolor: '#000', color: '#fff' }}>
-                  <PermIdentityIcon />
+                  <PermIdentityIcon sx={{ fontSize: 20 }} />
                 </Avatar>
               </IconButton>
               <Box fontWeight={500}>{session.user?.name}</Box>

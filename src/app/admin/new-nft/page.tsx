@@ -20,6 +20,7 @@ import { NftCard } from 'entities/nft'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { Section } from 'shared/ui'
+import { nft } from './nft'
 
 type FormValues = {
   fieldArray: { name: string }[]
@@ -145,35 +146,16 @@ export default function NewNftPage() {
           <Container>
             <Grid container spacing={12}>
               <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
-                <NftParameters />
+                {/* @ts-ignore  */}
+                <NftParameters nft={nft.item} />
               </Grid>
               <Grid item lg={4} md={6} xs={12} sx={{ order: { lg: -1, xs: 0 } }}>
-                <NftDetails />
+                {/* @ts-ignore  */}
+                <NftDetails nft={nft.item} />
               </Grid>
               <Grid item lg={4} md={6} xs={12}>
-                <NftCard
-                  nft={{
-                    id: 13,
-                    nft_name: 'Race Edition',
-                    name: 'K4 Rally NFT Car - Race Edition #1 2023',
-                    description:
-                      'The K4 Rally Race Edition is an easy way to get into our Game and participate in Tournaments!',
-                    image: 'car/k4race1-01.jpg',
-                    video: 'k4race1.mp4',
-                    model: 'Monsun',
-                    template_id: 19,
-                    template_type: 'CarTemplate',
-                    contract_name: 'K4 Rally NFT Car - Race Edition #1 2023',
-                    contract_abi: '[]',
-                    rarity: 'Common',
-                    brl_class: 0,
-                    price: '20.00',
-                    total_amount: 10000,
-                    mint_count: 11,
-                    show_in_marketplace: 1,
-                    homepage_order: 1,
-                  }}
-                />
+                {/* @ts-ignore  */}
+                <NftCard nft={nft.item} />
               </Grid>
             </Grid>
             <Box mt={12}>

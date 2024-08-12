@@ -1,7 +1,7 @@
 'use client'
 
 import { notifySuccess } from 'shared/lib/notify'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { RegisterFormSchema, registerFormSchema } from '../model/register-form.schema'
 import { PATH_PAGE } from 'shared/lib'
 import Link from 'next/link'
@@ -11,21 +11,47 @@ import { Box, Button, Grid } from '@mui/material'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ControlledInput, ControlledSelect } from 'shared/ui'
+import { authenticate, useRegisterMutation } from 'entities/session'
+import { useDispatch } from 'react-redux'
+import { defaultValues } from '../model/defaultValues'
 
 export const RegisterForm = () => {
+  const [registerMutation] = useRegisterMutation()
+  const dispatch = useDispatch()
+  const [serverError, setServerError] = useState('')
   const router = useRouter()
   const methods = useForm<RegisterFormSchema>({
     resolver: zodResolver(registerFormSchema),
     criteriaMode: 'all',
-    defaultValues: { username: '', email: '', password: '', passwordConfirm: '', country: '', age: '' },
+    defaultValues: defaultValues || {
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirm: '',
+      country: '',
+      age: '',
+    },
   })
 
   const onSubmitHandler = useCallback(
     async (data: RegisterFormSchema) => {
-      router.push(PATH_PAGE.login)
-      notifySuccess('You have successfully registered')
+      try {
+        await registerMutation({
+          name: data.username,
+          email: data.email,
+          password: data.password,
+          password_confirmation: data.passwordConfirm,
+          country: data.country,
+          age_confirmation: true,
+        }).unwrap()
+        dispatch(authenticate({ name: data.username, isAdmin: false }))
+        router.push(PATH_PAGE.adminPanel.root)
+        notifySuccess('You have successfully registered')
+      } catch (e: any) {
+        setServerError(e.data.message)
+      }
     },
-    [router]
+    [router, dispatch, registerMutation]
   )
 
   return (
@@ -80,6 +106,9 @@ export const RegisterForm = () => {
               />
             </Grid>
           </Grid>
+          <Box color={'error.main'} mt={3}>
+            {serverError}
+          </Box>
           <Box textAlign={'center'} mt={13}>
             <Button type={'submit'} sx={{ maxWidth: '336px', width: '100%' }}>
               Create account

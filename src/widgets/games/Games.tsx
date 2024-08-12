@@ -229,7 +229,7 @@ export const Games = () => {
                         transform: 'translate(0, -100%)',
                       }}
                     >
-                      <InfoOutlined fontSize='large' sx={{ mr: 2 }} />
+                      <InfoOutlined sx={{ mr: 2, fontSize: 20 }} />
                       Game Info
                     </Button>
                     <Button
@@ -246,7 +246,7 @@ export const Games = () => {
                         transform: 'translate(0, 100%)',
                       }}
                     >
-                      <ShoppingCartOutlinedIcon fontSize='large' sx={{ mr: 2 }} />
+                      <ShoppingCartOutlinedIcon sx={{ mr: 2, fontSize: 20 }} />
                       Game Store
                     </Button>
                   </Box>

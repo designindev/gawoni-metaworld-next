@@ -7,7 +7,6 @@ export function makeStore() {
   const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
-    //   invalidateAccessTokenListener.middleware, refreshTokensListener.middleware
   })
 
   setupListeners(store.dispatch)

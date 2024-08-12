@@ -17,6 +17,10 @@ export const PATH_PAGE = {
     root: '/nfts',
     slug: (slug: string | number) => `/nfts/${slug}`,
   },
+  adminPanel: {
+    root: 'admin',
+    'new-nft': 'admin/new-nft',
+  },
   marketplace: '/marketplace',
   connectWallet: '/connect-wallet',
   download: '/download',

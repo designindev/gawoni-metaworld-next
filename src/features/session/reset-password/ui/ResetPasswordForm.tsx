@@ -2,7 +2,7 @@
 
 import { notifySuccess } from 'shared/lib/notify'
 import { useCallback } from 'react'
-import { ControlledInput, Form, InputForm } from 'shared/ui'
+import { ControlledInput } from 'shared/ui'
 import { ResetPasswordformSchema, resetPasswordFormSchema } from '../model/reset-password.schema'
 import { PATH_PAGE } from 'shared/lib'
 import { useRouter } from 'next/navigation'

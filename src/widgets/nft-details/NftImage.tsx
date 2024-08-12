@@ -27,9 +27,9 @@ export const NftImage = ({ nft }: { nft: NFT }) => {
       >
         {nft.video ? (
           <>
-            {/* <video muted loop autoPlay style={{ width: '100%', borderRadius: 12 }}>
+            <video muted loop autoPlay style={{ width: '100%', borderRadius: 12 }}>
               <source src={nft.video} type='video/mp4' />
-            </video> */}
+            </video>
           </>
         ) : (
           <Image

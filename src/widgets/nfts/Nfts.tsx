@@ -19,7 +19,7 @@ export const Nfts = () => {
 
         <Stack spacing={15}>
           <Category title='New nft releases' items={nfts} />
-          {/* <Category title='top sellers' items={[]} /> */}
+          <Category title='top sellers' items={nfts} />
         </Stack>
       </Container>
     </Section>

@@ -3,20 +3,20 @@ import { sessionApi } from '../api/session.api'
 
 type SessionSliceState =
   | {
-      isAuth: true
-      accessToken: string
-      refreshToken: string
+      isLoggedIn: true
+      username: string | null
+      isAdmin: boolean
     }
   | {
-      isAuth: false
-      accessToken: null
-      refreshToken: null
+      isLoggedIn: false
+      username: string | null
+      isAdmin: boolean
     }
 
 const initialState = {
-  isAuth: false,
-  accessToken: null,
-  refreshToken: null,
+  isLoggedIn: false,
+  isAdmin: false,
+  username: null,
 } as const
 
 export const sessionSlice = createSlice({
@@ -24,30 +24,35 @@ export const sessionSlice = createSlice({
   initialState: initialState satisfies SessionSliceState as SessionSliceState,
   reducers: {
     clearSessionData: (state) => {
-      state.isAuth = initialState.isAuth
-      state.accessToken = initialState.accessToken
-      state.refreshToken = initialState.refreshToken
+      state.isLoggedIn = initialState.isLoggedIn
+      state.username = initialState.username
+      state.isAdmin = initialState.isAdmin
     },
-    setSessionData: (state, action: PayloadAction<SessionSliceState>) => {
-      state.isAuth = action.payload.isAuth
-      state.accessToken = action.payload.accessToken
-      state.refreshToken = action.payload.refreshToken
+    authenticate: (state, action: PayloadAction<{ name: string; isAdmin: boolean }>) => {
+      state.isLoggedIn = true
+      state.username = action.payload.name
+      state.isAdmin = action.payload.isAdmin
+    },
+    unauthenticate: (state) => {
+      state.isLoggedIn = false
+      state.username = null
+      state.isAdmin = false
     },
   },
-  extraReducers: (builder) => {
-    builder.addMatcher(isAnyOf(sessionApi.endpoints.login.matchFulfilled), (state: SessionSliceState, { payload }) => {
-      const newState: SessionSliceState = {
-        isAuth: true,
-        accessToken: payload.accessToken,
-        refreshToken: payload.refreshToken,
-      }
-      state.isAuth = newState.isAuth
-      state.refreshToken = newState.refreshToken
-      state.accessToken = newState.accessToken
-    })
-  },
+  // extraReducers: (builder) => {
+  //   builder.addMatcher(isAnyOf(sessionApi.endpoints.login.matchFulfilled), (state: SessionSliceState, { payload }) => {
+  //     const newState: SessionSliceState = {
+  //       isLoggedIn: true,
+  //       username: payload.name,
+  //       isAdmin: false,
+  //     }
+  //     state.isLoggedIn = newState.isLoggedIn
+  //     state.username = newState.username
+  //     state.isAdmin = newState.isAdmin
+  //   })
+  // },
 })
 
-export const selectIsAuth = (state: RootState) => state.session.isAuth
+export const selectIsAuth = (state: RootState) => state.session.isLoggedIn
 
-export const { clearSessionData, setSessionData } = sessionSlice.actions
+export const { clearSessionData, authenticate, unauthenticate } = sessionSlice.actions

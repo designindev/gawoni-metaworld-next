@@ -1,8 +1,6 @@
 'use client'
 
-import classNames from 'classnames'
-import { AccordionItem } from './AccordionItem'
-import { Accordion, AccordionDetails, AccordionProps, AccordionSummary, Box, BoxProps } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionProps, AccordionSummary, Box, BoxProps, Stack } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 const carParameters = [
@@ -48,7 +46,7 @@ export const NftParameters = () => {
           </Box>
         </Box>
         <Box height={10} bgcolor={'#fff'} borderRadius={1000} my={2}>
-          <Box height={'inherit'} width={'50%'} bgcolor={'secondary.main'} borderRadius={'inherit'}></Box>
+          <Box height={'inherit'} width={'33%'} bgcolor={'secondary.main'} borderRadius={'inherit'}></Box>
         </Box>
         <Box fontSize={14} fontWeight={500}>
           BRL level: 0
@@ -57,22 +55,40 @@ export const NftParameters = () => {
       <Accordion defaultExpanded {...accordionProps}>
         <AccordionSummary expandIcon={<ExpandMoreIcon fontSize='large' />}>Car Parameters</AccordionSummary>
         <AccordionDetails>
-          <ul className='detail-list nft-detail__list'>
+          <Stack component={'ul'} spacing={4}>
             {carParameters.map((el, i) => {
               return (
-                <li key={i} className='detail-list__item detail-list__item--row'>
-                  <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+                <Stack
+                  key={i}
+                  component={'li'}
+                  direction={'row'}
+                  spacing={1}
+                  justifyContent={'space-between'}
+                  alignItems={'center'}
+                >
+                  <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                     {el.label}
                   </Box>
-                  <div
-                    className={classNames('detail-list__value text-secondary', {
-                      'detail-list__value--w-150': Boolean(el.params),
-                    })}
+                  <Box
+                    color={'secondary.main'}
+                    textAlign={'center'}
+                    ml={'auto!important'}
+                    sx={[
+                      Boolean(el.params) && {
+                        width: { lg: 150, sm: 70, xs: 60 },
+                        px: 1,
+                      },
+                    ]}
                   >
                     {el.value}
-                  </div>
+                  </Box>
                   {el.params && (
-                    <div className='detail-list__params'>
+                    <Stack
+                      direction={'row'}
+                      justifyContent={'space-between'}
+                      width={120}
+                      borderBottom={'1px solid #fff'}
+                    >
                       {el.params.map((el, i) => {
                         return (
                           <div key={i} className='detail-list__params-item'>
@@ -80,75 +96,117 @@ export const NftParameters = () => {
                           </div>
                         )
                       })}
-                    </div>
+                    </Stack>
                   )}
-                </li>
+                </Stack>
               )
             })}
-          </ul>
+          </Stack>
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded {...accordionProps}>
         <AccordionSummary expandIcon={<ExpandMoreIcon fontSize='large' />}>Upgrades & Boosts</AccordionSummary>
         <AccordionDetails>
-          <ul className='detail-list nft-detail__list'>
-            <li className='detail-list__item detail-list__item--row'>
-              <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+          <Stack component={'ul'} spacing={4}>
+            <Stack
+              component={'li'}
+              direction={'row'}
+              spacing={1}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                 car part slots
               </Box>
               <Box color={'secondary.main'} className='detail-list__value'>
                 4
               </Box>
-            </li>
-            <li className='detail-list__item detail-list__item--row'>
-              <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+            </Stack>
+            <Stack
+              component={'li'}
+              direction={'row'}
+              spacing={1}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                 Parameter boosts
               </Box>
               <Box color={'secondary.main'} className='detail-list__value'>
                 2
               </Box>
-            </li>
-            <li className='detail-list__item detail-list__item--row'>
-              <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+            </Stack>
+            <Stack
+              component={'li'}
+              direction={'row'}
+              spacing={1}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                 Parameter boosts used
               </Box>
               <Box color={'secondary.main'} className='detail-list__value'>
                 2
               </Box>
-            </li>
-            <li className='detail-list__item detail-list__item--row'>
-              <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+            </Stack>
+            <Stack
+              component={'li'}
+              direction={'row'}
+              spacing={1}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                 Parameter boosted
               </Box>
               <Box color={'secondary.main'} className='detail-list__value'>
                 Speed acceleration
               </Box>
-            </li>
-            <li className='detail-list__item detail-list__item--row'>
-              <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+            </Stack>
+            <Stack
+              component={'li'}
+              direction={'row'}
+              spacing={1}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                 sk4r reward bonus
               </Box>
               <Box color={'secondary.main'} className='detail-list__value'>
                 0%
               </Box>
-            </li>
-            <li className='detail-list__item detail-list__item--row'>
-              <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+            </Stack>
+            <Stack
+              component={'li'}
+              direction={'row'}
+              spacing={1}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                 sk4r daily drop rate
               </Box>
               <Box color={'secondary.main'} className='detail-list__value'>
                 0%
               </Box>
-            </li>
-            <li className='detail-list__item detail-list__item--row'>
-              <Box textTransform={'uppercase'} fontSize={{ lg: 14, xs: 12 }} className='detail-list__label'>
+            </Stack>
+            <Stack
+              component={'li'}
+              direction={'row'}
+              spacing={1}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Box textTransform={'uppercase'} color={'#aaa'} fontSize={{ lg: 14, xs: 12 }} fontWeight={600}>
                 sk4r tournament fees reduction{' '}
               </Box>
               <Box color={'secondary.main'} className='detail-list__value'>
                 0%
               </Box>
-            </li>
-          </ul>
+            </Stack>
+          </Stack>
         </AccordionDetails>
       </Accordion>
     </>

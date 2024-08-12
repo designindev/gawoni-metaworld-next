@@ -114,9 +114,7 @@ const FilterInner = ({ count }: { count: number }) => {
                       sx={{ width: { lg: 207, xs: '100%' } }}
                       fullWidth
                     >
-                      <MenuItem value=''>
-                        <em>All</em>
-                      </MenuItem>
+                      <MenuItem value=''>All</MenuItem>
                       {el.options.map((el, i) => {
                         return (
                           <MenuItem key={i} value={el.value}>

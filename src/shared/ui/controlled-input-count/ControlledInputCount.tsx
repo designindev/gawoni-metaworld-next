@@ -1,3 +1,5 @@
+'use client'
+
 import React, { InputHTMLAttributes, useState } from 'react'
 import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'

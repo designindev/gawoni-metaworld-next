@@ -14,7 +14,7 @@ const inputGlobalStyles = <GlobalStyles styles={reset} />
 export const Providers = ({ children }: { children: React.ReactNode }) => (
   <SessionProvider>
     <ThemeProvider theme={theme}>
-      {inputGlobalStyles}
+      {/* {inputGlobalStyles} */}
       <CssBaseline />
       <StoreProvider>{children}</StoreProvider>
       <ToastContainer position='bottom-right' />

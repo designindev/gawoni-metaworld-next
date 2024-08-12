@@ -9,6 +9,7 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import 'swiper/css'
+import 'shared/styles/reset.css'
 import './App.scss'
 
 export const metadata: Metadata = {

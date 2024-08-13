@@ -1,15 +1,14 @@
 'use client'
 
-import { Avatar, Box, Button, CircularProgress, IconButton, Menu, MenuItem, Stack, Tooltip } from '@mui/material'
-import { signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
+import { Avatar, Box, Button, IconButton, Menu, MenuItem, Stack, Tooltip } from '@mui/material'
 import React from 'react'
 import { PATH_PAGE } from 'shared/lib'
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import { useRouter } from 'next/navigation'
+import { logout, Payload } from 'lib/actions/user.actions'
+import Link from 'next/link'
 
-export const Profile = () => {
-  const { data: session, status } = useSession()
+export const Profile = ({ session }: { session: Payload | null }) => {
   const router = useRouter()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
@@ -25,9 +24,7 @@ export const Profile = () => {
 
   return (
     <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-      {status === 'loading' ? (
-        <CircularProgress />
-      ) : session ? (
+      {session?.user ? (
         <>
           <Tooltip title='Open settings'>
             <Stack
@@ -51,12 +48,19 @@ export const Profile = () => {
                   <PermIdentityIcon sx={{ fontSize: 20 }} />
                 </Avatar>
               </IconButton>
-              <Box fontWeight={500}>{session.user?.name}</Box>
+              <Box fontWeight={500}>{session.user.email}</Box>
             </Stack>
           </Tooltip>
           <Menu anchorEl={anchorEl} open={open} onClose={handleClose} keepMounted>
-            <MenuItem onClick={() => handleMenuItem('/admin')}>Admin panel</MenuItem>
-            <MenuItem onClick={() => signOut({ callbackUrl: '/' })}>Logout</MenuItem>
+            <MenuItem onClick={() => handleMenuItem(PATH_PAGE.adminPanel.root)}>Admin panel</MenuItem>
+            <MenuItem
+              onClick={async () => {
+                await logout()
+                router.refresh()
+              }}
+            >
+              Logout
+            </MenuItem>
           </Menu>
         </>
       ) : (

@@ -3,17 +3,17 @@
 import { PATH_MENU } from 'shared/lib'
 import Navigationitem from './Navigationitem'
 import { Stack, Toolbar } from '@mui/material'
-import { useSession } from 'next-auth/react'
+import { Payload } from 'lib/actions/user.actions'
 
 type Props = {
   navLinks: PATH_MENU[]
   visible: boolean
   closeMenu: () => void
+  session: Payload | null
 }
 
 export const Navigation = (props: Props) => {
-  const { data: session, status } = useSession()
-  const { navLinks, visible, closeMenu } = props
+  const { navLinks, visible, closeMenu, session } = props
 
   return (
     <>

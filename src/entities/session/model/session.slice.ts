@@ -39,18 +39,6 @@ export const sessionSlice = createSlice({
       state.isAdmin = false
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addMatcher(isAnyOf(sessionApi.endpoints.login.matchFulfilled), (state: SessionSliceState, { payload }) => {
-  //     const newState: SessionSliceState = {
-  //       isLoggedIn: true,
-  //       username: payload.name,
-  //       isAdmin: false,
-  //     }
-  //     state.isLoggedIn = newState.isLoggedIn
-  //     state.username = newState.username
-  //     state.isAdmin = newState.isAdmin
-  //   })
-  // },
 })
 
 export const selectIsAuth = (state: RootState) => state.session.isLoggedIn

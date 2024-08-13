@@ -13,8 +13,9 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from 'shared/images/logo.png'
+import { Payload } from 'lib/actions/user.actions'
 
-export function Header() {
+export function Header({ session }: { session: Payload | null }) {
   const [activeMenu, setActiveMenu] = React.useState(false)
 
   const onClick = () => {
@@ -60,7 +61,7 @@ export function Header() {
               </Box>
             </Box>
             <Box position={'relative'} zIndex={2}>
-              <Profile />
+              <Profile session={session} />
               <IconButton
                 onClick={onClick}
                 edge='start'
@@ -76,7 +77,12 @@ export function Header() {
         </Container>
       </Box>
       <Container>
-        <Navigation navLinks={PATH_MENU} visible={activeMenu} closeMenu={() => setActiveMenu(false)} />
+        <Navigation
+          session={session}
+          navLinks={PATH_MENU}
+          visible={activeMenu}
+          closeMenu={() => setActiveMenu(false)}
+        />
       </Container>
     </AppBar>
   )

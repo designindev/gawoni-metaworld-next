@@ -1,3 +1,6 @@
-export { default } from 'next-auth/middleware'
+import { updateSession } from 'lib/actions/user.actions'
+import { NextRequest } from 'next/server'
 
-export const config = { matcher: ['/admin', '/admin/:path*'] }
+export async function middleware(request: NextRequest) {
+  return await updateSession(request)
+}

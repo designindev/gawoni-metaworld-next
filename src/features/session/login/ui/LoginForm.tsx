@@ -1,27 +1,18 @@
 'use client'
 
-import { notifyError, notifySuccess } from 'shared/lib/notify'
+import { notifySuccess } from 'shared/lib/notify'
 import { useCallback, useState } from 'react'
-import { LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
-import { config, PATH_PAGE } from 'shared/lib'
+import { defaultValues, LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
+import { PATH_PAGE } from 'shared/lib'
 import Link from 'next/link'
-import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { Box, Button, Stack, Link as LinkMui } from '@mui/material'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ControlledInput } from 'shared/ui'
-import { useLoginMutation } from 'entities/session/api/session.api'
-import { useDispatch } from 'react-redux'
-import { authenticate } from 'entities/session/model/session.slice'
+import { login } from 'lib/actions/user.actions'
 
-type Props = {
-  className?: string
-}
-
-export function LoginForm(props: Props) {
-  const [loginMutation] = useLoginMutation()
-  const dispatch = useDispatch()
+export function LoginForm() {
   const [serverError, setServerError] = useState('')
   const router = useRouter()
   const methods = useForm<LoginFormSchema>({
@@ -33,24 +24,16 @@ export function LoginForm(props: Props) {
     },
   })
 
-  const onSubmitHandler = useCallback(
-    async (data: LoginFormSchema) => {
-      setServerError('')
-      // const response = (await axios.get(config.SITE_ENDPOINT + '/sanctum/csrf-cookie')).data
-      try {
-        const { name, admin } = await loginMutation({
-          email: data.email,
-          password: data.password,
-        }).unwrap()
-        dispatch(authenticate({ name, isAdmin: admin }))
-        router.push(PATH_PAGE.adminPanel.root)
-        notifySuccess('You have successfully logged in')
-      } catch (e: any) {
-        setServerError(e.data.message)
-      }
-    },
-    [router, dispatch, loginMutation]
-  )
+  const onSubmitHandler = useCallback(async (data: LoginFormSchema) => {
+    setServerError('')
+    try {
+      await login(data)
+      notifySuccess('You have successfully logged in')
+      router.push(PATH_PAGE.login)
+    } catch (e: any) {
+      setServerError(e.data.message)
+    }
+  }, [])
 
   return (
     <>

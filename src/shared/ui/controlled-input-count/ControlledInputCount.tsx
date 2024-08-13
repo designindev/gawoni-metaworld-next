@@ -6,8 +6,6 @@ import AddIcon from '@mui/icons-material/Add'
 import { Button, Input, OutlinedInput, Stack, SxProps } from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {}
-
 const buttonSxProps: SxProps = {
   minWidth: 'auto',
   width: 44,
@@ -42,7 +40,7 @@ export const ControlledInputCount = (props: { onChange: (value: number) => void 
                 props.onChange(newValue)
               }}
             >
-              <RemoveIcon fontSize={'large'} />
+              <RemoveIcon />
             </Button>
             <OutlinedInput
               type='number'
@@ -65,7 +63,7 @@ export const ControlledInputCount = (props: { onChange: (value: number) => void 
                 props.onChange(newValue)
               }}
             >
-              <AddIcon fontSize={'large'} />
+              <AddIcon />
             </Button>
           </>
         )}

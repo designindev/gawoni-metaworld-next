@@ -1,13 +1,12 @@
-'use client'
-
 import React, { useEffect } from 'react'
 import { Category } from './Category'
-import { CircularProgress, Container, Stack, Typography } from '@mui/material'
-import { LoadingSection, Section, TitleWithIcon } from 'shared/ui'
-import { useFetchNftsQuery } from 'entities/nft'
+import { Container, Stack, Typography } from '@mui/material'
+import { Section, TitleWithIcon } from 'shared/ui'
+import { NFT } from 'entities/nft'
+import { getNfts } from 'lib/actions/nft.actions'
 
-export const Nfts = () => {
-  const { data: { data: nfts = [], count, lastPage } = {}, isFetching } = useFetchNftsQuery({})
+export const Nfts = async () => {
+  const data = await getNfts()
 
   return (
     <Section
@@ -21,14 +20,8 @@ export const Nfts = () => {
         </Typography>
 
         <Stack spacing={15}>
-          {isFetching ? (
-            <LoadingSection />
-          ) : (
-            <>
-              <Category title='New nft releases' items={nfts} />
-              <Category title='top sellers' items={nfts} />
-            </>
-          )}
+          <Category title='New nft releases' items={data.items} />
+          <Category title='top sellers' items={data.items} />
         </Stack>
       </Container>
     </Section>

@@ -1,24 +1,16 @@
-'use client'
+import { Container, Grid } from '@mui/material'
+import { getNft } from 'lib/actions/nft.actions'
+import { Section } from 'shared/ui'
+import { NftDetails, NftForm, NftImage, NftParameters } from 'widgets'
 
-import { Box, CircularProgress, Container, Grid } from '@mui/material'
-import { useFetchNftQuery } from 'entities/nft'
-import { useParams } from 'next/navigation'
-import { LoadingSection, Section } from 'shared/ui'
-import { NftImage, NftForm, NftDetails, NftParameters } from 'widgets'
-
-const Nft = () => {
-  const { id } = useParams() as { id: string }
-  const nftState = useFetchNftQuery({ nftId: id })
-
-  if (nftState.isLoading) return <LoadingSection />
-
-  if (!nftState.isSuccess) return <div>Error</div>
-
-  const { data: nft } = nftState
+const Nft = async ({ params }: { params: { id: string } }) => {
+  const response = await getNft({ nftId: params.id })
+  const { item: nft } = response
 
   return (
     <Section>
       <Container>
+        <p>Post: {params.id}</p>
         <Grid container spacing={12}>
           <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
             <NftImage nft={nft} />

@@ -1,10 +1,7 @@
-import { GameSlider } from './GameSlider'
 import { slides } from './slides'
 import { Container, Box, Stack } from '@mui/material'
-import { GameInfo } from './GameInfo'
-import { GameBanner } from './GameBanner'
-import { GameFeature } from './GameFuature'
 import { Section } from 'shared/ui'
+import { GameBanner, GameFuature, GameInfo, GameSlider } from 'widgets'
 
 const Games = () => {
   return (
@@ -34,11 +31,10 @@ const Games = () => {
       <Container>
         <Stack spacing={{ lg: 18, xs: 6 }}>
           <Stack spacing={10}>
-            {/* // TODO: MOVE TO WIDGETS  */}
             <GameSlider slides={slides} />
             <GameInfo />
           </Stack>
-          <GameFeature />
+          <GameFuature />
           <GameBanner />
         </Stack>
       </Container>

@@ -2,9 +2,9 @@ import Slide1 from 'shared/images/games/slide-1.jpg'
 import Slide2 from 'shared/images/games/slide-2.jpg'
 import Slide3 from 'shared/images/games/slide-3.jpg'
 import Slide4 from 'shared/images/games/slide-4.jpg'
-import { Slide } from './GameSlider'
+import { GameSlide } from 'widgets/game-details/GameSlider'
 
-export const slides: Slide[] = [
+export const slides: GameSlide[] = [
   {
     full: Slide1,
     thumb: Slide1,

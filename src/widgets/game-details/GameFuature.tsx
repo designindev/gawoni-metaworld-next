@@ -3,7 +3,7 @@
 import { Box, Grid, styled, Typography } from '@mui/material'
 import { ReactNode } from 'react'
 
-export const GameFeature = () => {
+export const GameFuature = () => {
   return (
     <Box>
       <Grid container spacing={{ xs: 6, lg: 10 }}>

@@ -6,3 +6,8 @@ export const loginFormSchema = z.object({
 })
 
 export type LoginFormSchema = z.infer<typeof loginFormSchema>
+
+export const defaultValues: LoginFormSchema = {
+  email: 'user1@gmail.com',
+  password: '12345678',
+}

@@ -108,7 +108,7 @@ export const News = async () => {
                         fontSize: { lg: 18, xs: 20 },
                         textTransform: 'uppercase',
                         fontWeight: 500,
-                        '&:hover .news-icon': {
+                        '&:hover svg': {
                           right: '-5px',
                         },
                       }}
@@ -122,7 +122,6 @@ export const News = async () => {
                           right: 0,
                           transition: 'right .3s',
                         }}
-                        className='news-icon'
                       />
                     </Box>
                   </Box>

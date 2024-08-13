@@ -20,11 +20,6 @@ type Props = {
   className?: string
 }
 
-const defaultValues = {
-  email: 'vitaliczinoviev@gmail.com',
-  password: '12345678',
-}
-
 export function LoginForm(props: Props) {
   const [loginMutation] = useLoginMutation()
   const dispatch = useDispatch()

@@ -359,16 +359,13 @@ export const theme = createTheme({
     },
     MuiSvgIcon: {
       styleOverrides: {
-        fontSizeSmall: 16,
-        fontSizeMedium: 20,
-        fontSizeLarge: 24,
         root: {},
       },
     },
   },
   typography: {
     fontFamily: ['var(--font-imb)', 'sans-serif'].join(','),
-    htmlFontSize: 40,
+    fontSize: 16,
     h1: {
       fontFamily: 'var(--font-whyte)',
       fontSize: '56px',

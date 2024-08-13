@@ -5,3 +5,5 @@ export const resetPasswordFormSchema = z.object({
 })
 
 export type ResetPasswordformSchema = z.infer<typeof resetPasswordFormSchema>
+
+export const defaultValues = { email: 'user@gmail.com' }

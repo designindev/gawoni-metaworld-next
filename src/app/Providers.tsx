@@ -3,7 +3,7 @@
 import { SessionProvider } from 'next-auth/react'
 import { StoreProvider } from './StoreProvider'
 import { theme } from '../shared/theme/theme'
-import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

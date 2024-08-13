@@ -2,7 +2,7 @@
 
 import { notifySuccess } from 'shared/lib/notify'
 import { useCallback, useState } from 'react'
-import { RegisterFormSchema, registerFormSchema } from '../model/register-form.schema'
+import { defaultValues, RegisterFormSchema, registerFormSchema } from '../model/register-form.schema'
 import { PATH_PAGE } from 'shared/lib'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -13,7 +13,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ControlledInput, ControlledSelect } from 'shared/ui'
 import { authenticate, useRegisterMutation } from 'entities/session'
 import { useDispatch } from 'react-redux'
-import { defaultValues } from '../model/defaultValues'
 
 export const RegisterForm = () => {
   const [registerMutation] = useRegisterMutation()

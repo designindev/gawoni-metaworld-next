@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { country } from './country'
 
 export const registerFormSchema = z
   .object({
@@ -18,3 +19,12 @@ export const registerFormSchema = z
   })
 
 export type RegisterFormSchema = z.infer<typeof registerFormSchema>
+
+export const defaultValues = {
+  username: 'username',
+  email: 'login@gmail.com',
+  password: '12345678',
+  passwordConfirm: '12345678',
+  country: country[0].value,
+  age: '18',
+}

@@ -10,7 +10,6 @@ const Nft = async ({ params }: { params: { id: string } }) => {
   return (
     <Section>
       <Container>
-        <p>Post: {params.id}</p>
         <Grid container spacing={12}>
           <Grid item lg={4} md={9} xs={12} marginX={'auto'}>
             <NftImage nft={nft} />

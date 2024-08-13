@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import classNames from 'classnames'
 import { Footer, Header } from 'widgets'
 import { Providers } from './Providers'
-import { Backdrop, Box, CircularProgress } from '@mui/material'
+import { Box } from '@mui/material'
 import { IBM_FLEX_SANS, Whyte } from './fonts'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
@@ -11,6 +11,7 @@ import '@fontsource/roboto/700.css'
 import 'swiper/css'
 import './App.scss'
 import { getSession } from 'lib/actions/user.actions'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -27,21 +28,23 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={classNames(IBM_FLEX_SANS.variable, Whyte.variable)}>
-        <Providers>
-          <Box
-            overflow={'hidden'}
-            position={'relative'}
-            maxWidth={1920}
-            minWidth={320}
-            minHeight={{ lg: 900, xs: 'auto' }}
-            mx={'auto'}
-          >
-            <Header session={session} />
-            <Box sx={{ height: { lg: '85px', xs: '60px' } }}></Box>
-            <Box component={'main'}>{children}</Box>
-            <Footer />
-          </Box>
-        </Providers>
+        <AppRouterCacheProvider>
+          <Providers>
+            <Box
+              overflow={'hidden'}
+              position={'relative'}
+              maxWidth={1920}
+              minWidth={320}
+              minHeight={{ lg: 900, xs: 'auto' }}
+              mx={'auto'}
+            >
+              <Header session={session} />
+              <Box sx={{ height: { lg: '85px', xs: '60px' } }}></Box>
+              <Box component={'main'}>{children}</Box>
+              <Footer />
+            </Box>
+          </Providers>
+        </AppRouterCacheProvider>
       </body>
     </html>
   )

@@ -10,7 +10,7 @@ import { Button, Stack } from '@mui/material'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-// TODO: MERGE - RESET PASSWORD / NEW PASSWORD / PASSWORD RESET SUCCESS
+//! FIX: MERGE - RESET PASSWORD / NEW PASSWORD / PASSWORD RESET SUCCESS
 export const ResetPasswordForm = () => {
   const router = useRouter()
   const methods = useForm<ResetPasswordformSchema>({
@@ -21,9 +21,9 @@ export const ResetPasswordForm = () => {
 
   const onSubmitHandler = useCallback(
     async (data: ResetPasswordformSchema) => {
-      // TODO: ADD LOGIC
-      // TODO: VIA STATE
-      // router.push(`${PATH_PAGE.checkEmail}?email=${data.email}`)
+      //! FIX: ADD LOGIC
+      //! FIX: VIA STATE
+      router.push(`${PATH_PAGE.checkEmail}?email=${data.email}`)
       notifySuccess('You have successfully reseted password')
     },
     [router]

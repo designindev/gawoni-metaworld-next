@@ -50,7 +50,7 @@ export const GameSlider = (props: Props) => {
                   {el.type === 'video' ? (
                     <Box
                       sx={{
-                        // TODO: NOT WORKING
+                        //! FIX: NOT WORKING
                         '& .react-player__preview': {
                           borderRadius: 3,
                         },

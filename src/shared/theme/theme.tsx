@@ -73,9 +73,6 @@ export const theme = createTheme({
         a: {
           color: '#fff',
           textDecoration: 'none',
-          '&:hover': {
-            textDecoration: 'none',
-          },
         },
       }),
     },
@@ -87,6 +84,11 @@ export const theme = createTheme({
         root: {
           padding: '0 15px!important',
         },
+      },
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {},
       },
     },
     MuiButton: {
@@ -419,19 +421,6 @@ theme.typography.h1 = {
 }
 theme.typography.h2 = {
   ...theme.typography.h2,
-  // TODO: MOVED
-  // [theme.breakpoints.down('xl')]: {
-  //   fontSize: '50px',
-  // },
-  // [theme.breakpoints.down('lg')]: {
-  //   fontSize: '40px',
-  // },
-  // [theme.breakpoints.down('sm')]: {
-  //   fontSize: '30px',
-  // },
-  // [theme.breakpoints.down('xs')]: {
-  //   fontSize: '24px',
-  // },
 }
 theme.typography.h3 = {
   ...theme.typography.h3,
@@ -489,10 +478,6 @@ declare module '@mui/material/Typography' {
 }
 
 declare module '@mui/material/Button' {
-  interface ButtonPropsVariantOverrides {
-    // TODO: REMOVE
-    dashed: true
-  }
   interface ButtonPropsColorOverrides {
     white: true
     dark: true

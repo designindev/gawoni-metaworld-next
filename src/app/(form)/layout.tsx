@@ -37,7 +37,15 @@ export default function FormLayout({
                 position: 'relative',
               }}
             >
-              <Image src={Logo} alt='Logo' layout='fill' objectFit='cover' priority />
+              <Image
+                src={Logo.src}
+                width={0}
+                height={0}
+                sizes='100vw'
+                style={{ width: '100%', height: 'auto' }}
+                alt='Logo'
+                priority
+              />
             </Box>
             <Box
               display={'inline-block'}

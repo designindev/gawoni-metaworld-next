@@ -16,7 +16,7 @@ export const nftApi = baseApi.injectEndpoints({
       query: (params) => ({ url: nftRoutes.fetchNfts, params }),
       transformResponse: (response: { items: NTFDto[]; total: number }) => ({
         ...response,
-        // TODO: FIX IT
+        //!FIX: FIX IT
         lastPage: 1,
         limit: 1,
         page: 1,

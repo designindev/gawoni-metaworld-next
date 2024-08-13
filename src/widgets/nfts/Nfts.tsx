@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import { Category } from './Category'
 import { CircularProgress, Container, Stack, Typography } from '@mui/material'
-import { Section, TitleWithIcon } from 'shared/ui'
+import { LoadingSection, Section, TitleWithIcon } from 'shared/ui'
 import { useFetchNftsQuery } from 'entities/nft'
 
 export const Nfts = () => {
@@ -22,7 +22,7 @@ export const Nfts = () => {
 
         <Stack spacing={15}>
           {isFetching ? (
-            <CircularProgress />
+            <LoadingSection />
           ) : (
             <>
               <Category title='New nft releases' items={nfts} />

@@ -3,21 +3,14 @@
 import { Box, CircularProgress, Container, Grid } from '@mui/material'
 import { useFetchNftQuery } from 'entities/nft'
 import { useParams } from 'next/navigation'
-import { Section } from 'shared/ui'
+import { LoadingSection, Section } from 'shared/ui'
 import { NftImage, NftForm, NftDetails, NftParameters } from 'widgets'
 
 const Nft = () => {
   const { id } = useParams() as { id: string }
   const nftState = useFetchNftQuery({ nftId: id })
 
-  if (nftState.isLoading)
-    return (
-      <Section>
-        <Container sx={{ textAlign: 'center' }}>
-          <CircularProgress />
-        </Container>
-      </Section>
-    )
+  if (nftState.isLoading) return <LoadingSection />
 
   if (!nftState.isSuccess) return <div>Error</div>
 

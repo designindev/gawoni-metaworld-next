@@ -43,7 +43,7 @@ export default function NewNftPage() {
 
   return (
     <FormProvider {...methods}>
-      {/* TODO: ADD NEW PAGE  */}
+      {/*//! FIX: ADD NEW PAGE  */}
       {isPreview === false ? (
         <Section>
           <Container>

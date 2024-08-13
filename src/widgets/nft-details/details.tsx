@@ -26,7 +26,7 @@ const details: Detail[] = [
   },
 ]
 
-// TODO: NOT USE / MOVE TO PROFILE LATER
+//! FIX: NOT USE / MOVE TO PROFILE LATER
 export const Details = () => {
   const onCopy = async (text: string) => {
     await navigator.clipboard.writeText(text)

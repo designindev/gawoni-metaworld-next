@@ -20,7 +20,7 @@ export const NewPasswordForm = () => {
 
   const handleSubmit = useCallback(
     async (data: NewPasswordFormSchema) => {
-      // TODO: ADD LOGIC
+      //! FIX: ADD LOGIC
       router.push(PATH_PAGE.passwordResetSuccess)
       notifySuccess('You have successfully updated password')
     },

@@ -7,11 +7,10 @@ import { config, PATH_PAGE } from 'shared/lib'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { Box, Button, Stack } from '@mui/material'
+import { Box, Button, Stack, Link as LinkMui } from '@mui/material'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ControlledInput } from 'shared/ui'
-import axios from 'axios'
 import { useLoginMutation } from 'entities/session/api/session.api'
 import { useDispatch } from 'react-redux'
 import { authenticate } from 'entities/session/model/session.slice'
@@ -73,15 +72,9 @@ export function LoginForm(props: Props) {
             />
           </Stack>
           <Box textAlign={'right'} mt={4}>
-            {/* // TODO: CREATE LINK COMPONENT  */}
-            <Box
-              component={Link}
-              href={PATH_PAGE.resetPassword}
-              color={'primary.main'}
-              sx={{ textDecoration: 'underline' }}
-            >
+            <LinkMui component={Link} href={PATH_PAGE.resetPassword} underline='always'>
               Forgot Password?
-            </Box>
+            </LinkMui>
           </Box>
           <Box color={'error.main'}>{serverError}</Box>
           <Box textAlign={'center'} mt={13}>

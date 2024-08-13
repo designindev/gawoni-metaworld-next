@@ -65,7 +65,7 @@ export const NftForm = ({ nft: nftDetail }: { nft: NFT }) => {
   })
 
   const onSubmit = (data: FormSchema) => {
-    // TODO: ADD LOGIC
+    //! FIX: ADD LOGIC
     console.log(data)
     notifySuccess('You have successfully')
   }

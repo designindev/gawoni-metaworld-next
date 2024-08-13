@@ -1,5 +1,6 @@
+'use client'
+
 import { Box, BoxProps } from '@mui/material'
-import { ReactNode } from 'react'
 
 export const TitleWithIcon = ({ side = 'left', ...rest }: BoxProps & { side?: 'left' | 'right' }) => {
   const left = side === 'left'
@@ -12,6 +13,7 @@ export const TitleWithIcon = ({ side = 'left', ...rest }: BoxProps & { side?: 'l
       pl={left ? { lg: 19, sm: 15, xs: 13 } : 0}
       pr={right ? { lg: 19, sm: 15, xs: 13 } : 0}
       position={'relative'}
+      fontSize={{ xl: 48, lg: 40, sm: 30, xs: 24 }}
       {...rest}
       sx={{
         ...rest.sx,

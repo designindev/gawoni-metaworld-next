@@ -1,9 +1,10 @@
 'use client'
 
 import { notifySuccess } from 'shared/lib/notify'
-import { useCallback, useState } from 'react'
+import { useFormState, useFormStatus } from 'react-dom'
+import { useActionState, useCallback, useEffect, useState } from 'react'
 import { defaultValues, LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
-import { PATH_PAGE } from 'shared/lib'
+import { config, PATH_PAGE } from 'shared/lib'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Box, Button, Stack, Link as LinkMui } from '@mui/material'
@@ -13,31 +14,27 @@ import { ControlledInput } from 'shared/ui'
 import { login } from 'lib/actions/user.actions'
 
 export function LoginForm() {
-  const [serverError, setServerError] = useState('')
+  const [state, formAction, pending] = useActionState(login, { message: '' })
   const router = useRouter()
   const methods = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
     criteriaMode: 'all',
-    defaultValues: {
+    defaultValues: defaultValues ?? {
       email: '',
       password: '',
     },
   })
 
-  const onSubmitHandler = useCallback(async (data: LoginFormSchema) => {
-    setServerError('')
-    try {
-      await login(data)
+  useEffect(() => {
+    if (state.message === 'ok') {
       notifySuccess('You have successfully logged in')
       router.push(PATH_PAGE.login)
-    } catch (e: any) {
-      setServerError(e.data.message)
     }
-  }, [])
+  }, [state, router])
 
   return (
     <>
-      <form onSubmit={methods.handleSubmit(onSubmitHandler)}>
+      <form onSubmit={methods.handleSubmit(formAction)}>
         <FormProvider {...methods}>
           <Stack spacing={9}>
             <ControlledInput<LoginFormSchema>
@@ -59,10 +56,10 @@ export function LoginForm() {
               Forgot Password?
             </LinkMui>
           </Box>
-          <Box color={'error.main'}>{serverError}</Box>
+          {(state.message !== 'ok' || pending === false) && <Box color={'error.main'}>{state.message}</Box>}
           <Box textAlign={'center'} mt={13}>
-            <Button type={'submit'} sx={{ maxWidth: '336px', width: '100%' }}>
-              Log In
+            <Button type={'submit'} sx={{ maxWidth: '336px', width: '100%' }} disabled={pending}>
+              {pending ? 'Submitting...' : 'Log In'}
             </Button>
             <Box mt={18}>
               Don’t have an account? &nbsp;

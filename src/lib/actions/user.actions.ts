@@ -3,6 +3,8 @@
 import { cookies } from 'next/headers'
 import { JWTPayload, jwtVerify, SignJWT } from 'jose'
 import { NextRequest, NextResponse } from 'next/server'
+import { config } from 'shared/lib'
+import { redirect } from 'next/dist/server/api-utils'
 
 const secretKey = 'secret'
 const key = new TextEncoder().encode(secretKey)
@@ -25,24 +27,30 @@ export async function encrypt(payload: Payload) {
 }
 
 export async function decrypt(input: string): Promise<Payload & JWTPayload> {
-  const { payload } = await jwtVerify<Payload>(input, key, {
-    algorithms: ['HS256'],
-  })
+  const { payload } = await jwtVerify<Payload>(input, key, { algorithms: ['HS256'] })
   return payload
 }
 
-export const login = async (user: signInProps) => {
+export const login = async (prevState: any, user: signInProps) => {
   try {
-    // Create the session
+    const response = await fetch(`${config.API_ENDPOINT}/login`, {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (!response.ok) {
+      const error = await response.json()
+      return { message: error.message as string }
+    }
     const expires = new Date(Date.now() + 10 * 1000)
     const session = await encrypt({ user, expires })
 
-    // Save the session in a cookie
     cookies().set('game-session', session, { expires, path: '/', httpOnly: true, sameSite: 'strict', secure: true })
-
-    return { userId: 1 }
+    return { message: 'ok' }
   } catch (error) {
-    console.error('Error', error)
+    return { message: 'Uknown error' }
   }
 }
 

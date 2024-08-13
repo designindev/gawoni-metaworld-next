@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import { LoginForm } from 'features/session/login'
-import { wait } from 'shared/lib'
 
 const LoginPage = async () => {
   return (

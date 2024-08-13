@@ -7,7 +7,6 @@ import ISwiper from 'swiper'
 import Image, { StaticImageData } from 'next/image'
 import dynamic from 'next/dynamic'
 import { Box, Grid } from '@mui/material'
-// TODO: FIX IT
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 export type GameSlide =

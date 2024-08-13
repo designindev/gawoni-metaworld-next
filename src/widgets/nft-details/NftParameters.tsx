@@ -3,6 +3,7 @@
 import { Accordion, AccordionDetails, AccordionProps, AccordionSummary, Box, BoxProps, Stack } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { NFT } from 'entities/nft'
+import { findPercent } from 'shared/lib'
 
 const accordionProps = {
   sx: {
@@ -25,9 +26,6 @@ const accordionProps = {
     },
   },
 }
-
-// TODO: MOVE TO SHARED
-const findProgressbarWidth = (portion: number, total = 100) => (portion / total) * 100
 
 export const NftParameters = ({ nft }: { nft: NFT }) => {
   const { template: carTemplate } = nft
@@ -63,7 +61,7 @@ export const NftParameters = ({ nft }: { nft: NFT }) => {
         <Box height={10} bgcolor={'#fff'} borderRadius={1000} my={2}>
           <Box
             height={'inherit'}
-            width={`${findProgressbarWidth(carTemplate.level, 10)}%`}
+            width={`${findPercent(carTemplate.level, 10)}%`}
             bgcolor={'secondary.main'}
             borderRadius={'inherit'}
           ></Box>
@@ -104,11 +102,7 @@ export const NftParameters = ({ nft }: { nft: NFT }) => {
                       <Box>100</Box>
                     </Stack>
                     <Box height={4} bgcolor={'#fff'} mt={1}>
-                      <Box
-                        bgcolor={'secondary.main'}
-                        height={'100%'}
-                        width={`${findProgressbarWidth(el.value)}%`}
-                      ></Box>
+                      <Box bgcolor={'secondary.main'} height={'100%'} width={`${findPercent(el.value)}%`}></Box>
                     </Box>
                   </Box>
                 </Stack>

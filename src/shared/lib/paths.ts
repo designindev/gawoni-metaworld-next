@@ -19,7 +19,7 @@ export const PATH_PAGE = {
   },
   adminPanel: {
     root: 'admin',
-    'new-nft': 'admin/new-nft',
+    newNft: 'admin/new-nft',
   },
   marketplace: '/marketplace',
   connectWallet: '/connect-wallet',

@@ -39,11 +39,9 @@ export const GameSlider = (props: Props) => {
         <Grid item xxl={10} lg={9} sm={8} xs={12}>
           <Box
             sx={{
-              // TODO: FIX IT
-              height: 676,
+              height: { lg: 676, sm: 500, xs: 400 },
               '& > div': {
                 height: { lg: '100%', xs: 'auto' },
-                minHeight: { lg: 676, xs: 'auto' },
               },
             }}
           >
@@ -95,7 +93,7 @@ export const GameSlider = (props: Props) => {
                           '&::before': {
                             content: '""',
                             display: 'block',
-                            height: { lg: '100%', xs: 400 },
+                            height: { lg: '100%', sm: 500, xs: 400 },
                           },
                         }}
                       >
@@ -128,8 +126,7 @@ export const GameSlider = (props: Props) => {
         <Grid item xxl={2} lg={3} sm={4} xs={12}>
           <Box
             sx={{
-              // TODO: FIX IT
-              '& > div': { height: { lg: 676, xs: 400 } },
+              '& > div': { height: { lg: 676, sm: 500, xs: 'auto' } },
             }}
           >
             <Swiper
@@ -164,6 +161,7 @@ export const GameSlider = (props: Props) => {
                         content: '""',
                         display: 'block',
                         pt: { lg: '100%', xs: '80%' },
+                        minHeight: 100,
                         position: 'relative',
                       },
                       '&::after': {
@@ -181,6 +179,7 @@ export const GameSlider = (props: Props) => {
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         backgroundImage: el.type === 'video' ? 'url(/images/icons/play.svg)' : 'unset',
+                        backgroundSize: { lg: 50, xs: 40 },
                       },
                     }}
                   >

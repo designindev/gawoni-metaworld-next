@@ -37,7 +37,7 @@ export const Items = () => {
         <Typography variant='h1' component='h2'>
           All NFTs
         </Typography>
-        <Button component={Link} href='/admin/new-nft' sx={{ minWidth: { sm: '197px', xs: '1px' } }}>
+        <Button component={Link} href={PATH_PAGE.adminPanel['newNft']} sx={{ minWidth: { sm: '197px', xs: '1px' } }}>
           <Box display={{ sm: 'inline', xs: 'none' }}>Add New</Box>
           <Box display={{ sm: 'none', xs: 'inline' }}>
             <AddIcon fontSize='large' sx={{ verticalAlign: 'middle' }} />

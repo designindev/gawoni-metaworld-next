@@ -4,6 +4,7 @@ import { Container, Stack, Typography } from '@mui/material'
 import { Section, TitleWithIcon } from 'shared/ui'
 import { NFT } from 'entities/nft'
 import { getNfts } from 'lib/actions/nft.actions'
+import { ntfMapper } from 'entities/nft/mapper/ntf.mapper'
 
 export const Nfts = async () => {
   const data = await getNfts()
@@ -20,8 +21,8 @@ export const Nfts = async () => {
         </Typography>
 
         <Stack spacing={15}>
-          <Category title='New nft releases' items={data.items} />
-          <Category title='top sellers' items={data.items} />
+          <Category title='New nft releases' items={data.items.map(ntfMapper)} />
+          <Category title='top sellers' items={data.items.map(ntfMapper)} />
         </Stack>
       </Container>
     </Section>

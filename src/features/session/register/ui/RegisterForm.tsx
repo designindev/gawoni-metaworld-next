@@ -22,7 +22,7 @@ export const RegisterForm = () => {
   const methods = useForm<RegisterFormSchema>({
     resolver: zodResolver(registerFormSchema),
     criteriaMode: 'all',
-    defaultValues: defaultValues || {
+    defaultValues:  {
       username: '',
       email: '',
       password: '',

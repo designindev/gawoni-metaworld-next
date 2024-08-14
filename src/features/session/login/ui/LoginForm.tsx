@@ -1,7 +1,7 @@
 'use client'
 
 import { notifySuccess } from 'shared/lib/notify'
-import { useFormState, useFormStatus } from 'react-dom'
+import { useFormState } from 'react-dom'
 import { useActionState, useCallback, useEffect, useState } from 'react'
 import { defaultValues, LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
 import { config, PATH_PAGE } from 'shared/lib'
@@ -14,12 +14,12 @@ import { ControlledInput } from 'shared/ui'
 import { login } from 'lib/actions/user.actions'
 
 export function LoginForm() {
-  const [state, formAction, pending] = useActionState(login, { message: '' })
+  const [state, formAction, pending] = useFormState(login, { message: '' })
   const router = useRouter()
   const methods = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
     criteriaMode: 'all',
-    defaultValues: defaultValues ?? {
+    defaultValues: {
       email: '',
       password: '',
     },
